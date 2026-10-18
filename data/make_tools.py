@@ -1,0 +1,299 @@
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18:
+# URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
+# official pricing page unless "pricing_source" says otherwise.
+import json, re
+V = "2026-10-18"
+def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
+T = []
+def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None):
+    T.append(dict(slug=slug(name),name=name,url=url,category=cat,pricing=pricing,free_plan=free_plan,
+      pricing_source=pricing_source,best_for=best_for,verdict=verdict,
+      affiliate_program=("yes" if aff else "not verified"),affiliate_url=aff_url,
+      substack_specific=substack_specific,verified_on=V,notes=notes))
+
+# ---------- Growth & Notes ----------
+add("SparkLoop","https://sparkloop.app/","growth",
+ "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
+ "Getting paid recommendations and buying cross-newsletter referrals",
+ "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
+ free_plan=True, pricing_source="official site + SparkLoop help center")
+add("Supascribe","https://supascribe.com/","growth",
+ "Free for your first 100 subscribers captured and 1,000 embed views; a paid Pro plan after that (usage add-ons beyond plan limits).",
+ "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
+ "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
+ substack_specific=True, free_plan=True)
+add("WriteStack","https://www.writestack.io/","growth",
+ "Hobbyist $23.99/mo, Standard $32.99/mo, Enterprise $99.99/mo; 7-day free trial.",
+ "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
+ "The most complete Substack-only Notes suite. Pricey for a beginner, and publishing runs through a Chromium browser extension acting in your logged-in session.",
+ aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False)
+add("Narrareach","https://www.narrareach.com/","growth",
+ "From $19.99/mo ($199/yr); higher tiers $39/mo and $89/mo (discounted yearly).",
+ "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
+ "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
+ substack_specific=True, free_plan=None)
+add("StackSweller","https://stacksweller.com/","growth",
+ "Pro $39/mo, or $25/mo billed yearly ($250/yr).",
+ "A simple cloud queue for batch-scheduling Substack Notes",
+ "Does one job (a Notes queue that runs with your laptop closed). Be aware it works by holding your Substack session, and Substack now schedules single Notes natively.",
+ substack_specific=True, free_plan=False)
+
+# ---------- Analytics ----------
+add("Byline OS","https://bylineos.com/","analytics",
+ "Starter free (CSV import, 30-day retention); Growth $19/mo; Scale $49/mo. 14-day trial. Currently in private beta.",
+ "Paid-newsletter writers who want MRR, churn, cohort and revenue-per-post analytics",
+ "Promising revenue-first analytics built specifically for Substack. It is a beta product; live sync uses your Substack session cookie and undocumented internal APIs, so the CSV-upload mode is the safer start.",
+ substack_specific=True, free_plan=True)
+add("Google Analytics","https://analytics.google.com/","analytics",
+ "Free.",
+ "Seeing where your Substack traffic comes from (Substack lets you add a GA measurement ID)",
+ "Free and worth connecting on day one for referral sources. Overkill for most writers beyond the acquisition reports.",
+ free_plan=True)
+add("Subshack","https://www.subshack.pro/","analytics",
+ "Free (Subshack 1.0), including a no-signup public profile audit.",
+ "Finding out which Notes and posts actually bring subscribers, and auditing your profile",
+ "A free, measurement-first browser extension that never posts for you. New and small, so expect rough edges.",
+ substack_specific=True, free_plan=True)
+add("Bitly","https://bitly.com/","analytics",
+ "Free (with ads); Core $10/mo (annual only); Growth $29/mo; Premium $199/mo (annual pricing).",
+ "Tracking clicks on links you share to social, podcasts and print",
+ "Handy for knowing which channel sends readers. The free tier is limited; many writers can get by with UTM tags plus Google Analytics.",
+ free_plan=True)
+add("Plausible","https://plausible.io/","analytics",
+ "From $9/mo (Starter, 10k monthly pageviews); Growth $14/mo; Business $19/mo. Free trial.",
+ "Privacy-friendly analytics for your own website or landing page",
+ "Excellent lightweight analytics, but you can't install it on a substack.com publication. Use it on a personal site that funnels readers to Substack.",
+ free_plan=False)
+
+# ---------- Cross-posting & social ----------
+add("Typefully","https://typefully.com/","social",
+ "Free (10 posts/mo); Creator $99/yr; Business $20 per social set/mo.",
+ "X-first writers who also want to post to LinkedIn, Threads, Bluesky and Substack Notes",
+ "A polished writing-first scheduler with Substack Notes support. The free plan is enough to test it.",
+ pricing_source="official pricing page is JS-rendered; amounts from third-party pricing trackers checked Oct 2026", free_plan=True)
+add("Buffer","https://buffer.com/","social",
+ "Free (up to 3 channels); Essentials $5/channel/mo billed yearly ($6 monthly).",
+ "Scheduling Notes alongside every other social channel from one calendar",
+ "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
+ free_plan=True)
+add("Hypefury","https://hypefury.com/","social",
+ "From $6/mo (1 channel) to $19/mo (all channels); 7-day free trial.",
+ "Automating evergreen reposts and growth on X",
+ "Strong automation for X-heavy writers. Less relevant if X isn't where your readers are.",
+ aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False)
+add("Taplio","https://taplio.com/","social",
+ "Starter $39/mo; Growth $69/mo; Pro $199/mo; 7-day free trial.",
+ "Writers growing a professional audience on LinkedIn",
+ "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel.",
+ aff=True, aff_url="https://taplio.com/affiliates", free_plan=False)
+add("Repurpose.io","https://repurpose.io/","social",
+ "Starter $35/mo; Pro $79/mo; Agency $179/mo (cheaper yearly); 14-day free trial.",
+ "Automatically distributing video and podcast clips across platforms",
+ "Saves real time if you make video or audio. Pure text writers don't need it.",
+ aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=False)
+
+# ---------- Design ----------
+add("Canva","https://www.canva.com/","design",
+ "Free; Pro US$144/yr for one person (before tax).",
+ "Header images, social graphics, Notes images and simple brand kits",
+ "The default design tool for newsletter writers. The free plan covers most needs.",
+ aff=True, aff_url="https://www.canva.com/affiliates/", free_plan=True,
+ notes="Affiliate: Canva Help Center page 'Become a Canva affiliate through the Canvassador Program'.")
+add("Figma","https://www.figma.com/","design",
+ "Free Starter; Professional full seat $16/mo.",
+ "Custom visual systems, templates and detailed design work",
+ "More power than most writers need. Pick it if you already know it or want pixel-level control.",
+ free_plan=True)
+add("Kittl","https://www.kittl.com/","design",
+ "Free plan; paid Pro, Expert and Max plans (see pricing page).",
+ "Typography-heavy graphics and AI-assisted illustrations",
+ "A stylish Canva alternative with great type tools. The free plan is for personal use only.",
+ free_plan=True)
+add("Unsplash","https://unsplash.com/","design",
+ "Free to use under the Unsplash License.",
+ "Free, high-quality photos for post headers",
+ "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out.",
+ free_plan=True)
+add("remove.bg","https://www.remove.bg/","design",
+ "Free to try; paid plans for full-resolution output (see pricing page).",
+ "One-click background removal for headshots and product images",
+ "Fast and accurate. Now a Canva brand, and Canva Pro includes a background remover, so you may not need both.",
+ free_plan=True)
+
+# ---------- Editing ----------
+add("Grammarly","https://www.grammarly.com/","editing",
+ "Free; Pro from $12/mo.",
+ "Catching typos and clarity issues everywhere you write, including the Substack editor",
+ "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
+ aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True)
+add("Hemingway Editor","https://hemingwayapp.com/","editing",
+ "Free web editor; Editor Plus from $8.33/mo billed annually ($100/yr).",
+ "Making dense posts easier to read",
+ "The free web version does the core job (highlighting long and passive sentences). Most writers don't need Plus.",
+ free_plan=True)
+add("ProWritingAid","https://prowritingaid.com/","editing",
+ "Free; Premium $10/mo billed yearly ($120) or $30/mo monthly.",
+ "Deep style reports for long-form and fiction writers",
+ "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
+ aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True)
+add("LanguageTool","https://languagetool.org/","editing",
+ "Free; Premium $24.90/mo monthly or $69.90/yr.",
+ "Multilingual writers and anyone who wants a Grammarly alternative",
+ "Strong grammar checking across many languages, and much cheaper per year than monthly billing.",
+ pricing_source="LanguageTool help center + third-party price tracker", free_plan=True)
+add("QuillBot","https://quillbot.com/","editing",
+ "Free; Premium $19.95/mo or $99.95/yr.",
+ "Paraphrasing, summarizing and quick rewrites",
+ "Useful for tightening a stubborn paragraph. Don't lean on it for whole posts, because readers subscribe for your voice.",
+ pricing_source="QuillBot help center", free_plan=True)
+
+# ---------- Planning, research & automation ----------
+add("Notion","https://www.notion.com/","planning",
+ "Free; Plus $10/seat/mo.",
+ "Editorial calendars, idea banks and sponsor CRMs",
+ "The most flexible planning hub for newsletter writers. The free plan covers solo use.",
+ aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True)
+add("Trello","https://trello.com/","planning",
+ "Free (up to 10 collaborators); Standard $5/user/mo billed annually.",
+ "A simple kanban for drafts moving from idea to published",
+ "Simpler than Notion if you only need a board. Free is plenty for one writer.",
+ free_plan=True)
+add("Obsidian","https://obsidian.md/","planning",
+ "Free; optional Sync $4/mo and Publish $8/mo (billed annually).",
+ "Building a personal knowledge base of notes, quotes and ideas",
+ "Great for writers who think in linked notes. Your files stay local in Markdown.",
+ free_plan=True)
+add("Readwise","https://readwise.io/","planning",
+ "Readwise Full $9.99/mo billed annually ($12.99 monthly); Lite $5.59/mo billed annually.",
+ "Collecting highlights from books and articles to feed your writing",
+ "A strong research engine for essayists and curators. Its Reader app is included with Full.",
+ free_plan=False)
+add("Google Trends","https://trends.google.com/","planning",
+ "Free.",
+ "Checking whether a topic is rising before you write about it",
+ "A quick, free sanity check for timely topics and post titles.",
+ free_plan=True)
+add("Zapier","https://zapier.com/","planning",
+ "Free; Professional from $19.99/mo.",
+ "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",
+ "Powerful glue between apps. Substack has no official public API, so automations usually start from its RSS feed or email.",
+ free_plan=True)
+
+# ---------- AI writing & research ----------
+add("ChatGPT","https://chatgpt.com/","ai",
+ "Free; Plus $20/mo.",
+ "Brainstorming angles, outlines, headlines and research summaries",
+ "A versatile thinking partner. Use it for ideas and edits rather than finished prose your readers will recognize as generic.",
+ pricing_source="OpenAI help docs", free_plan=True)
+add("Claude","https://claude.ai/","ai",
+ "Free; Pro $20/mo or $17/mo billed annually.",
+ "Long-document feedback, structural edits and drafting help",
+ "Particularly good at critiquing long drafts. The same caution about voice applies.",
+ pricing_source="claude.com/pricing", free_plan=True)
+add("Perplexity","https://www.perplexity.ai/","ai",
+ "Free; Pro $20/mo.",
+ "Quick research with cited sources",
+ "Faster than a search engine for background research. Always click through and verify the citations.",
+ pricing_source="Perplexity pricing hub + third-party price tracker", free_plan=True)
+add("Sudowrite","https://sudowrite.com/","ai",
+ "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo; free trial.",
+ "Fiction writers publishing serialized stories",
+ "Purpose-built for fiction. Not the right tool for essays or news-style newsletters.",
+ free_plan=False)
+
+# ---------- Audio, podcast & video ----------
+add("Descript","https://www.descript.com/","audio",
+ "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly).",
+ "Editing podcast and video by editing the transcript",
+ "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
+ aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True)
+add("ElevenLabs","https://elevenlabs.io/","audio",
+ "Free (10k credits/mo); Starter $6/mo; Creator $22/mo; higher tiers available.",
+ "Producing audio versions of posts with natural-sounding AI voices",
+ "Best-in-class AI voice. Tell listeners when a voice is synthetic.",
+ aff=True, aff_url="https://elevenlabs.io/affiliates", free_plan=True)
+add("Riverside","https://riverside.com/","audio",
+ "Free; Pro $24/mo billed annually ($288/yr).",
+ "Recording remote interviews in high quality",
+ "Records each guest locally, so remote interviews sound studio-grade. Ideal for interview-driven newsletters.",
+ aff=True, aff_url="https://riverside.com/affiliate-program", free_plan=True)
+add("Audacity","https://www.audacityteam.org/","audio",
+ "Free and open source.",
+ "Recording and cleaning up voiceovers on a zero budget",
+ "Dated interface but free and capable for simple narration edits.",
+ free_plan=True)
+add("Adobe Podcast","https://podcast.adobe.com/","audio",
+ "Free tier; premium features require a paid Adobe plan (check site for current offer).",
+ "Making laptop-mic recordings sound clean (Enhance Speech)",
+ "Enhance Speech is impressive on the free tier. Check Adobe's current plans before relying on premium features.",
+ pricing_source="official site; premium-plan details from third-party reports", free_plan=True)
+add("OpusClip","https://www.opus.pro/","audio",
+ "Free (60 credits/mo); Starter $15/mo; Pro $14.50/mo billed annually.",
+ "Turning long videos or podcast episodes into short social clips",
+ "Fast way to get shorts from long recordings. Review the AI's clip choices before posting.",
+ aff=True, aff_url="https://www.opus.pro/affiliate", free_plan=True)
+
+# ---------- Embeds & interactive ----------
+add("Tally","https://tally.so/","embeds",
+ "Free (unlimited forms and submissions); Pro $24/mo; Business $74/mo.",
+ "Reader surveys, sponsor inquiry forms and feedback forms",
+ "The most generous free form builder. Substack posts can't host forms directly, so link to it from your post or About page.",
+ free_plan=True)
+add("Datawrapper","https://www.datawrapper.de/","embeds",
+ "Free; Pro $21/user/mo; Business $39/user/mo.",
+ "Clean, accurate charts, maps and tables for data-driven posts",
+ "Newsroom-quality charts for free. In Substack, the reliable route is exporting a PNG and linking to the interactive version.",
+ free_plan=True)
+add("Flourish","https://flourish.studio/","embeds",
+ "Free (public publishing with attribution); paid Presenter (via Canva Business) and Publisher/Enterprise plans on contract.",
+ "Animated and interactive charts and scrollytelling",
+ "More dramatic visuals than Datawrapper. Same Substack caveat: plan on a static image plus a link.",
+ free_plan=True)
+add("Linktree","https://linktr.ee/","embeds",
+ "Free; Starter $6/mo annually ($8 monthly); Pro $12/mo; Premium $30/mo.",
+ "A link-in-bio page that points social followers to your Substack",
+ "Fine for bios, but your Substack homepage can often serve as the link. Only pay if you need the analytics.",
+ free_plan=True)
+
+# ---------- Sponsorships & monetization ----------
+add("Paved","https://www.paved.com/","monetization",
+ "Not publicly listed for publishers (advertiser budgets from under $1,000).",
+ "Established newsletters looking for sponsor demand",
+ "A large newsletter ad network. Advertisers want audience size and data, so it suits writers with a sizable list.",
+ free_plan=None)
+add("Hecto","https://www.hecto.io/","monetization",
+ "Marketplace; creators list ad packages with upfront prices (platform pricing on its site).",
+ "Selling sponsorship slots with transparent, upfront prices",
+ "A straightforward sponsorship marketplace. Listing is easy, but demand varies by niche.",
+ free_plan=None)
+add("Swapstack","https://www.swapstack.co/","monetization",
+ "Pricing not listed on the homepage.",
+ "Finding sponsors and affiliate deals for small and mid-sized newsletters",
+ "One of the original newsletter sponsorship marketplaces. Worth a free signup to see what deals match your niche.",
+ free_plan=None)
+add("Gumroad","https://gumroad.com/","monetization",
+ "No monthly fee; 10% + $0.50 per transaction on direct sales.",
+ "Selling ebooks, templates and guides alongside your newsletter",
+ "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost.",
+ free_plan=True)
+add("Ko-fi","https://ko-fi.com/","monetization",
+ "Free with a 5% platform fee on some features; Ko-fi Gold $12/mo for 0% platform fee.",
+ "One-off tips from readers who won't commit to a paid subscription",
+ "A low-friction tip jar that complements paid subscriptions.",
+ free_plan=True)
+
+CATS = [
+ dict(slug="growth",name="Growth & Notes",desc="Referral networks, recommendation swaps, signup embeds and Substack Notes tools that bring in new subscribers."),
+ dict(slug="analytics",name="Analytics",desc="See which posts, Notes and channels actually turn readers into free and paid subscribers."),
+ dict(slug="social",name="Cross-posting & Social",desc="Schedule and repurpose your writing for X, LinkedIn, Threads, Bluesky and Notes."),
+ dict(slug="design",name="Design",desc="Header images, social cards and brand visuals without hiring a designer."),
+ dict(slug="editing",name="Editing & Proofreading",desc="Catch typos, tighten sentences and keep your voice."),
+ dict(slug="planning",name="Planning, Research & Automation",desc="Editorial calendars, idea capture, research and automations."),
+ dict(slug="ai",name="AI Writing & Research",desc="AI assistants for brainstorming, outlining, critique and research. Use with care."),
+ dict(slug="audio",name="Audio, Podcast & Video",desc="Record, edit and repurpose audio and video for Substack podcasts and social clips."),
+ dict(slug="embeds",name="Embeds & Interactive",desc="Forms, charts and link pages that add interactivity around your newsletter."),
+ dict(slug="monetization",name="Sponsorships & Monetization",desc="Sponsor marketplaces, digital product sales and tips beyond paid subscriptions."),
+]
+slugs=[t['slug'] for t in T]; assert len(slugs)==len(set(slugs))
+json.dump(dict(generated=V,categories=CATS,tools=T),open('data/tools.json','w'),indent=2,ensure_ascii=False)
+from collections import Counter; print(len(T),Counter(t['category'] for t in T))
