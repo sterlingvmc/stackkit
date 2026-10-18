@@ -76,3 +76,5 @@ footer.site{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--mut
 footer.site .cols{display:flex;gap:30px;flex-wrap:wrap;justify-content:space-between}
 footer.site a{color:var(--muted)}
 @media (max-width:760px){.signup{grid-template-columns:1fr;padding:26px}nav.main{gap:12px}nav.main a.hide-sm{display:none}header.site .wrap{height:auto;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}}
+.signup .embed iframe{display:block;width:100%;max-width:480px;height:150px;border:0;border-radius:12px;background:#fff}
+.signup .fallback{margin:10px 0 0;font-size:.88rem}.signup .fallback a{color:#ffb38f}

@@ -85,12 +85,12 @@ def card(t):
 FEATURED_PLACEHOLDER = ('<aside class="card featured" aria-label="Featured placement available"><span class="tag">Featured · placeholder</span>'
     '<h3><a href="/feature/">Your tool here</a></h3><p>Reach writers actively looking for tools. Featured spots are clearly labeled as sponsored.</p></aside>')
 
-SIGNUP = """<section class="block" id="newsletter"><div class="wrap"><div class="signup">
+SUBSTACK_URL = "https://stackkit.substack.com"
+SIGNUP = f"""<section class="block" id="newsletter"><div class="wrap"><div class="signup">
 <div><h2>One useful tool a week</h2><p>A short weekly email: one tool we've checked, what it costs, and who it's actually for. Free.</p></div>
-<div>
-<!-- TODO: Paste the Substack subscribe embed here (Substack dashboard > Settings > Growth features > Embed / "Subscribe" iframe), e.g.
-<iframe src="https://YOURPUB.substack.com/embed" width="480" height="150" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe> -->
-<div class="todo"><strong>TODO:</strong> Substack signup embed goes here. Replace this box with the iframe from your publication's embed settings.</div>
+<div class="embed">
+<iframe src="{SUBSTACK_URL}/embed" title="Subscribe to the StackKit newsletter on Substack" width="480" height="150" loading="lazy" frameborder="0" scrolling="no"></iframe>
+<p class="fallback">Form not loading? <a href="{SUBSTACK_URL}/subscribe" target="_blank" rel="noopener">Subscribe on Substack →</a></p>
 </div></div></div></section>"""
 
 # ---------------- Homepage ----------------

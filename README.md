@@ -19,7 +19,7 @@ python3 check_links.py              # crawl the local server for broken internal
 - [x] `SITE_URL=https://stackkit.ink`, `CONTACT_EMAIL=hello@stackkit.ink` (env vars, defaults in build.py)
 - [ ] Create Stripe Payment Links and fill `STRIPE` in build.py (buttons currently show a TODO alert)
 - [ ] Confirm sponsor prices ($49 fast-track, $59/mo category, $129/mo homepage, $79/issue newsletter)
-- [ ] Paste the Substack subscribe embed into `SIGNUP` in build.py
+- [x] Substack embed (https://stackkit.substack.com/embed) in `SIGNUP` in build.py
 - [ ] Apply to affiliate programs (tools marked `affiliate_program: "yes"`), then swap URLs for tracking links and use rel="sponsored"
 - [x] Hosting: GitHub Pages via `.github/workflows/pages.yml` (runs build.py on push to main)
 - [ ] Namecheap DNS for stackkit.ink, then enable "Enforce HTTPS" in Pages settings
