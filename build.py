@@ -21,6 +21,37 @@ STRIPE = {
 GUIDE_SLUG = "best-tools-to-grow-your-substack-2026"
 GUIDE_TOOLS = {"google-analytics","canva","grammarly","hemingway-editor","notion","unsplash","sparkloop","supascribe","buffer","writestack","narrareach","stacksweller","subshack","typefully","taplio","hypefury","repurpose-io","byline-os","bitly","plausible","descript","elevenlabs","riverside","opusclip","adobe-podcast","hecto","swapstack","paved","gumroad","ko-fi"}  # keep in sync with guide() sections
 
+# Head-to-head comparison pages (/compare/<slug>/). Every claim must be checked on the cited sources.
+COMPARISONS = [
+  dict(slug="datawrapper-vs-flourish-substack", a="datawrapper", b="flourish", checked="2026-10-21",
+    title="Datawrapper vs Flourish for Substack: which chart tool actually embeds?",
+    h1="Datawrapper vs Flourish for Substack charts",
+    desc="Datawrapper vs Flourish for Substack writers: which one embeds natively in Substack posts, what the free plans include, paid pricing, and which to pick for data-driven newsletters.",
+    short="Pick Datawrapper if you want interactive charts inside your Substack posts: it's the only one of the two that Substack embeds natively, and its free plan is unlimited. Pick Flourish only if you need animated or scrollytelling visuals and are happy to link out to them from a static image.",
+    rows=[
+      ("Embeds in Substack posts", "Yes, officially supported. Paste the chart's share link (\"Visualization only\" URL) into your draft and it loads automatically.", "Not in Substack's list of supported embeds. Writers report that pasting the link or embed code doesn't work."),
+      ("Interactive for readers", "On the web and in the Substack app. Static in the email version (clicking opens the chart in a browser).", "Only if readers click through to the Flourish-hosted version."),
+      ("Free plan", "Create, publish and embed charts, maps and tables without limits; PNG download. Charts carry a \"Created with Datawrapper\" credit.", "Public publishing and embedding with attribution; unpublished projects stay private."),
+      ("Image export", "PNG on the free plan; PDF and SVG on Pro.", "Image and SVG export are listed under the paid Presenter plan."),
+      ("Paid plans", "Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.", "Presenter via a Canva Business or Enterprise plan; Publisher and Enterprise on request."),
+      ("Best at", "Clean, accurate line, bar and table charts and maps that read at a glance.", "Animated, interactive and scrollytelling visuals."),
+    ],
+    body=[
+      ("Why embedding matters on Substack", "Substack doesn't allow custom HTML or scripts in the post editor. It supports a short list of embeds instead, and Datawrapper is on it. That single fact decides most of this comparison: a Datawrapper chart sits inside your post and readers on the web or in the app can hover, zoom and scroll it. A Flourish visual has to live somewhere else, with a picture of it in your post."),
+      ("Remember the email version", "Most of your readers meet a post in their inbox, where no chart is interactive. Datawrapper embeds show up as a static image in email, and clicking opens the live chart. Whatever tool you use, design the chart so its main point is readable without hovering: a clear title that states the takeaway, labeled lines and few colors."),
+      ("When Flourish is still worth it", "If your story depends on motion, such as a bar chart race, an animated map or a step-by-step scrollytelling piece, Flourish does things Datawrapper doesn't try to do. Publish it on Flourish, put a screenshot in your Substack post, and link the image to the interactive version. On the free plan, Flourish lists image export under its paid Presenter plan, so expect to take that screenshot yourself."),
+      ("Our pick", "For almost every Substack writer, Datawrapper. It's free without limits, it's the native option, and its defaults produce honest, readable charts. Consider paying for Pro only if the small credit line under each chart bothers you."),
+    ],
+    sources=[
+      ("Substack Help: How do I embed Datawrapper charts in a Substack post?", "https://support.substack.com/hc/en-us/articles/15722290158100-How-do-I-embed-Datawrapper-charts-in-a-Substack-post"),
+      ("Substack Help: How do I embed media in my post? (supported embeds)", "https://support.substack.com/hc/en-us/articles/360037832971-How-do-I-embed-media-in-my-post-e-g-images-video-GIFs"),
+      ("Datawrapper Academy: How to embed visualizations in Substack", "https://www.datawrapper.de/academy/how-to-embed-visualizations-in-substack"),
+      ("Datawrapper pricing", "https://www.datawrapper.de/pricing"),
+      ("Flourish pricing", "https://flourish.studio/pricing/"),
+      ("r/Substack: Embed a Flourish visual? (writer reports)", "https://www.reddit.com/r/Substack/comments/1qkyzsn/embed_a_flourish_visualgraphic/"),
+    ]),
+]
+
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))
 TOOLS = data["tools"]; CATS = data["categories"]
 CAT = {c["slug"]: c for c in CATS}
@@ -59,8 +90,8 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
-<div>Some links may be affiliate links; it never changes our verdicts.<br>Data last verified {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
 </body></html>"""
@@ -124,13 +155,15 @@ def home():
 def category(c):
     ts = BYCAT[c["slug"]]
     rows = "".join(f'<tr><td><a href="/tools/{t["slug"]}/"><strong>{e(t["name"])}</strong></a></td><td>{e(t["best_for"])}</td><td>{e(t["pricing"])}</td></tr>' for t in ts)
+    cmps = "".join(f'<li><a href="/compare/{x["slug"]}/">{e(BY[x["a"]]["name"])} vs {e(BY[x["b"]]["name"])} for Substack</a></li>' for x in COMPARISONS if BY[x["a"]]["category"] == c["slug"] or BY[x["b"]]["category"] == c["slug"])
+    cmps = f"<h2>Comparisons</h2><ul>{cmps}</ul>" if cmps else ""
     others = " · ".join(f'<a href="/category/{o["slug"]}/">{e(o["name"])}</a>' for o in CATS if o["slug"] != c["slug"])
     body = f"""<div class="wrap page"><div class="crumbs"><a href="/">Directory</a> / {e(c['name'])}</div>
 <h1>{e(c['name'])} tools for Substack writers</h1><p class="sub">{e(c['desc'])}</p>
 <div class="grid">{''.join(card(t) for t in ts)}{FEATURED_PLACEHOLDER}</div>
-<h2>Pricing at a glance</h2><div class="table-wrap"><table class="cmp"><thead><tr><th>Tool</th><th>Best for</th><th>Pricing (checked {e(data['generated'])})</th></tr></thead><tbody>{rows}</tbody></table></div>
+<h2>Pricing at a glance</h2><div class="table-wrap"><table class="cmp"><thead><tr><th>Tool</th><th>Best for</th><th>Pricing (last checked dates on each tool page)</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="small">Prices change. Always confirm on the vendor's site.</p>
-<p class="small">Other categories: {others}</p></div>{SIGNUP}"""
+{cmps}<p class="small">Other categories: {others}</p></div>{SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "ItemList", "name": c["name"] + " tools",
           "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE_URL + f"/tools/{t['slug']}/", "name": t["name"]} for i, t in enumerate(ts)]}
     write(f"/category/{c['slug']}/", layout(f"/category/{c['slug']}/", f"Best {c['name']} tools for Substack writers (2026) | {BRAND}",
@@ -156,6 +189,7 @@ def tool(t):
 </div>
 {f'<p class="small">Note: {e(t["notes"])}</p>' if t.get("notes") and not t["notes"].startswith("Affiliate") else ''}
 <p class="small">Disclosure: {affnote} {BRAND} is independent and not affiliated with Substack Inc. Spot an error? Email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>
+{''.join(f'<p><a href="/compare/{x["slug"]}/">Compare: {e(BY[x["a"]]["name"])} vs {e(BY[x["b"]]["name"])} for Substack →</a></p>' for x in COMPARISONS if t["slug"] in (x["a"], x["b"]))}
 <h2>Other {e(c['name'].lower())} tools</h2><div class="grid">{''.join(card(o) for o in rel)}</div>
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
@@ -263,6 +297,29 @@ def guide():
     write(f"/guides/{GUIDE_SLUG}/", layout(f"/guides/{GUIDE_SLUG}/", f"Best tools to grow your Substack in 2026 (verified picks) | {BRAND}",
         "The tools that actually help Substack writers grow free and paid subscribers in 2026: recommendations, Notes, analytics, cross-posting, audio and sponsorships, with real pricing.", body, ld, current=f"/guides/{GUIDE_SLUG}/"), "0.9")
 
+# ---------------- Comparisons ----------------
+def compare(x):
+    a, b = BY[x["a"]], BY[x["b"]]
+    rows = "".join(f"<tr><th scope=\"row\">{e(k)}</th><td>{e(va)}</td><td>{e(vb)}</td></tr>" for k, va, vb in x["rows"])
+    secs = "".join(f"<h2>{e(h)}</h2><p>{e(ptxt)}</p>" for h, ptxt in x["body"])
+    srcs = "".join(f'<li><a href="{e(u)}" target="_blank" rel="noopener">{e(n)}</a></li>' for n, u in x["sources"])
+    cat = CAT[a["category"]]
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / <a href="/category/{cat['slug']}/">{e(cat['name'])}</a> / Comparison</div>
+<h1>{e(x['h1'])}</h1>
+<p class="small">Checked {e(x['checked'])} on the vendors' sites and Substack's help center · Independent, no affiliate relationship with either tool</p>
+<p><strong>The short answer:</strong> {e(x['short'])}</p></div>
+<h2>Side by side</h2><div class="table-wrap"><table class="cmp"><thead><tr><th></th><th><a href="/tools/{a['slug']}/">{e(a['name'])}</a></th><th><a href="/tools/{b['slug']}/">{e(b['name'])}</a></th></tr></thead><tbody>{rows}</tbody></table></div>
+<div class="prose">{secs}
+<h2>Our verdicts</h2><ul><li><strong><a href="/tools/{a['slug']}/">{e(a['name'])}</a>:</strong> {e(a['verdict'])}</li><li><strong><a href="/tools/{b['slug']}/">{e(b['name'])}</a>:</strong> {e(b['verdict'])}</li></ul>
+<h2>Sources</h2><ul>{srcs}</ul>
+<p class="small">Prices change; confirm on each vendor's site. See <a href="/about/">how we verify tools</a>. More tools like these: <a href="/category/{cat['slug']}/">{e(cat['name'])}</a>.</p></div></div>{SIGNUP}"""
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": x["title"], "dateModified": x["checked"], "description": x["desc"],
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + f"/compare/{x['slug']}/",
+           "about": [{"@type": "SoftwareApplication", "name": a["name"], "url": a["url"]}, {"@type": "SoftwareApplication", "name": b["name"], "url": b["url"]}]},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f"{a['name']} or {b['name']}: which is better for Substack?",
+           "acceptedAnswer": {"@type": "Answer", "text": x["short"]}}]}]
+    write(f"/compare/{x['slug']}/", layout(f"/compare/{x['slug']}/", f"{x['title']} | {BRAND}", x["desc"], body, ld), "0.8")
+
 # ---------------- Extras ----------------
 def extras():
     write("/404.html", layout("/404.html", f"Page not found | {BRAND}", "Page not found.",
@@ -276,6 +333,7 @@ def extras():
     lines = [f"# {BRAND}", "", f"> {BRAND} is an independent, hand-checked directory of {len(TOOLS)} tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on {data['generated']}, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.", "",
              "Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.", "",
              "## Key pages", f"- [Directory]({SITE_URL}/): searchable list of all tools", f"- [Best tools to grow your Substack in 2026]({SITE_URL}/guides/{GUIDE_SLUG}/): long-form guide with starter stacks by budget",
+             *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
              f"- [About & disclosures]({SITE_URL}/about/)", f"- [Feature your tool]({SITE_URL}/feature/): sponsorship options", f"- [Raw data (JSON)]({SITE_URL}/data/tools.json)", ""]
     for c in CATS:
         lines.append(f"## {c['name']}")
@@ -294,6 +352,7 @@ def main():
     home()
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
+    for x in COMPARISONS: compare(x)
     feature(); about(); guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")

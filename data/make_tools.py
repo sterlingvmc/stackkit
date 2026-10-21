@@ -1,15 +1,17 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18:
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
 V = "2026-10-18"
+V2 = "2026-10-21"  # entries added or re-checked in the 2026-10-21 daily ops pass
+UPDATED = V2
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
-def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None):
+def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
     T.append(dict(slug=slug(name),name=name,url=url,category=cat,pricing=pricing,free_plan=free_plan,
       pricing_source=pricing_source,best_for=best_for,verdict=verdict,
       affiliate_program=("yes" if aff else "not verified"),affiliate_url=aff_url,
-      substack_specific=substack_specific,verified_on=V,notes=notes))
+      substack_specific=substack_specific,verified_on=verified or V,notes=notes))
 
 # ---------- Growth & Notes ----------
 add("SparkLoop","https://sparkloop.app/","growth",
@@ -23,10 +25,10 @@ add("Supascribe","https://supascribe.com/","growth",
  "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
  substack_specific=True, free_plan=True)
 add("WriteStack","https://www.writestack.io/","growth",
- "Hobbyist $23.99/mo, Standard $32.99/mo, Enterprise $99.99/mo; 7-day free trial.",
+ "Hobbyist $23.99/mo ($239.88/yr); Standard $32.99/mo ($299.88/yr); Enterprise $99.99/mo ($959.88/yr); 7-day free trial.",
  "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
  "The most complete Substack-only Notes suite. Pricey for a beginner, and publishing runs through a Chromium browser extension acting in your logged-in session.",
- aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False)
+ aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False, verified=V2)
 add("Narrareach","https://www.narrareach.com/","growth",
  "From $19.99/mo ($199/yr); higher tiers $39/mo and $89/mo (discounted yearly).",
  "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
@@ -58,12 +60,25 @@ add("Bitly","https://bitly.com/","analytics",
  "Free (with ads); Core $10/mo (annual only); Growth $29/mo; Premium $199/mo (annual pricing).",
  "Tracking clicks on links you share to social, podcasts and print",
  "Handy for knowing which channel sends readers. The free tier is limited; many writers can get by with UTM tags plus Google Analytics.",
- free_plan=True)
+ free_plan=True, verified=V2)
 add("Plausible","https://plausible.io/","analytics",
  "From $9/mo (Starter, 10k monthly pageviews); Growth $14/mo; Business $19/mo. Free trial.",
  "Privacy-friendly analytics for your own website or landing page",
  "Excellent lightweight analytics, but you can't install it on a substack.com publication. Use it on a personal site that funnels readers to Substack.",
- free_plan=False)
+ free_plan=False, verified=V2)
+
+add("StackStats","https://stackstats.app/","analytics",
+ "1-year license $39 (renew updates for $29/yr; the app keeps working if you don't); Lifetime $79 early-adopter price (listed down from $129). One-time payments, no subscription; 14-day refund.",
+ "Writers who want churn risk, cohort retention, superfan and growth-source analysis from their own Substack exports",
+ "Digs far deeper than Substack's dashboard and keeps your subscriber data on your own computer (Mac or Windows). It's a new one-developer app: installers aren't code-signed yet, and the optional Auto-Sync (beta) logs in to Substack for you, so manual CSV exports are the cautious route.",
+ substack_specific=True, free_plan=False, verified=V2, pricing_source="official site (stackstats.app pricing section and FAQ)",
+ notes="Independent; not affiliated with Substack. A read-only live demo is on its site.")
+add("Orbit","https://seeyourorbit.com/","analytics",
+ "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack. No free plan or trial.",
+ "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
+ "A thoughtful relationship tracker for Substack that never writes or replies for you, and it connects to Claude. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
+ substack_specific=True, free_plan=False, verified=V2, pricing_source="official site (seeyourorbit.com FAQ)",
+ notes="Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack.")
 
 # ---------- Cross-posting & social ----------
 add("Typefully","https://typefully.com/","social",
@@ -72,15 +87,15 @@ add("Typefully","https://typefully.com/","social",
  "A polished writing-first scheduler with Substack Notes support. The free plan is enough to test it.",
  pricing_source="official pricing page is JS-rendered; amounts from third-party pricing trackers checked Oct 2026", free_plan=True)
 add("Buffer","https://buffer.com/","social",
- "Free (up to 3 channels); Essentials $5/channel/mo billed yearly ($6 monthly).",
+ "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly.",
  "Scheduling Notes alongside every other social channel from one calendar",
  "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
- free_plan=True)
+ free_plan=True, verified=V2)
 add("Hypefury","https://hypefury.com/","social",
  "From $6/mo (1 channel) to $19/mo (all channels); 7-day free trial.",
  "Automating evergreen reposts and growth on X",
  "Strong automation for X-heavy writers. Less relevant if X isn't where your readers are.",
- aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False)
+ aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False, verified=V2)
 add("Taplio","https://taplio.com/","social",
  "Starter $39/mo; Growth $69/mo; Pro $199/mo; 7-day free trial.",
  "Writers growing a professional audience on LinkedIn",
@@ -125,7 +140,7 @@ add("Grammarly","https://www.grammarly.com/","editing",
  "Free; Pro from $12/mo.",
  "Catching typos and clarity issues everywhere you write, including the Substack editor",
  "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
- aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True)
+ aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V2)
 add("Hemingway Editor","https://hemingwayapp.com/","editing",
  "Free web editor; Editor Plus from $8.33/mo billed annually ($100/yr).",
  "Making dense posts easier to read",
@@ -206,7 +221,7 @@ add("Descript","https://www.descript.com/","audio",
  "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly).",
  "Editing podcast and video by editing the transcript",
  "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
- aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True)
+ aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V2)
 add("ElevenLabs","https://elevenlabs.io/","audio",
  "Free (10k credits/mo); Starter $6/mo; Creator $22/mo; higher tiers available.",
  "Producing audio versions of posts with natural-sounding AI voices",
@@ -238,22 +253,22 @@ add("Tally","https://tally.so/","embeds",
  "Free (unlimited forms and submissions); Pro $24/mo; Business $74/mo.",
  "Reader surveys, sponsor inquiry forms and feedback forms",
  "The most generous free form builder. Substack posts can't host forms directly, so link to it from your post or About page.",
- free_plan=True)
+ free_plan=True, verified=V2)
 add("Datawrapper","https://www.datawrapper.de/","embeds",
- "Free; Pro $21/user/mo; Business $39/user/mo.",
+ "Free (unlimited charts, maps and tables, with a \"Created with Datawrapper\" credit); Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.",
  "Clean, accurate charts, maps and tables for data-driven posts",
- "Newsroom-quality charts for free. In Substack, the reliable route is exporting a PNG and linking to the interactive version.",
- free_plan=True)
+ "Newsroom-quality charts for free, and the one chart tool Substack embeds natively: paste the chart's share link into your draft. Interactive on the web and in the app; static in the email version.",
+ free_plan=True, verified=V2, notes="Substack's help center documents native Datawrapper embeds (paste the share link into a draft).")
 add("Flourish","https://flourish.studio/","embeds",
  "Free (public publishing with attribution); paid Presenter (via Canva Business) and Publisher/Enterprise plans on contract.",
  "Animated and interactive charts and scrollytelling",
- "More dramatic visuals than Datawrapper. Same Substack caveat: plan on a static image plus a link.",
- free_plan=True)
+ "More dramatic visuals than Datawrapper, but Substack doesn't list Flourish among its supported embeds and pasted embed code doesn't work, so plan on a static image linked to the interactive version.",
+ free_plan=True, verified=V2)
 add("Linktree","https://linktr.ee/","embeds",
- "Free; Starter $6/mo annually ($8 monthly); Pro $12/mo; Premium $30/mo.",
+ "Free; Starter $6/mo billed annually ($8 monthly); Pro $12/mo billed annually ($15 monthly); Premium $30/mo billed annually ($35 monthly).",
  "A link-in-bio page that points social followers to your Substack",
  "Fine for bios, but your Substack homepage can often serve as the link. Only pay if you need the analytics.",
- free_plan=True)
+ free_plan=True, verified=V2)
 
 # ---------- Sponsorships & monetization ----------
 add("Paved","https://www.paved.com/","monetization",
@@ -272,15 +287,15 @@ add("Swapstack","https://www.swapstack.co/","monetization",
  "One of the original newsletter sponsorship marketplaces. Worth a free signup to see what deals match your niche.",
  free_plan=None)
 add("Gumroad","https://gumroad.com/","monetization",
- "No monthly fee; 10% + $0.50 per transaction on direct sales.",
+ "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
  "Selling ebooks, templates and guides alongside your newsletter",
  "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost.",
- free_plan=True)
+ free_plan=True, verified=V2)
 add("Ko-fi","https://ko-fi.com/","monetization",
  "Free with a 5% platform fee on some features; Ko-fi Gold $12/mo for 0% platform fee.",
  "One-off tips from readers who won't commit to a paid subscription",
  "A low-friction tip jar that complements paid subscriptions.",
- free_plan=True)
+ free_plan=True, verified=V2)
 
 CATS = [
  dict(slug="growth",name="Growth & Notes",desc="Referral networks, recommendation swaps, signup embeds and Substack Notes tools that bring in new subscribers."),
@@ -295,5 +310,5 @@ CATS = [
  dict(slug="monetization",name="Sponsorships & Monetization",desc="Sponsor marketplaces, digital product sales and tips beyond paid subscriptions."),
 ]
 slugs=[t['slug'] for t in T]; assert len(slugs)==len(set(slugs))
-json.dump(dict(generated=V,categories=CATS,tools=T),open('data/tools.json','w'),indent=2,ensure_ascii=False)
+json.dump(dict(generated=UPDATED,categories=CATS,tools=T),open('data/tools.json','w'),indent=2,ensure_ascii=False)
 from collections import Counter; print(len(T),Counter(t['category'] for t in T))

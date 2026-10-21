@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18",
+  "generated": "2026-10-21",
   "categories": [
     {
       "slug": "growth",
@@ -90,7 +90,7 @@
       "name": "WriteStack",
       "url": "https://www.writestack.io/",
       "category": "growth",
-      "pricing": "Hobbyist $23.99/mo, Standard $32.99/mo, Enterprise $99.99/mo; 7-day free trial.",
+      "pricing": "Hobbyist $23.99/mo ($239.88/yr); Standard $32.99/mo ($299.88/yr); Enterprise $99.99/mo ($959.88/yr); 7-day free trial.",
       "free_plan": false,
       "pricing_source": "official site",
       "best_for": "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
@@ -98,7 +98,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.writestack.io/affiliates",
       "substack_specific": true,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -194,7 +194,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -210,8 +210,40 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
+    },
+    {
+      "slug": "stackstats",
+      "name": "StackStats",
+      "url": "https://stackstats.app/",
+      "category": "analytics",
+      "pricing": "1-year license $39 (renew updates for $29/yr; the app keeps working if you don't); Lifetime $79 early-adopter price (listed down from $129). One-time payments, no subscription; 14-day refund.",
+      "free_plan": false,
+      "pricing_source": "official site (stackstats.app pricing section and FAQ)",
+      "best_for": "Writers who want churn risk, cohort retention, superfan and growth-source analysis from their own Substack exports",
+      "verdict": "Digs far deeper than Substack's dashboard and keeps your subscriber data on your own computer (Mac or Windows). It's a new one-developer app: installers aren't code-signed yet, and the optional Auto-Sync (beta) logs in to Substack for you, so manual CSV exports are the cautious route.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-21",
+      "notes": "Independent; not affiliated with Substack. A read-only live demo is on its site."
+    },
+    {
+      "slug": "orbit",
+      "name": "Orbit",
+      "url": "https://seeyourorbit.com/",
+      "category": "analytics",
+      "pricing": "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack. No free plan or trial.",
+      "free_plan": false,
+      "pricing_source": "official site (seeyourorbit.com FAQ)",
+      "best_for": "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
+      "verdict": "A thoughtful relationship tracker for Substack that never writes or replies for you, and it connects to Claude. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-21",
+      "notes": "Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack."
     },
     {
       "slug": "typefully",
@@ -234,7 +266,7 @@
       "name": "Buffer",
       "url": "https://buffer.com/",
       "category": "social",
-      "pricing": "Free (up to 3 channels); Essentials $5/channel/mo billed yearly ($6 monthly).",
+      "pricing": "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly.",
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Scheduling Notes alongside every other social channel from one calendar",
@@ -242,7 +274,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -258,7 +290,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://hypefury.com/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -386,7 +418,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.grammarly.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -626,7 +658,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.descript.com/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -722,7 +754,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -730,16 +762,16 @@
       "name": "Datawrapper",
       "url": "https://www.datawrapper.de/",
       "category": "embeds",
-      "pricing": "Free; Pro $21/user/mo; Business $39/user/mo.",
+      "pricing": "Free (unlimited charts, maps and tables, with a \"Created with Datawrapper\" credit); Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.",
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Clean, accurate charts, maps and tables for data-driven posts",
-      "verdict": "Newsroom-quality charts for free. In Substack, the reliable route is exporting a PNG and linking to the interactive version.",
+      "verdict": "Newsroom-quality charts for free, and the one chart tool Substack embeds natively: paste the chart's share link into your draft. Interactive on the web and in the app; static in the email version.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
-      "notes": null
+      "verified_on": "2026-10-21",
+      "notes": "Substack's help center documents native Datawrapper embeds (paste the share link into a draft)."
     },
     {
       "slug": "flourish",
@@ -750,11 +782,11 @@
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Animated and interactive charts and scrollytelling",
-      "verdict": "More dramatic visuals than Datawrapper. Same Substack caveat: plan on a static image plus a link.",
+      "verdict": "More dramatic visuals than Datawrapper, but Substack doesn't list Flourish among its supported embeds and pasted embed code doesn't work, so plan on a static image linked to the interactive version.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -762,7 +794,7 @@
       "name": "Linktree",
       "url": "https://linktr.ee/",
       "category": "embeds",
-      "pricing": "Free; Starter $6/mo annually ($8 monthly); Pro $12/mo; Premium $30/mo.",
+      "pricing": "Free; Starter $6/mo billed annually ($8 monthly); Pro $12/mo billed annually ($15 monthly); Premium $30/mo billed annually ($35 monthly).",
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "A link-in-bio page that points social followers to your Substack",
@@ -770,7 +802,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -826,7 +858,7 @@
       "name": "Gumroad",
       "url": "https://gumroad.com/",
       "category": "monetization",
-      "pricing": "No monthly fee; 10% + $0.50 per transaction on direct sales.",
+      "pricing": "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Selling ebooks, templates and guides alongside your newsletter",
@@ -834,7 +866,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     },
     {
@@ -850,7 +882,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-21",
       "notes": null
     }
   ]
