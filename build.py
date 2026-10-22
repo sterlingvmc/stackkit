@@ -50,6 +50,33 @@ COMPARISONS = [
       ("Flourish pricing", "https://flourish.studio/pricing/"),
       ("r/Substack: Embed a Flourish visual? (writer reports)", "https://www.reddit.com/r/Substack/comments/1qkyzsn/embed_a_flourish_visualgraphic/"),
     ]),
+  dict(slug="substack-insights-vs-notestack", a="substack-insights", b="notestack", checked="2026-10-22",
+    title="Substack Insights vs NoteStack: which Substack Notes analytics extension to use",
+    h1="Substack Insights vs NoteStack for Substack analytics",
+    desc="Substack Insights vs NoteStack compared for Substack writers: Notes and post analytics, pricing ($9.99 one-time vs from $8/mo), scheduling, AI features and what each does with your data.",
+    short="Pick Substack Insights if you just want to see which posts and Notes work and when to publish: it's free under 1,000 subscribers and $9.99 one-time above that, and it only reads your data. Pick NoteStack if Notes are your main growth channel and you also want subscriber-conversion rankings, a scheduler and optional AI drafting, from $8/mo.",
+    rows=[
+      ("What it is", "Chrome extension side panel: post and Notes analytics plus CSV export.", "Chrome extension side panel: Notes analytics, scheduler, competitor research (Spy Mode), media kit and AI tools."),
+      ("Price", "Free for publications under 1,000 subscribers; $9.99 one-time above that.", "Starter $8/mo or $60/yr; Pro $12/mo or $99/yr. 7-day free trial."),
+      ("Notes analytics", "Top Notes by weighted engagement, best day and time to post Notes (listed under the paid tier on its pricing card).", "Every Note ranked by engagement and subscriber conversion, best-time heatmap, Note-type breakdown and trends."),
+      ("Post analytics", "Top posts, top converting posts (free and paid signups), best publishing time and optimal post length.", "Focused on Notes."),
+      ("Scheduling", "None (read-only).", "Yes. Auto-publishes through your logged-in Substack session; Starter allows 7 new scheduled Notes a month, Pro is unlimited."),
+      ("AI", "Exports a CSV with suggested prompts to paste into ChatGPT, Claude or Gemini yourself.", "Pro adds Ghostwriter (drafts Notes in your voice), AI generation and Post Coach."),
+      ("Your data", "Processed in your browser using your existing session; it says it never sees your data.", "Stored in your browser. AI features and license checks call its relay server, and AI requests send your Notes text to Anthropic."),
+    ],
+    body=[
+      ("Start with what Substack already shows you", "Before installing anything, open a recent Note and click View stats: Substack now shows the new free and paid subscribers, followers, clicks and shares each Note produced. Both extensions are most useful once you have enough Notes and posts that patterns are hard to see one at a time."),
+      ("Read-only vs a full Notes suite", "Substack Insights only reads. It ranks your posts and Notes, tells you when you tend to get the most engagement, and hands you a CSV to analyze. NoteStack does that for Notes and goes further: it schedules and publishes Notes for you, researches other profiles and offers AI drafting. More features also means more access: anything that publishes on your behalf acts inside your logged-in Substack session."),
+      ("About AI-drafted Notes", "Readers follow you for your voice. NoteStack is upfront that its Ghostwriter sends your past Notes to its AI provider to learn your style, and that it never posts AI drafts automatically. If you use it, treat drafts as prompts to rewrite, not posts to publish."),
+      ("Our pick", "For most writers, Substack Insights: it answers the main questions (what works, when to post) for free or a one-time $9.99, without posting anything. Choose NoteStack if you post Notes daily and want analytics and a scheduler in one place, and remember that Substack's own Notes scheduler is free if scheduling is all you need."),
+    ],
+    sources=[
+      ("Substack Insights: features, pricing and FAQ", "https://substackinsights.com/"),
+      ("Substack Insights on the Chrome Web Store", "https://chromewebstore.google.com/detail/bmeapnigmgnaccpcfgpmifahhddhhihc"),
+      ("NoteStack: features and FAQ", "https://notestack.stacktreelabs.com/"),
+      ("NoteStack pricing", "https://notestack.stacktreelabs.com/pricing/"),
+      ("NoteStack privacy policy (what is sent to its relay and Anthropic)", "https://notestack.stacktreelabs.com/privacy/"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

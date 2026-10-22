@@ -1,10 +1,11 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
 V = "2026-10-18"
 V2 = "2026-10-21"  # entries added or re-checked in the 2026-10-21 daily ops pass
-UPDATED = V2
+V3 = "2026-10-22"  # entries added or re-checked in the 2026-10-22 daily ops pass
+UPDATED = V3
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -30,15 +31,15 @@ add("WriteStack","https://www.writestack.io/","growth",
  "The most complete Substack-only Notes suite. Pricey for a beginner, and publishing runs through a Chromium browser extension acting in your logged-in session.",
  aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False, verified=V2)
 add("Narrareach","https://www.narrareach.com/","growth",
- "From $19.99/mo ($199/yr); higher tiers $39/mo and $89/mo (discounted yearly).",
+ "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
  "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
  "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
- substack_specific=True, free_plan=None)
+ substack_specific=True, free_plan=False, verified=V3)
 add("StackSweller","https://stacksweller.com/","growth",
  "Pro $39/mo, or $25/mo billed yearly ($250/yr).",
  "A simple cloud queue for batch-scheduling Substack Notes",
  "Does one job (a Notes queue that runs with your laptop closed). Be aware it works by holding your Substack session, and Substack now schedules single Notes natively.",
- substack_specific=True, free_plan=False)
+ substack_specific=True, free_plan=False, verified=V3)
 
 # ---------- Analytics ----------
 add("Byline OS","https://bylineos.com/","analytics",
@@ -80,6 +81,19 @@ add("Orbit","https://seeyourorbit.com/","analytics",
  substack_specific=True, free_plan=False, verified=V2, pricing_source="official site (seeyourorbit.com FAQ)",
  notes="Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack.")
 
+add("Substack Insights","https://substackinsights.com/","analytics",
+ "Free for publications under 1,000 subscribers; $9.99 one-time above that. The pricing card lists Notes analytics and conversion stats under the paid tier.",
+ "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
+ "A simple, inexpensive Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Small and new (v1.0 on the Chrome Web Store).",
+ substack_specific=True, free_plan=True, verified=V3, pricing_source="official site (substackinsights.com pricing section and FAQ)",
+ notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack.")
+add("NoteStack","https://notestack.stacktreelabs.com/","analytics",
+ "Starter $8/mo or $60/yr (capped scheduler: 7 new Notes/mo); Pro $12/mo or $99/yr (no caps, adds AI Ghostwriter and Post Coach). 7-day free trial.",
+ "Notes-first writers who want subscriber-conversion rankings, best-time heatmaps and a scheduler in one extension",
+ "A lot of Notes analytics for the price, with data kept in your browser. Be aware the scheduler auto-publishes through your logged-in Substack session, and the AI features send your Notes text to its server and Anthropic. Skip the Ghostwriter if your voice is the product.",
+ substack_specific=True, free_plan=False, verified=V3, pricing_source="official site (notestack.stacktreelabs.com FAQ and /pricing)",
+ notes="Made by StackTree Labs; independent, not affiliated with Substack.")
+
 # ---------- Cross-posting & social ----------
 add("Typefully","https://typefully.com/","social",
  "Free (10 posts/mo); Creator $99/yr; Business $20 per social set/mo.",
@@ -100,7 +114,7 @@ add("Taplio","https://taplio.com/","social",
  "Starter $39/mo; Growth $69/mo; Pro $199/mo; 7-day free trial.",
  "Writers growing a professional audience on LinkedIn",
  "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel.",
- aff=True, aff_url="https://taplio.com/affiliates", free_plan=False)
+ aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V3)
 add("Repurpose.io","https://repurpose.io/","social",
  "Starter $35/mo; Pro $79/mo; Agency $179/mo (cheaper yearly); 14-day free trial.",
  "Automatically distributing video and podcast clips across platforms",
@@ -167,7 +181,7 @@ add("Notion","https://www.notion.com/","planning",
  "Free; Plus $10/seat/mo.",
  "Editorial calendars, idea banks and sponsor CRMs",
  "The most flexible planning hub for newsletter writers. The free plan covers solo use.",
- aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True)
+ aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True, verified=V3)
 add("Trello","https://trello.com/","planning",
  "Free (up to 10 collaborators); Standard $5/user/mo billed annually.",
  "A simple kanban for drafts moving from idea to published",
@@ -177,7 +191,7 @@ add("Obsidian","https://obsidian.md/","planning",
  "Free; optional Sync $4/mo and Publish $8/mo (billed annually).",
  "Building a personal knowledge base of notes, quotes and ideas",
  "Great for writers who think in linked notes. Your files stay local in Markdown.",
- free_plan=True)
+ free_plan=True, verified=V3)
 add("Readwise","https://readwise.io/","planning",
  "Readwise Full $9.99/mo billed annually ($12.99 monthly); Lite $5.59/mo billed annually.",
  "Collecting highlights from books and articles to feed your writing",

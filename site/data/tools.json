@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21",
+  "generated": "2026-10-22",
   "categories": [
     {
       "slug": "growth",
@@ -106,15 +106,15 @@
       "name": "Narrareach",
       "url": "https://www.narrareach.com/",
       "category": "growth",
-      "pricing": "From $19.99/mo ($199/yr); higher tiers $39/mo and $89/mo (discounted yearly).",
-      "free_plan": null,
+      "pricing": "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
+      "free_plan": false,
       "pricing_source": "official site",
       "best_for": "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
       "verdict": "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-22",
       "notes": null
     },
     {
@@ -130,7 +130,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-22",
       "notes": null
     },
     {
@@ -246,6 +246,38 @@
       "notes": "Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack."
     },
     {
+      "slug": "substack-insights",
+      "name": "Substack Insights",
+      "url": "https://substackinsights.com/",
+      "category": "analytics",
+      "pricing": "Free for publications under 1,000 subscribers; $9.99 one-time above that. The pricing card lists Notes analytics and conversion stats under the paid tier.",
+      "free_plan": true,
+      "pricing_source": "official site (substackinsights.com pricing section and FAQ)",
+      "best_for": "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
+      "verdict": "A simple, inexpensive Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Small and new (v1.0 on the Chrome Web Store).",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-22",
+      "notes": "Independent; its Chrome Web Store listing says it is not affiliated with Substack."
+    },
+    {
+      "slug": "notestack",
+      "name": "NoteStack",
+      "url": "https://notestack.stacktreelabs.com/",
+      "category": "analytics",
+      "pricing": "Starter $8/mo or $60/yr (capped scheduler: 7 new Notes/mo); Pro $12/mo or $99/yr (no caps, adds AI Ghostwriter and Post Coach). 7-day free trial.",
+      "free_plan": false,
+      "pricing_source": "official site (notestack.stacktreelabs.com FAQ and /pricing)",
+      "best_for": "Notes-first writers who want subscriber-conversion rankings, best-time heatmaps and a scheduler in one extension",
+      "verdict": "A lot of Notes analytics for the price, with data kept in your browser. Be aware the scheduler auto-publishes through your logged-in Substack session, and the AI features send your Notes text to its server and Anthropic. Skip the Ghostwriter if your voice is the product.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-22",
+      "notes": "Made by StackTree Labs; independent, not affiliated with Substack."
+    },
+    {
       "slug": "typefully",
       "name": "Typefully",
       "url": "https://typefully.com/",
@@ -306,7 +338,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://taplio.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-22",
       "notes": null
     },
     {
@@ -498,7 +530,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.notion.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-22",
       "notes": null
     },
     {
@@ -530,7 +562,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-22",
       "notes": null
     },
     {
