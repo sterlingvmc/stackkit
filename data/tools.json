@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-22",
+  "generated": "2026-10-23",
   "categories": [
     {
       "slug": "growth",
@@ -166,6 +166,22 @@
       "notes": null
     },
     {
+      "slug": "google-search-console",
+      "name": "Google Search Console",
+      "url": "https://search.google.com/search-console/about",
+      "category": "analytics",
+      "pricing": "Free.",
+      "free_plan": true,
+      "pricing_source": "official site (Google Search Console Help: \"a free service offered by Google\")",
+      "best_for": "Seeing which Google searches bring readers to your Substack and whether your posts are indexed",
+      "verdict": "The only way to see the actual search queries that find your posts. Free, but Substack says Search Console verification becomes available as your publication grows, so newer publications may not see the option in settings yet.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-10-23",
+      "notes": "Substack's SEO help article (updated Sep 14, 2026) says sitemaps and Google Search Console verification unlock as a publication grows."
+    },
+    {
       "slug": "subshack",
       "name": "Subshack",
       "url": "https://www.subshack.pro/",
@@ -276,6 +292,22 @@
       "substack_specific": true,
       "verified_on": "2026-10-22",
       "notes": "Made by StackTree Labs; independent, not affiliated with Substack."
+    },
+    {
+      "slug": "notesiq",
+      "name": "NotesIQ",
+      "url": "https://www.notesiq.app/",
+      "category": "analytics",
+      "pricing": "$4.99 one-time for lifetime access (analytics, scheduler, competitor lookups); 7-day money-back guarantee.",
+      "free_plan": false,
+      "pricing_source": "official site (notesiq.app pricing section and FAQ; matches its Chrome Web Store listing)",
+      "best_for": "Writers who want a cheap, one-time-payment Notes dashboard with a best-time heatmap and a weekly queue",
+      "verdict": "The cheapest Notes analytics extension we've found, and it keeps data in your browser with no account. Very new (v1.0.3, launched Sept 2026, no Chrome Web Store ratings yet) from a solo developer, and its price has already changed since launch, so treat it as an inexpensive experiment. Scheduling publishes through Substack's own composer in your logged-in session.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-23",
+      "notes": "Independent; its site says it is not affiliated with Substack. Launch listings in Sept 2026 quoted $19 lifetime plus a $9/mo AI add-on; the current site and store listing say $4.99 lifetime."
     },
     {
       "slug": "typefully",
@@ -458,15 +490,15 @@
       "name": "Hemingway Editor",
       "url": "https://hemingwayapp.com/",
       "category": "editing",
-      "pricing": "Free web editor; Editor Plus from $8.33/mo billed annually ($100/yr).",
+      "pricing": "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features).",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)",
       "best_for": "Making dense posts easier to read",
       "verdict": "The free web version does the core job (highlighting long and passive sentences). Most writers don't need Plus.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-23",
       "notes": null
     },
     {
@@ -482,7 +514,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://prowritingaid.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-23",
       "notes": null
     },
     {
@@ -570,7 +602,7 @@
       "name": "Readwise",
       "url": "https://readwise.io/",
       "category": "planning",
-      "pricing": "Readwise Full $9.99/mo billed annually ($12.99 monthly); Lite $5.59/mo billed annually.",
+      "pricing": "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
       "free_plan": false,
       "pricing_source": "official site",
       "best_for": "Collecting highlights from books and articles to feed your writing",
@@ -578,7 +610,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-23",
       "notes": null
     },
     {
@@ -706,7 +738,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://elevenlabs.io/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-23",
       "notes": null
     },
     {
@@ -714,7 +746,7 @@
       "name": "Riverside",
       "url": "https://riverside.com/",
       "category": "audio",
-      "pricing": "Free; Pro $24/mo billed annually ($288/yr).",
+      "pricing": "Free (720p, Riverside watermark, 2 one-off hours of separate-track recording); Pro $24/mo billed annually ($288/yr) or $29 monthly; Grow $34/mo billed annually.",
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Recording remote interviews in high quality",
@@ -722,7 +754,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://riverside.com/affiliate-program",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-23",
       "notes": null
     },
     {

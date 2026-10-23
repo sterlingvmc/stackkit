@@ -1,11 +1,12 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
 V = "2026-10-18"
 V2 = "2026-10-21"  # entries added or re-checked in the 2026-10-21 daily ops pass
 V3 = "2026-10-22"  # entries added or re-checked in the 2026-10-22 daily ops pass
-UPDATED = V3
+V4 = "2026-10-23"  # entries added or re-checked in the 2026-10-23 daily ops pass
+UPDATED = V4
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -52,6 +53,12 @@ add("Google Analytics","https://analytics.google.com/","analytics",
  "Seeing where your Substack traffic comes from (Substack lets you add a GA measurement ID)",
  "Free and worth connecting on day one for referral sources. Overkill for most writers beyond the acquisition reports.",
  free_plan=True)
+add("Google Search Console","https://search.google.com/search-console/about","analytics",
+ "Free.",
+ "Seeing which Google searches bring readers to your Substack and whether your posts are indexed",
+ "The only way to see the actual search queries that find your posts. Free, but Substack says Search Console verification becomes available as your publication grows, so newer publications may not see the option in settings yet.",
+ free_plan=True, verified=V4, pricing_source="official site (Google Search Console Help: \"a free service offered by Google\")",
+ notes="Substack's SEO help article (updated Sep 14, 2026) says sitemaps and Google Search Console verification unlock as a publication grows.")
 add("Subshack","https://www.subshack.pro/","analytics",
  "Free (Subshack 1.0), including a no-signup public profile audit.",
  "Finding out which Notes and posts actually bring subscribers, and auditing your profile",
@@ -93,6 +100,12 @@ add("NoteStack","https://notestack.stacktreelabs.com/","analytics",
  "A lot of Notes analytics for the price, with data kept in your browser. Be aware the scheduler auto-publishes through your logged-in Substack session, and the AI features send your Notes text to its server and Anthropic. Skip the Ghostwriter if your voice is the product.",
  substack_specific=True, free_plan=False, verified=V3, pricing_source="official site (notestack.stacktreelabs.com FAQ and /pricing)",
  notes="Made by StackTree Labs; independent, not affiliated with Substack.")
+add("NotesIQ","https://www.notesiq.app/","analytics",
+ "$4.99 one-time for lifetime access (analytics, scheduler, competitor lookups); 7-day money-back guarantee.",
+ "Writers who want a cheap, one-time-payment Notes dashboard with a best-time heatmap and a weekly queue",
+ "The cheapest Notes analytics extension we've found, and it keeps data in your browser with no account. Very new (v1.0.3, launched Sept 2026, no Chrome Web Store ratings yet) from a solo developer, and its price has already changed since launch, so treat it as an inexpensive experiment. Scheduling publishes through Substack's own composer in your logged-in session.",
+ substack_specific=True, free_plan=False, verified=V4, pricing_source="official site (notesiq.app pricing section and FAQ; matches its Chrome Web Store listing)",
+ notes="Independent; its site says it is not affiliated with Substack. Launch listings in Sept 2026 quoted $19 lifetime plus a $9/mo AI add-on; the current site and store listing say $4.99 lifetime.")
 
 # ---------- Cross-posting & social ----------
 add("Typefully","https://typefully.com/","social",
@@ -156,15 +169,15 @@ add("Grammarly","https://www.grammarly.com/","editing",
  "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
  aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V2)
 add("Hemingway Editor","https://hemingwayapp.com/","editing",
- "Free web editor; Editor Plus from $8.33/mo billed annually ($100/yr).",
+ "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features).",
  "Making dense posts easier to read",
  "The free web version does the core job (highlighting long and passive sentences). Most writers don't need Plus.",
- free_plan=True)
+ free_plan=True, verified=V4, pricing_source="official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)")
 add("ProWritingAid","https://prowritingaid.com/","editing",
  "Free; Premium $10/mo billed yearly ($120) or $30/mo monthly.",
  "Deep style reports for long-form and fiction writers",
  "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
- aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True)
+ aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V4)
 add("LanguageTool","https://languagetool.org/","editing",
  "Free; Premium $24.90/mo monthly or $69.90/yr.",
  "Multilingual writers and anyone who wants a Grammarly alternative",
@@ -193,10 +206,10 @@ add("Obsidian","https://obsidian.md/","planning",
  "Great for writers who think in linked notes. Your files stay local in Markdown.",
  free_plan=True, verified=V3)
 add("Readwise","https://readwise.io/","planning",
- "Readwise Full $9.99/mo billed annually ($12.99 monthly); Lite $5.59/mo billed annually.",
+ "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
  "Collecting highlights from books and articles to feed your writing",
  "A strong research engine for essayists and curators. Its Reader app is included with Full.",
- free_plan=False)
+ free_plan=False, verified=V4)
 add("Google Trends","https://trends.google.com/","planning",
  "Free.",
  "Checking whether a topic is rising before you write about it",
@@ -240,12 +253,12 @@ add("ElevenLabs","https://elevenlabs.io/","audio",
  "Free (10k credits/mo); Starter $6/mo; Creator $22/mo; higher tiers available.",
  "Producing audio versions of posts with natural-sounding AI voices",
  "Best-in-class AI voice. Tell listeners when a voice is synthetic.",
- aff=True, aff_url="https://elevenlabs.io/affiliates", free_plan=True)
+ aff=True, aff_url="https://elevenlabs.io/affiliates", free_plan=True, verified=V4)
 add("Riverside","https://riverside.com/","audio",
- "Free; Pro $24/mo billed annually ($288/yr).",
+ "Free (720p, Riverside watermark, 2 one-off hours of separate-track recording); Pro $24/mo billed annually ($288/yr) or $29 monthly; Grow $34/mo billed annually.",
  "Recording remote interviews in high quality",
  "Records each guest locally, so remote interviews sound studio-grade. Ideal for interview-driven newsletters.",
- aff=True, aff_url="https://riverside.com/affiliate-program", free_plan=True)
+ aff=True, aff_url="https://riverside.com/affiliate-program", free_plan=True, verified=V4)
 add("Audacity","https://www.audacityteam.org/","audio",
  "Free and open source.",
  "Recording and cleaning up voiceovers on a zero budget",

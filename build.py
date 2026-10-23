@@ -117,7 +117,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -170,7 +170,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -190,7 +190,7 @@ def category(c):
 <div class="grid">{''.join(card(t) for t in ts)}{FEATURED_PLACEHOLDER}</div>
 <h2>Pricing at a glance</h2><div class="table-wrap"><table class="cmp"><thead><tr><th>Tool</th><th>Best for</th><th>Pricing (last checked dates on each tool page)</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="small">Prices change. Always confirm on the vendor's site.</p>
-{cmps}<p class="small">Other categories: {others}</p></div>{SIGNUP}"""
+{cmps}{f'<p><a href="/free-substack-tools/#{c["slug"]}">Only want free options? See the free {e(c["name"].lower())} tools →</a></p>' if any(t.get("free_plan") for t in ts) else ""}<p class="small">Other categories: {others}</p></div>{SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "ItemList", "name": c["name"] + " tools",
           "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE_URL + f"/tools/{t['slug']}/", "name": t["name"]} for i, t in enumerate(ts)]}
     write(f"/category/{c['slug']}/", layout(f"/category/{c['slug']}/", f"Best {c['name']} tools for Substack writers (2026) | {BRAND}",
@@ -324,6 +324,36 @@ def guide():
     write(f"/guides/{GUIDE_SLUG}/", layout(f"/guides/{GUIDE_SLUG}/", f"Best tools to grow your Substack in 2026 (verified picks) | {BRAND}",
         "The tools that actually help Substack writers grow free and paid subscribers in 2026: recommendations, Notes, analytics, cross-posting, audio and sponsorships, with real pricing.", body, ld, current=f"/guides/{GUIDE_SLUG}/"), "0.9")
 
+# ---------------- Free tools hub ----------------
+FREE_SLUG = "/free-substack-tools/"
+def free_tools():
+    ft = [t for t in TOOLS if t.get("free_plan")]
+    secs = ""
+    for c in CATS:
+        ts = [t for t in BYCAT[c["slug"]] if t.get("free_plan")]
+        if not ts: continue
+        items = "".join(f'<li><strong><a href="/tools/{t["slug"]}/">{e(t["name"])}</a></strong>: {e(t["best_for"])}. <em>Pricing: {e(t["pricing"])}</em></li>' for t in ts)
+        secs += f'<h2 id="{c["slug"]}">{e(c["name"])} ({len(ts)})</h2><ul>{items}</ul><p class="small">More: <a href="/category/{c["slug"]}/">all {e(c["name"].lower())} tools, free and paid</a>.</p>'
+    ss = [t for t in ft if t.get("substack_specific")]
+    starter = [s for s in ["google-analytics", "google-search-console", "canva", "grammarly", "hemingway-editor", "notion", "buffer", "subshack", "sparkloop"] if s in BY and BY[s].get("free_plan")]
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Free tools</div>
+<h1>Free tools for Substack writers</h1>
+<p class="small">Updated {e(data['generated'])} · {len(ft)} of our {len(TOOLS)} hand-checked tools have a free plan · Prices and limits checked on each vendor's site</p>
+<p>You can grow a Substack without paying for any software. Substack already handles hosting, email, payments, recommendations and Notes, and the gaps that remain (analytics, images, editing, scheduling, planning) all have free options. This page lists every tool in the StackKit directory with a genuine free plan, grouped by what it helps you do, with the paid upgrade next to it so you know where the limits are.</p>
+<p><strong>A free starter kit:</strong> {", ".join(L(s) for s in starter)}. That covers traffic sources, search, header images, proofreading, planning, Notes scheduling and recommendations for $0.</p>
+<p>"Free plan" here means you can keep using the tool without paying, not just a time-limited trial. Free tiers usually come with limits such as watermarks, monthly credits or a cap on scheduled posts; those limits are in each tool's pricing line below.</p>
+<p><strong>Built specifically for Substack and free:</strong> {", ".join(L(t["slug"]) for t in ss)}.</p>
+{secs}
+<h2>Before you install a free browser extension</h2>
+<p>Several free Substack tools are browser extensions that read data through your logged-in Substack session. That's normal, but check each tool's privacy page, prefer read-only modes, and avoid anything that follows, likes or messages people automatically. Our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a> explains when paid tools start to make sense.</p>
+<p class="small">Free plans change. Always confirm on the vendor's site. See <a href="/about/">how we verify tools</a>.</p></div></div>{SIGNUP}"""
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Free tools for Substack writers", "description": f"{len(ft)} hand-checked tools with free plans for Substack writers.", "dateModified": data["generated"], "url": SITE_URL + FREE_SLUG,
+           "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE_URL + f"/tools/{t['slug']}/", "name": t["name"]} for i, t in enumerate(ft)]}},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can you grow a Substack with only free tools?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Yes. Substack includes hosting, email, payments, recommendations and Notes. Free plans from tools like " + ", ".join(BY[s]["name"] for s in starter) + " cover analytics, search, design, editing, planning and Notes scheduling."}}]}]
+    write(FREE_SLUG, layout(FREE_SLUG, f"{len(ft)} free tools for Substack writers (checked {data['generated']}) | {BRAND}",
+        f"Every free tool in StackKit's hand-checked directory for Substack writers: {len(ft)} tools for analytics, Notes, design, editing, planning, audio and monetization, with free-plan limits and paid prices.", body, ld), "0.9")
+
 # ---------------- Comparisons ----------------
 def compare(x):
     a, b = BY[x["a"]], BY[x["b"]]
@@ -360,6 +390,7 @@ def extras():
     lines = [f"# {BRAND}", "", f"> {BRAND} is an independent, hand-checked directory of {len(TOOLS)} tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on {data['generated']}, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.", "",
              "Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.", "",
              "## Key pages", f"- [Directory]({SITE_URL}/): searchable list of all tools", f"- [Best tools to grow your Substack in 2026]({SITE_URL}/guides/{GUIDE_SLUG}/): long-form guide with starter stacks by budget",
+             f"- [Free tools for Substack writers]({SITE_URL}/free-substack-tools/): every listed tool with a free plan ({sum(1 for t in TOOLS if t.get('free_plan'))}), grouped by category, with free-plan limits and paid prices",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
              f"- [About & disclosures]({SITE_URL}/about/)", f"- [Feature your tool]({SITE_URL}/feature/): sponsorship options", f"- [Raw data (JSON)]({SITE_URL}/data/tools.json)", ""]
     for c in CATS:
@@ -380,7 +411,7 @@ def main():
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
-    feature(); about(); guide(); extras()
+    feature(); about(); guide(); free_tools(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")
