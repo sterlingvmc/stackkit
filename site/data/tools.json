@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23",
+  "generated": "2026-10-24",
   "categories": [
     {
       "slug": "growth",
@@ -60,13 +60,13 @@
       "category": "growth",
       "pricing": "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
       "free_plan": true,
-      "pricing_source": "official site + SparkLoop help center",
+      "pricing_source": "official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center",
       "best_for": "Getting paid recommendations and buying cross-newsletter referrals",
       "verdict": "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-24",
       "notes": null
     },
     {
@@ -74,15 +74,15 @@
       "name": "Supascribe",
       "url": "https://supascribe.com/",
       "category": "growth",
-      "pricing": "Free for your first 100 subscribers captured and 1,000 embed views; a paid Pro plan after that (usage add-ons beyond plan limits).",
+      "pricing": "Free (2 basic embeds, first 1,000 views, first 100 new subscribers); Starter $9/mo, Growth $20/mo, Pro $249/mo (all billed yearly); paid plans add $2 per extra 10,000 views or 100 subscribers.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (supascribe.com pricing section; yearly-billed prices shown)",
       "best_for": "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
       "verdict": "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-24",
       "notes": null
     },
     {
@@ -134,6 +134,22 @@
       "notes": null
     },
     {
+      "slug": "subflowai",
+      "name": "SubflowAI",
+      "url": "https://www.genaiunplugged.com/subflowai/",
+      "category": "growth",
+      "pricing": "Pro Monthly $9.97/mo; Pro 5-Year $69.97 one-time; Premium $99.97 (5 years, includes Connect to Claude/ChatGPT). Connect is a $30 one-time add-on on Pro plans. 5-day free trial, no card; 14-day money-back guarantee.",
+      "free_plan": false,
+      "pricing_source": "official site (genaiunplugged.com/subflowai pricing section and FAQ); Chrome Web Store listing v3.11.0, updated Oct 2, 2026, 5.0 from 10 ratings",
+      "best_for": "Batch-scheduling a week or month of Notes cheaply, with a visual calendar and AI Note drafts from your articles",
+      "verdict": "The cheapest serious batch Notes scheduler we've found (the 5-year plan works out to about $1.17/mo), and Notes are queued on Substack's own scheduler so they publish with your laptop closed. It's a one-person product that works through your logged-in Substack session (the Claude/ChatGPT Connect feature uses Substack's unofficial API), and the AI-in-your-voice features are optional: edit anything it drafts before it goes out.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-24",
+      "notes": "Made by Dheeraj Sharma (GenAI Unplugged); independent, not affiliated with Substack."
+    },
+    {
       "slug": "byline-os",
       "name": "Byline OS",
       "url": "https://bylineos.com/",
@@ -146,7 +162,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-24",
       "notes": null
     },
     {
@@ -190,11 +206,11 @@
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Finding out which Notes and posts actually bring subscribers, and auditing your profile",
-      "verdict": "A free, measurement-first browser extension that never posts for you. New and small, so expect rough edges.",
+      "verdict": "A free, measurement-first browser extension (Chrome and Firefox) that never posts Notes or articles for you. Optional welcome-message sending is off unless you turn it on, with daily limits. New and small, so expect rough edges.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-24",
       "notes": null
     },
     {
@@ -378,7 +394,7 @@
       "name": "Repurpose.io",
       "url": "https://repurpose.io/",
       "category": "social",
-      "pricing": "Starter $35/mo; Pro $79/mo; Agency $179/mo (cheaper yearly); 14-day free trial.",
+      "pricing": "Starter $35/mo; Pro $79/mo ($790/yr); Agency $179/mo ($1,790/yr); free trial of 14 days or 10 published videos, whichever comes first.",
       "free_plan": false,
       "pricing_source": "official site",
       "best_for": "Automatically distributing video and podcast clips across platforms",
@@ -386,7 +402,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://repurpose.io/become-an-affiliate/",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-24",
       "notes": null
     },
     {
@@ -810,15 +826,15 @@
       "name": "Tally",
       "url": "https://tally.so/",
       "category": "embeds",
-      "pricing": "Free (unlimited forms and submissions); Pro $24/mo; Business $74/mo.",
+      "pricing": "Free (unlimited forms and submissions, within fair use); Pro $29/mo or $290/yr; Business $89/mo or $890/yr (USD; Tally shows euro prices to EU visitors).",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (tally.so/pricing; USD amounts from the page's plan data, the visible price depends on your location and monthly/yearly toggle)",
       "best_for": "Reader surveys, sponsor inquiry forms and feedback forms",
       "verdict": "The most generous free form builder. Substack posts can't host forms directly, so link to it from your post or About page.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-24",
       "notes": null
     },
     {

@@ -117,7 +117,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -216,6 +216,7 @@ def tool(t):
 </div>
 {f'<p class="small">Note: {e(t["notes"])}</p>' if t.get("notes") and not t["notes"].startswith("Affiliate") else ''}
 <p class="small">Disclosure: {affnote} {BRAND} is independent and not affiliated with Substack Inc. Spot an error? Email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>
+{'<p><a href="/substack-notes-schedulers/">Compare every Substack Notes scheduler, including the free built-in one →</a></p>' if t["slug"] in [x[0] for x in SCHEDULERS] else ''}
 {''.join(f'<p><a href="/compare/{x["slug"]}/">Compare: {e(BY[x["a"]]["name"])} vs {e(BY[x["b"]]["name"])} for Substack →</a></p>' for x in COMPARISONS if t["slug"] in (x["a"], x["b"]))}
 <h2>Other {e(c['name'].lower())} tools</h2><div class="grid">{''.join(card(o) for o in rel)}</div>
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
@@ -279,7 +280,7 @@ def guide():
        ["google-analytics", "canva", "grammarly", "hemingway-editor", "notion", "unsplash"]),
       ("2. Get subscribers from other newsletters", "Recommendations are one of the most reliable growth channels for newsletters. If you also have a personal site, make the signup form there worth using.",
        ["sparkloop", "supascribe"]),
-      ("3. Win on Substack Notes", "Notes is where Substack readers discover new writers. Substack now schedules single Notes natively; the tools below add batch queues, cross-posting and, most importantly, attribution: which Notes actually bring subscribers.",
+      ("3. Win on Substack Notes", "Notes is where Substack readers discover new writers. Substack now schedules single Notes natively; the tools below add batch queues, cross-posting and, most importantly, attribution: which Notes actually bring subscribers. For every scheduler side by side, see <a href=\"/substack-notes-schedulers/\">Substack Notes schedulers compared</a>.",
        ["buffer", "writestack", "narrareach", "stacksweller", "subshack"]),
       ("4. Cross-post where your readers already are", "Pick one or two networks where your audience lives and repurpose each post there, rather than spreading yourself across all of them.",
        ["typefully", "taplio", "hypefury", "repurpose-io"]),
@@ -354,6 +355,61 @@ def free_tools():
     write(FREE_SLUG, layout(FREE_SLUG, f"{len(ft)} free tools for Substack writers (checked {data['generated']}) | {BRAND}",
         f"Every free tool in StackKit's hand-checked directory for Substack writers: {len(ft)} tools for analytics, Notes, design, editing, planning, audio and monetization, with free-plan limits and paid prices.", body, ld), "0.9")
 
+# ---------------- Notes schedulers hub ----------------
+SCHED_SLUG = "/substack-notes-schedulers/"
+# (slug, batch queue?, how it publishes). Every claim checked 2026-10-24 on the cited sources / the tool's listing sources.
+SCHEDULERS = [
+  ("buffer", "Yes, plus every other social channel", "Buffer says it connects to Substack directly; Notes sit in the same calendar as your other channels."),
+  ("typefully", "Yes, alongside X, LinkedIn, Threads, Bluesky and Mastodon", "Substack is one of its supported publishing platforms."),
+  ("narrareach", "Yes", "Hands Notes to Substack's own scheduler rather than posting from a stored session."),
+  ("subflowai", "Yes (up to 30 at once, visual calendar)", "Chrome extension that schedules Notes on Substack's servers through your logged-in session, so they publish with Chrome closed."),
+  ("notesiq", "Weekly queue", "Chrome extension that publishes through Substack's composer in your logged-in session."),
+  ("notestack", "Yes (Starter: 7 new scheduled Notes a month; Pro: unlimited)", "Chrome extension that auto-publishes through your logged-in session."),
+  ("writestack", "Yes (bulk scheduling, reorderable queue, calendar)", "Chromium browser extension acting in your logged-in session."),
+  ("stacksweller", "Yes (cloud queue)", "Cloud service that holds your Substack session so the queue runs with your laptop closed."),
+]
+def schedulers():
+    rows = '<tr><td><strong>Substack (built in)</strong></td><td>Free</td><td>No: one Note at a time</td><td>Substack\'s own servers. Scheduled Notes wait in your Drafts tab, where you can still edit them.</td></tr>'
+    rows += "".join(f"<tr><td>{L(sl)}</td><td>{P(sl)}</td><td>{e(b)}</td><td>{e(h)}</td></tr>" for sl, b, h in SCHEDULERS if sl in BY)
+    verdicts = "".join(f"<li><strong>{L(sl)}</strong>: {e(BY[sl]['verdict'])}</li>" for sl, _, _ in SCHEDULERS if sl in BY)
+    names = [BY[sl]["name"] for sl, _, _ in SCHEDULERS if sl in BY]
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / <a href="/category/growth/">Growth &amp; Notes</a> / Notes schedulers</div>
+<h1>Substack Notes schedulers compared (2026)</h1>
+<p class="small">Updated {e(data['generated'])} · {len(names) + 1} options, including Substack's own scheduler · Prices checked on each vendor's site · Independent, no affiliate links on this page</p>
+<p><strong>The short answer:</strong> if you post a few Notes a week, use Substack's built-in scheduler. It's free, and Notes go out from Substack's own servers. Pay for a tool only when you want to batch a week or more at once: {L('buffer')} if Notes are one channel among several, {L('subflowai')} if you want the cheapest batch queue for Substack alone, and {L('writestack')} if you want the most complete Substack-only Notes suite.</p>
+<h2>Start with the free built-in scheduler</h2>
+<p>Substack schedules Notes natively on the web, iOS and Android. On the web, write your Note, click the calendar icon, choose <em>Schedule</em> and pick a time in your local time zone (on the apps, tap "…" first). Scheduled Notes appear in your Drafts tab, where you can edit them until they publish. The catch: you schedule one Note at a time, with no queue or calendar view. If that's fine for you, you don't need anything on this page.</p>
+</div>
+<h2>Side by side</h2><div class="table-wrap"><table class="cmp"><thead><tr><th>Tool</th><th>Price</th><th>Batch scheduling</th><th>How it publishes</th></tr></thead><tbody>{rows}</tbody></table></div>
+<div class="prose">
+<h2>How to choose</h2>
+<ul>
+<li><strong>You post to X, LinkedIn or Threads too:</strong> a multi-platform scheduler saves the most time. {L('buffer')}'s free plan covers up to 3 channels, and {L('typefully')} suits writers who start on X.</li>
+<li><strong>Substack is your whole world and you want to batch cheaply:</strong> {L('subflowai')} (about $1.17/mo on its 5-year plan) or {L('notesiq')} ($4.99 one time, but very new).</li>
+<li><strong>You want analytics and scheduling in one place:</strong> {L('notestack')} or {L('writestack')}. Both rank Notes by the subscribers they bring, not just likes.</li>
+<li><strong>You start from long-form posts and publish beyond Substack:</strong> {L('narrareach')} turns articles into Notes and cross-posts to other platforms.</li>
+<li><strong>You only want to know which Notes work:</strong> skip scheduling and use a read-only tool such as {L('subshack')} (free) or {L('substack-insights')}. See our <a href="/compare/substack-insights-vs-notestack/">Substack Insights vs NoteStack comparison</a>.</li>
+</ul>
+<h2>Know how a tool publishes before you install it</h2>
+<p>Most Substack-only schedulers work through your logged-in Substack session: a browser extension acting as you, or a service holding your session. That's how this category works, not a red flag by itself, but read each tool's privacy page, prefer tools that never post without your approval, and avoid anything that follows, likes or messages people automatically. If a tool stops working after a Substack change, the built-in scheduler is always there as a fallback.</p>
+<h2>A note on AI-written Notes</h2>
+<p>Several of these tools can draft Notes from your articles "in your voice". Readers follow you for how you think, so treat AI drafts as a starting point and rewrite them before scheduling. Batch scheduling helps you stay consistent; it doesn't replace replying to people, which is where much of the growth on Notes comes from.</p>
+<h2>Our verdicts</h2><ul>{verdicts}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://substack.com/@substackteam/note/c-232140059" target="_blank" rel="noopener">Substack Team: "Scheduling Notes is officially here" (how to schedule a Note)</a></li>
+<li><a href="https://buffer.com/resources/substack-notes-scheduler/" target="_blank" rel="noopener">Buffer: The best Substack Notes schedulers in 2026 (how each tool publishes, per Buffer)</a></li>
+<li>Each tool's own site, linked from its StackKit page (pricing and publishing method checked on the dates shown there).</li>
+</ul>
+<p class="small">Prices change; confirm on each vendor's site. See <a href="/about/">how we verify tools</a>, <a href="/free-substack-tools/">all free tools</a>, and our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>.</p></div></div>{SIGNUP}"""
+    faq = [("Can you schedule Substack Notes for free?", "Yes. Substack's built-in scheduler is free on web, iOS and Android: click the calendar icon in the Notes composer, choose Schedule and pick a time. It schedules one Note at a time; scheduled Notes wait in your Drafts tab."),
+           ("What is the best Substack Notes scheduler?", "For a few Notes a week, Substack's built-in scheduler. For batching, Buffer if you also post to other networks, SubflowAI for the cheapest Substack-only batch queue, and WriteStack for the most complete Substack-only Notes suite.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack Notes schedulers compared (2026)", "dateModified": data["generated"],
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + SCHED_SLUG,
+           "about": [{"@type": "SoftwareApplication", "name": BY[sl]["name"], "url": BY[sl]["url"]} for sl, _, _ in SCHEDULERS if sl in BY]},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(SCHED_SLUG, layout(SCHED_SLUG, f"Substack Notes schedulers compared: {len(names) + 1} options with real prices (2026) | {BRAND}",
+        "Every way to schedule Substack Notes in 2026, compared: Substack's free built-in scheduler vs " + ", ".join(names[:-1]) + " and " + names[-1] + ". Prices, batch limits and how each tool publishes.", body, ld), "0.9")
+
 # ---------------- Comparisons ----------------
 def compare(x):
     a, b = BY[x["a"]], BY[x["b"]]
@@ -391,6 +447,7 @@ def extras():
              "Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.", "",
              "## Key pages", f"- [Directory]({SITE_URL}/): searchable list of all tools", f"- [Best tools to grow your Substack in 2026]({SITE_URL}/guides/{GUIDE_SLUG}/): long-form guide with starter stacks by budget",
              f"- [Free tools for Substack writers]({SITE_URL}/free-substack-tools/): every listed tool with a free plan ({sum(1 for t in TOOLS if t.get('free_plan'))}), grouped by category, with free-plan limits and paid prices",
+             f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
              f"- [About & disclosures]({SITE_URL}/about/)", f"- [Feature your tool]({SITE_URL}/feature/): sponsorship options", f"- [Raw data (JSON)]({SITE_URL}/data/tools.json)", ""]
     for c in CATS:
@@ -411,7 +468,7 @@ def main():
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
-    feature(); about(); guide(); free_tools(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")

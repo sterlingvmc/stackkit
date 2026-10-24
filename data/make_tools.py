@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -6,7 +6,8 @@ V = "2026-10-18"
 V2 = "2026-10-21"  # entries added or re-checked in the 2026-10-21 daily ops pass
 V3 = "2026-10-22"  # entries added or re-checked in the 2026-10-22 daily ops pass
 V4 = "2026-10-23"  # entries added or re-checked in the 2026-10-23 daily ops pass
-UPDATED = V4
+V5 = "2026-10-24"  # entries added or re-checked in the 2026-10-24 daily ops pass
+UPDATED = V5
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -20,12 +21,12 @@ add("SparkLoop","https://sparkloop.app/","growth",
  "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
  "Getting paid recommendations and buying cross-newsletter referrals",
  "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
- free_plan=True, pricing_source="official site + SparkLoop help center")
+ free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center", verified=V5)
 add("Supascribe","https://supascribe.com/","growth",
- "Free for your first 100 subscribers captured and 1,000 embed views; a paid Pro plan after that (usage add-ons beyond plan limits).",
+ "Free (2 basic embeds, first 1,000 views, first 100 new subscribers); Starter $9/mo, Growth $20/mo, Pro $249/mo (all billed yearly); paid plans add $2 per extra 10,000 views or 100 subscribers.",
  "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
  "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
- substack_specific=True, free_plan=True)
+ substack_specific=True, free_plan=True, verified=V5, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown)")
 add("WriteStack","https://www.writestack.io/","growth",
  "Hobbyist $23.99/mo ($239.88/yr); Standard $32.99/mo ($299.88/yr); Enterprise $99.99/mo ($959.88/yr); 7-day free trial.",
  "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
@@ -43,11 +44,18 @@ add("StackSweller","https://stacksweller.com/","growth",
  substack_specific=True, free_plan=False, verified=V3)
 
 # ---------- Analytics ----------
+add("SubflowAI","https://www.genaiunplugged.com/subflowai/","growth",
+ "Pro Monthly $9.97/mo; Pro 5-Year $69.97 one-time; Premium $99.97 (5 years, includes Connect to Claude/ChatGPT). Connect is a $30 one-time add-on on Pro plans. 5-day free trial, no card; 14-day money-back guarantee.",
+ "Batch-scheduling a week or month of Notes cheaply, with a visual calendar and AI Note drafts from your articles",
+ "The cheapest serious batch Notes scheduler we've found (the 5-year plan works out to about $1.17/mo), and Notes are queued on Substack's own scheduler so they publish with your laptop closed. It's a one-person product that works through your logged-in Substack session (the Claude/ChatGPT Connect feature uses Substack's unofficial API), and the AI-in-your-voice features are optional: edit anything it drafts before it goes out.",
+ substack_specific=True, free_plan=False, verified=V5,
+ pricing_source="official site (genaiunplugged.com/subflowai pricing section and FAQ); Chrome Web Store listing v3.11.0, updated Oct 2, 2026, 5.0 from 10 ratings",
+ notes="Made by Dheeraj Sharma (GenAI Unplugged); independent, not affiliated with Substack.")
 add("Byline OS","https://bylineos.com/","analytics",
  "Starter free (CSV import, 30-day retention); Growth $19/mo; Scale $49/mo. 14-day trial. Currently in private beta.",
  "Paid-newsletter writers who want MRR, churn, cohort and revenue-per-post analytics",
  "Promising revenue-first analytics built specifically for Substack. It is a beta product; live sync uses your Substack session cookie and undocumented internal APIs, so the CSV-upload mode is the safer start.",
- substack_specific=True, free_plan=True)
+ substack_specific=True, free_plan=True, verified=V5)
 add("Google Analytics","https://analytics.google.com/","analytics",
  "Free.",
  "Seeing where your Substack traffic comes from (Substack lets you add a GA measurement ID)",
@@ -62,8 +70,8 @@ add("Google Search Console","https://search.google.com/search-console/about","an
 add("Subshack","https://www.subshack.pro/","analytics",
  "Free (Subshack 1.0), including a no-signup public profile audit.",
  "Finding out which Notes and posts actually bring subscribers, and auditing your profile",
- "A free, measurement-first browser extension that never posts for you. New and small, so expect rough edges.",
- substack_specific=True, free_plan=True)
+ "A free, measurement-first browser extension (Chrome and Firefox) that never posts Notes or articles for you. Optional welcome-message sending is off unless you turn it on, with daily limits. New and small, so expect rough edges.",
+ substack_specific=True, free_plan=True, verified=V5)
 add("Bitly","https://bitly.com/","analytics",
  "Free (with ads); Core $10/mo (annual only); Growth $29/mo; Premium $199/mo (annual pricing).",
  "Tracking clicks on links you share to social, podcasts and print",
@@ -129,10 +137,10 @@ add("Taplio","https://taplio.com/","social",
  "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel.",
  aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V3)
 add("Repurpose.io","https://repurpose.io/","social",
- "Starter $35/mo; Pro $79/mo; Agency $179/mo (cheaper yearly); 14-day free trial.",
+ "Starter $35/mo; Pro $79/mo ($790/yr); Agency $179/mo ($1,790/yr); free trial of 14 days or 10 published videos, whichever comes first.",
  "Automatically distributing video and podcast clips across platforms",
  "Saves real time if you make video or audio. Pure text writers don't need it.",
- aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=False)
+ aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=False, verified=V5)
 
 # ---------- Design ----------
 add("Canva","https://www.canva.com/","design",
@@ -277,10 +285,10 @@ add("OpusClip","https://www.opus.pro/","audio",
 
 # ---------- Embeds & interactive ----------
 add("Tally","https://tally.so/","embeds",
- "Free (unlimited forms and submissions); Pro $24/mo; Business $74/mo.",
+ "Free (unlimited forms and submissions, within fair use); Pro $29/mo or $290/yr; Business $89/mo or $890/yr (USD; Tally shows euro prices to EU visitors).",
  "Reader surveys, sponsor inquiry forms and feedback forms",
  "The most generous free form builder. Substack posts can't host forms directly, so link to it from your post or About page.",
- free_plan=True, verified=V2)
+ free_plan=True, verified=V5, pricing_source="official site (tally.so/pricing; USD amounts from the page's plan data, the visible price depends on your location and monthly/yearly toggle)")
 add("Datawrapper","https://www.datawrapper.de/","embeds",
  "Free (unlimited charts, maps and tables, with a \"Created with Datawrapper\" credit); Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.",
  "Clean, accurate charts, maps and tables for data-driven posts",
