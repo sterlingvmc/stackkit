@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24",
+  "generated": "2026-10-25",
   "categories": [
     {
       "slug": "growth",
@@ -434,7 +434,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-25",
       "notes": null
     },
     {
@@ -650,15 +650,15 @@
       "name": "Zapier",
       "url": "https://zapier.com/",
       "category": "planning",
-      "pricing": "Free; Professional from $19.99/mo.",
+      "pricing": "Free (100 tasks/mo, two-step Zaps); Professional from $19.99/mo; Team from $69/mo.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (zapier.com/pricing, USD)",
       "best_for": "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",
       "verdict": "Powerful glue between apps. Substack has no official public API, so automations usually start from its RSS feed or email.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-25",
       "notes": null
     },
     {
@@ -890,15 +890,15 @@
       "name": "Paved",
       "url": "https://www.paved.com/",
       "category": "monetization",
-      "pricing": "Not publicly listed for publishers (advertiser budgets from under $1,000).",
-      "free_plan": null,
-      "pricing_source": "official site",
+      "pricing": "Free publisher account, no subscription. Flat-fee scheduled ads need at least 50k subscribers; pay-per-click native ads need at least 1M monthly impressions.",
+      "free_plan": true,
+      "pricing_source": "official site (paved.com/publishers)",
       "best_for": "Established newsletters looking for sponsor demand",
-      "verdict": "A large newsletter ad network. Advertisers want audience size and data, so it suits writers with a sizable list.",
+      "verdict": "A large newsletter ad network (3,000+ newsletters, per Paved). Its stated minimums of 50k subscribers or 1M monthly impressions rule out most smaller Substacks; start with Hecto or Swapstack until you're there.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-25",
       "notes": null
     },
     {
@@ -906,15 +906,15 @@
       "name": "Hecto",
       "url": "https://www.hecto.io/",
       "category": "monetization",
-      "pricing": "Marketplace; creators list ad packages with upfront prices (platform pricing on its site).",
-      "free_plan": null,
-      "pricing_source": "official site",
+      "pricing": "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
+      "free_plan": true,
+      "pricing_source": "official site (hecto.io/pricing; fee shown as 5%, monthly fee shown as £0)",
       "best_for": "Selling sponsorship slots with transparent, upfront prices",
-      "verdict": "A straightforward sponsorship marketplace. Listing is easy, but demand varies by niche.",
+      "verdict": "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-25",
       "notes": null
     },
     {
@@ -922,15 +922,15 @@
       "name": "Swapstack",
       "url": "https://www.swapstack.co/",
       "category": "monetization",
-      "pricing": "Pricing not listed on the homepage.",
-      "free_plan": null,
-      "pricing_source": "official site",
+      "pricing": "Free for publishers (Swapstack takes 10% on invite-only campaigns from its managed service). Paid publisher plans (Professional $30/mo, Enterprise $200/mo) are listed as coming soon.",
+      "free_plan": true,
+      "pricing_source": "official site (swapstack.co/pricing)",
       "best_for": "Finding sponsors and affiliate deals for small and mid-sized newsletters",
-      "verdict": "One of the original newsletter sponsorship marketplaces. Worth a free signup to see what deals match your niche.",
+      "verdict": "One of the original newsletter sponsorship marketplaces, with flat-rate sponsorships, pay-per-click and affiliate deals in one place. Worth a free signup to see what matches your niche.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-25",
       "notes": null
     },
     {

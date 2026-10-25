@@ -117,7 +117,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -170,7 +170,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -219,6 +219,7 @@ def tool(t):
 {'<p><a href="/substack-notes-schedulers/">Compare every Substack Notes scheduler, including the free built-in one →</a></p>' if t["slug"] in [x[0] for x in SCHEDULERS] else ''}
 {''.join(f'<p><a href="/compare/{x["slug"]}/">Compare: {e(BY[x["a"]]["name"])} vs {e(BY[x["b"]]["name"])} for Substack →</a></p>' for x in COMPARISONS if t["slug"] in (x["a"], x["b"]))}
 <h2>Other {e(c['name'].lower())} tools</h2><div class="grid">{''.join(card(o) for o in rel)}</div>
+{f'<p><a href="/guides/substack-seo-guide/">How to use {e(t["name"])} in our Substack SEO guide →</a></p>' if t["slug"] in SEO_TOOLS else ''}
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
@@ -410,6 +411,99 @@ def schedulers():
     write(SCHED_SLUG, layout(SCHED_SLUG, f"Substack Notes schedulers compared: {len(names) + 1} options with real prices (2026) | {BRAND}",
         "Every way to schedule Substack Notes in 2026, compared: Substack's free built-in scheduler vs " + ", ".join(names[:-1]) + " and " + names[-1] + ". Prices, batch limits and how each tool publishes.", body, ld), "0.9")
 
+# ---------------- Substack SEO guide (long-form) ----------------
+SEO_SLUG = "/guides/substack-seo-guide/"
+SEO_TOOLS = ["google-search-console", "google-analytics", "google-trends", "plausible", "subshack", "chatgpt", "claude", "perplexity"]
+# Every claim checked 2026-10-25 on the sources listed at the bottom of the page.
+def seo_guide():
+    tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in SEO_TOOLS if s in BY)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Guides / Substack SEO</div>
+<h1>Substack SEO: how to get your posts found on Google and in AI answers (2026)</h1>
+<p class="small">Updated {e(data['generated'])} · Every setting below checked against Substack's own SEO guide · Independent, not affiliated with Substack Inc.</p>
+<p><strong>The short version:</strong> Substack already makes your public posts indexable, so SEO on Substack comes down to a few fields and habits you control: a plain-language SEO title and description on each post, a post URL you never change after publishing, links from your popular posts to your new ones, links to your publication from other sites, and keeping your evergreen how-to posts free so search engines and AI crawlers can read them. Connect Google Search Console to see which of those changes are working.</p>
+<h2>Why search still matters on a newsletter platform</h2>
+<p>Most Substack growth comes from inside Substack: Notes, recommendations and the app. Search is the channel that keeps working on posts you wrote months ago. It also feeds AI assistants: as writer Jenny Ouyang explains in a Code Like a Girl guide, AI tools often answer by asking a search engine and writing from the top results (she names Google for Gemini, Brave for Claude and Bing for ChatGPT), so a page search engines can't find is unlikely to be cited. Ranking well doesn't guarantee an AI will quote you, but not being indexed almost guarantees it won't.</p>
+
+<h2>1. Fill in the SEO fields on every post</h2>
+<p>Open a draft, click <strong>Settings</strong>, and expand <strong>SEO options</strong>. There you can set four things: the SEO title, the SEO description, the post URL and the social preview image. According to Substack, these fields don't change how the post looks in subscribers' inboxes, in the app or on your Substack site. They only suggest to search engines how to display the post.</p>
+<p>If you leave them blank, Substack fills them in for you: the SEO title from your headline, the description from your subtitle, and the URL from your title. Substack says the defaults are fine for many writers. They fall short when your headline is clever rather than literal, which is common in newsletters.</p>
+<h3>SEO title</h3>
+<p>This is the clickable headline in search results, and it can differ from the headline your readers see. Keep the reader headline playful if you like, and make the SEO title plain: the words a stranger would actually type. Substack's own advice:</p>
+<ul>
+<li><strong>Stay under 60 characters</strong>, or search engines may cut it off or rewrite it.</li>
+<li><strong>Use keywords naturally.</strong> A stuffed title reads badly and search engines can tell.</li>
+<li><strong>Make it unique.</strong> If you run a recurring series with the same name, give each issue a distinct SEO title.</li>
+<li><strong>Add your name or brand at the end</strong> if people already search for it.</li>
+</ul>
+<h3>SEO description</h3>
+<p>This is the short summary under the title in search results; by default it's your subtitle. Don't repeat the title. Add the context and the related phrases that didn't fit, and write it like a one-line ad for the reader you want to reach.</p>
+<h3>Post URL</h3>
+<p>Substack builds the URL from your title (yourname.substack.com/p/post-title), and that's usually fine. If your headline is obscure, you can edit the end of the URL to match your plainer SEO title, <strong>but only before you publish</strong>. Changing the URL of a published post breaks every link already shared. Jenny Ouyang learned this the hard way when changing the address of her most-clicked page turned it into a page-not-found error overnight.</p>
+<h3>Social preview image</h3>
+<p>The image shown when your post is shared. Substack reports that posts with a social preview image get on average twice as many signups and 40% more clicks than those without. By default it's the first image in your post, or your publication logo if there isn't one. A tool like {L('canva')} makes a consistent template easy.</p>
+
+<h2>2. Write for the question, not just the idea</h2>
+<p>Substack's guide suggests starting with who you want to reach and what they might be searching for, since many searches start as a question. Two practical habits from Jenny Ouyang's playbook:</p>
+<ul>
+<li><strong>Check ideas against real searches.</strong> Before writing, see whether people actually search for the topic. {L('google-trends')} shows relative interest for free; once you have data, Search Console shows the exact phrases that already bring people to you.</li>
+<li><strong>Answer in the first paragraph.</strong> Say what the post is about and name the real things in it (the tool, the problem, the result) in the first few lines, then show how you got there. Skimmers and machines both decide quickly.</li>
+</ul>
+<p>Don't make several posts compete for the same search. If three of your posts already target it, don't write a fourth.</p>
+
+<h2>3. Link your own posts together</h2>
+<p>You can't touch the technical settings a web developer would on Substack, so links between your own posts are one of the few levers you control. When you publish something new, add a sentence and a link to it from your most-visited related post. It helps readers and gives the new page a path for search engines to find it.</p>
+
+<h2>4. Get links from outside Substack</h2>
+<p>Substack calls inbound links (links to your publication from other sites) the best way to improve your search ranking. The simple ones:</p>
+<ul>
+<li>Put your Substack URL on your personal website, or embed a signup form there. Substack's native embed works; {L('supascribe')} adds styled forms and popups.</li>
+<li>Put it in every social bio. {L('linktree')} works too, but your Substack homepage can often be the link.</li>
+<li>Link generously to other writers in your niche. Links between related writers help readers and search engines see how a topic fits together, and other writers are more likely to link back.</li>
+</ul>
+<p>On your publication's address: if people search for your name, Substack recommends using it in your subdomain. Substack also notes that the default yourname.substack.com address borrows from Substack's existing search reputation, which is worth weighing before you switch to a custom domain.</p>
+
+<h2>5. Keep evergreen guides free</h2>
+<p>Search engine and AI crawlers don't have subscriptions, so anything behind your paywall is invisible to them. A useful rule from Jenny Ouyang: "sell narrow, talk broad." Keep the how-to posts that stay useful for years free and public, and put the paywall on deep dives and member-only material your existing readers pay for.</p>
+
+<h2>6. Measure with Google Search Console</h2>
+<p>{L('google-search-console')} is free and shows which of your pages Google has indexed, the searches people used to find you, and how often they clicked. Substack's help center says Search Console verification becomes available as a publication grows, so it may not be offered on a brand-new Substack. Once connected:</p>
+<ul>
+<li><strong>Find pages with many impressions and few clicks.</strong> Those are shown in results but skipped, and a better SEO title and description usually help them first.</li>
+<li><strong>Look at the queries.</strong> They tell you how readers phrase your topics, which feeds back into step 2.</li>
+<li><strong>Check after a few months.</strong> Search data builds slowly, so connect it early.</li>
+</ul>
+<p>Add {L('google-analytics')} (free) or {L('plausible')} if you want to see what visitors do after they land. Jenny Ouyang also recommends adding <a href="https://www.bing.com/webmasters/" target="_blank" rel="noopener">Bing Webmaster Tools</a> (free), which can import your site from Search Console, since some AI tools search the web through Bing.</p>
+
+<h2>A one-hour starter checklist</h2>
+<ol>
+<li>Connect Google Search Console if your publication can.</li>
+<li>Rewrite the SEO title and description on your three most-read posts.</li>
+<li>Add a link from your most-visited post to your newest related post.</li>
+<li>Make sure your best evergreen how-to is free and public.</li>
+<li>Add your Substack URL to your website and social bios.</li>
+<li>From now on, set the SEO fields (and settle the URL) before you hit publish.</li>
+</ol>
+
+<h2>Using AI to draft SEO titles</h2>
+<p>An AI assistant such as {L('chatgpt')}, {L('claude')} or {L('perplexity')} can suggest options if you paste in your draft and ask for a few SEO titles under 60 characters and descriptions of roughly 155 characters or less. Treat the output as suggestions: check that each one is accurate, sounds like you, and doesn't promise more than the post delivers.</p>
+
+<h2>Tools mentioned in this guide</h2><ul>{tl}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://on.substack.com/p/substack-seo-guide" target="_blank" rel="noopener">Substack: A guide to SEO on Substack</a> (SEO options, title length, URL and social preview advice, inbound links, subdomain advice)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/4407702258836-How-can-I-optimize-my-Substack-publication-for-SEO" target="_blank" rel="noopener">Substack Help Center: How can I optimize my Substack publication for SEO?</a> (Search Console availability)</li>
+<li><a href="https://codelikeagirl.substack.com/p/substack-seo-google-ai-search" target="_blank" rel="noopener">Code Like a Girl with Jenny Ouyang: Your Best Post is Hiding From Google</a> (search and AI answers, internal links, "sell narrow, talk broad", Bing Webmaster Tools, the changed-URL lesson)</li>
+</ul>
+<p class="small">Substack's settings change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>, <a href="/free-substack-tools/">free tools for Substack writers</a> and the <a href="/category/analytics/">analytics tools</a> category.</p></div></div>{SIGNUP}"""
+    faq = [("Do Substack posts show up on Google?", "Yes. Public Substack posts can be indexed by search engines. Paywalled content can't be read by crawlers, so keep the posts you want found free and public."),
+           ("How do I change the SEO title on a Substack post?", "Open the post's Settings, expand SEO options, and edit the SEO title. It only changes how the post appears in search results, not in email, the app or on your Substack site. Substack recommends keeping it under 60 characters."),
+           ("Can I change a Substack post URL after publishing?", "You can, but Substack advises against it: editing the URL after publishing breaks every existing link to the post. Settle the URL before you publish."),
+           ("Should I use a custom domain for Substack SEO?", "Either works. Substack notes that the default substack.com subdomain benefits from Substack's existing search reputation; if people search for your name, use it in your subdomain.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack SEO: how to get your posts found on Google and in AI answers (2026)", "dateModified": data["generated"],
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + SEO_SLUG},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(SEO_SLUG, layout(SEO_SLUG, f"Substack SEO guide: get found on Google and AI search (2026) | {BRAND}",
+        "How to do SEO on Substack in 2026: set SEO titles and descriptions, never change a published URL, link posts together, earn inbound links, keep evergreen posts free, and measure with Google Search Console.", body, ld, current=SEO_SLUG), "0.9")
+
 # ---------------- Comparisons ----------------
 def compare(x):
     a, b = BY[x["a"]], BY[x["b"]]
@@ -447,6 +541,7 @@ def extras():
              "Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.", "",
              "## Key pages", f"- [Directory]({SITE_URL}/): searchable list of all tools", f"- [Best tools to grow your Substack in 2026]({SITE_URL}/guides/{GUIDE_SLUG}/): long-form guide with starter stacks by budget",
              f"- [Free tools for Substack writers]({SITE_URL}/free-substack-tools/): every listed tool with a free plan ({sum(1 for t in TOOLS if t.get('free_plan'))}), grouped by category, with free-plan limits and paid prices",
+             f"- [Substack SEO guide]({SITE_URL}/guides/substack-seo-guide/): how to get Substack posts found on Google and in AI answers: SEO title, description and URL settings, internal and inbound links, keeping evergreen posts free, and measuring with Google Search Console",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
              f"- [About & disclosures]({SITE_URL}/about/)", f"- [Feature your tool]({SITE_URL}/feature/): sponsorship options", f"- [Raw data (JSON)]({SITE_URL}/data/tools.json)", ""]
@@ -468,7 +563,7 @@ def main():
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
-    feature(); about(); guide(); free_tools(); schedulers(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")

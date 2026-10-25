@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -7,7 +7,8 @@ V2 = "2026-10-21"  # entries added or re-checked in the 2026-10-21 daily ops pas
 V3 = "2026-10-22"  # entries added or re-checked in the 2026-10-22 daily ops pass
 V4 = "2026-10-23"  # entries added or re-checked in the 2026-10-23 daily ops pass
 V5 = "2026-10-24"  # entries added or re-checked in the 2026-10-24 daily ops pass
-UPDATED = V5
+V6 = "2026-10-25"  # entries re-checked in the 2026-10-25 daily ops pass
+UPDATED = V6
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -153,7 +154,7 @@ add("Figma","https://www.figma.com/","design",
  "Free Starter; Professional full seat $16/mo.",
  "Custom visual systems, templates and detailed design work",
  "More power than most writers need. Pick it if you already know it or want pixel-level control.",
- free_plan=True)
+ free_plan=True, verified=V6)
 add("Kittl","https://www.kittl.com/","design",
  "Free plan; paid Pro, Expert and Max plans (see pricing page).",
  "Typography-heavy graphics and AI-assisted illustrations",
@@ -224,10 +225,10 @@ add("Google Trends","https://trends.google.com/","planning",
  "A quick, free sanity check for timely topics and post titles.",
  free_plan=True)
 add("Zapier","https://zapier.com/","planning",
- "Free; Professional from $19.99/mo.",
+ "Free (100 tasks/mo, two-step Zaps); Professional from $19.99/mo; Team from $69/mo.",
  "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",
  "Powerful glue between apps. Substack has no official public API, so automations usually start from its RSS feed or email.",
- free_plan=True)
+ free_plan=True, verified=V6, pricing_source="official site (zapier.com/pricing, USD)")
 
 # ---------- AI writing & research ----------
 add("ChatGPT","https://chatgpt.com/","ai",
@@ -307,20 +308,20 @@ add("Linktree","https://linktr.ee/","embeds",
 
 # ---------- Sponsorships & monetization ----------
 add("Paved","https://www.paved.com/","monetization",
- "Not publicly listed for publishers (advertiser budgets from under $1,000).",
+ "Free publisher account, no subscription. Flat-fee scheduled ads need at least 50k subscribers; pay-per-click native ads need at least 1M monthly impressions.",
  "Established newsletters looking for sponsor demand",
- "A large newsletter ad network. Advertisers want audience size and data, so it suits writers with a sizable list.",
- free_plan=None)
+ "A large newsletter ad network (3,000+ newsletters, per Paved). Its stated minimums of 50k subscribers or 1M monthly impressions rule out most smaller Substacks; start with Hecto or Swapstack until you're there.",
+ free_plan=True, verified=V6, pricing_source="official site (paved.com/publishers)")
 add("Hecto","https://www.hecto.io/","monetization",
- "Marketplace; creators list ad packages with upfront prices (platform pricing on its site).",
+ "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
  "Selling sponsorship slots with transparent, upfront prices",
- "A straightforward sponsorship marketplace. Listing is easy, but demand varies by niche.",
- free_plan=None)
+ "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche.",
+ free_plan=True, verified=V6, pricing_source="official site (hecto.io/pricing; fee shown as 5%, monthly fee shown as £0)")
 add("Swapstack","https://www.swapstack.co/","monetization",
- "Pricing not listed on the homepage.",
+ "Free for publishers (Swapstack takes 10% on invite-only campaigns from its managed service). Paid publisher plans (Professional $30/mo, Enterprise $200/mo) are listed as coming soon.",
  "Finding sponsors and affiliate deals for small and mid-sized newsletters",
- "One of the original newsletter sponsorship marketplaces. Worth a free signup to see what deals match your niche.",
- free_plan=None)
+ "One of the original newsletter sponsorship marketplaces, with flat-rate sponsorships, pay-per-click and affiliate deals in one place. Worth a free signup to see what matches your niche.",
+ free_plan=True, verified=V6, pricing_source="official site (swapstack.co/pricing)")
 add("Gumroad","https://gumroad.com/","monetization",
  "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
  "Selling ebooks, templates and guides alongside your newsletter",
