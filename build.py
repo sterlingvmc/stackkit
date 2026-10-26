@@ -77,6 +77,33 @@ COMPARISONS = [
       ("NoteStack pricing", "https://notestack.stacktreelabs.com/pricing/"),
       ("NoteStack privacy policy (what is sent to its relay and Anthropic)", "https://notestack.stacktreelabs.com/privacy/"),
     ]),
+  dict(slug="buffer-vs-typefully-substack-notes", a="buffer", b="typefully", checked="2026-10-26",
+    title="Buffer vs Typefully for Substack Notes: which multi-platform scheduler to use",
+    h1="Buffer vs Typefully for scheduling Substack Notes",
+    desc="Buffer vs Typefully for Substack writers: both free plans schedule Substack Notes. Compare free-plan limits, paid pricing, other platforms, Note analytics and which to pick if Notes are one channel among several.",
+    short="Both free plans schedule Substack Notes, so you can try either at no cost. Pick Buffer if Notes are one channel among many (including Instagram, TikTok or Facebook) or you want to see which Notes brought subscribers. Pick Typefully if you write for X or LinkedIn first and want a writing-focused editor. If you only post Notes, Substack's free built-in scheduler may be all you need.",
+    rows=[
+      ("Substack Notes", "Yes. Connect your Substack account and Notes become a channel in your queue. You can also add your Substack as a feed to pull in published posts for sharing.", "Yes, on every plan. Connect Substack under Settings → Social Sets. Notes only: no long-form posts and no video in Notes."),
+      ("Free plan", "Up to 3 channels, 10 scheduled posts per channel at a time (refill as they publish), 30 days of insights.", "10 posts a month, 1 social set, 1 user."),
+      ("Paid plans", "Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly ($12 monthly). 14-day trial.", "Creator $99/yr (annual billing only); Business $18 per social set/mo billed yearly."),
+      ("Other platforms", "LinkedIn, X, Threads, Bluesky, Mastodon, Instagram, Facebook, TikTok, YouTube, Pinterest and Google Business Profile.", "X, LinkedIn, Threads, Bluesky and Mastodon."),
+      ("Note analytics", "Buffer says it shows free and paid subscribers each Note brought in, plus impressions, follows and engagement.", "Paid analytics are listed for X. Its pricing page doesn't list Substack Note analytics."),
+      ("Cross-posting", "Send the same text to Substack and other channels, editing each version.", "Enable Substack alongside other platforms in one draft. Multi-post drafts (threads) are combined into a single Note, so review the Substack version."),
+      ("Best at", "One calendar for every channel, with per-channel pricing.", "A distraction-free editor for threads and short posts."),
+    ],
+    body=[
+      ("Start with the free plans", "Unlike most Substack-only Notes tools, both of these include Substack Notes on their free plans. Buffer's free plan caps how many posts can be waiting (10 per channel at once), while Typefully's caps how many you publish in a month (10). If you post a Note a day, Buffer's free plan keeps working as long as you keep your queue short; Typefully's free plan runs out after about ten days."),
+      ("How the costs add up", "Buffer charges per channel, so Substack plus LinkedIn on Essentials is about $10/mo billed yearly. Typefully's Creator plan is a flat $99 a year (about $8.25/mo) for one social set. Compare the two at the number of channels you actually use: Buffer's cost grows with every channel you add, Typefully's Creator price doesn't."),
+      ("Neither replaces replying", "A scheduler helps you show up consistently, but much of the growth on Notes comes from replying to other writers, which you still do in Substack itself. Treat either tool as a way to free up time for that."),
+      ("Our pick", "For most Substack writers who also post elsewhere, Buffer: its free plan covers three channels and it reports subscribers per Note. Choose Typefully if X or LinkedIn is your main channel and you already like writing there. For every other option, including Substack-only batch schedulers, see our Substack Notes schedulers comparison."),
+    ],
+    sources=[
+      ("Buffer: Substack Notes scheduler (features and FAQ)", "https://buffer.com/substack"),
+      ("Buffer pricing", "https://buffer.com/pricing"),
+      ("Typefully changelog: Publish and Schedule Substack Notes", "https://typefully.com/changelog/substack-notes"),
+      ("Typefully Help Center: Publish and Cross-Post to Substack Notes", "https://support.typefully.com/en/articles/16124373-publish-and-cross-post-to-substack-notes"),
+      ("Typefully pricing", "https://typefully.com/pricing"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))
@@ -360,8 +387,8 @@ def free_tools():
 SCHED_SLUG = "/substack-notes-schedulers/"
 # (slug, batch queue?, how it publishes). Every claim checked 2026-10-24 on the cited sources / the tool's listing sources.
 SCHEDULERS = [
-  ("buffer", "Yes, plus every other social channel", "Buffer says it connects to Substack directly; Notes sit in the same calendar as your other channels."),
-  ("typefully", "Yes, alongside X, LinkedIn, Threads, Bluesky and Mastodon", "Substack is one of its supported publishing platforms."),
+  ("buffer", "Yes, plus every other social channel", "Buffer says it connects to Substack directly; Notes sit in the same calendar as your other channels. Free plan included (checked 2026-10-26)."),
+  ("typefully", "Yes, alongside X, LinkedIn, Threads, Bluesky and Mastodon", "You connect Substack in Typefully's settings by authorizing your account on Substack. Notes only (no long-form posts, no video), and included on the free plan (checked 2026-10-26)."),
   ("narrareach", "Yes", "Hands Notes to Substack's own scheduler rather than posting from a stored session."),
   ("subflowai", "Yes (up to 30 at once, visual calendar)", "Chrome extension that schedules Notes on Substack's servers through your logged-in session, so they publish with Chrome closed."),
   ("notesiq", "Weekly queue", "Chrome extension that publishes through Substack's composer in your logged-in session."),
@@ -385,7 +412,7 @@ def schedulers():
 <div class="prose">
 <h2>How to choose</h2>
 <ul>
-<li><strong>You post to X, LinkedIn or Threads too:</strong> a multi-platform scheduler saves the most time. {L('buffer')}'s free plan covers up to 3 channels, and {L('typefully')} suits writers who start on X.</li>
+<li><strong>You post to X, LinkedIn or Threads too:</strong> a multi-platform scheduler saves the most time. {L('buffer')}'s free plan covers up to 3 channels, and {L('typefully')} suits writers who start on X. Both free plans include Notes; see <a href="/compare/buffer-vs-typefully-substack-notes/">Buffer vs Typefully for Substack Notes</a>.</li>
 <li><strong>Substack is your whole world and you want to batch cheaply:</strong> {L('subflowai')} (about $1.17/mo on its 5-year plan) or {L('notesiq')} ($4.99 one time, but very new).</li>
 <li><strong>You want analytics and scheduling in one place:</strong> {L('notestack')} or {L('writestack')}. Both rank Notes by the subscribers they bring, not just likes.</li>
 <li><strong>You start from long-form posts and publish beyond Substack:</strong> {L('narrareach')} turns articles into Notes and cross-posts to other platforms.</li>

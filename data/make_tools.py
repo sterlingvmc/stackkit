@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -8,7 +8,8 @@ V3 = "2026-10-22"  # entries added or re-checked in the 2026-10-22 daily ops pas
 V4 = "2026-10-23"  # entries added or re-checked in the 2026-10-23 daily ops pass
 V5 = "2026-10-24"  # entries added or re-checked in the 2026-10-24 daily ops pass
 V6 = "2026-10-25"  # entries re-checked in the 2026-10-25 daily ops pass
-UPDATED = V6
+V7 = "2026-10-26"  # entries re-checked in the 2026-10-26 daily ops pass
+UPDATED = V7
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -118,15 +119,15 @@ add("NotesIQ","https://www.notesiq.app/","analytics",
 
 # ---------- Cross-posting & social ----------
 add("Typefully","https://typefully.com/","social",
- "Free (10 posts/mo); Creator $99/yr; Business $20 per social set/mo.",
+ "Free (10 posts/mo, 1 social set; Substack Notes included); Creator $99/yr (annual billing only); Business $18 per social set/mo billed yearly.",
  "X-first writers who also want to post to LinkedIn, Threads, Bluesky and Substack Notes",
- "A polished writing-first scheduler with Substack Notes support. The free plan is enough to test it.",
- pricing_source="official pricing page is JS-rendered; amounts from third-party pricing trackers checked Oct 2026", free_plan=True)
+ "A polished writing-first scheduler that now publishes and schedules Substack Notes on every plan, including free. It handles Notes only (no long-form posts, no video in Notes), and its paid analytics are for X, so it suits writers who start on X or LinkedIn more than Notes-first writers.",
+ pricing_source="official site (typefully.com/pricing, rendered page; Substack support per typefully.com/changelog/substack-notes and Typefully Help Center \"Publish and Cross-Post to Substack Notes\")", free_plan=True, verified=V7)
 add("Buffer","https://buffer.com/","social",
- "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly.",
+ "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly ($12 monthly).",
  "Scheduling Notes alongside every other social channel from one calendar",
  "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
- free_plan=True, verified=V2)
+ free_plan=True, verified=V7, pricing_source="official site (buffer.com/pricing and its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
 add("Hypefury","https://hypefury.com/","social",
  "From $6/mo (1 channel) to $19/mo (all channels); 7-day free trial.",
  "Automating evergreen reposts and growth on X",
@@ -156,20 +157,20 @@ add("Figma","https://www.figma.com/","design",
  "More power than most writers need. Pick it if you already know it or want pixel-level control.",
  free_plan=True, verified=V6)
 add("Kittl","https://www.kittl.com/","design",
- "Free plan; paid Pro, Expert and Max plans (see pricing page).",
+ "Free plan (personal use only); Pro $15/mo or $144/yr; Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD).",
  "Typography-heavy graphics and AI-assisted illustrations",
- "A stylish Canva alternative with great type tools. The free plan is for personal use only.",
- free_plan=True)
+ "A stylish Canva alternative with great type tools. The free plan is for personal use only; Pro adds a commercial license.",
+ free_plan=True, verified=V7, pricing_source="official site (kittl.com/pricing plan data and FAQ)")
 add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License.",
  "Free, high-quality photos for post headers",
  "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out.",
  free_plan=True)
 add("remove.bg","https://www.remove.bg/","design",
- "Free to try; paid plans for full-resolution output (see pricing page).",
+ "Free preview-size downloads (up to 0.25 megapixels) on remove.bg; full-resolution cutouts cost 1 credit each. Subscriptions from $9/mo for 40 credits ($8.10/mo billed yearly), or pay-as-you-go credits.",
  "One-click background removal for headshots and product images",
- "Fast and accurate. Now a Canva brand, and Canva Pro includes a background remover, so you may not need both.",
- free_plan=True)
+ "Fast and accurate, and the free preview size is often enough for a small inline image. Now a Canva brand, and Canva Pro includes a background remover, so you may not need both.",
+ free_plan=True, verified=V7, pricing_source="official site (remove.bg/pricing plan data and FAQ)")
 
 # ---------- Editing ----------
 add("Grammarly","https://www.grammarly.com/","editing",
@@ -188,10 +189,10 @@ add("ProWritingAid","https://prowritingaid.com/","editing",
  "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
  aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V4)
 add("LanguageTool","https://languagetool.org/","editing",
- "Free; Premium $24.90/mo monthly or $69.90/yr.",
+ "Free (up to 2,000 characters per text field); Premium $24.90/mo monthly, $49.90/quarter, $69.90/yr or $119.80 for 2 years.",
  "Multilingual writers and anyone who wants a Grammarly alternative",
  "Strong grammar checking across many languages, and much cheaper per year than monthly billing.",
- pricing_source="LanguageTool help center + third-party price tracker", free_plan=True)
+ pricing_source="official site (languagetool.org/premium, rendered page, USD incl. VAT)", free_plan=True, verified=V7)
 add("QuillBot","https://quillbot.com/","editing",
  "Free; Premium $19.95/mo or $99.95/yr.",
  "Paraphrasing, summarizing and quick rewrites",
@@ -208,7 +209,7 @@ add("Trello","https://trello.com/","planning",
  "Free (up to 10 collaborators); Standard $5/user/mo billed annually.",
  "A simple kanban for drafts moving from idea to published",
  "Simpler than Notion if you only need a board. Free is plenty for one writer.",
- free_plan=True)
+ free_plan=True, verified=V7, pricing_source="official site (trello.com/pricing; Standard is $6/user/mo billed monthly)")
 add("Obsidian","https://obsidian.md/","planning",
  "Free; optional Sync $4/mo and Publish $8/mo (billed annually).",
  "Building a personal knowledge base of notes, quotes and ideas",
@@ -279,10 +280,10 @@ add("Adobe Podcast","https://podcast.adobe.com/","audio",
  "Enhance Speech is impressive on the free tier. Check Adobe's current plans before relying on premium features.",
  pricing_source="official site; premium-plan details from third-party reports", free_plan=True)
 add("OpusClip","https://www.opus.pro/","audio",
- "Free (60 credits/mo); Starter $15/mo; Pro $14.50/mo billed annually.",
+ "Free (60 credits/mo); Starter $15/mo (monthly only, 150 credits); Pro $29/mo or $14.50/mo billed annually.",
  "Turning long videos or podcast episodes into short social clips",
  "Fast way to get shorts from long recordings. Review the AI's clip choices before posting.",
- aff=True, aff_url="https://www.opus.pro/affiliate", free_plan=True)
+ aff=True, aff_url="https://www.opus.pro/affiliate", free_plan=True, verified=V7, pricing_source="official site (opus.pro/pricing, US prices)")
 
 # ---------- Embeds & interactive ----------
 add("Tally","https://tally.so/","embeds",
