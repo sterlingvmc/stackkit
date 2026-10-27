@@ -104,6 +104,29 @@ COMPARISONS = [
       ("Typefully Help Center: Publish and Cross-Post to Substack Notes", "https://support.typefully.com/en/articles/16124373-publish-and-cross-post-to-substack-notes"),
       ("Typefully pricing", "https://typefully.com/pricing"),
     ]),
+  dict(slug="claude-vs-sudowrite-substack-fiction", a="claude", b="sudowrite", checked="2026-10-27",
+    title="Claude vs Sudowrite for Substack fiction writers: general AI assistant or fiction tool?",
+    h1="Claude vs Sudowrite for writing serialized fiction on Substack",
+    desc="Claude vs Sudowrite for Substack writers who publish fiction: compare free options, monthly pricing, fiction-specific features and which one fits serialized stories versus essays.",
+    short="Pick Sudowrite if your Substack is serialized fiction and you want a tool built around story work: its plans include style matching and continuity across a series, with a free trial and no card. Pick Claude if you write essays alongside fiction or mainly want feedback on long drafts: it has a free plan and Pro is $20/mo ($17/mo billed annually). Either way, keep the published prose your own.",
+    rows=[
+      ("What it is", "A general-purpose AI assistant for chat, drafting, critique and research.", "An AI writing tool built specifically for creative writing and fiction."),
+      ("Free option", "Free plan for everyone.", "Free trial, no credit card required. No ongoing free plan."),
+      ("Paid plans", "Pro $20/mo billed monthly, or $17/mo with annual billing ($200 up front). Max from $100/mo.", "Hobby & Student $10/mo, Professional $22/mo, Max $44/mo, credit-based. Yearly billing is advertised as up to 50% off."),
+      ("Fiction features", "No fiction-specific features listed on its pricing page; you guide it with your own prompts.", "Write, Rewrite, Describe and Expand tools, style matching, continuity across a series, and Sudowrite's own fiction models (Muse and Ballad)."),
+      ("Feedback on drafts", "Strong at critiquing long drafts and structure.", "Professional and Max list developmental edits, line edits and beta reads."),
+      ("Best for", "Essayists, mixed newsletters, and writers who want one assistant for everything.", "Writers publishing chapters or serialized stories who want a dedicated fiction workspace."),
+    ],
+    body=[
+      ("Start with what you publish", "If most of your Substack is essays, analysis or how-to posts, Sudowrite's fiction tools won't help much and Claude's free plan is the better place to start. If you publish a chapter a week, Sudowrite's series continuity and style matching are built for exactly that job."),
+      ("How the costs compare", "Sudowrite's entry plan is $10/mo, half of Claude Pro's monthly price, but it's credit-based, so heavy use can push you to a higher tier. Claude's free plan costs nothing to try for feedback; Sudowrite lets you trial without a card."),
+      ("Keep your voice", "Readers subscribe for your writing. Use either tool for brainstorming, critique and getting unstuck, and edit anything it suggests until it sounds like you before it goes out to subscribers."),
+      ("Our pick", "Serialized fiction on Substack: Sudowrite. Everything else, or a mix of fiction and essays: Claude. For more options, see the AI Writing & Research category."),
+    ],
+    sources=[
+      ("Claude pricing", "https://claude.com/pricing"),
+      ("Sudowrite pricing", "https://sudowrite.com/pricing"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

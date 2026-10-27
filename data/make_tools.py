@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -9,7 +9,8 @@ V4 = "2026-10-23"  # entries added or re-checked in the 2026-10-23 daily ops pas
 V5 = "2026-10-24"  # entries added or re-checked in the 2026-10-24 daily ops pass
 V6 = "2026-10-25"  # entries re-checked in the 2026-10-25 daily ops pass
 V7 = "2026-10-26"  # entries re-checked in the 2026-10-26 daily ops pass
-UPDATED = V7
+V8 = "2026-10-27"  # entries added or re-checked in the 2026-10-27 daily ops pass
+UPDATED = V8
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -166,6 +167,12 @@ add("Unsplash","https://unsplash.com/","design",
  "Free, high-quality photos for post headers",
  "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out.",
  free_plan=True)
+add("Excalidraw","https://excalidraw.com/","design",
+ "Free and open source (MIT license); optional Excalidraw+ at $6/user/mo with a 14-day free trial.",
+ "Quick hand-drawn-style diagrams and process sketches to drop into posts",
+ "The fastest way to turn a paragraph of explanation into a simple diagram: draw boxes and arrows, export a PNG, and add it to your post like any image. The free web app saves drawings in your browser's storage, which can be cleared, so save a file of anything you'll want to edit later.",
+ free_plan=True, verified=V8, pricing_source="official site (plus.excalidraw.com/pricing) + github.com/excalidraw/excalidraw README",
+ notes="Exports PNG, SVG and an open .excalidraw file. For Substack, add the exported PNG to your post as an image.")
 add("remove.bg","https://www.remove.bg/","design",
  "Free preview-size downloads (up to 0.25 megapixels) on remove.bg; full-resolution cutouts cost 1 credit each. Subscriptions from $9/mo for 40 credits ($8.10/mo billed yearly), or pay-as-you-go credits.",
  "One-click background removal for headshots and product images",
@@ -241,17 +248,17 @@ add("Claude","https://claude.ai/","ai",
  "Free; Pro $20/mo or $17/mo billed annually.",
  "Long-document feedback, structural edits and drafting help",
  "Particularly good at critiquing long drafts. The same caution about voice applies.",
- pricing_source="claude.com/pricing", free_plan=True)
+ pricing_source="claude.com/pricing (Pro: $17/mo with annual billing, $200 billed up front; $20 billed monthly; Max from $100/mo)", free_plan=True, verified=V8)
 add("Perplexity","https://www.perplexity.ai/","ai",
  "Free; Pro $20/mo.",
  "Quick research with cited sources",
  "Faster than a search engine for background research. Always click through and verify the citations.",
  pricing_source="Perplexity pricing hub + third-party price tracker", free_plan=True)
 add("Sudowrite","https://sudowrite.com/","ai",
- "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo; free trial.",
+ "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo (credit-based; yearly billing advertised as up to 50% off). Free trial, no credit card.",
  "Fiction writers publishing serialized stories",
- "Purpose-built for fiction. Not the right tool for essays or news-style newsletters.",
- free_plan=False)
+ "Purpose-built for fiction, with tools for matching your style and keeping continuity across a series. Not the right tool for essays or news-style newsletters.",
+ free_plan=False, verified=V8, pricing_source="official site (sudowrite.com/pricing; Max plan lists unused credits rolling over for 12 months)")
 
 # ---------- Audio, podcast & video ----------
 add("Descript","https://www.descript.com/","audio",

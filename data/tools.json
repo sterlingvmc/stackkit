@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-26",
+  "generated": "2026-10-27",
   "categories": [
     {
       "slug": "growth",
@@ -470,6 +470,22 @@
       "notes": null
     },
     {
+      "slug": "excalidraw",
+      "name": "Excalidraw",
+      "url": "https://excalidraw.com/",
+      "category": "design",
+      "pricing": "Free and open source (MIT license); optional Excalidraw+ at $6/user/mo with a 14-day free trial.",
+      "free_plan": true,
+      "pricing_source": "official site (plus.excalidraw.com/pricing) + github.com/excalidraw/excalidraw README",
+      "best_for": "Quick hand-drawn-style diagrams and process sketches to drop into posts",
+      "verdict": "The fastest way to turn a paragraph of explanation into a simple diagram: draw boxes and arrows, export a PNG, and add it to your post like any image. The free web app saves drawings in your browser's storage, which can be cleared, so save a file of anything you'll want to edit later.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-10-27",
+      "notes": "Exports PNG, SVG and an open .excalidraw file. For Substack, add the exported PNG to your post as an image."
+    },
+    {
       "slug": "remove-bg",
       "name": "remove.bg",
       "url": "https://www.remove.bg/",
@@ -684,13 +700,13 @@
       "category": "ai",
       "pricing": "Free; Pro $20/mo or $17/mo billed annually.",
       "free_plan": true,
-      "pricing_source": "claude.com/pricing",
+      "pricing_source": "claude.com/pricing (Pro: $17/mo with annual billing, $200 billed up front; $20 billed monthly; Max from $100/mo)",
       "best_for": "Long-document feedback, structural edits and drafting help",
       "verdict": "Particularly good at critiquing long drafts. The same caution about voice applies.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-27",
       "notes": null
     },
     {
@@ -714,15 +730,15 @@
       "name": "Sudowrite",
       "url": "https://sudowrite.com/",
       "category": "ai",
-      "pricing": "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo; free trial.",
+      "pricing": "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo (credit-based; yearly billing advertised as up to 50% off). Free trial, no credit card.",
       "free_plan": false,
-      "pricing_source": "official site",
+      "pricing_source": "official site (sudowrite.com/pricing; Max plan lists unused credits rolling over for 12 months)",
       "best_for": "Fiction writers publishing serialized stories",
-      "verdict": "Purpose-built for fiction. Not the right tool for essays or news-style newsletters.",
+      "verdict": "Purpose-built for fiction, with tools for matching your style and keeping continuity across a series. Not the right tool for essays or news-style newsletters.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-27",
       "notes": null
     },
     {
