@@ -127,6 +127,32 @@ COMPARISONS = [
       ("Claude pricing", "https://claude.com/pricing"),
       ("Sudowrite pricing", "https://sudowrite.com/pricing"),
     ]),
+  dict(slug="grammarly-vs-prowritingaid-substack", a="grammarly", b="prowritingaid", checked="2026-10-28",
+    title="Grammarly vs ProWritingAid for Substack writers: which editor fits your newsletter?",
+    h1="Grammarly vs ProWritingAid for Substack writers",
+    desc="Grammarly vs ProWritingAid for Substack writers: free-plan limits, Pro and Premium pricing ($12/mo vs from $10/mo billed yearly), browser extensions for the Substack editor, style reports and which to pick for essays or fiction.",
+    short="Pick Grammarly if you want quick, everywhere proofreading: its free browser extension checks spelling and grammar as you type on the web, and Pro (from $12/mo) adds full-sentence rewrites and tone adjustments. Pick ProWritingAid if you write long essays or serialized fiction and want deep style reports: Premium is $10/mo billed yearly ($120) or $30 monthly. Both browser extensions work on web pages, so either can check drafts in the Substack editor.",
+    rows=[
+      ("Best at", "Fast proofreading and tone as you type, across email, social and web apps.", "Deep line-editing reports (25+ on paid plans) for long-form and fiction."),
+      ("Free plan", "Spelling and grammar, tone detection and 100 AI prompts a month.", "Grammar, spelling and punctuation; each report runs on 500 words at a time, twice a day; 10 Rephrases a day."),
+      ("Paid plans", "Pro from $12/mo, with a free trial. Enterprise via sales.", "Premium $10/mo billed yearly ($120) or $30 monthly; Premium Pro $12/mo billed yearly ($144) or $36 monthly; lifetime options."),
+      ("What paid adds", "Full-sentence rewrites, tone adjustments, plagiarism and AI-text detection, 2,000 AI prompts a month.", "Unlimited reports and Rephrases on any length, custom style guide, Chapter Critique; Premium Pro adds live workshops and community."),
+      ("Works in the Substack editor", "Yes, through its browser extensions, which work across web apps.", "Yes, through its Chrome, Edge and Firefox extensions, which work on any web page."),
+      ("Refunds and trials", "Free trial on Pro, with an email reminder 2 days before it ends.", "3-day money-back guarantee on yearly and lifetime plans; no refunds on monthly plans."),
+    ],
+    body=[
+      ("Start free with either", "Most Substack writers only need a second pair of eyes for typos before hitting publish. Both free plans catch spelling and grammar. Grammarly's free extension does it as you type; ProWritingAid's free reports cap you at 500 words at a time, which is fine for a Note but tight for a full post."),
+      ("Essays and fiction: reports beat rewrites", "If your posts run long, ProWritingAid's reports on repetition, sentence length, pacing, dialogue tags and readability show patterns across a whole draft. That's more useful for a weekly essay or chapter than one-sentence fixes. Its fiction tools (Chapter Critique, Story Canvas) only matter if you publish stories."),
+      ("Keep your voice", "Grammarly Pro's full-sentence rewrites and tone adjustments can make every post sound the same. Readers subscribe for how you write, so accept suggestions one at a time and skip the ones that don't sound like you. The same goes for ProWritingAid's Rephrases."),
+      ("How the costs compare", "Paying monthly, Grammarly Pro starts at $12 against ProWritingAid Premium's $30. Paying yearly, ProWritingAid Premium works out to $10 a month ($120). Check Grammarly's checkout for its billing options, since its plans page shows the Pro price without a yearly total."),
+      ("Our pick", "For most Substack writers, start with Grammarly's free extension for everyday proofreading. Add ProWritingAid Premium (billed yearly) if you publish long essays or serialized fiction and want a deeper edit before each post. For other options, including the free Hemingway web editor and LanguageTool, see the Editing & Proofreading category."),
+    ],
+    sources=[
+      ("Grammarly plans and pricing", "https://www.grammarly.com/plans"),
+      ("Grammarly for your browser", "https://www.grammarly.com/browser"),
+      ("ProWritingAid pricing (plans, limits, refund policy)", "https://prowritingaid.com/pricing"),
+      ("ProWritingAid integrations (browser extensions)", "https://prowritingaid.com/integrations"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))
@@ -417,6 +443,7 @@ SCHEDULERS = [
   ("notesiq", "Weekly queue", "Chrome extension that publishes through Substack's composer in your logged-in session."),
   ("notestack", "Yes (Starter: 7 new scheduled Notes a month; Pro: unlimited)", "Chrome extension that auto-publishes through your logged-in session."),
   ("writestack", "Yes (bulk scheduling, reorderable queue, calendar)", "Chromium browser extension acting in your logged-in session."),
+  ("stackbuddy", "Yes (posting slots fill automatically; free plan keeps scheduling)", "Chrome extension syncs each Note into Substack's own scheduler, so Substack publishes it; Chrome only needs to be open while syncing (checked 2026-10-28)."),
   ("stacksweller", "Yes (cloud queue)", "Cloud service that holds your Substack session so the queue runs with your laptop closed."),
 ]
 def schedulers():

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-27",
+  "generated": "2026-10-28",
   "categories": [
     {
       "slug": "growth",
@@ -118,6 +118,22 @@
       "notes": null
     },
     {
+      "slug": "stackbuddy",
+      "name": "StackBuddy",
+      "url": "https://stackbuddy.io/",
+      "category": "growth",
+      "pricing": "Free plan (scheduling and creator network free forever); Pro $12.50/mo billed yearly or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
+      "free_plan": true,
+      "pricing_source": "official site (stackbuddy.io FAQ and pricing section) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
+      "best_for": "Batch-scheduling Notes into posting slots and finding other writers to cross-promote with",
+      "verdict": "A Notes scheduler with a free plan that keeps scheduling, and its Chrome extension hands each Note to Substack's own scheduler, so Notes publish from Substack's servers with your computer off. Pro adds voice-matching AI drafts, analytics and LinkedIn cross-posting. Small one-developer tool; the extension acts in your logged-in Substack session and syncs your existing Notes to StackBuddy's dashboard, so read its privacy page first.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-28",
+      "notes": "Independent, not affiliated with Substack. Chrome needs to be open only while a Note syncs to Substack, not at publish time."
+    },
+    {
       "slug": "stacksweller",
       "name": "StackSweller",
       "url": "https://stacksweller.com/",
@@ -218,15 +234,15 @@
       "name": "Bitly",
       "url": "https://bitly.com/",
       "category": "analytics",
-      "pricing": "Free (with ads); Core $10/mo (annual only); Growth $29/mo; Premium $199/mo (annual pricing).",
+      "pricing": "Free (with ads; 5 links and 2 QR Codes a month); Core $10/mo (annual only, $120/yr); Growth $29/mo ($348/yr); Premium $199/mo ($2,388/yr).",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (bitly.com/pages/pricing)",
       "best_for": "Tracking clicks on links you share to social, podcasts and print",
       "verdict": "Handy for knowing which channel sends readers. The free tier is limited; many writers can get by with UTM tags plus Google Analytics.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-28",
       "notes": null
     },
     {
@@ -236,13 +252,13 @@
       "category": "analytics",
       "pricing": "From $9/mo (Starter, 10k monthly pageviews); Growth $14/mo; Business $19/mo. Free trial.",
       "free_plan": false,
-      "pricing_source": "official site",
+      "pricing_source": "official site (plausible.io pricing section)",
       "best_for": "Privacy-friendly analytics for your own website or landing page",
       "verdict": "Excellent lightweight analytics, but you can't install it on a substack.com publication. Use it on a personal site that funnels readers to Substack.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-28",
       "notes": null
     },
     {
@@ -362,15 +378,15 @@
       "name": "Hypefury",
       "url": "https://hypefury.com/",
       "category": "social",
-      "pricing": "From $6/mo (1 channel) to $19/mo (all channels); 7-day free trial.",
+      "pricing": "Flexible $6/mo for 1 channel (plus $6/mo per extra channel); Full $19/mo for all channels; 7-day free trial, no card. No free plan.",
       "free_plan": false,
-      "pricing_source": "official site",
-      "best_for": "Automating evergreen reposts and growth on X",
-      "verdict": "Strong automation for X-heavy writers. Less relevant if X isn't where your readers are.",
+      "pricing_source": "official site (hypefury.com/pricing, including FAQ: \"Hypefury no longer supports X\")",
+      "best_for": "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram and TikTok",
+      "verdict": "Hypefury no longer supports X, so it's now a scheduler for Bluesky, Threads, LinkedIn, Instagram and TikTok, with auto first comments (Autoplugs) and an engagement builder. Substack Notes isn't on its channel list, so pair it with Substack's own scheduler.",
       "affiliate_program": "yes",
       "affiliate_url": "https://hypefury.com/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-28",
       "notes": null
     },
     {
@@ -506,15 +522,15 @@
       "name": "Grammarly",
       "url": "https://www.grammarly.com/",
       "category": "editing",
-      "pricing": "Free; Pro from $12/mo.",
+      "pricing": "Free (includes 100 AI prompts/mo); Pro from $12/mo with a free trial (2,000 AI prompts/mo, full-sentence rewrites, tone adjustments, plagiarism and AI-text detection).",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (grammarly.com/plans) + grammarly.com/browser",
       "best_for": "Catching typos and clarity issues everywhere you write, including the Substack editor",
       "verdict": "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
       "affiliate_program": "yes",
       "affiliate_url": "https://www.grammarly.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-28",
       "notes": null
     },
     {
@@ -538,15 +554,15 @@
       "name": "ProWritingAid",
       "url": "https://prowritingaid.com/",
       "category": "editing",
-      "pricing": "Free; Premium $10/mo billed yearly ($120) or $30/mo monthly.",
+      "pricing": "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (prowritingaid.com/pricing) + prowritingaid.com/integrations",
       "best_for": "Deep style reports for long-form and fiction writers",
       "verdict": "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
       "affiliate_program": "yes",
       "affiliate_url": "https://prowritingaid.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-10-28",
       "notes": null
     },
     {
@@ -628,6 +644,22 @@
       "substack_specific": false,
       "verified_on": "2026-10-22",
       "notes": null
+    },
+    {
+      "slug": "persistwise",
+      "name": "Persistwise",
+      "url": "https://persistwise.com/",
+      "category": "planning",
+      "pricing": "Keep plan: 30 days free (no card), then $40/yr.",
+      "free_plan": false,
+      "pricing_source": "official site (persistwise.com) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
+      "best_for": "Keeping an independent backup of every post you publish on Substack",
+      "verdict": "Set-and-forget insurance for your archive: give it your Substack RSS feed and every new post gets a public Wayback Machine snapshot, a pinned IPFS copy and a private copy it stores. Brand new (launched Oct 26, 2026) and honest about its limits: each post is captured once, so later edits aren't saved, copies are HTML without images, and there's no export button yet. Keep using Substack's own export for a full backup.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-10-28",
+      "notes": "Made by Nine Point Labs; independent, not affiliated with Substack. Wayback and IPFS copies are public, so only add feeds for writing you're happy to keep public."
     },
     {
       "slug": "readwise",
@@ -970,15 +1002,15 @@
       "name": "Ko-fi",
       "url": "https://ko-fi.com/",
       "category": "monetization",
-      "pricing": "Free with a 5% platform fee on some features; Ko-fi Gold $12/mo for 0% platform fee.",
+      "pricing": "Free to join, no monthly cost. Ko-fi Free: 0% on one-off tips and Goals, 5% on monthly tips, memberships, shop and commissions. Standard: 5% on everything, plus extras like supporter-only content and scheduled posts. PayPal/Stripe fees (usually around 3% + $0.30) apply on top. Ko-fi Gold (0% on everything for a fixed monthly fee) is still offered; price not listed on its page.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (help.ko-fi.com: Does Ko-fi take a fee? + ko-fi.com/gold)",
       "best_for": "One-off tips from readers who won't commit to a paid subscription",
-      "verdict": "A low-friction tip jar that complements paid subscriptions.",
+      "verdict": "A low-friction tip jar that complements paid subscriptions. One-off tips are fee-free on Ko-fi Free, but new accounts start in Standard mode (5% on tips), so switch it off in Settings > Payment if tips are all you need.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-28",
       "notes": null
     }
   ]

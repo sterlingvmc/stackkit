@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -10,7 +10,8 @@ V5 = "2026-10-24"  # entries added or re-checked in the 2026-10-24 daily ops pas
 V6 = "2026-10-25"  # entries re-checked in the 2026-10-25 daily ops pass
 V7 = "2026-10-26"  # entries re-checked in the 2026-10-26 daily ops pass
 V8 = "2026-10-27"  # entries added or re-checked in the 2026-10-27 daily ops pass
-UPDATED = V8
+V9 = "2026-10-28"  # entries added or re-checked in the 2026-10-28 daily ops pass
+UPDATED = V9
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -40,6 +41,13 @@ add("Narrareach","https://www.narrareach.com/","growth",
  "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
  "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
  substack_specific=True, free_plan=False, verified=V3)
+add("StackBuddy","https://stackbuddy.io/","growth",
+ "Free plan (scheduling and creator network free forever); Pro $12.50/mo billed yearly or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
+ "Batch-scheduling Notes into posting slots and finding other writers to cross-promote with",
+ "A Notes scheduler with a free plan that keeps scheduling, and its Chrome extension hands each Note to Substack's own scheduler, so Notes publish from Substack's servers with your computer off. Pro adds voice-matching AI drafts, analytics and LinkedIn cross-posting. Small one-developer tool; the extension acts in your logged-in Substack session and syncs your existing Notes to StackBuddy's dashboard, so read its privacy page first.",
+ substack_specific=True, free_plan=True, verified=V9,
+ pricing_source="official site (stackbuddy.io FAQ and pricing section) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
+ notes="Independent, not affiliated with Substack. Chrome needs to be open only while a Note syncs to Substack, not at publish time.")
 add("StackSweller","https://stacksweller.com/","growth",
  "Pro $39/mo, or $25/mo billed yearly ($250/yr).",
  "A simple cloud queue for batch-scheduling Substack Notes",
@@ -76,15 +84,15 @@ add("Subshack","https://www.subshack.pro/","analytics",
  "A free, measurement-first browser extension (Chrome and Firefox) that never posts Notes or articles for you. Optional welcome-message sending is off unless you turn it on, with daily limits. New and small, so expect rough edges.",
  substack_specific=True, free_plan=True, verified=V5)
 add("Bitly","https://bitly.com/","analytics",
- "Free (with ads); Core $10/mo (annual only); Growth $29/mo; Premium $199/mo (annual pricing).",
+ "Free (with ads; 5 links and 2 QR Codes a month); Core $10/mo (annual only, $120/yr); Growth $29/mo ($348/yr); Premium $199/mo ($2,388/yr).",
  "Tracking clicks on links you share to social, podcasts and print",
  "Handy for knowing which channel sends readers. The free tier is limited; many writers can get by with UTM tags plus Google Analytics.",
- free_plan=True, verified=V2)
+ free_plan=True, verified=V9, pricing_source="official site (bitly.com/pages/pricing)")
 add("Plausible","https://plausible.io/","analytics",
  "From $9/mo (Starter, 10k monthly pageviews); Growth $14/mo; Business $19/mo. Free trial.",
  "Privacy-friendly analytics for your own website or landing page",
  "Excellent lightweight analytics, but you can't install it on a substack.com publication. Use it on a personal site that funnels readers to Substack.",
- free_plan=False, verified=V2)
+ free_plan=False, verified=V9, pricing_source="official site (plausible.io pricing section)")
 
 add("StackStats","https://stackstats.app/","analytics",
  "1-year license $39 (renew updates for $29/yr; the app keeps working if you don't); Lifetime $79 early-adopter price (listed down from $129). One-time payments, no subscription; 14-day refund.",
@@ -130,10 +138,10 @@ add("Buffer","https://buffer.com/","social",
  "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
  free_plan=True, verified=V7, pricing_source="official site (buffer.com/pricing and its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
 add("Hypefury","https://hypefury.com/","social",
- "From $6/mo (1 channel) to $19/mo (all channels); 7-day free trial.",
- "Automating evergreen reposts and growth on X",
- "Strong automation for X-heavy writers. Less relevant if X isn't where your readers are.",
- aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False, verified=V2)
+ "Flexible $6/mo for 1 channel (plus $6/mo per extra channel); Full $19/mo for all channels; 7-day free trial, no card. No free plan.",
+ "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram and TikTok",
+ "Hypefury no longer supports X, so it's now a scheduler for Bluesky, Threads, LinkedIn, Instagram and TikTok, with auto first comments (Autoplugs) and an engagement builder. Substack Notes isn't on its channel list, so pair it with Substack's own scheduler.",
+ aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False, verified=V9, pricing_source="official site (hypefury.com/pricing, including FAQ: \"Hypefury no longer supports X\")")
 add("Taplio","https://taplio.com/","social",
  "Starter $39/mo; Growth $69/mo; Pro $199/mo; 7-day free trial.",
  "Writers growing a professional audience on LinkedIn",
@@ -181,20 +189,20 @@ add("remove.bg","https://www.remove.bg/","design",
 
 # ---------- Editing ----------
 add("Grammarly","https://www.grammarly.com/","editing",
- "Free; Pro from $12/mo.",
+ "Free (includes 100 AI prompts/mo); Pro from $12/mo with a free trial (2,000 AI prompts/mo, full-sentence rewrites, tone adjustments, plagiarism and AI-text detection).",
  "Catching typos and clarity issues everywhere you write, including the Substack editor",
  "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
- aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V2)
+ aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V9, pricing_source="official site (grammarly.com/plans) + grammarly.com/browser")
 add("Hemingway Editor","https://hemingwayapp.com/","editing",
  "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features).",
  "Making dense posts easier to read",
  "The free web version does the core job (highlighting long and passive sentences). Most writers don't need Plus.",
  free_plan=True, verified=V4, pricing_source="official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)")
 add("ProWritingAid","https://prowritingaid.com/","editing",
- "Free; Premium $10/mo billed yearly ($120) or $30/mo monthly.",
+ "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
  "Deep style reports for long-form and fiction writers",
  "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
- aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V4)
+ aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V9, pricing_source="official site (prowritingaid.com/pricing) + prowritingaid.com/integrations")
 add("LanguageTool","https://languagetool.org/","editing",
  "Free (up to 2,000 characters per text field); Premium $24.90/mo monthly, $49.90/quarter, $69.90/yr or $119.80 for 2 years.",
  "Multilingual writers and anyone who wants a Grammarly alternative",
@@ -222,6 +230,13 @@ add("Obsidian","https://obsidian.md/","planning",
  "Building a personal knowledge base of notes, quotes and ideas",
  "Great for writers who think in linked notes. Your files stay local in Markdown.",
  free_plan=True, verified=V3)
+add("Persistwise","https://persistwise.com/","planning",
+ "Keep plan: 30 days free (no card), then $40/yr.",
+ "Keeping an independent backup of every post you publish on Substack",
+ "Set-and-forget insurance for your archive: give it your Substack RSS feed and every new post gets a public Wayback Machine snapshot, a pinned IPFS copy and a private copy it stores. Brand new (launched Oct 26, 2026) and honest about its limits: each post is captured once, so later edits aren't saved, copies are HTML without images, and there's no export button yet. Keep using Substack's own export for a full backup.",
+ free_plan=False, verified=V9,
+ pricing_source="official site (persistwise.com) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
+ notes="Made by Nine Point Labs; independent, not affiliated with Substack. Wayback and IPFS copies are public, so only add feeds for writing you're happy to keep public.")
 add("Readwise","https://readwise.io/","planning",
  "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
  "Collecting highlights from books and articles to feed your writing",
@@ -336,10 +351,10 @@ add("Gumroad","https://gumroad.com/","monetization",
  "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost.",
  free_plan=True, verified=V2)
 add("Ko-fi","https://ko-fi.com/","monetization",
- "Free with a 5% platform fee on some features; Ko-fi Gold $12/mo for 0% platform fee.",
+ "Free to join, no monthly cost. Ko-fi Free: 0% on one-off tips and Goals, 5% on monthly tips, memberships, shop and commissions. Standard: 5% on everything, plus extras like supporter-only content and scheduled posts. PayPal/Stripe fees (usually around 3% + $0.30) apply on top. Ko-fi Gold (0% on everything for a fixed monthly fee) is still offered; price not listed on its page.",
  "One-off tips from readers who won't commit to a paid subscription",
- "A low-friction tip jar that complements paid subscriptions.",
- free_plan=True, verified=V2)
+ "A low-friction tip jar that complements paid subscriptions. One-off tips are fee-free on Ko-fi Free, but new accounts start in Standard mode (5% on tips), so switch it off in Settings > Payment if tips are all you need.",
+ free_plan=True, verified=V9, pricing_source="official site (help.ko-fi.com: Does Ko-fi take a fee? + ko-fi.com/gold)")
 
 CATS = [
  dict(slug="growth",name="Growth & Notes",desc="Referral networks, recommendation swaps, signup embeds and Substack Notes tools that bring in new subscribers."),
