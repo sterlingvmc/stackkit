@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28",
+  "generated": "2026-10-29",
   "categories": [
     {
       "slug": "growth",
@@ -194,7 +194,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-29",
       "notes": null
     },
     {
@@ -434,7 +434,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.canva.com/affiliates/",
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-29",
       "notes": "Affiliate: Canva Help Center page 'Become a Canva affiliate through the Canvassador Program'."
     },
     {
@@ -690,7 +690,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-29",
       "notes": null
     },
     {
@@ -714,15 +714,15 @@
       "name": "ChatGPT",
       "url": "https://chatgpt.com/",
       "category": "ai",
-      "pricing": "Free; Plus $20/mo.",
+      "pricing": "Free; Go $8/mo (may include ads); Plus $20/mo; Pro from $100/mo. Monthly billing only for individual plans.",
       "free_plan": true,
-      "pricing_source": "OpenAI help docs",
+      "pricing_source": "chatgpt.com/pricing (plans and features; individual plans billed monthly) + OpenAI Help Center (Plus $20/mo) + OpenAI Go launch post (US $8/mo)",
       "best_for": "Brainstorming angles, outlines, headlines and research summaries",
       "verdict": "A versatile thinking partner. Use it for ideas and edits rather than finished prose your readers will recognize as generic.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-29",
       "notes": null
     },
     {
@@ -746,15 +746,15 @@
       "name": "Perplexity",
       "url": "https://www.perplexity.ai/",
       "category": "ai",
-      "pricing": "Free; Pro $20/mo.",
+      "pricing": "Free; Pro $20/mo, or $17/mo billed annually ($200/yr); Max $200/mo or $167/mo billed annually.",
       "free_plan": true,
-      "pricing_source": "Perplexity pricing hub + third-party price tracker",
+      "pricing_source": "perplexity.ai/hub/pricing and /pro (annual prices) + Perplexity Help Center (monthly and yearly prices)",
       "best_for": "Quick research with cited sources",
       "verdict": "Faster than a search engine for background research. Always click through and verify the citations.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-29",
       "notes": null
     },
     {
@@ -834,7 +834,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-29",
       "notes": null
     },
     {

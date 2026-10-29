@@ -153,6 +153,33 @@ COMPARISONS = [
       ("ProWritingAid pricing (plans, limits, refund policy)", "https://prowritingaid.com/pricing"),
       ("ProWritingAid integrations (browser extensions)", "https://prowritingaid.com/integrations"),
     ]),
+  dict(slug="chatgpt-vs-perplexity-substack-research", a="chatgpt", b="perplexity", checked="2026-10-29",
+    title="ChatGPT vs Perplexity for Substack research: which AI helps you write better posts?",
+    h1="ChatGPT vs Perplexity for Substack research",
+    desc="ChatGPT vs Perplexity for Substack writers: free plans, paid pricing (ChatGPT Go $8/mo and Plus $20/mo vs Perplexity Pro $20/mo or $17/mo billed annually), citations, deep research and which to use for brainstorming versus fact-finding.",
+    short="Pick Perplexity when you need facts you can check: every answer comes with citations, and the free plan covers light research. Pick ChatGPT when you want a brainstorming and editing partner for angles, outlines and headlines; its free plan includes unlimited everyday text chats, Go is $8/mo and Plus is $20/mo. Perplexity Pro is $20/mo, or $17/mo billed annually.",
+    rows=[
+      ("Best at", "Brainstorming angles, outlines, headlines and feedback on drafts.", "Research answers with citations you can click through and verify."),
+      ("Free plan", "Unlimited everyday text chats, with limited uploads, image creation and deep research.", "Search with citations in every answer, for limited daily use with basic AI models."),
+      ("Paid plans", "Go $8/mo (may include ads); Plus $20/mo; Pro from $100/mo. Individual plans are billed monthly.", "Pro $20/mo or $17/mo billed annually ($200/yr); Max $200/mo or $167/mo billed annually."),
+      ("What paid adds", "Plus: advanced reasoning models, expanded deep research, memory, projects, scheduled tasks and custom GPTs.", "Pro: deep research, choice of AI models, more usage and memory, and premium data sources."),
+      ("Watch out for", "Answers can sound confident without a source, so check any fact before it goes in a post.", "Citations can still be misread or out of date, so open the source before you quote it."),
+    ],
+    body=[
+      ("Use each for what it's good at", "Most Substack writers get the most out of these as two different tools. Perplexity is for questions with a factual answer: a statistic, a date, what a study actually found. ChatGPT is for the thinking around the post: ten possible angles, a tighter outline, five headline options, or a blunt read on a draft."),
+      ("Always check the facts", "Readers trust a newsletter that gets details right. Perplexity puts citations in every answer, which makes checking quick, but open the source and read the line yourself before you quote it. Treat any fact from ChatGPT the same way, and look it up before it goes in a post."),
+      ("Keep your voice", "Neither tool should write the post for you. Readers subscribe for how you think and write, and AI-drafted prose tends to sound like everyone else's. Use them for research and structure, then write in your own words."),
+      ("How the costs compare", "Both free plans are enough to try the workflow. If you pay for one, ChatGPT Go at $8/mo is the cheapest paid step and Plus is $20/mo. Perplexity Pro is also $20/mo, or $17/mo if you pay for a year up front. ChatGPT's individual plans are billed monthly only."),
+      ("Our pick", "Start with both free plans: Perplexity for fact-finding and ChatGPT for brainstorming and edits. If you only pay for one, pick the job you do most. Writers who publish researched, data-heavy posts get more from Perplexity Pro; writers who mostly need help shaping ideas get more from ChatGPT. For long-draft feedback, also see Claude in the AI Writing & Research category."),
+    ],
+    sources=[
+      ("ChatGPT plans and pricing", "https://chatgpt.com/pricing"),
+      ("What is ChatGPT Plus? (OpenAI Help Center)", "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"),
+      ("Introducing ChatGPT Go (OpenAI)", "https://openai.com/index/introducing-chatgpt-go/"),
+      ("Perplexity pricing", "https://www.perplexity.ai/hub/pricing"),
+      ("Perplexity Pro", "https://www.perplexity.ai/pro"),
+      ("Perplexity plan prices (Perplexity Help Center)", "https://www.perplexity.ai/help-center/pt-BR/articles/12167980-como-usar-o-conector-para-slack"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

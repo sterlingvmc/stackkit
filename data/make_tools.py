@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -11,7 +11,8 @@ V6 = "2026-10-25"  # entries re-checked in the 2026-10-25 daily ops pass
 V7 = "2026-10-26"  # entries re-checked in the 2026-10-26 daily ops pass
 V8 = "2026-10-27"  # entries added or re-checked in the 2026-10-27 daily ops pass
 V9 = "2026-10-28"  # entries added or re-checked in the 2026-10-28 daily ops pass
-UPDATED = V9
+V10 = "2026-10-29"  # entries re-checked in the 2026-10-29 daily ops pass
+UPDATED = V10
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -71,7 +72,7 @@ add("Google Analytics","https://analytics.google.com/","analytics",
  "Free.",
  "Seeing where your Substack traffic comes from (Substack lets you add a GA measurement ID)",
  "Free and worth connecting on day one for referral sources. Overkill for most writers beyond the acquisition reports.",
- free_plan=True)
+ free_plan=True, verified=V10)
 add("Google Search Console","https://search.google.com/search-console/about","analytics",
  "Free.",
  "Seeing which Google searches bring readers to your Substack and whether your posts are indexed",
@@ -158,7 +159,7 @@ add("Canva","https://www.canva.com/","design",
  "Free; Pro US$144/yr for one person (before tax).",
  "Header images, social graphics, Notes images and simple brand kits",
  "The default design tool for newsletter writers. The free plan covers most needs.",
- aff=True, aff_url="https://www.canva.com/affiliates/", free_plan=True,
+ aff=True, aff_url="https://www.canva.com/affiliates/", free_plan=True, verified=V10,
  notes="Affiliate: Canva Help Center page 'Become a Canva affiliate through the Canvassador Program'.")
 add("Figma","https://www.figma.com/","design",
  "Free Starter; Professional full seat $16/mo.",
@@ -246,7 +247,7 @@ add("Google Trends","https://trends.google.com/","planning",
  "Free.",
  "Checking whether a topic is rising before you write about it",
  "A quick, free sanity check for timely topics and post titles.",
- free_plan=True)
+ free_plan=True, verified=V10)
 add("Zapier","https://zapier.com/","planning",
  "Free (100 tasks/mo, two-step Zaps); Professional from $19.99/mo; Team from $69/mo.",
  "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",
@@ -255,20 +256,20 @@ add("Zapier","https://zapier.com/","planning",
 
 # ---------- AI writing & research ----------
 add("ChatGPT","https://chatgpt.com/","ai",
- "Free; Plus $20/mo.",
+ "Free; Go $8/mo (may include ads); Plus $20/mo; Pro from $100/mo. Monthly billing only for individual plans.",
  "Brainstorming angles, outlines, headlines and research summaries",
  "A versatile thinking partner. Use it for ideas and edits rather than finished prose your readers will recognize as generic.",
- pricing_source="OpenAI help docs", free_plan=True)
+ pricing_source="chatgpt.com/pricing (plans and features; individual plans billed monthly) + OpenAI Help Center (Plus $20/mo) + OpenAI Go launch post (US $8/mo)", free_plan=True, verified=V10)
 add("Claude","https://claude.ai/","ai",
  "Free; Pro $20/mo or $17/mo billed annually.",
  "Long-document feedback, structural edits and drafting help",
  "Particularly good at critiquing long drafts. The same caution about voice applies.",
  pricing_source="claude.com/pricing (Pro: $17/mo with annual billing, $200 billed up front; $20 billed monthly; Max from $100/mo)", free_plan=True, verified=V8)
 add("Perplexity","https://www.perplexity.ai/","ai",
- "Free; Pro $20/mo.",
+ "Free; Pro $20/mo, or $17/mo billed annually ($200/yr); Max $200/mo or $167/mo billed annually.",
  "Quick research with cited sources",
  "Faster than a search engine for background research. Always click through and verify the citations.",
- pricing_source="Perplexity pricing hub + third-party price tracker", free_plan=True)
+ pricing_source="perplexity.ai/hub/pricing and /pro (annual prices) + Perplexity Help Center (monthly and yearly prices)", free_plan=True, verified=V10)
 add("Sudowrite","https://sudowrite.com/","ai",
  "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo (credit-based; yearly billing advertised as up to 50% off). Free trial, no credit card.",
  "Fiction writers publishing serialized stories",
@@ -295,7 +296,7 @@ add("Audacity","https://www.audacityteam.org/","audio",
  "Free and open source.",
  "Recording and cleaning up voiceovers on a zero budget",
  "Dated interface but free and capable for simple narration edits.",
- free_plan=True)
+ free_plan=True, verified=V10)
 add("Adobe Podcast","https://podcast.adobe.com/","audio",
  "Free tier; premium features require a paid Adobe plan (check site for current offer).",
  "Making laptop-mic recordings sound clean (Enhance Speech)",

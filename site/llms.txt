@@ -1,6 +1,6 @@
 # StackKit
 
-> StackKit is an independent, hand-checked directory of 60 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-10-28, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
+> StackKit is an independent, hand-checked directory of 60 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-10-29, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
 
 Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.
 
@@ -15,6 +15,7 @@ Monetization: labeled sponsored placements, paid fast-track review, and affiliat
 - [Buffer vs Typefully for Substack Notes: which multi-platform scheduler to use](https://stackkit.ink/compare/buffer-vs-typefully-substack-notes/): Both free plans schedule Substack Notes, so you can try either at no cost. Pick Buffer if Notes are one channel among many (including Instagram, TikTok or Facebook) or you want to see which Notes brought subscribers. Pick Typefully if you write for X or LinkedIn first and want a writing-focused editor. If you only post Notes, Substack's free built-in scheduler may be all you need.
 - [Claude vs Sudowrite for Substack fiction writers: general AI assistant or fiction tool?](https://stackkit.ink/compare/claude-vs-sudowrite-substack-fiction/): Pick Sudowrite if your Substack is serialized fiction and you want a tool built around story work: its plans include style matching and continuity across a series, with a free trial and no card. Pick Claude if you write essays alongside fiction or mainly want feedback on long drafts: it has a free plan and Pro is $20/mo ($17/mo billed annually). Either way, keep the published prose your own.
 - [Grammarly vs ProWritingAid for Substack writers: which editor fits your newsletter?](https://stackkit.ink/compare/grammarly-vs-prowritingaid-substack/): Pick Grammarly if you want quick, everywhere proofreading: its free browser extension checks spelling and grammar as you type on the web, and Pro (from $12/mo) adds full-sentence rewrites and tone adjustments. Pick ProWritingAid if you write long essays or serialized fiction and want deep style reports: Premium is $10/mo billed yearly ($120) or $30 monthly. Both browser extensions work on web pages, so either can check drafts in the Substack editor.
+- [ChatGPT vs Perplexity for Substack research: which AI helps you write better posts?](https://stackkit.ink/compare/chatgpt-vs-perplexity-substack-research/): Pick Perplexity when you need facts you can check: every answer comes with citations, and the free plan covers light research. Pick ChatGPT when you want a brainstorming and editing partner for angles, outlines and headlines; its free plan includes unlimited everyday text chats, Go is $8/mo and Plus is $20/mo. Perplexity Pro is $20/mo, or $17/mo billed annually.
 - [About & disclosures](https://stackkit.ink/about/)
 - [Feature your tool](https://stackkit.ink/feature/): sponsorship options
 - [Raw data (JSON)](https://stackkit.ink/data/tools.json)
@@ -80,9 +81,9 @@ Editorial calendars, idea capture, research and automations.
 
 ## AI Writing & Research
 AI assistants for brainstorming, outlining, critique and research. Use with care.
-- [ChatGPT](https://stackkit.ink/tools/chatgpt/) (https://chatgpt.com/): Brainstorming angles, outlines, headlines and research summaries. Pricing: Free; Plus $20/mo. Verdict: A versatile thinking partner. Use it for ideas and edits rather than finished prose your readers will recognize as generic.
+- [ChatGPT](https://stackkit.ink/tools/chatgpt/) (https://chatgpt.com/): Brainstorming angles, outlines, headlines and research summaries. Pricing: Free; Go $8/mo (may include ads); Plus $20/mo; Pro from $100/mo. Monthly billing only for individual plans. Verdict: A versatile thinking partner. Use it for ideas and edits rather than finished prose your readers will recognize as generic.
 - [Claude](https://stackkit.ink/tools/claude/) (https://claude.ai/): Long-document feedback, structural edits and drafting help. Pricing: Free; Pro $20/mo or $17/mo billed annually. Verdict: Particularly good at critiquing long drafts. The same caution about voice applies.
-- [Perplexity](https://stackkit.ink/tools/perplexity/) (https://www.perplexity.ai/): Quick research with cited sources. Pricing: Free; Pro $20/mo. Verdict: Faster than a search engine for background research. Always click through and verify the citations.
+- [Perplexity](https://stackkit.ink/tools/perplexity/) (https://www.perplexity.ai/): Quick research with cited sources. Pricing: Free; Pro $20/mo, or $17/mo billed annually ($200/yr); Max $200/mo or $167/mo billed annually. Verdict: Faster than a search engine for background research. Always click through and verify the citations.
 - [Sudowrite](https://stackkit.ink/tools/sudowrite/) (https://sudowrite.com/): Fiction writers publishing serialized stories. Pricing: Hobby & Student $10/mo; Professional $22/mo; Max $44/mo (credit-based; yearly billing advertised as up to 50% off). Free trial, no credit card. Verdict: Purpose-built for fiction, with tools for matching your style and keeping continuity across a series. Not the right tool for essays or news-style newsletters.
 
 ## Audio, Podcast & Video
