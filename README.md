@@ -10,8 +10,8 @@ python3 check_links.py              # crawl the local server for broken internal
 ```
 
 ## Layout
-- `data/make_tools.py` → `data/tools.json`: 60 verified tools (checked 2026-10-18; new and re-checked entries 2026-10-21 to 2026-10-28, see `verified_on`)
-- `build.py`: generator (home, 10 category pages, tool pages, comparison pages from `COMPARISONS`, free-tools hub (/free-substack-tools/), Notes schedulers hub (/substack-notes-schedulers/), feature, about, guide, 404, sitemap.xml, robots.txt, llms.txt)
+- `data/make_tools.py` → `data/tools.json`: 61 verified tools (checked 2026-10-18; new and re-checked entries 2026-10-21 to 2026-10-30, see `verified_on`)
+- `build.py`: generator (home, 10 category pages, tool pages, comparison pages from `COMPARISONS`, free-tools hub (/free-substack-tools/), Notes schedulers hub (/substack-notes-schedulers/), long-form guides (growth, SEO, recommendations & lists), feature, about, 404, sitemap.xml, robots.txt, llms.txt)
 - `src/assets/`: style.css, app.js (client-side search/filter)
 - `site/`: build output; deploy this folder
 

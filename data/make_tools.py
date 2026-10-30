@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -12,7 +12,8 @@ V7 = "2026-10-26"  # entries re-checked in the 2026-10-26 daily ops pass
 V8 = "2026-10-27"  # entries added or re-checked in the 2026-10-27 daily ops pass
 V9 = "2026-10-28"  # entries added or re-checked in the 2026-10-28 daily ops pass
 V10 = "2026-10-29"  # entries re-checked in the 2026-10-29 daily ops pass
-UPDATED = V10
+V11 = "2026-10-30"  # entries added or re-checked in the 2026-10-30 daily ops pass
+UPDATED = V11
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -33,10 +34,12 @@ add("Supascribe","https://supascribe.com/","growth",
  "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
  substack_specific=True, free_plan=True, verified=V5, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown)")
 add("WriteStack","https://www.writestack.io/","growth",
- "Hobbyist $23.99/mo ($239.88/yr); Standard $32.99/mo ($299.88/yr); Enterprise $99.99/mo ($959.88/yr); 7-day free trial.",
+ "Hobbyist $23.99/mo; Standard $32.99/mo; Enterprise $99.99/mo; every plan has a 7-day free trial. (Yearly prices aren't shown on its homepage.)",
  "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
- "The most complete Substack-only Notes suite. Pricey for a beginner, and publishing runs through a Chromium browser extension acting in your logged-in session.",
- aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False, verified=V2)
+ "The most complete Substack-only Notes suite: batch scheduling, voice-matched Note drafts, analytics on which Notes bring subscribers, a filtered notification inbox, and now an in-app writing coach (Quill) plus an MCP server so Claude or ChatGPT can draft and queue Notes. Pricey for a beginner, and publishing still runs through its browser extension acting in your logged-in session (you click Sync to send scheduled Notes).",
+ aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False, verified=V11,
+ pricing_source="official site (writestack.io homepage pricing section and writestack.io/llms.txt)",
+ notes="Independent; not affiliated with Substack. Also offers free standalone tools (posting-time heatmap, Notes roast, Note generator).")
 add("Narrareach","https://www.narrareach.com/","growth",
  "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
  "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
@@ -99,13 +102,13 @@ add("StackStats","https://stackstats.app/","analytics",
  "1-year license $39 (renew updates for $29/yr; the app keeps working if you don't); Lifetime $79 early-adopter price (listed down from $129). One-time payments, no subscription; 14-day refund.",
  "Writers who want churn risk, cohort retention, superfan and growth-source analysis from their own Substack exports",
  "Digs far deeper than Substack's dashboard and keeps your subscriber data on your own computer (Mac or Windows). It's a new one-developer app: installers aren't code-signed yet, and the optional Auto-Sync (beta) logs in to Substack for you, so manual CSV exports are the cautious route.",
- substack_specific=True, free_plan=False, verified=V2, pricing_source="official site (stackstats.app pricing section and FAQ)",
+ substack_specific=True, free_plan=False, verified=V11, pricing_source="official site (stackstats.app pricing section and FAQ)",
  notes="Independent; not affiliated with Substack. A read-only live demo is on its site.")
 add("Orbit","https://seeyourorbit.com/","analytics",
- "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack. No free plan or trial.",
+ "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack (What's Working Right Now on Substack). No free plan or trial.",
  "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
- "A thoughtful relationship tracker for Substack that never writes or replies for you, and it connects to Claude. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
- substack_specific=True, free_plan=False, verified=V2, pricing_source="official site (seeyourorbit.com FAQ)",
+ "A thoughtful relationship tracker for Substack that never writes or replies for you, and you can ask it questions from Claude or ChatGPT. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
+ substack_specific=True, free_plan=False, verified=V11, pricing_source="official site (seeyourorbit.com FAQ, \"As of October 2026\")",
  notes="Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack.")
 
 add("Substack Insights","https://substackinsights.com/","analytics",
@@ -172,10 +175,11 @@ add("Kittl","https://www.kittl.com/","design",
  "A stylish Canva alternative with great type tools. The free plan is for personal use only; Pro adds a commercial license.",
  free_plan=True, verified=V7, pricing_source="official site (kittl.com/pricing plan data and FAQ)")
 add("Unsplash","https://unsplash.com/","design",
- "Free to use under the Unsplash License.",
+ "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",
- "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out.",
- free_plan=True)
+ "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out. Credit the photographer anyway: it's appreciated, though not required.",
+ free_plan=True, verified=V11, pricing_source="official site (unsplash.com/license and unsplash.com/plus/license)",
+ notes="The license doesn't allow selling images without significant modification. Unsplash+ images have their own license (for example, no use in AI or machine-learning training).")
 add("Excalidraw","https://excalidraw.com/","design",
  "Free and open source (MIT license); optional Excalidraw+ at $6/user/mo with a 14-day free trial.",
  "Quick hand-drawn-style diagrams and process sketches to drop into posts",
@@ -210,10 +214,10 @@ add("LanguageTool","https://languagetool.org/","editing",
  "Strong grammar checking across many languages, and much cheaper per year than monthly billing.",
  pricing_source="official site (languagetool.org/premium, rendered page, USD incl. VAT)", free_plan=True, verified=V7)
 add("QuillBot","https://quillbot.com/","editing",
- "Free; Premium $19.95/mo or $99.95/yr.",
+ "Free (paraphrase up to 125 words at a time, 2 modes); Premium $19.95 monthly, $39.95 every 3 months, or $99.95/yr ($8.33/mo). Prices may vary by region.",
  "Paraphrasing, summarizing and quick rewrites",
  "Useful for tightening a stubborn paragraph. Don't lean on it for whole posts, because readers subscribe for your voice.",
- pricing_source="QuillBot help center", free_plan=True)
+ pricing_source="official site (quillbot.com Premium page and QuillBot FAQ \"How much is QuillBot Premium?\") + QuillBot help center (prices vary by region)", free_plan=True, verified=V11)
 
 # ---------- Planning, research & automation ----------
 add("Notion","https://www.notion.com/","planning",
@@ -238,6 +242,13 @@ add("Persistwise","https://persistwise.com/","planning",
  free_plan=False, verified=V9,
  pricing_source="official site (persistwise.com) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
  notes="Made by Nine Point Labs; independent, not affiliated with Substack. Wayback and IPFS copies are public, so only add feeds for writing you're happy to keep public.")
+add("newsletterapi","https://www.newsletterapi.io/","planning",
+ "Free (1 publication, recent posts from your public feed, limited API/MCP calls); Writer $9/mo (full archive from your export, MCP archive search, automatic backups); Pro $29/mo; Agency/Developer $79/mo. Priced per publication.",
+ "Letting Claude or ChatGPT search your whole Substack archive, and backing up every post with images to your own storage",
+ "A read-only API and MCP server built from your public RSS feed and the export you download yourself: no password, session cookie or browser extension. The Writer plan adds full-archive search for AI assistants and automatic Markdown/HTML backups (with images) to GitHub, Google Drive, Dropbox or S3. It's new and run by an unnamed independent team, and access is set up by email invite rather than instant signup, so try the free tier first.",
+ substack_specific=True, free_plan=True, verified=V11,
+ pricing_source="official site (newsletterapi.io and newsletterapi.io/pricing; \"You are never charged without confirming by email first\")",
+ notes="Independent; not affiliated with Substack. Read-only by design: it can't publish posts or Notes.")
 add("Readwise","https://readwise.io/","planning",
  "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
  "Collecting highlights from books and articles to feed your writing",
@@ -278,10 +289,10 @@ add("Sudowrite","https://sudowrite.com/","ai",
 
 # ---------- Audio, podcast & video ----------
 add("Descript","https://www.descript.com/","audio",
- "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly).",
+ "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly); Business $50/mo annually ($65 monthly).",
  "Editing podcast and video by editing the transcript",
  "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
- aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V2)
+ aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V11, pricing_source="official site (descript.com/pricing)")
 add("ElevenLabs","https://elevenlabs.io/","audio",
  "Free (10k credits/mo); Starter $6/mo; Creator $22/mo; higher tiers available.",
  "Producing audio versions of posts with natural-sounding AI voices",
@@ -298,10 +309,10 @@ add("Audacity","https://www.audacityteam.org/","audio",
  "Dated interface but free and capable for simple narration edits.",
  free_plan=True, verified=V10)
 add("Adobe Podcast","https://podcast.adobe.com/","audio",
- "Free tier; premium features require a paid Adobe plan (check site for current offer).",
- "Making laptop-mic recordings sound clean (Enhance Speech)",
- "Enhance Speech is impressive on the free tier. Check Adobe's current plans before relying on premium features.",
- pricing_source="official site; premium-plan details from third-party reports", free_plan=True)
+ "Free (Enhance Speech: audio only, one file at a time, up to 30 minutes and 500 MB per file, 1 hour a day; Studio: 2 project downloads a day). Since Aug 30, 2026 Adobe no longer sells Podcast Premium on its own: new customers get the premium features through Adobe's Firefly Pro plan (see Adobe for the current price).",
+ "Making laptop-mic recordings sound clean (Enhance Speech), for example a voiceover on a Substack post",
+ "Enhance Speech is impressive on the free tier and enough for reading a weekly post aloud. Premium features (video, bulk uploads, adjustable strength, 4 hours a day) now come bundled in Adobe's broader Firefly Pro plan, so most writers should stick with the free plan.",
+ pricing_source="official site (podcast.adobe.com/en/features) + Adobe Podcast Premium plan change FAQ (helpx.adobe.com, updated Jul 30, 2026)", free_plan=True, verified=V11)
 add("OpusClip","https://www.opus.pro/","audio",
  "Free (60 credits/mo); Starter $15/mo (monthly only, 150 credits); Pro $29/mo or $14.50/mo billed annually.",
  "Turning long videos or podcast episodes into short social clips",

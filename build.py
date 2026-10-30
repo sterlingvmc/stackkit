@@ -220,7 +220,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -273,7 +273,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -323,6 +323,7 @@ def tool(t):
 {''.join(f'<p><a href="/compare/{x["slug"]}/">Compare: {e(BY[x["a"]]["name"])} vs {e(BY[x["b"]]["name"])} for Substack →</a></p>' for x in COMPARISONS if t["slug"] in (x["a"], x["b"]))}
 <h2>Other {e(c['name'].lower())} tools</h2><div class="grid">{''.join(card(o) for o in rel)}</div>
 {f'<p><a href="/guides/substack-seo-guide/">How to use {e(t["name"])} in our Substack SEO guide →</a></p>' if t["slug"] in SEO_TOOLS else ''}
+{f'<p><a href="/guides/substack-recommendations-guide/">Where {e(t["name"])} fits in our Substack recommendations guide →</a></p>' if t["slug"] in REC_TOOLS else ''}
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
@@ -597,7 +598,7 @@ def seo_guide():
 <li><a href="https://support.substack.com/hc/en-us/articles/4407702258836-How-can-I-optimize-my-Substack-publication-for-SEO" target="_blank" rel="noopener">Substack Help Center: How can I optimize my Substack publication for SEO?</a> (Search Console availability)</li>
 <li><a href="https://codelikeagirl.substack.com/p/substack-seo-google-ai-search" target="_blank" rel="noopener">Code Like a Girl with Jenny Ouyang: Your Best Post is Hiding From Google</a> (search and AI answers, internal links, "sell narrow, talk broad", Bing Webmaster Tools, the changed-URL lesson)</li>
 </ul>
-<p class="small">Substack's settings change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>, <a href="/free-substack-tools/">free tools for Substack writers</a> and the <a href="/category/analytics/">analytics tools</a> category.</p></div></div>{SIGNUP}"""
+<p class="small">Substack's settings change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>, the <a href="/guides/substack-recommendations-guide/">Substack recommendations and lists guide</a>, <a href="/free-substack-tools/">free tools for Substack writers</a> and the <a href="/category/analytics/">analytics tools</a> category.</p></div></div>{SIGNUP}"""
     faq = [("Do Substack posts show up on Google?", "Yes. Public Substack posts can be indexed by search engines. Paywalled content can't be read by crawlers, so keep the posts you want found free and public."),
            ("How do I change the SEO title on a Substack post?", "Open the post's Settings, expand SEO options, and edit the SEO title. It only changes how the post appears in search results, not in email, the app or on your Substack site. Substack recommends keeping it under 60 characters."),
            ("Can I change a Substack post URL after publishing?", "You can, but Substack advises against it: editing the URL after publishing breaks every existing link to the post. Settle the URL before you publish."),
@@ -607,6 +608,130 @@ def seo_guide():
           {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
     write(SEO_SLUG, layout(SEO_SLUG, f"Substack SEO guide: get found on Google and AI search (2026) | {BRAND}",
         "How to do SEO on Substack in 2026: set SEO titles and descriptions, never change a published URL, link posts together, earn inbound links, keep evergreen posts free, and measure with Google Search Console.", body, ld, current=SEO_SLUG), "0.9")
+
+# ---------------- Substack recommendations & lists guide (long-form) ----------------
+REC_SLUG = "/guides/substack-recommendations-guide/"
+REC_TOOLS = ["stackbuddy", "stackstats", "sparkloop"]
+# Every Substack claim checked 2026-10-30 on the Substack sources listed at the bottom of the page (help articles updated Oct 29, 2026; lists launched Oct 29, 2026).
+def rec_guide():
+    tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in REC_TOOLS if s in BY)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Guides / Substack recommendations</div>
+<h1>Substack recommendations and lists: how to use them to grow (2026)</h1>
+<p class="small">Updated {e(data['generated'])} · Every setting below checked against Substack's own help center, including the lists feature launched Oct 29, 2026 · Independent, not affiliated with Substack Inc.</p>
+<p><strong>The short version:</strong> recommendations are free, built into Substack, and one of the main ways publications grow there. Recommend a handful of publications your readers would genuinely like, write a one-or-two-sentence reason for each, and keep "Include in recommendation digests" switched on. Since Oct 29, 2026 you can also sort recommendations into themed lists that readers can save, which puts the posts and Notes of everyone on the list into their Home feed. Check your Recommendations page every month or so to see which publications send you subscribers and which you send subscribers to.</p>
+
+<h2>What a recommendation actually does</h2>
+<p>When you recommend a publication, Substack shows it to your readers in several places (per Substack's help center):</p>
+<ul>
+<li><strong>Right after someone subscribes to you.</strong> New subscribers may see your recommendations straight after signing up, with up to 3 ready to subscribe to for free in one click. This is the big one, because it happens at the moment a reader is most open to trying something new.</li>
+<li><strong>On your homepage</strong>, in the sidebar, and on your recommendations page at your.substack.com/recommendations.</li>
+<li><strong>In recommendation digest emails</strong> that Substack sends to your subscribers now and then.</li>
+<li><strong>On your Substack profile</strong>, on the web and in the app.</li>
+</ul>
+<p>It works in both directions. Every writer who recommends you puts your publication in front of their new subscribers, and that's why recommendations are one of the main ways writers grow on Substack. Substack's announcement of lists makes another point worth repeating: recommendations are free and nobody pays to be on a list, so a spot on one carries real weight with readers.</p>
+
+<h2>1. Set up your first recommendations</h2>
+<p>You need to be an owner or admin of your publication. Then:</p>
+<ol>
+<li>In your dashboard, open <strong>Audience</strong>, then <strong>Recommendations</strong>.</li>
+<li>Click <strong>Add recommendation</strong> and search for a person or publication.</li>
+<li>Write a reason for recommending (optional, up to 500 characters). Substack suggests a sentence or two about why you love it, to help your readers decide.</li>
+<li>Click <strong>Add recommendation</strong>.</li>
+</ol>
+<p>There are shortcuts too. After you publish a post that links to other Substacks, Substack offers to recommend them. On any creator's profile you can click the three-dot menu and choose <strong>Recommend</strong>. And when you subscribe to a publication, Substack may ask whether you want to recommend it. You can't recommend your own publication or a private one.</p>
+
+<h2>2. Choose recommendations your readers will thank you for</h2>
+<p>A recommendation is a small promise to your readers: "if you like this, you'll like that." A few rules of thumb (our advice, not Substack's):</p>
+<ul>
+<li><strong>Recommend what you actually read.</strong> Your readers trust your taste; a list of strangers you swapped with spends that trust.</li>
+<li><strong>Pick neighbors, not clones.</strong> A publication on a related topic gives your readers something new without competing for the same inbox slot.</li>
+<li><strong>Lead with your strongest few.</strong> New subscribers may be offered up to 3 at sign-up, so the first impression comes from a small set.</li>
+<li><strong>Make sure they're active.</strong> A publication only appears in digest emails if it has at least 3 published posts and has posted in the last 30 days, so a dormant pick does less for your readers and for the writer.</li>
+</ul>
+
+<h2>3. Write a reason, every time</h2>
+<p>The reason (up to 500 characters) appears with your recommendation and is part of what Substack sends the writer you recommended. Say who it's for and what they'll get: "If you liked my post on pricing, Jane's weekly teardown of real creator offers is the next thing to read" does more than "Great newsletter!" If a publication is on several of your lists, its reason is the same on every list, so update it in one place and it changes everywhere.</p>
+
+<h2>4. Turn your recommendations into lists (new, Oct 2026)</h2>
+<p>Substack launched lists on Oct 29, 2026 as "the next generation of recommendations." You can sort the publications you recommend into themed lists, like "My favorite food writers" or "Mood boosters," each with its own name, description, link and chronological activity feed of posts and Notes from everyone on it.</p>
+<h3>How to make a list</h3>
+<ol>
+<li>On the web version of your Substack, click <strong>Recommendations</strong> in the left sidebar.</li>
+<li>Under <strong>Your lists</strong>, click <strong>New list</strong>.</li>
+<li>Give it a <strong>Name</strong> (up to 100 characters) and a <strong>Description</strong> that says what ties the list together.</li>
+<li>Check the pre-filled public link or make your own (custom list links can only be made on the web).</li>
+<li>Click <strong>Save changes</strong>, then <strong>Add publication</strong> for each publication, with an optional reason.</li>
+</ol>
+<p>In the app, go to your profile, tap <strong>Recommendations and Subscriptions</strong>, open the <strong>Lists</strong> tab and tap <strong>Create new list</strong>. You can also add a publication from its profile with the three-dot menu and <strong>Add to list</strong>.</p>
+<h3>What to know about lists</h3>
+<ul>
+<li><strong>Your existing recommendations become your first list</strong>, called Recommendations. It keeps the your.substack.com/recommendations link, so nothing you've shared breaks, and it can't be renamed or deleted. You can create up to 50 more.</li>
+<li><strong>Every list is public</strong> to anyone with the link (if your publication is in private mode, only subscribers see your recommendations). All your lists appear together at your.substack.com/lists and on your profile.</li>
+<li><strong>Saving a list changes a reader's feed.</strong> When a reader saves your list, new posts and Notes from the publications on it start showing up in their Home feed. Lists are dynamic, so if you add a publication later, people who saved the list see its new work too.</li>
+<li><strong>Share them.</strong> A list can be shared on Notes, where it shows up as a card in the feed, or off Substack with a link.</li>
+<li><strong>Measure them.</strong> The Your lists table shows Saves (all time) and Saves (30 days). You see how many people saved a list, not who. Substack's launch post adds that you can see how much traffic your list sent to each writer on it.</li>
+</ul>
+<h3>Lists that work</h3>
+<p>Our suggestions: make lists around a reader's need rather than your social circle ("Substacks for first-time freelancers," "Weekly reads for small-business owners"). A list is the kind of thing a reader saves and shares, so a well-named niche list is also a reason for someone outside your audience to find your profile. Keep the main Recommendations list short and your best, and use themed lists for the longer tail.</p>
+
+<h2>5. Check what's working</h2>
+<p>Your Recommendations page shows how many publications recommend you and how many of your subscribers came from recommendations. Two tables break it down:</p>
+<ul>
+<li><strong>Incoming recommendations:</strong> Substacks that recommend you, with the subscriptions each sent you in the last 30 days and since they started.</li>
+<li><strong>Outgoing recommendations:</strong> Substacks you recommend, with the subscriptions you've sent them.</li>
+</ul>
+<p>These numbers count free subscriptions. If you remove a recommendation that sent you subscribers in the past, it moves to the Inactive tab, and you can bring it back with <strong>Recommend</strong>. For deeper analysis of where subscribers come from, {L('stackstats')} works from your own Substack exports.</p>
+
+<h2>6. Digests, notifications and the settings that matter</h2>
+<p>Three settings in your Recommendations settings apply to all your recommendations at once:</p>
+<ul>
+<li><strong>Include in recommendation digests.</strong> Digests are occasional emails introducing your subscribers to publications you recommend. Each subscriber gets one about once a month at most, featuring up to 4 publications. A publication is only included if both you and it have this setting on, it has at least 3 posts and posted in the last 30 days, and the reader doesn't already subscribe. Turning it off also removes you from digests of recommendations others make of you, so leave it on unless you have a reason.</li>
+<li><strong>Show recommendations on homepage</strong> controls the sidebar on your website.</li>
+<li><strong>Manage recommendation blurbs</strong> lets you choose which blurbs other writers have written about you appear on your welcome page. A good blurb from a respected writer is social proof at sign-up, so pick your best.</li>
+</ul>
+<p><strong>Will they know?</strong> Substack emails a creator about your recommendation if they subscribe to you, or once your recommendation has brought them a meaningful share of their new subscribers. The email includes your reason and, when available, how many subscribers you've sent. If neither happens within two months, no email is sent. Creators can turn these emails off with the New recommenders setting.</p>
+<p><strong>Removing yourself:</strong> the only way to take your publication off someone else's recommendations and lists is to block them, which also unsubscribes and unfollows you from each other and removes any recommendation you made of them.</p>
+
+<h2>7. Earn recommendations without begging for them</h2>
+<p>Recommendations follow relationships. The approaches we see work (our advice):</p>
+<ul>
+<li><strong>Recommend first, with a real reason.</strong> Substack may email the writer with your reason once you send them subscribers, which is a far better introduction than a cold DM asking for a swap.</li>
+<li><strong>Link to other writers in your posts.</strong> It helps your readers, and Substack offers to turn those links into recommendations when you publish.</li>
+<li><strong>Be useful in comments and Notes.</strong> Thoughtful replies on other writers' posts are how most writers meet the people who later recommend them.</li>
+<li><strong>Make a list worth being on.</strong> A carefully curated niche list is something writers are glad to share, which brings readers to your profile too.</li>
+</ul>
+<p>If you'd like help finding writers to cross-promote with, {L('stackbuddy')} includes a creator network. Outside Substack's own system, {L('sparkloop')} runs a separate recommendation network with paid referrals; see its page for how that works and what it costs.</p>
+
+<h2>A 20-minute starter checklist</h2>
+<ol>
+<li>Open Audience → Recommendations and look at your incoming and outgoing numbers.</li>
+<li>Add 3 to 5 publications your readers would genuinely like, each with a one- or two-sentence reason.</li>
+<li>Check that "Include in recommendation digests" and "Show recommendations on homepage" are on.</li>
+<li>Make one themed list around a reader's need, with a clear name and description.</li>
+<li>Share the list in a Note so it appears as a card in the feed.</li>
+<li>Set a monthly reminder to review what recommendations sent you and what you sent others.</li>
+</ol>
+
+<h2>Tools mentioned in this guide</h2><ul>{tl}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://support.substack.com/hc/en-us/articles/5036794583828-How-can-I-recommend-other-publications-on-Substack" target="_blank" rel="noopener">Substack Help Center: How can I recommend other publications on Substack?</a> (updated Oct 29, 2026: setup, where recommendations appear, digests, stats, notifications, blocking, up to 50 more lists)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/54727840919700-How-do-I-create-a-list-of-recommended-publications" target="_blank" rel="noopener">Substack Help Center: How do I create a list of recommended publications?</a> (updated Oct 29, 2026: creating lists on web and app, public links, saves, your.substack.com/lists)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/7208782994580-What-are-recommendations-digests" target="_blank" rel="noopener">Substack Help Center: What are recommendations digests?</a> (opting out)</li>
+<li><a href="https://on.substack.com/p/introducing-lists-on-substack" target="_blank" rel="noopener">On Substack: Introducing lists on Substack</a> (Oct 29, 2026: activity feeds, dynamic lists, sharing on Notes, traffic per writer, "nobody pays to be on a list")</li>
+</ul>
+<p class="small">Substack's settings change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>, the <a href="/guides/substack-seo-guide/">Substack SEO guide</a>, <a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a> and the <a href="/category/growth/">growth tools</a> category.</p></div></div>{SIGNUP}"""
+    faq = [("How do recommendations work on Substack?", "When you recommend a publication, Substack can show it to your new subscribers right after they sign up (up to 3, one click to subscribe for free), in your homepage sidebar and recommendations page, in occasional digest emails to your subscribers, and on your profile. Writers who recommend you do the same for your publication."),
+           ("How do I recommend another publication on Substack?", "In your dashboard, open Audience, then Recommendations, click Add recommendation, search for the publication, optionally write a reason (up to 500 characters) and click Add recommendation. You need to be an owner or admin of your publication."),
+           ("What are Substack lists?", "Launched Oct 29, 2026, lists let you sort the publications you recommend into themed, public lists with their own link and activity feed. When a reader saves a list, new posts and Notes from the publications on it show up in their Home feed. Your existing recommendations become your first list, and you can create up to 50 more."),
+           ("How often do Substack recommendation digests go out?", "Each subscriber gets a digest about once a month at most, featuring up to 4 publications. A publication is only included if both writers have digests turned on, it has at least 3 posts and has posted in the last 30 days, and the reader doesn't already subscribe."),
+           ("Does it cost money to be recommended on Substack?", "No. Substack says recommendations are free and nobody pays to be on a list.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack recommendations and lists: how to use them to grow (2026)", "dateModified": data["generated"],
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + REC_SLUG},
+          {"@context": "https://schema.org", "@type": "HowTo", "name": "How to create a list of recommended publications on Substack",
+           "step": [{"@type": "HowToStep", "text": t} for t in ["On the web version of your Substack, click Recommendations in the left sidebar.", "Under Your lists, click New list.", "Give the list a name (up to 100 characters) and a description.", "Check the public link or create your own, then click Save changes.", "Click Add publication, search for a publication, optionally write a reason, and click Add to list."]]},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(REC_SLUG, layout(REC_SLUG, f"Substack recommendations and lists guide: grow with recommendations (2026) | {BRAND}",
+        "How Substack recommendations and the new lists (Oct 2026) work: where recommendations appear, how to set them up, writing reasons, creating lists, digests, stats and how to earn recommendations.", body, ld, current=REC_SLUG), "0.9")
 
 # ---------------- Comparisons ----------------
 def compare(x):
@@ -646,6 +771,7 @@ def extras():
              "## Key pages", f"- [Directory]({SITE_URL}/): searchable list of all tools", f"- [Best tools to grow your Substack in 2026]({SITE_URL}/guides/{GUIDE_SLUG}/): long-form guide with starter stacks by budget",
              f"- [Free tools for Substack writers]({SITE_URL}/free-substack-tools/): every listed tool with a free plan ({sum(1 for t in TOOLS if t.get('free_plan'))}), grouped by category, with free-plan limits and paid prices",
              f"- [Substack SEO guide]({SITE_URL}/guides/substack-seo-guide/): how to get Substack posts found on Google and in AI answers: SEO title, description and URL settings, internal and inbound links, keeping evergreen posts free, and measuring with Google Search Console",
+             f"- [Substack recommendations and lists guide]({SITE_URL}/guides/substack-recommendations-guide/): how Substack recommendations and the new lists (launched Oct 29, 2026) work: where recommendations appear, setup, writing reasons, creating themed lists, digest rules, stats, and how to earn recommendations",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
              f"- [About & disclosures]({SITE_URL}/about/)", f"- [Feature your tool]({SITE_URL}/feature/): sponsorship options", f"- [Raw data (JSON)]({SITE_URL}/data/tools.json)", ""]
@@ -667,7 +793,7 @@ def main():
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
-    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")

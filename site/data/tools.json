@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29",
+  "generated": "2026-10-30",
   "categories": [
     {
       "slug": "growth",
@@ -90,16 +90,16 @@
       "name": "WriteStack",
       "url": "https://www.writestack.io/",
       "category": "growth",
-      "pricing": "Hobbyist $23.99/mo ($239.88/yr); Standard $32.99/mo ($299.88/yr); Enterprise $99.99/mo ($959.88/yr); 7-day free trial.",
+      "pricing": "Hobbyist $23.99/mo; Standard $32.99/mo; Enterprise $99.99/mo; every plan has a 7-day free trial. (Yearly prices aren't shown on its homepage.)",
       "free_plan": false,
-      "pricing_source": "official site",
+      "pricing_source": "official site (writestack.io homepage pricing section and writestack.io/llms.txt)",
       "best_for": "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
-      "verdict": "The most complete Substack-only Notes suite. Pricey for a beginner, and publishing runs through a Chromium browser extension acting in your logged-in session.",
+      "verdict": "The most complete Substack-only Notes suite: batch scheduling, voice-matched Note drafts, analytics on which Notes bring subscribers, a filtered notification inbox, and now an in-app writing coach (Quill) plus an MCP server so Claude or ChatGPT can draft and queue Notes. Pricey for a beginner, and publishing still runs through its browser extension acting in your logged-in session (you click Sync to send scheduled Notes).",
       "affiliate_program": "yes",
       "affiliate_url": "https://www.writestack.io/affiliates",
       "substack_specific": true,
-      "verified_on": "2026-10-21",
-      "notes": null
+      "verified_on": "2026-10-30",
+      "notes": "Independent; not affiliated with Substack. Also offers free standalone tools (posting-time heatmap, Notes roast, Note generator)."
     },
     {
       "slug": "narrareach",
@@ -274,7 +274,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-30",
       "notes": "Independent; not affiliated with Substack. A read-only live demo is on its site."
     },
     {
@@ -282,15 +282,15 @@
       "name": "Orbit",
       "url": "https://seeyourorbit.com/",
       "category": "analytics",
-      "pricing": "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack. No free plan or trial.",
+      "pricing": "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack (What's Working Right Now on Substack). No free plan or trial.",
       "free_plan": false,
-      "pricing_source": "official site (seeyourorbit.com FAQ)",
+      "pricing_source": "official site (seeyourorbit.com FAQ, \"As of October 2026\")",
       "best_for": "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
-      "verdict": "A thoughtful relationship tracker for Substack that never writes or replies for you, and it connects to Claude. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
+      "verdict": "A thoughtful relationship tracker for Substack that never writes or replies for you, and you can ask it questions from Claude or ChatGPT. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-30",
       "notes": "Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack."
     },
     {
@@ -474,16 +474,16 @@
       "name": "Unsplash",
       "url": "https://unsplash.com/",
       "category": "design",
-      "pricing": "Free to use under the Unsplash License.",
+      "pricing": "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (unsplash.com/license and unsplash.com/plus/license)",
       "best_for": "Free, high-quality photos for post headers",
-      "verdict": "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out.",
+      "verdict": "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out. Credit the photographer anyway: it's appreciated, though not required.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
-      "notes": null
+      "verified_on": "2026-10-30",
+      "notes": "The license doesn't allow selling images without significant modification. Unsplash+ images have their own license (for example, no use in AI or machine-learning training)."
     },
     {
       "slug": "excalidraw",
@@ -586,15 +586,15 @@
       "name": "QuillBot",
       "url": "https://quillbot.com/",
       "category": "editing",
-      "pricing": "Free; Premium $19.95/mo or $99.95/yr.",
+      "pricing": "Free (paraphrase up to 125 words at a time, 2 modes); Premium $19.95 monthly, $39.95 every 3 months, or $99.95/yr ($8.33/mo). Prices may vary by region.",
       "free_plan": true,
-      "pricing_source": "QuillBot help center",
+      "pricing_source": "official site (quillbot.com Premium page and QuillBot FAQ \"How much is QuillBot Premium?\") + QuillBot help center (prices vary by region)",
       "best_for": "Paraphrasing, summarizing and quick rewrites",
       "verdict": "Useful for tightening a stubborn paragraph. Don't lean on it for whole posts, because readers subscribe for your voice.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-30",
       "notes": null
     },
     {
@@ -660,6 +660,22 @@
       "substack_specific": false,
       "verified_on": "2026-10-28",
       "notes": "Made by Nine Point Labs; independent, not affiliated with Substack. Wayback and IPFS copies are public, so only add feeds for writing you're happy to keep public."
+    },
+    {
+      "slug": "newsletterapi",
+      "name": "newsletterapi",
+      "url": "https://www.newsletterapi.io/",
+      "category": "planning",
+      "pricing": "Free (1 publication, recent posts from your public feed, limited API/MCP calls); Writer $9/mo (full archive from your export, MCP archive search, automatic backups); Pro $29/mo; Agency/Developer $79/mo. Priced per publication.",
+      "free_plan": true,
+      "pricing_source": "official site (newsletterapi.io and newsletterapi.io/pricing; \"You are never charged without confirming by email first\")",
+      "best_for": "Letting Claude or ChatGPT search your whole Substack archive, and backing up every post with images to your own storage",
+      "verdict": "A read-only API and MCP server built from your public RSS feed and the export you download yourself: no password, session cookie or browser extension. The Writer plan adds full-archive search for AI assistants and automatic Markdown/HTML backups (with images) to GitHub, Google Drive, Dropbox or S3. It's new and run by an unnamed independent team, and access is set up by email invite rather than instant signup, so try the free tier first.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-30",
+      "notes": "Independent; not affiliated with Substack. Read-only by design: it can't publish posts or Notes."
     },
     {
       "slug": "readwise",
@@ -778,15 +794,15 @@
       "name": "Descript",
       "url": "https://www.descript.com/",
       "category": "audio",
-      "pricing": "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly).",
+      "pricing": "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly); Business $50/mo annually ($65 monthly).",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (descript.com/pricing)",
       "best_for": "Editing podcast and video by editing the transcript",
       "verdict": "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
       "affiliate_program": "yes",
       "affiliate_url": "https://www.descript.com/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-30",
       "notes": null
     },
     {
@@ -842,15 +858,15 @@
       "name": "Adobe Podcast",
       "url": "https://podcast.adobe.com/",
       "category": "audio",
-      "pricing": "Free tier; premium features require a paid Adobe plan (check site for current offer).",
+      "pricing": "Free (Enhance Speech: audio only, one file at a time, up to 30 minutes and 500 MB per file, 1 hour a day; Studio: 2 project downloads a day). Since Aug 30, 2026 Adobe no longer sells Podcast Premium on its own: new customers get the premium features through Adobe's Firefly Pro plan (see Adobe for the current price).",
       "free_plan": true,
-      "pricing_source": "official site; premium-plan details from third-party reports",
-      "best_for": "Making laptop-mic recordings sound clean (Enhance Speech)",
-      "verdict": "Enhance Speech is impressive on the free tier. Check Adobe's current plans before relying on premium features.",
+      "pricing_source": "official site (podcast.adobe.com/en/features) + Adobe Podcast Premium plan change FAQ (helpx.adobe.com, updated Jul 30, 2026)",
+      "best_for": "Making laptop-mic recordings sound clean (Enhance Speech), for example a voiceover on a Substack post",
+      "verdict": "Enhance Speech is impressive on the free tier and enough for reading a weekly post aloud. Premium features (video, bulk uploads, adjustable strength, 4 hours a day) now come bundled in Adobe's broader Firefly Pro plan, so most writers should stick with the free plan.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-18",
+      "verified_on": "2026-10-30",
       "notes": null
     },
     {
