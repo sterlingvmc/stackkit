@@ -180,6 +180,32 @@ COMPARISONS = [
       ("Perplexity Pro", "https://www.perplexity.ai/pro"),
       ("Perplexity plan prices (Perplexity Help Center)", "https://www.perplexity.ai/help-center/pt-BR/articles/12167980-como-usar-o-conector-para-slack"),
     ]),
+  dict(slug="plotstack-vs-substack-insights", a="plotstack", b="substack-insights", checked="2026-10-31",
+    title="PlotStack vs Substack Insights: which free Substack analytics extension to use",
+    h1="PlotStack vs Substack Insights for Substack analytics",
+    desc="PlotStack vs Substack Insights for Substack writers: two read-only Chrome extensions compared on price (free vs free under 1,000 subscribers, then $9.99 one-time), what they show, Notes stats, exports and how they handle your data.",
+    short="Both are read-only Chrome extensions that work from your logged-in Substack session and keep data in your browser. Pick Substack Insights for a quick, simple answer to what works and when to publish (free under 1,000 subscribers, $9.99 one-time above). Pick PlotStack if you want everything in one detailed dashboard, including growth sources, retention and per-Note signups, at no cost, and don't mind a very new one-person tool that doesn't support custom domains yet.",
+    rows=[
+      ("Price", "Free. No paid tier or in-app purchases listed.", "Free for publications under 1,000 subscribers; $9.99 one-time above that."),
+      ("What it shows", "Subscribers, open rate, clicks, growth curve, acquisition and traffic sources with conversion, cohort retention, countries, per-post metrics and per-Note stats, plus written findings that compare you with your own previous 30 days.", "Top posts by likes, comments and restacks, top converting posts, best day and time to publish, post length and topics that resonate."),
+      ("Notes stats", "Included: where Notes are seen, a day-by-hour posting schedule, attributed signups and a searchable list of every Note.", "Notes analytics (best times, top Notes, reply patterns) are listed under the paid tier."),
+      ("Exports", "CSV of posts and Notes tables; PNG captures of any view, with paid and revenue figures always hidden.", "CSV pre-loaded with prompts to paste into ChatGPT, Claude or Gemini."),
+      ("Your data", "No account and no server. Stores aggregated metrics in your browser, discards subscriber emails and profiles, and re-syncs once a day in the background until you click Disconnect.", "Uses your existing session; analysis happens in your browser, and it says it never sees, stores or transmits your credentials."),
+      ("Limits", "*.substack.com publications only (no custom domains). Uses Substack's undocumented internal endpoints, which may change. Version 1.6.0, no ratings yet.", "Publication overview and post patterns on free; Notes and conversion stats need the paid tier above 1,000 subscribers. Its site shows a 5.0 Chrome Web Store rating."),
+    ],
+    body=[
+      ("Check Substack's own stats first", "Substack's dashboard already shows your subscriber growth, each post's opens and signups, and per-Note stats (open a Note and click View stats). An extension is worth installing when you want those numbers side by side, over time, or exported, instead of clicking through one post or Note at a time."),
+      ("Simple answers vs a full dashboard", "Substack Insights answers a few questions well: which posts land, which convert, and when to publish. PlotStack gathers almost everything Substack spreads across its stats, growth, posts and Notes screens into one place and writes short findings, such as a Note far above your usual or your main source of new readers. If you'd rather not dig through charts, the simpler tool is the better one."),
+      ("What both have in common", "Neither asks for your password and neither posts anything. Both read your stats through the Substack session already open in Chrome, which is how most Substack analytics tools work because Substack has no public stats API. That also means either can break when Substack changes its site; your built-in dashboard is always the fallback."),
+      ("Our pick", "Under 1,000 subscribers, try both: they cost nothing. Above 1,000, PlotStack gives you Notes and conversion stats for free that Substack Insights charges $9.99 for, as long as your publication is on a substack.com address. Substack Insights is the steadier choice if you want a polished, well-rated tool with less to learn."),
+    ],
+    sources=[
+      ("PlotStack on the Chrome Web Store (features, limitations, version)", "https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib"),
+      ("PlotStack privacy policy (Spanish)", "https://sotoplatero.github.io/plotstack/privacy/"),
+      ("PlotStack source code on GitHub", "https://github.com/sotoplatero/plotstack"),
+      ("PlotStack maker's post: the tools are free (Spanish)", "https://sotoplatero.substack.com/p/sistema-operativo"),
+      ("Substack Insights: features, pricing and FAQ", "https://substackinsights.com/"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

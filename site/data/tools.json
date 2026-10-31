@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-30",
+  "generated": "2026-10-31",
   "categories": [
     {
       "slug": "growth",
@@ -306,8 +306,24 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-10-31",
       "notes": "Independent; its Chrome Web Store listing says it is not affiliated with Substack."
+    },
+    {
+      "slug": "plotstack",
+      "name": "PlotStack",
+      "url": "https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib",
+      "category": "analytics",
+      "pricing": "Free. No paid tier or in-app purchases listed; its maker says his newsletter tools are free and will stay free.",
+      "free_plan": true,
+      "pricing_source": "Chrome Web Store listing (v1.6.0, updated Oct 24, 2026; no in-app purchases listed) + privacy policy (sotoplatero.github.io/plotstack/privacy/) + public source at github.com/sotoplatero/plotstack + maker's Sept 18, 2026 post (sotoplatero.substack.com/p/sistema-operativo: 'Las cuatro son gratis y van a seguir siéndolo')",
+      "best_for": "Writers who want Substack's stats, growth, posts and Notes numbers in one local dashboard, with CSV and PNG exports",
+      "verdict": "A free, read-only Chrome dashboard that pulls together what Substack spreads across several screens (subscribers, open rate, acquisition sources, cohort retention, per-post and per-Note stats, attributed signups) and points out what stands out compared with your own past numbers. No account and no server: data stays in your browser, and paid and revenue figures are hidden by default. It reads Substack's undocumented internal endpoints through your logged-in session and syncs once a day in the background, it doesn't support custom domains yet, and it's a very new one-person project with no Chrome Web Store ratings yet, so expect breakage when Substack changes things.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-10-31",
+      "notes": "Made by Damian Soto (Objeto Brillante); independent, not affiliated with Substack. Interface in English or Spanish; *.substack.com publications only. Source is public on GitHub (no license file at time of checking)."
     },
     {
       "slug": "notestack",
@@ -394,15 +410,15 @@
       "name": "Taplio",
       "url": "https://taplio.com/",
       "category": "social",
-      "pricing": "Starter $39/mo; Growth $69/mo; Pro $199/mo; 7-day free trial.",
+      "pricing": "Starter $39/mo; Growth $69/mo; Pro $199/mo (billed monthly). Its plan-comparison table also lists lower rates ($32, $49 and $149/mo) without stating the billing term. 7-day free trial with full Pro access; 30-day money-back guarantee.",
       "free_plan": false,
-      "pricing_source": "official site",
+      "pricing_source": "official site (taplio.com/pricing)",
       "best_for": "Writers growing a professional audience on LinkedIn",
-      "verdict": "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel.",
+      "verdict": "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel. Its automation features (auto-DMs, bulk connection requests) are best left off if you want your LinkedIn presence to sound like you.",
       "affiliate_program": "yes",
       "affiliate_url": "https://taplio.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-10-31",
       "notes": null
     },
     {
@@ -610,7 +626,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.notion.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-10-31",
       "notes": null
     },
     {
@@ -634,7 +650,7 @@
       "name": "Obsidian",
       "url": "https://obsidian.md/",
       "category": "planning",
-      "pricing": "Free; optional Sync $4/mo and Publish $8/mo (billed annually).",
+      "pricing": "Free, no sign-up required; optional Sync $4/user/mo and Publish $8/site/mo (billed annually).",
       "free_plan": true,
       "pricing_source": "official site",
       "best_for": "Building a personal knowledge base of notes, quotes and ideas",
@@ -642,7 +658,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-10-31",
       "notes": null
     },
     {
@@ -914,7 +930,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-31",
       "notes": "Substack's help center documents native Datawrapper embeds (paste the share link into a draft)."
     },
     {
@@ -930,7 +946,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-31",
       "notes": null
     },
     {
@@ -938,15 +954,15 @@
       "name": "Linktree",
       "url": "https://linktr.ee/",
       "category": "embeds",
-      "pricing": "Free; Starter $6/mo billed annually ($8 monthly); Pro $12/mo billed annually ($15 monthly); Premium $30/mo billed annually ($35 monthly).",
+      "pricing": "Free (unlimited links, basic analytics); Starter $7/mo billed annually ($9 monthly); Pro $14/mo billed annually ($17 monthly); Premium $30/mo billed annually ($35 monthly). US prices; Linktree shows local prices by region.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (linktr.ee/s/pricing, US prices)",
       "best_for": "A link-in-bio page that points social followers to your Substack",
-      "verdict": "Fine for bios, but your Substack homepage can often serve as the link. Only pay if you need the analytics.",
+      "verdict": "Fine for bios, but your Substack's /subscribe link can often serve as the link on its own. Only pay if you need the analytics.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-31",
       "notes": null
     },
     {
@@ -968,18 +984,18 @@
     {
       "slug": "hecto",
       "name": "Hecto",
-      "url": "https://www.hecto.io/",
+      "url": "https://app.hecto.io/",
       "category": "monetization",
-      "pricing": "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
+      "pricing": "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees (as of its pricing page on 2026-10-25; that page was offline on 2026-10-31).",
       "free_plan": true,
-      "pricing_source": "official site (hecto.io/pricing; fee shown as 5%, monthly fee shown as £0)",
+      "pricing_source": "official site (hecto.io/pricing on 2026-10-25; fee shown as 5%, monthly fee shown as £0)",
       "best_for": "Selling sponsorship slots with transparent, upfront prices",
-      "verdict": "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche.",
+      "verdict": "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Caution: on Oct 31, 2026 Hecto's main website (hecto.io) was offline with a hosting error, though the app itself still loaded. Check that it's back before relying on it.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
       "verified_on": "2026-10-25",
-      "notes": null
+      "notes": "2026-10-31: www.hecto.io and hecto.io/pricing returned HTTP 402 (Vercel DEPLOYMENT_DISABLED); app.hecto.io returned 200. Listing URL switched to the app until the main site returns. Re-check and remove the listing if the app goes down too."
     },
     {
       "slug": "swapstack",
@@ -1004,13 +1020,13 @@
       "category": "monetization",
       "pricing": "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (gumroad.com/pricing)",
       "best_for": "Selling ebooks, templates and guides alongside your newsletter",
-      "verdict": "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost.",
+      "verdict": "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost, and Gumroad acts as merchant of record, collecting and remitting sales tax for you.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-21",
+      "verified_on": "2026-10-31",
       "notes": null
     },
     {

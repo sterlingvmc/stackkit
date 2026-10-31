@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -13,7 +13,8 @@ V8 = "2026-10-27"  # entries added or re-checked in the 2026-10-27 daily ops pas
 V9 = "2026-10-28"  # entries added or re-checked in the 2026-10-28 daily ops pass
 V10 = "2026-10-29"  # entries re-checked in the 2026-10-29 daily ops pass
 V11 = "2026-10-30"  # entries added or re-checked in the 2026-10-30 daily ops pass
-UPDATED = V11
+V12 = "2026-10-31"  # entries added or re-checked in the 2026-10-31 daily ops pass
+UPDATED = V12
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -115,8 +116,15 @@ add("Substack Insights","https://substackinsights.com/","analytics",
  "Free for publications under 1,000 subscribers; $9.99 one-time above that. The pricing card lists Notes analytics and conversion stats under the paid tier.",
  "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
  "A simple, inexpensive Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Small and new (v1.0 on the Chrome Web Store).",
- substack_specific=True, free_plan=True, verified=V3, pricing_source="official site (substackinsights.com pricing section and FAQ)",
+ substack_specific=True, free_plan=True, verified=V12, pricing_source="official site (substackinsights.com pricing section and FAQ)",
  notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack.")
+add("PlotStack","https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib","analytics",
+ "Free. No paid tier or in-app purchases listed; its maker says his newsletter tools are free and will stay free.",
+ "Writers who want Substack's stats, growth, posts and Notes numbers in one local dashboard, with CSV and PNG exports",
+ "A free, read-only Chrome dashboard that pulls together what Substack spreads across several screens (subscribers, open rate, acquisition sources, cohort retention, per-post and per-Note stats, attributed signups) and points out what stands out compared with your own past numbers. No account and no server: data stays in your browser, and paid and revenue figures are hidden by default. It reads Substack's undocumented internal endpoints through your logged-in session and syncs once a day in the background, it doesn't support custom domains yet, and it's a very new one-person project with no Chrome Web Store ratings yet, so expect breakage when Substack changes things.",
+ substack_specific=True, free_plan=True, verified=V12,
+ pricing_source="Chrome Web Store listing (v1.6.0, updated Oct 24, 2026; no in-app purchases listed) + privacy policy (sotoplatero.github.io/plotstack/privacy/) + public source at github.com/sotoplatero/plotstack + maker's Sept 18, 2026 post (sotoplatero.substack.com/p/sistema-operativo: 'Las cuatro son gratis y van a seguir siéndolo')",
+ notes="Made by Damian Soto (Objeto Brillante); independent, not affiliated with Substack. Interface in English or Spanish; *.substack.com publications only. Source is public on GitHub (no license file at time of checking).")
 add("NoteStack","https://notestack.stacktreelabs.com/","analytics",
  "Starter $8/mo or $60/yr (capped scheduler: 7 new Notes/mo); Pro $12/mo or $99/yr (no caps, adds AI Ghostwriter and Post Coach). 7-day free trial.",
  "Notes-first writers who want subscriber-conversion rankings, best-time heatmaps and a scheduler in one extension",
@@ -147,10 +155,10 @@ add("Hypefury","https://hypefury.com/","social",
  "Hypefury no longer supports X, so it's now a scheduler for Bluesky, Threads, LinkedIn, Instagram and TikTok, with auto first comments (Autoplugs) and an engagement builder. Substack Notes isn't on its channel list, so pair it with Substack's own scheduler.",
  aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False, verified=V9, pricing_source="official site (hypefury.com/pricing, including FAQ: \"Hypefury no longer supports X\")")
 add("Taplio","https://taplio.com/","social",
- "Starter $39/mo; Growth $69/mo; Pro $199/mo; 7-day free trial.",
+ "Starter $39/mo; Growth $69/mo; Pro $199/mo (billed monthly). Its plan-comparison table also lists lower rates ($32, $49 and $149/mo) without stating the billing term. 7-day free trial with full Pro access; 30-day money-back guarantee.",
  "Writers growing a professional audience on LinkedIn",
- "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel.",
- aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V3)
+ "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel. Its automation features (auto-DMs, bulk connection requests) are best left off if you want your LinkedIn presence to sound like you.",
+ aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V12, pricing_source="official site (taplio.com/pricing)")
 add("Repurpose.io","https://repurpose.io/","social",
  "Starter $35/mo; Pro $79/mo ($790/yr); Agency $179/mo ($1,790/yr); free trial of 14 days or 10 published videos, whichever comes first.",
  "Automatically distributing video and podcast clips across platforms",
@@ -224,17 +232,17 @@ add("Notion","https://www.notion.com/","planning",
  "Free; Plus $10/seat/mo.",
  "Editorial calendars, idea banks and sponsor CRMs",
  "The most flexible planning hub for newsletter writers. The free plan covers solo use.",
- aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True, verified=V3)
+ aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True, verified=V12)
 add("Trello","https://trello.com/","planning",
  "Free (up to 10 collaborators); Standard $5/user/mo billed annually.",
  "A simple kanban for drafts moving from idea to published",
  "Simpler than Notion if you only need a board. Free is plenty for one writer.",
  free_plan=True, verified=V7, pricing_source="official site (trello.com/pricing; Standard is $6/user/mo billed monthly)")
 add("Obsidian","https://obsidian.md/","planning",
- "Free; optional Sync $4/mo and Publish $8/mo (billed annually).",
+ "Free, no sign-up required; optional Sync $4/user/mo and Publish $8/site/mo (billed annually).",
  "Building a personal knowledge base of notes, quotes and ideas",
  "Great for writers who think in linked notes. Your files stay local in Markdown.",
- free_plan=True, verified=V3)
+ free_plan=True, verified=V12)
 add("Persistwise","https://persistwise.com/","planning",
  "Keep plan: 30 days free (no card), then $40/yr.",
  "Keeping an independent backup of every post you publish on Substack",
@@ -329,17 +337,17 @@ add("Datawrapper","https://www.datawrapper.de/","embeds",
  "Free (unlimited charts, maps and tables, with a \"Created with Datawrapper\" credit); Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.",
  "Clean, accurate charts, maps and tables for data-driven posts",
  "Newsroom-quality charts for free, and the one chart tool Substack embeds natively: paste the chart's share link into your draft. Interactive on the web and in the app; static in the email version.",
- free_plan=True, verified=V2, notes="Substack's help center documents native Datawrapper embeds (paste the share link into a draft).")
+ free_plan=True, verified=V12, notes="Substack's help center documents native Datawrapper embeds (paste the share link into a draft).")
 add("Flourish","https://flourish.studio/","embeds",
  "Free (public publishing with attribution); paid Presenter (via Canva Business) and Publisher/Enterprise plans on contract.",
  "Animated and interactive charts and scrollytelling",
  "More dramatic visuals than Datawrapper, but Substack doesn't list Flourish among its supported embeds and pasted embed code doesn't work, so plan on a static image linked to the interactive version.",
- free_plan=True, verified=V2)
+ free_plan=True, verified=V12)
 add("Linktree","https://linktr.ee/","embeds",
- "Free; Starter $6/mo billed annually ($8 monthly); Pro $12/mo billed annually ($15 monthly); Premium $30/mo billed annually ($35 monthly).",
+ "Free (unlimited links, basic analytics); Starter $7/mo billed annually ($9 monthly); Pro $14/mo billed annually ($17 monthly); Premium $30/mo billed annually ($35 monthly). US prices; Linktree shows local prices by region.",
  "A link-in-bio page that points social followers to your Substack",
- "Fine for bios, but your Substack homepage can often serve as the link. Only pay if you need the analytics.",
- free_plan=True, verified=V2)
+ "Fine for bios, but your Substack's /subscribe link can often serve as the link on its own. Only pay if you need the analytics.",
+ free_plan=True, verified=V12, pricing_source="official site (linktr.ee/s/pricing, US prices)")
 
 # ---------- Sponsorships & monetization ----------
 add("Paved","https://www.paved.com/","monetization",
@@ -347,11 +355,12 @@ add("Paved","https://www.paved.com/","monetization",
  "Established newsletters looking for sponsor demand",
  "A large newsletter ad network (3,000+ newsletters, per Paved). Its stated minimums of 50k subscribers or 1M monthly impressions rule out most smaller Substacks; start with Hecto or Swapstack until you're there.",
  free_plan=True, verified=V6, pricing_source="official site (paved.com/publishers)")
-add("Hecto","https://www.hecto.io/","monetization",
- "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
+add("Hecto","https://app.hecto.io/","monetization",
+ "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees (as of its pricing page on 2026-10-25; that page was offline on 2026-10-31).",
  "Selling sponsorship slots with transparent, upfront prices",
- "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche.",
- free_plan=True, verified=V6, pricing_source="official site (hecto.io/pricing; fee shown as 5%, monthly fee shown as £0)")
+ "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Caution: on Oct 31, 2026 Hecto's main website (hecto.io) was offline with a hosting error, though the app itself still loaded. Check that it's back before relying on it.",
+ free_plan=True, verified=V6, pricing_source="official site (hecto.io/pricing on 2026-10-25; fee shown as 5%, monthly fee shown as £0)",
+ notes="2026-10-31: www.hecto.io and hecto.io/pricing returned HTTP 402 (Vercel DEPLOYMENT_DISABLED); app.hecto.io returned 200. Listing URL switched to the app until the main site returns. Re-check and remove the listing if the app goes down too.")
 add("Swapstack","https://www.swapstack.co/","monetization",
  "Free for publishers (Swapstack takes 10% on invite-only campaigns from its managed service). Paid publisher plans (Professional $30/mo, Enterprise $200/mo) are listed as coming soon.",
  "Finding sponsors and affiliate deals for small and mid-sized newsletters",
@@ -360,8 +369,8 @@ add("Swapstack","https://www.swapstack.co/","monetization",
 add("Gumroad","https://gumroad.com/","monetization",
  "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
  "Selling ebooks, templates and guides alongside your newsletter",
- "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost.",
- free_plan=True, verified=V2)
+ "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost, and Gumroad acts as merchant of record, collecting and remitting sales tax for you.",
+ free_plan=True, verified=V12, pricing_source="official site (gumroad.com/pricing)")
 add("Ko-fi","https://ko-fi.com/","monetization",
  "Free to join, no monthly cost. Ko-fi Free: 0% on one-off tips and Goals, 5% on monthly tips, memberships, shop and commissions. Standard: 5% on everything, plus extras like supporter-only content and scheduled posts. PayPal/Stripe fees (usually around 3% + $0.30) apply on top. Ko-fi Gold (0% on everything for a fixed monthly fee) is still offered; price not listed on its page.",
  "One-off tips from readers who won't commit to a paid subscription",
