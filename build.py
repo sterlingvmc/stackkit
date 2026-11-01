@@ -206,6 +206,33 @@ COMPARISONS = [
       ("PlotStack maker's post: the tools are free (Spanish)", "https://sotoplatero.substack.com/p/sistema-operativo"),
       ("Substack Insights: features, pricing and FAQ", "https://substackinsights.com/"),
     ]),
+  dict(slug="hemingway-vs-grammarly-substack", a="hemingway-editor", b="grammarly", checked="2026-11-01",
+    title="Hemingway Editor vs Grammarly for Substack writers: readability or correctness?",
+    h1="Hemingway Editor vs Grammarly for Substack posts",
+    desc="Hemingway Editor vs Grammarly for Substack writers: free plans, paid pricing (Hemingway Plus from $8.33/mo billed yearly, Grammarly Pro from $12/mo), what each catches, and which to use before you hit publish.",
+    short="They do different jobs, and both free versions are worth using. Grammarly catches spelling, grammar and tone mistakes as you type, including in the Substack editor through its browser extension. Hemingway Editor's free readability checker shows your reading grade level and highlights hard-to-read sentences, which helps with dense posts. If you only pay for one, Grammarly Pro (from $12/mo) suits writers who want sentence rewrites everywhere they write; Hemingway Editor Plus (from $8.33/mo billed yearly) suits writers whose main problem is long, tangled sentences.",
+    rows=[
+      ("Main job", "Readability: shows the grade level of your text and highlights hard-to-read sentences in yellow and very hard ones in red.", "Correctness and clarity: spelling and grammar mistakes, writing tone, and (on Pro) full-sentence rewrites."),
+      ("Free version", "Free online readability checker with unlimited word count that updates in real time as you edit.", "Free plan with spelling and grammar checks, tone detection and 100 AI prompts a month."),
+      ("Paid plans", "Editor Plus Individual 5K $8.33/mo ($100 billed yearly) or Individual 10K $12.50/mo ($150 billed yearly); 2-week free trial, no card. Desktop app $19.99 one-time, without AI features.", "Pro from $12/mo with a free trial: full-sentence rewrites, tone adjustments, plagiarism and AI-text detection, 2,000 AI prompts a month."),
+      ("Where you use it", "Paste your draft into Hemingway's web editor or desktop app, then copy the edited text back into Substack.", "Browser extensions for Chrome, Safari, Firefox and Edge, plus desktop and mobile apps, so it checks text where you type it."),
+      ("Watch out for", "Hemingway says its highlights and scores are only a guide, so you don't need to fix every yellow or red sentence.", "Pro's rewrites can flatten your voice, so accept suggestions one at a time."),
+    ],
+    body=[
+      ("Two different questions", "Grammarly answers \"is this correct?\" Hemingway answers \"is this easy to read?\" A post can pass Grammarly with no errors and still lose readers in a 60-word opening sentence, and a post can read smoothly and still have typos. That's why plenty of writers use both free versions rather than choosing."),
+      ("A simple pre-publish routine", "Write in the Substack editor with Grammarly's free extension on to catch typos as you go. Before you publish, paste your intro into Hemingway's free readability checker and fix the red sentences, since the opening is where readers decide whether to keep going. That takes about five minutes and costs nothing."),
+      ("Keep your voice", "Readers subscribe for how you write. Neither tool knows your voice, so treat every highlight and suggested rewrite as a question, not an order. Hemingway itself says to focus on the worst offenders rather than fixing every highlight."),
+      ("How the costs compare", "Hemingway Editor Plus starts at $8.33 a month billed yearly ($100), and Grammarly Pro starts at $12 a month. Hemingway's 2-week trial needs no credit card. If you only want readability scores and don't need AI rewrites, the free checker or the $19.99 one-time desktop app may be all you need."),
+      ("Our pick", "Start with both free versions. Upgrade to Grammarly Pro if you want help rewriting sentences in every app you write in. Upgrade to Hemingway Editor Plus only if long, hard-to-read sentences are your biggest problem and you want AI fixes for them. Most Substack writers won't need either paid plan. For more options, see the Editing & Proofreading category, including Grammarly vs ProWritingAid."),
+    ],
+    sources=[
+      ("Hemingway Editor free readability checker", "https://hemingwayapp.com/readability-checker"),
+      ("Hemingway help: readability highlights", "https://hemingwayapp.com/help/docs/readability"),
+      ("Hemingway Editor Plus plans", "https://hemingwayapp.com/hemingway-editor-plus"),
+      ("Hemingway Editor desktop app", "https://hemingwayapp.com/desktop"),
+      ("Grammarly plans and pricing", "https://www.grammarly.com/plans"),
+      ("Grammarly browser extension", "https://www.grammarly.com/browser"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

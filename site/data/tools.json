@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-31",
+  "generated": "2026-11-01",
   "categories": [
     {
       "slug": "growth",
@@ -114,7 +114,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-11-01",
       "notes": null
     },
     {
@@ -138,7 +138,7 @@
       "name": "StackSweller",
       "url": "https://stacksweller.com/",
       "category": "growth",
-      "pricing": "Pro $39/mo, or $25/mo billed yearly ($250/yr).",
+      "pricing": "Pro $39/mo, or $25/mo billed yearly ($250/yr). 7-day free trial.",
       "free_plan": false,
       "pricing_source": "official site",
       "best_for": "A simple cloud queue for batch-scheduling Substack Notes",
@@ -146,7 +146,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-11-01",
       "notes": null
     },
     {
@@ -338,7 +338,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-22",
+      "verified_on": "2026-11-01",
       "notes": "Made by StackTree Labs; independent, not affiliated with Substack."
     },
     {
@@ -354,7 +354,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-11-01",
       "notes": "Independent; its site says it is not affiliated with Substack. Launch listings in Sept 2026 quoted $19 lifetime plus a $9/mo AI add-on; the current site and store listing say $4.99 lifetime."
     },
     {
@@ -546,7 +546,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.grammarly.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-01",
       "notes": null
     },
     {
@@ -554,7 +554,7 @@
       "name": "Hemingway Editor",
       "url": "https://hemingwayapp.com/",
       "category": "editing",
-      "pricing": "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features).",
+      "pricing": "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features). Editor Plus has a 2-week free trial, no card required.",
       "free_plan": true,
       "pricing_source": "official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)",
       "best_for": "Making dense posts easier to read",
@@ -562,7 +562,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-11-01",
       "notes": null
     },
     {

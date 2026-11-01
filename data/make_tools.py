@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31; V13 = 2026-11-01):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -14,7 +14,8 @@ V9 = "2026-10-28"  # entries added or re-checked in the 2026-10-28 daily ops pas
 V10 = "2026-10-29"  # entries re-checked in the 2026-10-29 daily ops pass
 V11 = "2026-10-30"  # entries added or re-checked in the 2026-10-30 daily ops pass
 V12 = "2026-10-31"  # entries added or re-checked in the 2026-10-31 daily ops pass
-UPDATED = V12
+V13 = "2026-11-01"  # entries re-checked in the 2026-11-01 daily ops pass
+UPDATED = V13
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -45,7 +46,7 @@ add("Narrareach","https://www.narrareach.com/","growth",
  "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
  "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
  "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
- substack_specific=True, free_plan=False, verified=V3)
+ substack_specific=True, free_plan=False, verified=V13)
 add("StackBuddy","https://stackbuddy.io/","growth",
  "Free plan (scheduling and creator network free forever); Pro $12.50/mo billed yearly or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
  "Batch-scheduling Notes into posting slots and finding other writers to cross-promote with",
@@ -54,10 +55,10 @@ add("StackBuddy","https://stackbuddy.io/","growth",
  pricing_source="official site (stackbuddy.io FAQ and pricing section) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
  notes="Independent, not affiliated with Substack. Chrome needs to be open only while a Note syncs to Substack, not at publish time.")
 add("StackSweller","https://stacksweller.com/","growth",
- "Pro $39/mo, or $25/mo billed yearly ($250/yr).",
+ "Pro $39/mo, or $25/mo billed yearly ($250/yr). 7-day free trial.",
  "A simple cloud queue for batch-scheduling Substack Notes",
  "Does one job (a Notes queue that runs with your laptop closed). Be aware it works by holding your Substack session, and Substack now schedules single Notes natively.",
- substack_specific=True, free_plan=False, verified=V3)
+ substack_specific=True, free_plan=False, verified=V13)
 
 # ---------- Analytics ----------
 add("SubflowAI","https://www.genaiunplugged.com/subflowai/","growth",
@@ -129,13 +130,13 @@ add("NoteStack","https://notestack.stacktreelabs.com/","analytics",
  "Starter $8/mo or $60/yr (capped scheduler: 7 new Notes/mo); Pro $12/mo or $99/yr (no caps, adds AI Ghostwriter and Post Coach). 7-day free trial.",
  "Notes-first writers who want subscriber-conversion rankings, best-time heatmaps and a scheduler in one extension",
  "A lot of Notes analytics for the price, with data kept in your browser. Be aware the scheduler auto-publishes through your logged-in Substack session, and the AI features send your Notes text to its server and Anthropic. Skip the Ghostwriter if your voice is the product.",
- substack_specific=True, free_plan=False, verified=V3, pricing_source="official site (notestack.stacktreelabs.com FAQ and /pricing)",
+ substack_specific=True, free_plan=False, verified=V13, pricing_source="official site (notestack.stacktreelabs.com FAQ and /pricing)",
  notes="Made by StackTree Labs; independent, not affiliated with Substack.")
 add("NotesIQ","https://www.notesiq.app/","analytics",
  "$4.99 one-time for lifetime access (analytics, scheduler, competitor lookups); 7-day money-back guarantee.",
  "Writers who want a cheap, one-time-payment Notes dashboard with a best-time heatmap and a weekly queue",
  "The cheapest Notes analytics extension we've found, and it keeps data in your browser with no account. Very new (v1.0.3, launched Sept 2026, no Chrome Web Store ratings yet) from a solo developer, and its price has already changed since launch, so treat it as an inexpensive experiment. Scheduling publishes through Substack's own composer in your logged-in session.",
- substack_specific=True, free_plan=False, verified=V4, pricing_source="official site (notesiq.app pricing section and FAQ; matches its Chrome Web Store listing)",
+ substack_specific=True, free_plan=False, verified=V13, pricing_source="official site (notesiq.app pricing section and FAQ; matches its Chrome Web Store listing)",
  notes="Independent; its site says it is not affiliated with Substack. Launch listings in Sept 2026 quoted $19 lifetime plus a $9/mo AI add-on; the current site and store listing say $4.99 lifetime.")
 
 # ---------- Cross-posting & social ----------
@@ -205,12 +206,12 @@ add("Grammarly","https://www.grammarly.com/","editing",
  "Free (includes 100 AI prompts/mo); Pro from $12/mo with a free trial (2,000 AI prompts/mo, full-sentence rewrites, tone adjustments, plagiarism and AI-text detection).",
  "Catching typos and clarity issues everywhere you write, including the Substack editor",
  "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
- aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V9, pricing_source="official site (grammarly.com/plans) + grammarly.com/browser")
+ aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V13, pricing_source="official site (grammarly.com/plans) + grammarly.com/browser")
 add("Hemingway Editor","https://hemingwayapp.com/","editing",
- "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features).",
+ "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features). Editor Plus has a 2-week free trial, no card required.",
  "Making dense posts easier to read",
  "The free web version does the core job (highlighting long and passive sentences). Most writers don't need Plus.",
- free_plan=True, verified=V4, pricing_source="official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)")
+ free_plan=True, verified=V13, pricing_source="official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)")
 add("ProWritingAid","https://prowritingaid.com/","editing",
  "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
  "Deep style reports for long-form and fiction writers",
