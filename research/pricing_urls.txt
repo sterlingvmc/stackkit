@@ -41,3 +41,4 @@ publer https://publer.com/plans
 chatgpt https://chatgpt.com/pricing
 zapier https://zapier.com/pricing
 removebg https://www.remove.bg/pricing
+stackcontacts-studio https://finntropy.gumroad.com/l/stackcontacts_studio

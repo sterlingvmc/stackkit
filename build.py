@@ -233,6 +233,32 @@ COMPARISONS = [
       ("Grammarly plans and pricing", "https://www.grammarly.com/plans"),
       ("Grammarly browser extension", "https://www.grammarly.com/browser"),
     ]),
+  dict(slug="orbit-vs-stackcontacts-studio", a="orbit", b="stackcontacts-studio", checked="2026-11-02",
+    title="Orbit vs StackContacts Studio: which Substack relationship tool fits you?",
+    h1="Orbit vs StackContacts Studio for Substack relationships",
+    desc="Orbit vs StackContacts Studio for Substack writers: two tools for keeping track of readers and conversations, compared on price ($12/mo vs $99 one-time), where your data lives, Claude and ChatGPT support, Gumroad/Kit/Skool data and what each will post for you.",
+    short="Both help you see who's waiting on a reply and who you've lost touch with on Substack. Pick Orbit ($12/mo or $120/yr via a paid subscription to its maker's Substack) if your relationships live on Substack and you want a browser dashboard, Claude or ChatGPT questions, and a tool that never writes or sends anything for you. Pick StackContacts Studio ($99 one-time) if you also sell on Gumroad, keep a Kit list or run a Skool community and want everything matched on your own computer, with Claude drafting replies and Notes that go out only after you approve them.",
+    rows=[
+      ("Price", "$12/mo or $120/yr, included with a paid subscription to What's Working Right Now (Rebecca Spitzer's Substack). No free plan or trial.", "$99 one-time, with 12 months of updates and email support. 30-day refund if it can't sync your publication or connect to Claude Desktop."),
+      ("How it runs", "Chrome extension (Chrome, Edge or Brave on a computer) plus a private web dashboard.", "Desktop app for Apple Silicon Macs or Windows 11, plus a Chrome extension (Chrome, Brave, Edge or Arc) and Claude Desktop."),
+      ("Where your data lives", "In your private Orbit account. It doesn't receive your Substack password or subscribers' email addresses; DM storage is off by default.", "On your own computer. Error reports and feature usage (not your content) go to PostHog unless you turn that off."),
+      ("Sources", "Substack: Notes, comments, the inbox, followers and subscribers, plus who unsubscribed.", "Substack (subscribers, Notes, posts, comments, DMs), plus optional Gumroad, Kit, Buffer, Blotato and Skool, matched by email."),
+      ("AI assistants", "Connect ChatGPT or Claude to ask about your people and writing, tag people into lists and manage follow-ups.", "Built around Claude Desktop: ask questions, draft replies and DMs, schedule Notes and posts, post on Skool."),
+      ("Will it post for you?", "No. It never writes or sends replies or posts; you do the talking.", "Only after you approve the exact preview. Gumroad, Kit, Buffer and Blotato connections are read-only."),
+      ("Maturity", "Made by Rebecca Spitzer, who publishes her monthly numbers on her Substack.", "Made by Finn Tropy. Very new and updated often: its maker says it went from v1.0 to v1.9.4 in its first five days; v1.24.0 with 4 ratings at checking."),
+    ],
+    body=[
+      ("The problem both solve", "Growth on Substack runs on conversations in Notes, comments and DMs, and they quickly outgrow memory or a spreadsheet. Both tools answer the same everyday questions: who's waiting on a reply, who's new, who used to talk with you and went quiet, and which Notes bring in subscribers. Each even suggests five people to talk to today."),
+      ("The real difference: Substack only, or your whole business", "Orbit is built for relationships on Substack. StackContacts Studio is built for writers whose people are spread across platforms: it can show that a Gumroad buyer doesn't read your newsletter, or that part of your Kit list never subscribed on Substack. If Substack is your only platform, that cross-platform matching won't add much."),
+      ("How hands-on you want AI to be", "Orbit deliberately stops short of writing for you: AI helps you find people and patterns, and every reply is yours. Studio lets Claude draft replies, DMs and scheduled Notes, with a preview-and-approve step before anything goes out. If your voice is the product, read every draft before you approve it, or write the replies yourself."),
+      ("How the costs compare", "Orbit costs $120 over a year paid annually, and you also get its maker's paid newsletter. Studio costs $99 once, but you need Claude Desktop (a paid Claude plan is recommended) and a supported computer: Intel Macs aren't supported. Orbit has no trial; Studio's refund only covers setup failures, so check the requirements before you buy."),
+      ("Our pick", "Substack-only writers who want to remember people without automation: Orbit. Writers who sell products or run a community alongside their newsletter and already use Claude Desktop: StackContacts Studio. If you mostly want numbers rather than people, a read-only analytics extension in the Analytics category may be enough."),
+    ],
+    sources=[
+      ("Orbit homepage and FAQ (pricing, ChatGPT and Claude, data)", "https://seeyourorbit.com/"),
+      ("StackContacts Studio product page (Gumroad)", "https://finntropy.gumroad.com/l/stackcontacts_studio"),
+      ("Finn Tropy: Every Creator Needs a Scotty (Nov 1, 2026)", "https://finntropy.substack.com/p/every-creator-needs-a-scotty"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

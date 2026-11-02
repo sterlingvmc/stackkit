@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31; V13 = 2026-11-01):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31; V13 = 2026-11-01; V14 = 2026-11-02):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -15,7 +15,8 @@ V10 = "2026-10-29"  # entries re-checked in the 2026-10-29 daily ops pass
 V11 = "2026-10-30"  # entries added or re-checked in the 2026-10-30 daily ops pass
 V12 = "2026-10-31"  # entries added or re-checked in the 2026-10-31 daily ops pass
 V13 = "2026-11-01"  # entries re-checked in the 2026-11-01 daily ops pass
-UPDATED = V13
+V14 = "2026-11-02"  # entries added or re-checked in the 2026-11-02 daily ops pass
+UPDATED = V14
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -29,12 +30,12 @@ add("SparkLoop","https://sparkloop.app/","growth",
  "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
  "Getting paid recommendations and buying cross-newsletter referrals",
  "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
- free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center", verified=V5)
+ free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center", verified=V14)
 add("Supascribe","https://supascribe.com/","growth",
  "Free (2 basic embeds, first 1,000 views, first 100 new subscribers); Starter $9/mo, Growth $20/mo, Pro $249/mo (all billed yearly); paid plans add $2 per extra 10,000 views or 100 subscribers.",
  "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
  "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
- substack_specific=True, free_plan=True, verified=V5, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown)")
+ substack_specific=True, free_plan=True, verified=V14, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown, the page says yearly saves 20% vs monthly)")
 add("WriteStack","https://www.writestack.io/","growth",
  "Hobbyist $23.99/mo; Standard $32.99/mo; Enterprise $99.99/mo; every plan has a 7-day free trial. (Yearly prices aren't shown on its homepage.)",
  "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
@@ -110,8 +111,15 @@ add("Orbit","https://seeyourorbit.com/","analytics",
  "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack (What's Working Right Now on Substack). No free plan or trial.",
  "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
  "A thoughtful relationship tracker for Substack that never writes or replies for you, and you can ask it questions from Claude or ChatGPT. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
- substack_specific=True, free_plan=False, verified=V11, pricing_source="official site (seeyourorbit.com FAQ, \"As of October 2026\")",
+ substack_specific=True, free_plan=False, verified=V14, pricing_source="official site (seeyourorbit.com FAQ, \"As of October 2026\")",
  notes="Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack.")
+add("StackContacts Studio","https://finntropy.gumroad.com/l/stackcontacts_studio","analytics",
+ "$99 one-time, including 12 months of updates and email support (it keeps working after that; renewing for new versions is optional). Refund within 30 days if it can't sync your publication or connect to Claude Desktop after following the install guide.",
+ "Writers who also sell on Gumroad, keep a Kit list or run a Skool community and want to see who their readers, buyers and members are in one place",
+ "A local audience database for Substack: a Chrome extension copies your subscribers, Notes, posts, comments, DMs and (optionally) Gumroad sales, Kit list, Buffer/Blotato posts and Skool community to your own computer, matches people across them by email, and shows who's waiting on a reply, who's drifting and which Notes bring subscribers. Claude Desktop drafts replies, DMs and scheduled Notes, and nothing posts until you approve the exact preview. Strong if your readers and buyers live in different places; overkill if you only use Substack. It needs an Apple Silicon Mac or Windows 11 PC plus Claude Desktop (paid plan recommended), works through your logged-in Substack session, and is a one-developer tool that's only weeks old, so expect frequent updates.",
+ substack_specific=True, free_plan=False, verified=V14,
+ pricing_source="official Gumroad product page (finntropy.gumroad.com/l/stackcontacts_studio, v1.24.0, 4 ratings) + maker's Nov 1, 2026 post (finntropy.substack.com/p/every-creator-needs-a-scotty)",
+ notes="Made by Finn Tropy (Finn'sights), an independent developer; not affiliated with Substack. Error reports and feature usage go to PostHog (not your content), and you can turn that off. Gumroad, Kit, Buffer and Blotato connections are read-only. Intel Macs aren't supported.")
 
 add("Substack Insights","https://substackinsights.com/","analytics",
  "Free for publications under 1,000 subscribers; $9.99 one-time above that. The pricing card lists Notes analytics and conversion stats under the paid tier.",
@@ -164,7 +172,7 @@ add("Repurpose.io","https://repurpose.io/","social",
  "Starter $35/mo; Pro $79/mo ($790/yr); Agency $179/mo ($1,790/yr); free trial of 14 days or 10 published videos, whichever comes first.",
  "Automatically distributing video and podcast clips across platforms",
  "Saves real time if you make video or audio. Pure text writers don't need it.",
- aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=False, verified=V5)
+ aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=False, verified=V14)
 
 # ---------- Design ----------
 add("Canva","https://www.canva.com/","design",
@@ -262,7 +270,7 @@ add("Readwise","https://readwise.io/","planning",
  "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
  "Collecting highlights from books and articles to feed your writing",
  "A strong research engine for essayists and curators. Its Reader app is included with Full.",
- free_plan=False, verified=V4)
+ free_plan=False, verified=V14)
 add("Google Trends","https://trends.google.com/","planning",
  "Free.",
  "Checking whether a topic is rising before you write about it",
@@ -303,15 +311,15 @@ add("Descript","https://www.descript.com/","audio",
  "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
  aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V11, pricing_source="official site (descript.com/pricing)")
 add("ElevenLabs","https://elevenlabs.io/","audio",
- "Free (10k credits/mo); Starter $6/mo; Creator $22/mo; higher tiers available.",
+ "Free (10k credits/mo, no commercial license); Starter $6/mo (30k credits, commercial license); Creator $22/mo (121k credits); Pro $99/mo; higher business tiers. Yearly billing costs 10x the monthly price (two months free).",
  "Producing audio versions of posts with natural-sounding AI voices",
  "Best-in-class AI voice. Tell listeners when a voice is synthetic.",
- aff=True, aff_url="https://elevenlabs.io/affiliates", free_plan=True, verified=V4)
+ aff=True, aff_url="https://elevenlabs.io/affiliates", free_plan=True, verified=V14, pricing_source="official site (elevenlabs.io/pricing plans and FAQ; first-month promo prices not included)")
 add("Riverside","https://riverside.com/","audio",
- "Free (720p, Riverside watermark, 2 one-off hours of separate-track recording); Pro $24/mo billed annually ($288/yr) or $29 monthly; Grow $34/mo billed annually.",
+ "Free (720p, Riverside watermark, 2 one-off hours of separate-track recording); Pro $24/mo billed annually ($288/yr) or $29 monthly; Grow $34/mo billed annually ($408/yr) or $39 monthly.",
  "Recording remote interviews in high quality",
  "Records each guest locally, so remote interviews sound studio-grade. Ideal for interview-driven newsletters.",
- aff=True, aff_url="https://riverside.com/affiliate-program", free_plan=True, verified=V4)
+ aff=True, aff_url="https://riverside.com/affiliate-program", free_plan=True, verified=V14)
 add("Audacity","https://www.audacityteam.org/","audio",
  "Free and open source.",
  "Recording and cleaning up voiceovers on a zero budget",
@@ -333,7 +341,7 @@ add("Tally","https://tally.so/","embeds",
  "Free (unlimited forms and submissions, within fair use); Pro $29/mo or $290/yr; Business $89/mo or $890/yr (USD; Tally shows euro prices to EU visitors).",
  "Reader surveys, sponsor inquiry forms and feedback forms",
  "The most generous free form builder. Substack posts can't host forms directly, so link to it from your post or About page.",
- free_plan=True, verified=V5, pricing_source="official site (tally.so/pricing; USD amounts from the page's plan data, the visible price depends on your location and monthly/yearly toggle)")
+ free_plan=True, verified=V14, pricing_source="official site (tally.so/pricing; USD amounts from the page's plan data, the visible price depends on your location and monthly/yearly toggle)")
 add("Datawrapper","https://www.datawrapper.de/","embeds",
  "Free (unlimited charts, maps and tables, with a \"Created with Datawrapper\" credit); Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.",
  "Clean, accurate charts, maps and tables for data-driven posts",
