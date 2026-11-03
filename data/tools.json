@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02",
+  "generated": "2026-11-03",
   "categories": [
     {
       "slug": "growth",
@@ -642,7 +642,7 @@
       "affiliate_program": "yes",
       "affiliate_url": "https://www.notion.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-31",
+      "verified_on": "2026-11-03",
       "notes": null
     },
     {
@@ -650,15 +650,15 @@
       "name": "Trello",
       "url": "https://trello.com/",
       "category": "planning",
-      "pricing": "Free (up to 10 collaborators); Standard $5/user/mo billed annually.",
+      "pricing": "Free (up to 10 collaborators and 10 boards per Workspace); Standard $5/user/mo billed annually ($6 monthly); Premium $10/user/mo billed annually ($12.50 monthly).",
       "free_plan": true,
-      "pricing_source": "official site (trello.com/pricing; Standard is $6/user/mo billed monthly)",
+      "pricing_source": "official site (trello.com/pricing)",
       "best_for": "A simple kanban for drafts moving from idea to published",
       "verdict": "Simpler than Notion if you only need a board. Free is plenty for one writer.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-26",
+      "verified_on": "2026-11-03",
       "notes": null
     },
     {

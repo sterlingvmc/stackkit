@@ -259,6 +259,28 @@ COMPARISONS = [
       ("StackContacts Studio product page (Gumroad)", "https://finntropy.gumroad.com/l/stackcontacts_studio"),
       ("Finn Tropy: Every Creator Needs a Scotty (Nov 1, 2026)", "https://finntropy.substack.com/p/every-creator-needs-a-scotty"),
     ]),
+  dict(slug="notion-vs-trello-substack-editorial-calendar", a="notion", b="trello", checked="2026-11-03",
+    title="Notion vs Trello for a Substack editorial calendar: which planner fits?",
+    h1="Notion vs Trello for planning your Substack",
+    desc="Notion vs Trello for Substack writers: free plans, paid pricing (Notion Plus $10/seat/mo, Trello Standard $5/user/mo billed annually), and which works better as an editorial calendar, idea bank or sponsor tracker.",
+    short="Both free plans are enough for one writer. Pick Trello if you just want a simple board where each post card moves from Idea to Drafting to Scheduled to Published. Pick Notion if you also want an idea bank, research notes, a sponsor list and a calendar view in one place, and don't mind spending an hour setting it up.",
+    rows=[
+      ("Main job", "Flexible pages and databases: build a calendar, idea bank, research notes and sponsor CRM in one workspace.", "Kanban boards: cards move across lists, with due dates and checklists."),
+      ("Free plan", "Free plan covers solo use.", "Free for up to 10 collaborators and up to 10 boards per Workspace, with unlimited cards."),
+      ("Paid plans", "Plus $10/seat/mo.", "Standard $5/user/mo billed annually ($6 monthly); Premium $10/user/mo billed annually ($12.50 monthly) adds Calendar, Timeline and Table views."),
+      ("Setup time", "Longer: you design your own databases or start from a template.", "Minutes: make a board and add lists."),
+      ("Watch out for", "Easy to spend more time building the system than writing.", "On the free plan you only get board view, so there's no calendar view unless you pay for Premium or use a Power-Up."),
+    ],
+    body=[
+      ("What a Substack writer actually needs", "Most writers need three things: somewhere to dump ideas, a way to see what's publishing this week, and a record of what went out. Either tool does all three for free. The choice is about how much structure you want."),
+      ("When Trello is enough", "If you publish once or twice a week, a Trello board with four lists (Ideas, Drafting, Scheduled, Published) is hard to beat. Put the publish date on each card and you can see the next month at a glance."),
+      ("When Notion pays off", "If you run sponsorships, a podcast or a paid tier alongside your posts, Notion lets you link a post to its sponsor, its research notes and its Notes promotion in one database. That's more setup, but it saves hunting across apps later."),
+      ("Our pick", "Start with Trello's free plan if you want to be planning in five minutes. Choose Notion's free plan if you want one place for your whole newsletter business. Neither connects to Substack directly, so you'll still schedule posts inside Substack. See the Planning category for other options, like Obsidian."),
+    ],
+    sources=[
+      ("Notion pricing", "https://www.notion.com/pricing"),
+      ("Trello pricing", "https://trello.com/pricing"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

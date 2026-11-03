@@ -1,4 +1,4 @@
-# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31; V13 = 2026-11-01; V14 = 2026-11-02):
+# Source of truth for data/tools.json. Every entry was checked on 2026-10-18 (V15 = 2026-11-03; entries with verified=V2 re-checked or added 2026-10-21; V3 = 2026-10-22; V4 = 2026-10-23; V5 = 2026-10-24; V6 = 2026-10-25; V7 = 2026-10-26; V8 = 2026-10-27; V9 = 2026-10-28; V10 = 2026-10-29; V11 = 2026-10-30; V12 = 2026-10-31; V13 = 2026-11-01; V14 = 2026-11-02):
 # URL loaded (HTTP 200 or bot-check page on the real domain), pricing from the
 # official pricing page unless "pricing_source" says otherwise.
 import json, re
@@ -16,7 +16,8 @@ V11 = "2026-10-30"  # entries added or re-checked in the 2026-10-30 daily ops pa
 V12 = "2026-10-31"  # entries added or re-checked in the 2026-10-31 daily ops pass
 V13 = "2026-11-01"  # entries re-checked in the 2026-11-01 daily ops pass
 V14 = "2026-11-02"  # entries added or re-checked in the 2026-11-02 daily ops pass
-UPDATED = V14
+V15 = "2026-11-03"  # entries re-checked in the 2026-11-03 daily ops pass
+UPDATED = V15
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -241,12 +242,12 @@ add("Notion","https://www.notion.com/","planning",
  "Free; Plus $10/seat/mo.",
  "Editorial calendars, idea banks and sponsor CRMs",
  "The most flexible planning hub for newsletter writers. The free plan covers solo use.",
- aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True, verified=V12)
+ aff=True, aff_url="https://www.notion.com/affiliates", free_plan=True, verified=V15)
 add("Trello","https://trello.com/","planning",
- "Free (up to 10 collaborators); Standard $5/user/mo billed annually.",
+ "Free (up to 10 collaborators and 10 boards per Workspace); Standard $5/user/mo billed annually ($6 monthly); Premium $10/user/mo billed annually ($12.50 monthly).",
  "A simple kanban for drafts moving from idea to published",
  "Simpler than Notion if you only need a board. Free is plenty for one writer.",
- free_plan=True, verified=V7, pricing_source="official site (trello.com/pricing; Standard is $6/user/mo billed monthly)")
+ free_plan=True, verified=V15, pricing_source="official site (trello.com/pricing)")
 add("Obsidian","https://obsidian.md/","planning",
  "Free, no sign-up required; optional Sync $4/user/mo and Publish $8/site/mo (billed annually).",
  "Building a personal knowledge base of notes, quotes and ideas",
