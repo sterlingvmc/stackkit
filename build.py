@@ -321,7 +321,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -835,6 +835,12 @@ def rec_guide():
         "How Substack recommendations and the new lists (Oct 2026) work: where recommendations appear, how to set them up, writing reasons, creating lists, digests, stats and how to earn recommendations.", body, ld, current=REC_SLUG), "0.9")
 
 # ---------------- Comparisons ----------------
+def compare_hub():
+    items = "".join(f'<li><a href="/compare/{x["slug"]}/">{e(BY[x["a"]]["name"])} vs {e(BY[x["b"]]["name"])} for Substack</a><br>{e(x["short"])}</li>' for x in COMPARISONS)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Comparisons</div>
+<h1>Substack tool comparisons</h1><p>Head-to-head comparisons of tools for Substack writers, checked against each tool's own pricing and feature pages. Each one ends with a plain recommendation.</p><ul>{items}</ul></div></div>"""
+    write("/compare/", layout("/compare/", f"Substack tool comparisons: head-to-head picks for writers | {BRAND}", "Every StackKit head-to-head comparison of tools for Substack writers in one place: Notes schedulers, analytics, writing assistants, charts, planning and reader tools.", body), "0.7")
+
 def compare(x):
     a, b = BY[x["a"]], BY[x["b"]]
     rows = "".join(f"<tr><th scope=\"row\">{e(k)}</th><td>{e(va)}</td><td>{e(vb)}</td></tr>" for k, va, vb in x["rows"])
@@ -874,6 +880,7 @@ def extras():
              f"- [Substack SEO guide]({SITE_URL}/guides/substack-seo-guide/): how to get Substack posts found on Google and in AI answers: SEO title, description and URL settings, internal and inbound links, keeping evergreen posts free, and measuring with Google Search Console",
              f"- [Substack recommendations and lists guide]({SITE_URL}/guides/substack-recommendations-guide/): how Substack recommendations and the new lists (launched Oct 29, 2026) work: where recommendations appear, setup, writing reasons, creating themed lists, digest rules, stats, and how to earn recommendations",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
+             f"- [All Substack tool comparisons]({SITE_URL}/compare/): index of every head-to-head page",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
              f"- [About & disclosures]({SITE_URL}/about/)", f"- [Feature your tool]({SITE_URL}/feature/): sponsorship options", f"- [Raw data (JSON)]({SITE_URL}/data/tools.json)", ""]
     for c in CATS:
@@ -894,6 +901,7 @@ def main():
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
+    compare_hub()
     feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
