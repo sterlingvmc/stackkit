@@ -897,6 +897,9 @@ def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     shutil.copytree(os.path.join(ROOT, "src", "assets"), os.path.join(OUT, "assets"))
     open(os.path.join(OUT, "assets", "favicon.svg"), "w").write(LOGO.replace('aria-hidden="true"', 'xmlns="http://www.w3.org/2000/svg"'))
+    downloads_src = os.path.join(ROOT, "src", "downloads")
+    if os.path.isdir(downloads_src):
+        shutil.copytree(downloads_src, os.path.join(OUT, "downloads"))
     home()
     for c in CATS: category(c)
     for t in TOOLS: tool(t)
