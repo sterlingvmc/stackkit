@@ -318,7 +318,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <a class="logo" href="/">{LOGO}{BRAND}</a>
 <nav class="main" aria-label="Main">{navh}<a class="btn sm brand" href="/feature/">Feature your tool</a></nav>
 </div></header>
-<main id="main">{body}</main>
+<main id="main">{TOPCTA if (path == "/" or path.startswith("/tools/") or path.startswith("/compare/")) else ""}{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
 <div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
@@ -354,6 +354,9 @@ SIGNUP = f"""<section class="block" id="newsletter"><div class="wrap"><div class
 <iframe src="{SUBSTACK_URL}/embed" title="Subscribe to the StackKit newsletter on Substack" width="480" height="150" loading="lazy" frameborder="0" scrolling="no"></iframe>
 <p class="fallback">Form not loading? <a href="{SUBSTACK_URL}/subscribe" target="_blank" rel="noopener">Subscribe on Substack →</a></p>
 </div></div></div></section>"""
+
+TOPCTA = f"""<aside class="topcta" aria-label="Free download"><div class="wrap"><p><strong>Free:</strong> the 16 tools that run a growing Substack for $0 a month.</p>
+<a class="btn sm brand" href="{SUBSTACK_URL}/subscribe" target="_blank" rel="noopener">Get the list →</a></div></aside>"""
 
 # ---------------- Homepage ----------------
 def home():
