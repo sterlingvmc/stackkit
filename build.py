@@ -567,11 +567,13 @@ SCHED_SLUG = "/substack-notes-schedulers/"
 SCHEDULERS = [
   ("buffer", "Yes, plus every other social channel", "Buffer says it connects to Substack directly; Notes sit in the same calendar as your other channels. Free plan included (checked 2026-10-26)."),
   ("typefully", "Yes, alongside X, LinkedIn, Threads, Bluesky and Mastodon", "You connect Substack in Typefully's settings by authorizing your account on Substack. Notes only (no long-form posts, no video), and included on the free plan (checked 2026-10-26)."),
+  ("eden", "Yes, plus X, LinkedIn, Threads, Instagram, TikTok, Facebook, YouTube and more (Creator Starter+)", "Hands most Notes and articles to Substack's native scheduler so they publish with devices off; reply threads post live and need Chrome or the Eden Mac app near the slot (checked 2026-11-06)."),
   ("narrareach", "Yes", "Hands Notes to Substack's own scheduler rather than posting from a stored session."),
   ("subflowai", "Yes (up to 30 at once, visual calendar)", "Chrome extension that schedules Notes on Substack's servers through your logged-in session, so they publish with Chrome closed."),
   ("notesiq", "Weekly queue", "Chrome extension that publishes through Substack's composer in your logged-in session."),
   ("notestack", "Yes (Starter: 7 new scheduled Notes a month; Pro: unlimited)", "Chrome extension that auto-publishes through your logged-in session."),
-  ("writestack", "Yes (bulk scheduling, reorderable queue, calendar)", "Chromium browser extension acting in your logged-in session."),
+  ("writestack", "Yes (bulk scheduling, reorderable queue, calendar)", "Chromium extension: click Sync to hand queued Notes to Substack's native scheduler (checked 2026-11-06)."),
+  ("substack-pro-studio", "Yes (visual weekly calendar, bulk upload, drip mode)", "Chrome extension with server-side handoff to Substack's native Notes scheduler so Notes publish with your laptop closed (checked 2026-11-06)."),
   ("stackbuddy", "Yes (posting slots fill automatically; free plan keeps scheduling)", "Chrome extension syncs each Note into Substack's own scheduler, so Substack publishes it; Chrome only needs to be open while syncing (checked 2026-10-28)."),
   ("stacksweller", "Yes (cloud queue)", "Cloud service that holds your Substack session so the queue runs with your laptop closed."),
 ]
@@ -583,7 +585,7 @@ def schedulers():
     body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / <a href="/category/growth/">Growth &amp; Notes</a> / Notes schedulers</div>
 <h1>Substack Notes schedulers compared (2026)</h1>
 <p class="small">Updated {e(data['generated'])} · {len(names) + 1} options, including Substack's own scheduler · Prices checked on each vendor's site · Independent, no affiliate links on this page</p>
-<p><strong>The short answer:</strong> if you post a few Notes a week, use Substack's built-in scheduler. It's free, and Notes go out from Substack's own servers. Pay for a tool only when you want to batch a week or more at once: {L('buffer')} if Notes are one channel among several, {L('subflowai')} if you want the cheapest batch queue for Substack alone, and {L('writestack')} if you want the most complete Substack-only Notes suite.</p>
+<p><strong>The short answer:</strong> if you post a few Notes a week, use Substack's built-in scheduler. It's free, and Notes go out from Substack's own servers. Pay for a tool only when you want to batch a week or more at once: {L('buffer')} or {L('eden')} if Notes are one channel among several (Eden also hands Notes and articles to Substack's native scheduler), {L('subflowai')} or {L('substack-pro-studio')} if you want a cheap Substack-only batch queue, and {L('writestack')} if you want the most complete Substack-only Notes suite.</p>
 <h2>Start with the free built-in scheduler</h2>
 <p>Substack schedules Notes natively on the web, iOS and Android. On the web, write your Note, click the calendar icon, choose <em>Schedule</em> and pick a time in your local time zone (on the apps, tap "…" first). Scheduled Notes appear in your Drafts tab, where you can edit them until they publish. The catch: you schedule one Note at a time, with no queue or calendar view. If that's fine for you, you don't need anything on this page.</p>
 </div>
@@ -591,8 +593,8 @@ def schedulers():
 <div class="prose">
 <h2>How to choose</h2>
 <ul>
-<li><strong>You post to X, LinkedIn or Threads too:</strong> a multi-platform scheduler saves the most time. {L('buffer')}'s free plan covers up to 3 channels, and {L('typefully')} suits writers who start on X. Both free plans include Notes; see <a href="/compare/buffer-vs-typefully-substack-notes/">Buffer vs Typefully for Substack Notes</a>.</li>
-<li><strong>Substack is your whole world and you want to batch cheaply:</strong> {L('subflowai')} (about $1.17/mo on its 5-year plan) or {L('notesiq')} ($4.99 one time, but very new).</li>
+<li><strong>You post to X, LinkedIn or Threads too:</strong> a multi-platform scheduler saves the most time. {L('buffer')}'s free plan covers up to 3 channels (and includes Notes), {L('typefully')} suits writers who start on X, and {L('eden')} is the cross-platform option that also hands Notes and articles to Substack's native scheduler (scheduling starts on its paid Creator Starter plan). See <a href="/compare/buffer-vs-typefully-substack-notes/">Buffer vs Typefully for Substack Notes</a>.</li>
+<li><strong>Substack is your whole world and you want to batch cheaply:</strong> {L('subflowai')} (about $1.17/mo on its 5-year plan), {L('substack-pro-studio')} ($79 one-time with server-side scheduling), or {L('notesiq')} ($4.99 one time, but very new).</li>
 <li><strong>You want analytics and scheduling in one place:</strong> {L('notestack')} or {L('writestack')}. Both rank Notes by the subscribers they bring, not just likes.</li>
 <li><strong>You start from long-form posts and publish beyond Substack:</strong> {L('narrareach')} turns articles into Notes and cross-posts to other platforms.</li>
 <li><strong>You only want to know which Notes work:</strong> skip scheduling and use a read-only tool such as {L('subshack')} (free) or {L('substack-insights')}. See our <a href="/compare/substack-insights-vs-notestack/">Substack Insights vs NoteStack comparison</a>.</li>
@@ -609,7 +611,7 @@ def schedulers():
 </ul>
 <p class="small">Prices change; confirm on each vendor's site. See <a href="/about/">how we verify tools</a>, <a href="/free-substack-tools/">all free tools</a>, and our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>.</p></div></div>{SIGNUP}"""
     faq = [("Can you schedule Substack Notes for free?", "Yes. Substack's built-in scheduler is free on web, iOS and Android: click the calendar icon in the Notes composer, choose Schedule and pick a time. It schedules one Note at a time; scheduled Notes wait in your Drafts tab."),
-           ("What is the best Substack Notes scheduler?", "For a few Notes a week, Substack's built-in scheduler. For batching, Buffer if you also post to other networks, SubflowAI for the cheapest Substack-only batch queue, and WriteStack for the most complete Substack-only Notes suite.")]
+           ("What is the best Substack Notes scheduler?", "For a few Notes a week, Substack's built-in scheduler. For batching, Buffer (free plan) or Eden if you also post to other networks, SubflowAI or Substack Pro Studio for a cheap Substack-only batch queue, and WriteStack for the most complete Substack-only Notes suite.")]
     ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack Notes schedulers compared (2026)", "dateModified": data["generated"],
            "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + SCHED_SLUG,
            "about": [{"@type": "SoftwareApplication", "name": BY[sl]["name"], "url": BY[sl]["url"]} for sl, _, _ in SCHEDULERS if sl in BY]},

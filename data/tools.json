@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-03",
+  "generated": "2026-11-06",
   "categories": [
     {
       "slug": "growth",
@@ -66,7 +66,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-11-02",
+      "verified_on": "2026-11-06",
       "notes": null
     },
     {
@@ -90,15 +90,15 @@
       "name": "WriteStack",
       "url": "https://www.writestack.io/",
       "category": "growth",
-      "pricing": "Hobbyist $23.99/mo; Standard $32.99/mo; Enterprise $99.99/mo; every plan has a 7-day free trial. (Yearly prices aren't shown on its homepage.)",
+      "pricing": "Hobbyist $23.99/mo or $19.99/mo billed yearly ($239.88/yr); Standard $32.99/mo or $24.99/mo billed yearly ($299.88/yr); Enterprise $99.99/mo or $79.99/mo billed yearly ($959.88/yr). Every plan has a 7-day free trial.",
       "free_plan": false,
-      "pricing_source": "official site (writestack.io homepage pricing section and writestack.io/llms.txt)",
+      "pricing_source": "official site (writestack.io homepage pricing section, checked 2026-11-06; schema offers still list the monthly prices)",
       "best_for": "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
-      "verdict": "The most complete Substack-only Notes suite: batch scheduling, voice-matched Note drafts, analytics on which Notes bring subscribers, a filtered notification inbox, and now an in-app writing coach (Quill) plus an MCP server so Claude or ChatGPT can draft and queue Notes. Pricey for a beginner, and publishing still runs through its browser extension acting in your logged-in session (you click Sync to send scheduled Notes).",
+      "verdict": "The most complete Substack-only Notes suite: batch scheduling, voice-matched Note drafts, analytics on which Notes bring subscribers, a filtered notification inbox, and now an in-app writing coach (Quill) plus an MCP server so Claude or ChatGPT can draft and queue Notes. Pricey for a beginner, and publishing still runs through its browser extension acting in your logged-in session (you click Sync to send scheduled Notes to Substack's native scheduler).",
       "affiliate_program": "yes",
       "affiliate_url": "https://www.writestack.io/affiliates",
       "substack_specific": true,
-      "verified_on": "2026-10-30",
+      "verified_on": "2026-11-06",
       "notes": "Independent; not affiliated with Substack. Also offers free standalone tools (posting-time heatmap, Notes roast, Note generator)."
     },
     {
@@ -148,6 +148,22 @@
       "substack_specific": true,
       "verified_on": "2026-11-01",
       "notes": null
+    },
+    {
+      "slug": "substack-pro-studio",
+      "name": "Substack Pro Studio",
+      "url": "https://finntropy.gumroad.com/l/substack_pro_studio",
+      "category": "growth",
+      "pricing": "$79 one-time (Chrome extension; lifetime updates; 30-day money-back). A Growth Bundle with Substack Control Center is $89 one-time on Gumroad (save $15 vs buying both).",
+      "free_plan": false,
+      "pricing_source": "official Gumroad product page (finntropy.gumroad.com/l/substack_pro_studio, $79, 33 ratings, 364 sales) + maker's Apr 17, 2026 post (finntropy.substack.com/p/22-months-26752-721-customers-the) for server-side scheduling and bundle pricing",
+      "best_for": "Writers who want a one-time-purchase Notes calendar with server-side scheduling, AI drafting templates and Note performance views",
+      "verdict": "A mature Substack-only Notes Chrome extension (364 Gumroad sales, 5.0 from 33 ratings on its product page): visual weekly calendar, bulk upload, drip mode, engagement heatmap and AI Note templates, with Notes handed to Substack's native scheduler so they publish with your laptop closed. Honest limits: it is a one-developer Chrome extension working through your logged-in Substack session, reply threads still need the browser near publish time on many Substack tools, and Cross-platform posting isn't the point. Skip it if Substack's free one-at-a-time scheduler is enough.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-11-06",
+      "notes": "Made by Finn Tropy (Finn'sights), independent, not affiliated with Substack. Separate from StackContacts Studio (already listed). Bundle with Control Center: finntropy.gumroad.com/l/prostudio_controlcenter_bundle."
     },
     {
       "slug": "subflowai",
@@ -310,6 +326,22 @@
       "notes": "Made by Finn Tropy (Finn'sights), an independent developer; not affiliated with Substack. Error reports and feature usage go to PostHog (not your content), and you can turn that off. Gumroad, Kit, Buffer and Blotato connections are read-only. Intel Macs aren't supported."
     },
     {
+      "slug": "substack-control-center",
+      "name": "Substack Control Center",
+      "url": "https://finntropy.gumroad.com/l/substack_control_center",
+      "category": "analytics",
+      "pricing": "$25 one-time (Chrome extension; lifetime updates; 30-day money-back). Also available in a $89 Growth Bundle with Substack Pro Studio.",
+      "free_plan": false,
+      "pricing_source": "official Gumroad product page (finntropy.gumroad.com/l/substack_control_center, $25, 11 ratings, 165 sales)",
+      "best_for": "Writers who want a cheap, one-tab dashboard for net adds, churn, MRR and which posts or Notes drive signups, without a monthly subscription",
+      "verdict": "A focused analytics Chrome extension (165 Gumroad sales, 5.0 from 11 ratings): net-adds heatmap, MRR/ARR cards, a hit list for posts and Notes, acquisition by channel and CSV export, including custom-domain publications. It is a one-developer tool that reads through your logged-in Substack session, so treat it as a dashboard on top of Substack's own stats rather than a second source of truth, and prefer CSV export when you need numbers you can keep.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-11-06",
+      "notes": "Made by Finn Tropy (Finn'sights), independent, not affiliated with Substack. Separate from StackContacts Studio and Substack Pro Studio."
+    },
+    {
       "slug": "substack-insights",
       "name": "Substack Insights",
       "url": "https://substackinsights.com/",
@@ -404,6 +436,22 @@
       "substack_specific": false,
       "verified_on": "2026-10-26",
       "notes": null
+    },
+    {
+      "slug": "eden",
+      "name": "Eden",
+      "url": "https://eden.so/",
+      "category": "social",
+      "pricing": "Free forever (100 saved items, no social scheduling). Creator Starter $25/mo billed yearly ($299/yr) or about $29/mo month-to-month; Pro $66/mo billed yearly ($790/yr) or about $79/mo month-to-month; Max $167/mo billed yearly ($1,999/yr) or about $199/mo month-to-month. Separate Personal library plans from $7.50/mo billed yearly. Social scheduling (including Substack) starts on Starter.",
+      "free_plan": true,
+      "pricing_source": "official site (eden.so/pricing annual and monthly figures; schema offers list monthly Starter $29 / Pro $79 / Max $199) + Eden Help: Schedule Substack notes and articles (eden.so/help/scheduling/substack-scheduling/)",
+      "best_for": "Writers who want one queue for Substack Notes and articles plus X, LinkedIn, Threads and other networks, with research and AI in the same workspace",
+      "verdict": "The rare cross-platform scheduler that treats Substack as first-class: it hands most Notes and articles to Substack's native scheduler so they publish with your devices off (reply threads still post live and need Chrome or the Eden Mac app near the slot). Useful if Notes are one channel among several and you also want research/AI. Overkill and pricey if you only need Substack Notes — Substack's free built-in scheduler, Buffer's free plan, or a Substack-only batch tool will do more for less.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-06",
+      "notes": "Independent; not affiliated with Substack. Free plan does not include social scheduling per the pricing comparison table."
     },
     {
       "slug": "hypefury",
@@ -1000,18 +1048,18 @@
     {
       "slug": "hecto",
       "name": "Hecto",
-      "url": "https://app.hecto.io/",
+      "url": "https://hecto.io/",
       "category": "monetization",
-      "pricing": "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees (as of its pricing page on 2026-10-25; that page was offline on 2026-10-31).",
+      "pricing": "Free for newsletter creators (no monthly fee; shown as £0/month); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
       "free_plan": true,
-      "pricing_source": "official site (hecto.io/pricing on 2026-10-25; fee shown as 5%, monthly fee shown as £0)",
+      "pricing_source": "official site (hecto.io/pricing on 2026-11-06; '5% Hecto Fee', 'No Monthly Fee', '£0 / month')",
       "best_for": "Selling sponsorship slots with transparent, upfront prices",
-      "verdict": "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Caution: on Oct 31, 2026 Hecto's main website (hecto.io) was offline with a hosting error, though the app itself still loaded. Check that it's back before relying on it.",
+      "verdict": "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Main site and pricing page were offline with a hosting error on Oct 31, 2026; both returned HTTP 200 again on Nov 6, 2026 with the same 5% / £0 monthly fee.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-25",
-      "notes": "2026-10-31: www.hecto.io and hecto.io/pricing returned HTTP 402 (Vercel DEPLOYMENT_DISABLED); app.hecto.io returned 200. Listing URL switched to the app until the main site returns. Re-check and remove the listing if the app goes down too."
+      "verified_on": "2026-11-06",
+      "notes": "2026-10-31 outage cleared by 2026-11-06: hecto.io, www.hecto.io and hecto.io/pricing all returned 200. Listing URL restored to hecto.io."
     },
     {
       "slug": "swapstack",

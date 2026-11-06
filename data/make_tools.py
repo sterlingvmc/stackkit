@@ -17,7 +17,8 @@ V12 = "2026-10-31"  # entries added or re-checked in the 2026-10-31 daily ops pa
 V13 = "2026-11-01"  # entries re-checked in the 2026-11-01 daily ops pass
 V14 = "2026-11-02"  # entries added or re-checked in the 2026-11-02 daily ops pass
 V15 = "2026-11-03"  # entries re-checked in the 2026-11-03 daily ops pass
-UPDATED = V15
+V16 = "2026-11-06"  # entries added or re-checked in the 2026-11-06 daily ops pass
+UPDATED = V16
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -31,18 +32,18 @@ add("SparkLoop","https://sparkloop.app/","growth",
  "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
  "Getting paid recommendations and buying cross-newsletter referrals",
  "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
- free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center", verified=V14)
+ free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center", verified=V16)
 add("Supascribe","https://supascribe.com/","growth",
  "Free (2 basic embeds, first 1,000 views, first 100 new subscribers); Starter $9/mo, Growth $20/mo, Pro $249/mo (all billed yearly); paid plans add $2 per extra 10,000 views or 100 subscribers.",
  "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
  "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
  substack_specific=True, free_plan=True, verified=V14, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown, the page says yearly saves 20% vs monthly)")
 add("WriteStack","https://www.writestack.io/","growth",
- "Hobbyist $23.99/mo; Standard $32.99/mo; Enterprise $99.99/mo; every plan has a 7-day free trial. (Yearly prices aren't shown on its homepage.)",
+ "Hobbyist $23.99/mo or $19.99/mo billed yearly ($239.88/yr); Standard $32.99/mo or $24.99/mo billed yearly ($299.88/yr); Enterprise $99.99/mo or $79.99/mo billed yearly ($959.88/yr). Every plan has a 7-day free trial.",
  "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
- "The most complete Substack-only Notes suite: batch scheduling, voice-matched Note drafts, analytics on which Notes bring subscribers, a filtered notification inbox, and now an in-app writing coach (Quill) plus an MCP server so Claude or ChatGPT can draft and queue Notes. Pricey for a beginner, and publishing still runs through its browser extension acting in your logged-in session (you click Sync to send scheduled Notes).",
- aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False, verified=V11,
- pricing_source="official site (writestack.io homepage pricing section and writestack.io/llms.txt)",
+ "The most complete Substack-only Notes suite: batch scheduling, voice-matched Note drafts, analytics on which Notes bring subscribers, a filtered notification inbox, and now an in-app writing coach (Quill) plus an MCP server so Claude or ChatGPT can draft and queue Notes. Pricey for a beginner, and publishing still runs through its browser extension acting in your logged-in session (you click Sync to send scheduled Notes to Substack's native scheduler).",
+ aff=True, aff_url="https://www.writestack.io/affiliates", substack_specific=True, free_plan=False, verified=V16,
+ pricing_source="official site (writestack.io homepage pricing section, checked 2026-11-06; schema offers still list the monthly prices)",
  notes="Independent; not affiliated with Substack. Also offers free standalone tools (posting-time heatmap, Notes roast, Note generator).")
 add("Narrareach","https://www.narrareach.com/","growth",
  "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
@@ -61,6 +62,14 @@ add("StackSweller","https://stacksweller.com/","growth",
  "A simple cloud queue for batch-scheduling Substack Notes",
  "Does one job (a Notes queue that runs with your laptop closed). Be aware it works by holding your Substack session, and Substack now schedules single Notes natively.",
  substack_specific=True, free_plan=False, verified=V13)
+
+add("Substack Pro Studio","https://finntropy.gumroad.com/l/substack_pro_studio","growth",
+ "$79 one-time (Chrome extension; lifetime updates; 30-day money-back). A Growth Bundle with Substack Control Center is $89 one-time on Gumroad (save $15 vs buying both).",
+ "Writers who want a one-time-purchase Notes calendar with server-side scheduling, AI drafting templates and Note performance views",
+ "A mature Substack-only Notes Chrome extension (364 Gumroad sales, 5.0 from 33 ratings on its product page): visual weekly calendar, bulk upload, drip mode, engagement heatmap and AI Note templates, with Notes handed to Substack's native scheduler so they publish with your laptop closed. Honest limits: it is a one-developer Chrome extension working through your logged-in Substack session, reply threads still need the browser near publish time on many Substack tools, and Cross-platform posting isn't the point. Skip it if Substack's free one-at-a-time scheduler is enough.",
+ substack_specific=True, free_plan=False, verified=V16,
+ pricing_source="official Gumroad product page (finntropy.gumroad.com/l/substack_pro_studio, $79, 33 ratings, 364 sales) + maker's Apr 17, 2026 post (finntropy.substack.com/p/22-months-26752-721-customers-the) for server-side scheduling and bundle pricing",
+ notes="Made by Finn Tropy (Finn'sights), independent, not affiliated with Substack. Separate from StackContacts Studio (already listed). Bundle with Control Center: finntropy.gumroad.com/l/prostudio_controlcenter_bundle.")
 
 # ---------- Analytics ----------
 add("SubflowAI","https://www.genaiunplugged.com/subflowai/","growth",
@@ -121,6 +130,13 @@ add("StackContacts Studio","https://finntropy.gumroad.com/l/stackcontacts_studio
  substack_specific=True, free_plan=False, verified=V14,
  pricing_source="official Gumroad product page (finntropy.gumroad.com/l/stackcontacts_studio, v1.24.0, 4 ratings) + maker's Nov 1, 2026 post (finntropy.substack.com/p/every-creator-needs-a-scotty)",
  notes="Made by Finn Tropy (Finn'sights), an independent developer; not affiliated with Substack. Error reports and feature usage go to PostHog (not your content), and you can turn that off. Gumroad, Kit, Buffer and Blotato connections are read-only. Intel Macs aren't supported.")
+add("Substack Control Center","https://finntropy.gumroad.com/l/substack_control_center","analytics",
+ "$25 one-time (Chrome extension; lifetime updates; 30-day money-back). Also available in a $89 Growth Bundle with Substack Pro Studio.",
+ "Writers who want a cheap, one-tab dashboard for net adds, churn, MRR and which posts or Notes drive signups, without a monthly subscription",
+ "A focused analytics Chrome extension (165 Gumroad sales, 5.0 from 11 ratings): net-adds heatmap, MRR/ARR cards, a hit list for posts and Notes, acquisition by channel and CSV export, including custom-domain publications. It is a one-developer tool that reads through your logged-in Substack session, so treat it as a dashboard on top of Substack's own stats rather than a second source of truth, and prefer CSV export when you need numbers you can keep.",
+ substack_specific=True, free_plan=False, verified=V16,
+ pricing_source="official Gumroad product page (finntropy.gumroad.com/l/substack_control_center, $25, 11 ratings, 165 sales)",
+ notes="Made by Finn Tropy (Finn'sights), independent, not affiliated with Substack. Separate from StackContacts Studio and Substack Pro Studio.")
 
 add("Substack Insights","https://substackinsights.com/","analytics",
  "Free for publications under 1,000 subscribers; $9.99 one-time above that. The pricing card lists Notes analytics and conversion stats under the paid tier.",
@@ -159,6 +175,13 @@ add("Buffer","https://buffer.com/","social",
  "Scheduling Notes alongside every other social channel from one calendar",
  "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
  free_plan=True, verified=V7, pricing_source="official site (buffer.com/pricing and its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
+add("Eden","https://eden.so/","social",
+ "Free forever (100 saved items, no social scheduling). Creator Starter $25/mo billed yearly ($299/yr) or about $29/mo month-to-month; Pro $66/mo billed yearly ($790/yr) or about $79/mo month-to-month; Max $167/mo billed yearly ($1,999/yr) or about $199/mo month-to-month. Separate Personal library plans from $7.50/mo billed yearly. Social scheduling (including Substack) starts on Starter.",
+ "Writers who want one queue for Substack Notes and articles plus X, LinkedIn, Threads and other networks, with research and AI in the same workspace",
+ "The rare cross-platform scheduler that treats Substack as first-class: it hands most Notes and articles to Substack's native scheduler so they publish with your devices off (reply threads still post live and need Chrome or the Eden Mac app near the slot). Useful if Notes are one channel among several and you also want research/AI. Overkill and pricey if you only need Substack Notes — Substack's free built-in scheduler, Buffer's free plan, or a Substack-only batch tool will do more for less.",
+ free_plan=True, verified=V16, substack_specific=False,
+ pricing_source="official site (eden.so/pricing annual and monthly figures; schema offers list monthly Starter $29 / Pro $79 / Max $199) + Eden Help: Schedule Substack notes and articles (eden.so/help/scheduling/substack-scheduling/)",
+ notes="Independent; not affiliated with Substack. Free plan does not include social scheduling per the pricing comparison table.")
 add("Hypefury","https://hypefury.com/","social",
  "Flexible $6/mo for 1 channel (plus $6/mo per extra channel); Full $19/mo for all channels; 7-day free trial, no card. No free plan.",
  "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram and TikTok",
@@ -365,12 +388,12 @@ add("Paved","https://www.paved.com/","monetization",
  "Established newsletters looking for sponsor demand",
  "A large newsletter ad network (3,000+ newsletters, per Paved). Its stated minimums of 50k subscribers or 1M monthly impressions rule out most smaller Substacks; start with Hecto or Swapstack until you're there.",
  free_plan=True, verified=V6, pricing_source="official site (paved.com/publishers)")
-add("Hecto","https://app.hecto.io/","monetization",
- "Free for newsletter creators (no monthly fee); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees (as of its pricing page on 2026-10-25; that page was offline on 2026-10-31).",
+add("Hecto","https://hecto.io/","monetization",
+ "Free for newsletter creators (no monthly fee; shown as £0/month); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
  "Selling sponsorship slots with transparent, upfront prices",
- "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Caution: on Oct 31, 2026 Hecto's main website (hecto.io) was offline with a hosting error, though the app itself still loaded. Check that it's back before relying on it.",
- free_plan=True, verified=V6, pricing_source="official site (hecto.io/pricing on 2026-10-25; fee shown as 5%, monthly fee shown as £0)",
- notes="2026-10-31: www.hecto.io and hecto.io/pricing returned HTTP 402 (Vercel DEPLOYMENT_DISABLED); app.hecto.io returned 200. Listing URL switched to the app until the main site returns. Re-check and remove the listing if the app goes down too.")
+ "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Main site and pricing page were offline with a hosting error on Oct 31, 2026; both returned HTTP 200 again on Nov 6, 2026 with the same 5% / £0 monthly fee.",
+ free_plan=True, verified=V16, pricing_source="official site (hecto.io/pricing on 2026-11-06; '5% Hecto Fee', 'No Monthly Fee', '£0 / month')",
+ notes="2026-10-31 outage cleared by 2026-11-06: hecto.io, www.hecto.io and hecto.io/pricing all returned 200. Listing URL restored to hecto.io.")
 add("Swapstack","https://www.swapstack.co/","monetization",
  "Free for publishers (Swapstack takes 10% on invite-only campaigns from its managed service). Paid publisher plans (Professional $30/mo, Enterprise $200/mo) are listed as coming soon.",
  "Finding sponsors and affiliate deals for small and mid-sized newsletters",
