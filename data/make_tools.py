@@ -18,7 +18,8 @@ V13 = "2026-11-01"  # entries re-checked in the 2026-11-01 daily ops pass
 V14 = "2026-11-02"  # entries added or re-checked in the 2026-11-02 daily ops pass
 V15 = "2026-11-03"  # entries re-checked in the 2026-11-03 daily ops pass
 V16 = "2026-11-06"  # entries added or re-checked in the 2026-11-06 daily ops pass
-UPDATED = V16
+V17 = "2026-11-07"  # entries added or re-checked in the 2026-11-07 daily ops pass
+UPDATED = V17
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -76,14 +77,14 @@ add("SubflowAI","https://www.genaiunplugged.com/subflowai/","growth",
  "Pro Monthly $9.97/mo; Pro 5-Year $69.97 one-time; Premium $99.97 (5 years, includes Connect to Claude/ChatGPT). Connect is a $30 one-time add-on on Pro plans. 5-day free trial, no card; 14-day money-back guarantee.",
  "Batch-scheduling a week or month of Notes cheaply, with a visual calendar and AI Note drafts from your articles",
  "The cheapest serious batch Notes scheduler we've found (the 5-year plan works out to about $1.17/mo), and Notes are queued on Substack's own scheduler so they publish with your laptop closed. It's a one-person product that works through your logged-in Substack session (the Claude/ChatGPT Connect feature uses Substack's unofficial API), and the AI-in-your-voice features are optional: edit anything it drafts before it goes out.",
- substack_specific=True, free_plan=False, verified=V5,
+ substack_specific=True, free_plan=False, verified=V17,
  pricing_source="official site (genaiunplugged.com/subflowai pricing section and FAQ); Chrome Web Store listing v3.11.0, updated Oct 2, 2026, 5.0 from 10 ratings",
  notes="Made by Dheeraj Sharma (GenAI Unplugged); independent, not affiliated with Substack.")
 add("Byline OS","https://bylineos.com/","analytics",
  "Starter free (CSV import, 30-day retention); Growth $19/mo; Scale $49/mo. 14-day trial. Currently in private beta.",
  "Paid-newsletter writers who want MRR, churn, cohort and revenue-per-post analytics",
  "Promising revenue-first analytics built specifically for Substack. It is a beta product; live sync uses your Substack session cookie and undocumented internal APIs, so the CSV-upload mode is the safer start.",
- substack_specific=True, free_plan=True, verified=V5)
+ substack_specific=True, free_plan=True, verified=V17)
 add("Google Analytics","https://analytics.google.com/","analytics",
  "Free.",
  "Seeing where your Substack traffic comes from (Substack lets you add a GA measurement ID)",
@@ -99,7 +100,7 @@ add("Subshack","https://www.subshack.pro/","analytics",
  "Free (Subshack 1.0), including a no-signup public profile audit.",
  "Finding out which Notes and posts actually bring subscribers, and auditing your profile",
  "A free, measurement-first browser extension (Chrome and Firefox) that never posts Notes or articles for you. Optional welcome-message sending is off unless you turn it on, with daily limits. New and small, so expect rough edges.",
- substack_specific=True, free_plan=True, verified=V5)
+ substack_specific=True, free_plan=True, verified=V17)
 add("Bitly","https://bitly.com/","analytics",
  "Free (with ads; 5 links and 2 QR Codes a month); Core $10/mo (annual only, $120/yr); Growth $29/mo ($348/yr); Premium $199/mo ($2,388/yr).",
  "Tracking clicks on links you share to social, podcasts and print",
@@ -117,6 +118,13 @@ add("StackStats","https://stackstats.app/","analytics",
  "Digs far deeper than Substack's dashboard and keeps your subscriber data on your own computer (Mac or Windows). It's a new one-developer app: installers aren't code-signed yet, and the optional Auto-Sync (beta) logs in to Substack for you, so manual CSV exports are the cautious route.",
  substack_specific=True, free_plan=False, verified=V11, pricing_source="official site (stackstats.app pricing section and FAQ)",
  notes="Independent; not affiliated with Substack. A read-only live demo is on its site.")
+add("Circles","https://github.com/cucoleadan/circles-app","analytics",
+ "Free and open source (MIT license). You host it yourself; any server or database costs are yours. The Circles Companion Chrome extension is free on the Chrome Web Store.",
+ "Technical writers who want a private, self-hosted CRM of everyone they talk to on Substack, with reply queues, timelines and an MCP server for Claude",
+ "A genuinely free alternative to paid relationship trackers like Orbit, built by writer Dan Cucolea: it merges likes, restacks, comments, follows and subscriptions into one record per person and flags who is waiting on a reply. It's brand new (repo created Sep 2026, a handful of GitHub stars) and you must self-host it (Bun, PostgreSQL), so it's only practical if you're comfortable running a web app. It reads Substack through an unofficial API with your own session cookie, which its README says may conflict with Substack's terms.",
+ substack_specific=True, free_plan=True, verified=V17,
+ pricing_source="official GitHub repo (github.com/cucoleadan/circles-app README and MIT license) + maker's Nov 3, 2026 post (allagentsconsidered.substack.com/p/i-built-a-substack-crm-so-claude)",
+ notes="Independent; not affiliated with Substack. Companion extension: chromewebstore.google.com/detail/circles-companion/bkflpfcomkiclmnllggooedkfcbmflnn. Also schedules Notes as Substack drafts that Substack itself publishes.")
 add("Orbit","https://seeyourorbit.com/","analytics",
  "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack (What's Working Right Now on Substack). No free plan or trial.",
  "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
@@ -209,7 +217,7 @@ add("Figma","https://www.figma.com/","design",
  "Free Starter; Professional full seat $16/mo.",
  "Custom visual systems, templates and detailed design work",
  "More power than most writers need. Pick it if you already know it or want pixel-level control.",
- free_plan=True, verified=V6)
+ free_plan=True, verified=V17)
 add("Kittl","https://www.kittl.com/","design",
  "Free plan (personal use only); Pro $15/mo or $144/yr; Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD).",
  "Typography-heavy graphics and AI-assisted illustrations",

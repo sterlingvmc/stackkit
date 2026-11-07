@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-06",
+  "generated": "2026-11-07",
   "categories": [
     {
       "slug": "growth",
@@ -178,7 +178,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-24",
+      "verified_on": "2026-11-07",
       "notes": "Made by Dheeraj Sharma (GenAI Unplugged); independent, not affiliated with Substack."
     },
     {
@@ -194,7 +194,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-24",
+      "verified_on": "2026-11-07",
       "notes": null
     },
     {
@@ -242,7 +242,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-24",
+      "verified_on": "2026-11-07",
       "notes": null
     },
     {
@@ -292,6 +292,22 @@
       "substack_specific": true,
       "verified_on": "2026-10-30",
       "notes": "Independent; not affiliated with Substack. A read-only live demo is on its site."
+    },
+    {
+      "slug": "circles",
+      "name": "Circles",
+      "url": "https://github.com/cucoleadan/circles-app",
+      "category": "analytics",
+      "pricing": "Free and open source (MIT license). You host it yourself; any server or database costs are yours. The Circles Companion Chrome extension is free on the Chrome Web Store.",
+      "free_plan": true,
+      "pricing_source": "official GitHub repo (github.com/cucoleadan/circles-app README and MIT license) + maker's Nov 3, 2026 post (allagentsconsidered.substack.com/p/i-built-a-substack-crm-so-claude)",
+      "best_for": "Technical writers who want a private, self-hosted CRM of everyone they talk to on Substack, with reply queues, timelines and an MCP server for Claude",
+      "verdict": "A genuinely free alternative to paid relationship trackers like Orbit, built by writer Dan Cucolea: it merges likes, restacks, comments, follows and subscriptions into one record per person and flags who is waiting on a reply. It's brand new (repo created Sep 2026, a handful of GitHub stars) and you must self-host it (Bun, PostgreSQL), so it's only practical if you're comfortable running a web app. It reads Substack through an unofficial API with your own session cookie, which its README says may conflict with Substack's terms.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-11-07",
+      "notes": "Independent; not affiliated with Substack. Companion extension: chromewebstore.google.com/detail/circles-companion/bkflpfcomkiclmnllggooedkfcbmflnn. Also schedules Notes as Substack drafts that Substack itself publishes."
     },
     {
       "slug": "orbit",
@@ -530,7 +546,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-25",
+      "verified_on": "2026-11-07",
       "notes": null
     },
     {

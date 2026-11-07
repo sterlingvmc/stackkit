@@ -321,7 +321,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{TOPCTA if (path == "/" or path.startswith("/tools/") or path.startswith("/compare/")) else ""}{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -377,7 +377,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -428,6 +428,7 @@ def tool(t):
 <h2>Other {e(c['name'].lower())} tools</h2><div class="grid">{''.join(card(o) for o in rel)}</div>
 {f'<p><a href="/guides/substack-seo-guide/">How to use {e(t["name"])} in our Substack SEO guide →</a></p>' if t["slug"] in SEO_TOOLS else ''}
 {f'<p><a href="/guides/substack-recommendations-guide/">Where {e(t["name"])} fits in our Substack recommendations guide →</a></p>' if t["slug"] in REC_TOOLS else ''}
+{f'<p><a href="/guides/substack-notes-guide/">Where {e(t["name"])} fits in our Substack Notes guide →</a></p>' if t["slug"] in NOTES_TOOLS else ''}
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
@@ -868,6 +869,101 @@ def compare(x):
            "acceptedAnswer": {"@type": "Answer", "text": x["short"]}}]}]
     write(f"/compare/{x['slug']}/", layout(f"/compare/{x['slug']}/", f"{x['title']} | {BRAND}", x["desc"], body, ld), "0.8")
 
+# ---------------- Substack Notes guide (long-form) ----------------
+NOTES_SLUG = "/guides/substack-notes-guide/"
+NOTES_TOOLS = ["subflowai", "writestack", "notestack", "notesiq", "stacksweller", "subshack", "substack-insights", "plotstack", "orbit", "circles"]
+# Every claim checked 2026-11-07 on the sources listed at the bottom of the page.
+def notes_guide():
+    tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in NOTES_TOOLS if s in BY)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Guides / Substack Notes</div>
+<h1>Substack Notes guide: how to post, schedule and measure Notes (2026)</h1>
+<p class="small">Updated {e(data['generated'])} · Every setting below checked against Substack's help center and announcements · Independent, not affiliated with Substack Inc.</p>
+<p><strong>The short version:</strong> Notes are Substack's public short-form feed. They don't land in anyone's inbox, so they work best as conversation: reply to and restack other writers, post a few Notes you'd be glad to be found by, and point people to your posts. Substack's own scheduler (free, built in since spring 2026) handles one Note at a time; you only need a third-party tool if you want to batch a week at once or see which Notes actually bring subscribers.</p>
+
+<h2>What Notes are, and who sees them</h2>
+<p>Substack describes Notes as a place where creators publish short-form posts and share ideas with each other and their readers: posts, links, images, quotes and comments, shared with your subscribers and the wider Substack network. Two facts shape how you should use them:</p>
+<ul>
+<li><strong>Notes are not emailed.</strong> According to Substack's help center, subscribers aren't emailed when you post a Note, the way they are for a newsletter. They may see Notes they missed in a Notes roundup digest or a push notification.</li>
+<li><strong>Notes are public.</strong> They can appear on the web, in the Substack app and on your profile. Anyone can read them, but only signed-in Substack users can post, like or reply. Your subscribers see your Notes, restacks and engagement in their Home feed.</li>
+</ul>
+<p>So treat a Note as a short public post that strangers might find, not as a message to your list. Your newsletter is still where you talk to subscribers directly.</p>
+
+<h2>1. Post a Note (web and app)</h2>
+<ul>
+<li><strong>On the web:</strong> click <strong>Create</strong>, choose <strong>Note</strong>, write it, and post. The web composer lets you add multiple images or a video and choose who can reply.</li>
+<li><strong>In the app:</strong> tap the plus sign, write, and select <strong>Post</strong>.</li>
+<li><strong>Drafts:</strong> on the web, enter some text and click Cancel to save a draft; reopen drafts from the <strong>Drafts</strong> button in the composer. In the app, tap Cancel and choose to save to drafts.</li>
+<li><strong>Paid-only replies:</strong> if you have payments turned on, the web composer lets you limit replies to <strong>Only paid subscribers</strong>. Useful for a members-only discussion; for growth, leave replies open.</li>
+</ul>
+
+<h2>2. Schedule Notes with Substack's free built-in scheduler</h2>
+<p>Substack added Notes scheduling in spring 2026, on web, iOS and Android. It's free and needs no extension:</p>
+<ul>
+<li><strong>Web:</strong> in the Notes composer, click the calendar icon, pick a date and time, click Save, then click Schedule.</li>
+<li><strong>App:</strong> in the composer, tap the three dots at the top, choose Schedule, pick the time, tap Save, then Schedule.</li>
+<li>Times are in your local time zone, and scheduled Notes wait in your <strong>Drafts</strong>, where you can keep editing until they publish.</li>
+</ul>
+<p>The limit is that it's one Note at a time. Writer Carrie (Thrive with Carrie) also reports that you can queue Notes up to three months ahead and unschedule one by clicking the X next to its schedule. If scheduling five Notes on a Sunday feels fine, you don't need anything else.</p>
+
+<h2>3. When a third-party scheduler is worth it</h2>
+<p>Batch tools earn their price when you write many Notes in one sitting. The cheapest serious option we've found is {L('subflowai')}; {L('notesiq')} is a one-time $4.99; {L('notestack')} and {L('writestack')} combine scheduling with analytics; {L('stacksweller')} is a plain cloud queue. Before you pay, check how each one publishes: some hand Notes to Substack's own scheduler, and others keep a queue on their own servers that holds your Substack session. Either way, check that Notes publish with your laptop closed. We compare all of them, including Substack's free scheduler, on the <a href="/substack-notes-schedulers/">Substack Notes schedulers page</a>.</p>
+<p>Almost all of these tools work through your logged-in Substack session or Substack's unofficial API. Prefer tools that let you approve every Note, and avoid anything that follows, likes or replies to people automatically.</p>
+
+<h2>4. Spend more time replying than posting</h2>
+<p>Scheduling makes it easy to post a lot, which isn't the same as growing. When Notes scheduling launched, writing coach Sarah Fay (Substack Writers at Work) warned against randomly scheduling lots of Notes or posting three to five times a day, and said the algorithm rewards you for engaging with others more than for getting engagement yourself. A sustainable routine:</p>
+<ul>
+<li>Reply thoughtfully to a few writers in your niche each day, the way you'd comment at a dinner party, not with "Great post!"</li>
+<li>Restack posts you genuinely recommend, with a line on why.</li>
+<li>Answer every reply on your own Notes; that's where readers decide whether to subscribe.</li>
+<li>When someone keeps showing up, remember them. {L('orbit')} (paid) or the free, self-hosted {L('circles')} keep a record of who you've talked to; a spreadsheet works too.</li>
+</ul>
+
+<h2>5. Know what to post</h2>
+<p>Notes reward things a stranger can get value from without clicking. Formats that fit the feed:</p>
+<ul>
+<li><strong>A single useful idea</strong> from your latest post, stated in full, with the link as an optional extra.</li>
+<li><strong>A question</strong> your readers can answer from experience.</li>
+<li><strong>A quick win</strong>: one small step someone can do in five minutes.</li>
+<li><strong>A list you made.</strong> Since October 29, 2026, Substack lists (themed collections of writers you recommend) can be shared on Notes, where they appear as a card in the feed. Our <a href="/guides/substack-recommendations-guide/">recommendations and lists guide</a> covers how to make one.</li>
+</ul>
+<p>Write the Note in your own voice. AI tools can help you pull ideas out of an old post, but edit everything before it goes out.</p>
+
+<h2>6. Measure which Notes bring subscribers</h2>
+<p>Likes and restacks don't tell you whether a Note grew your list. A few tools try to connect Notes to new subscribers:</p>
+<ul>
+<li>{L('subshack')} (free) ranks which Notes and posts brought subscribers and audits your public profile.</li>
+<li>{L('substack-insights')} (free under 1,000 subscribers) and {L('plotstack')} (free) put your Notes and post numbers in one place.</li>
+<li>{L('notestack')}, {L('notesiq')} and {L('writestack')} add best-time heatmaps next to their schedulers.</li>
+</ul>
+<p>Check your numbers monthly, not daily. Look for the two or three Note formats that bring subscribers, then write more of those.</p>
+
+<h2>A 20-minute daily Notes routine</h2>
+<ol>
+<li>Reply to three Notes or posts from writers in your niche (10 minutes).</li>
+<li>Answer replies on your own Notes (5 minutes).</li>
+<li>Post or schedule one Note: an idea, a question or a quick win (5 minutes).</li>
+<li>Once a month, check which Notes brought subscribers and adjust.</li>
+</ol>
+
+<h2>Tools mentioned in this guide</h2><ul>{tl}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://support.substack.com/hc/en-us/articles/14564821756308-Getting-started-on-Substack-Notes" target="_blank" rel="noopener">Substack Help Center: Getting started on Substack Notes</a> (updated April 20, 2026: what Notes are, no email, roundup digest and push notifications, posting, drafts, scheduling steps, paid-only replies, who can see Notes)</li>
+<li><a href="https://on.substack.com/p/new-on-substack-post-templates-notes" target="_blank" rel="noopener">Substack: New on Substack: Post templates, Notes scheduling, drop caps, and more</a> (April 8, 2026: scheduling on web, iOS and Android, local time zone, Drafts tab)</li>
+<li><a href="https://on.substack.com/p/introducing-lists-on-substack" target="_blank" rel="noopener">Substack: Introducing lists on Substack</a> (October 29, 2026: lists can be shared on Notes as a card)</li>
+<li><a href="https://www.substackwritersatwork.com/p/substack-growth-just-got-a-lot-easierwe" target="_blank" rel="noopener">Sarah Fay, Substack Writers at Work: We can schedule Notes!</a> (March 23, 2026: don't post three to five times a day; engaging with others matters more)</li>
+<li><a href="https://thrivewithcarrie.substack.com/p/schedule-substack-posts-and-notes" target="_blank" rel="noopener">Thrive with Carrie: How to schedule a post on Substack</a> (three-month scheduling window, how to unschedule)</li>
+</ul>
+<p class="small">Substack's features change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: the <a href="/substack-notes-schedulers/">Notes schedulers comparison</a>, our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>, the <a href="/guides/substack-seo-guide/">Substack SEO guide</a> and the <a href="/category/growth/">Growth &amp; Notes tools</a> category.</p></div></div>{SIGNUP}"""
+    faq = [("Do Substack Notes get emailed to subscribers?", "No. Substack's help center says subscribers aren't emailed when you post a Note, though they may see Notes they missed in a Notes roundup digest or a push notification."),
+           ("Can you schedule Notes on Substack?", "Yes. Since spring 2026 Substack has a free built-in scheduler on web, iOS and Android: click the calendar icon in the web composer (or the three dots in the app), pick a time, save and schedule. It schedules one Note at a time; third-party tools add batch scheduling."),
+           ("How often should I post Substack Notes?", "There's no official number. Coach Sarah Fay advises against posting three to five times a day and says engaging with other writers matters more than posting a lot. A daily routine of a few thoughtful replies plus one Note is sustainable for most writers."),
+           ("Can I limit Note replies to paid subscribers?", "Yes. If you have payments enabled, the web Notes composer lets you set replies to Only paid subscribers.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack Notes guide: how to post, schedule and measure Notes (2026)", "dateModified": data["generated"],
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + NOTES_SLUG},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(NOTES_SLUG, layout(NOTES_SLUG, f"Substack Notes guide: post, schedule and measure Notes (2026) | {BRAND}",
+        "How Substack Notes work in 2026: who sees them, how to post and schedule with Substack's free built-in scheduler, when a batch scheduler is worth it, a reply-first routine, and how to measure which Notes bring subscribers.", body, ld, current=NOTES_SLUG), "0.9")
+
 # ---------------- Extras ----------------
 def extras():
     write("/404.html", layout("/404.html", f"Page not found | {BRAND}", "Page not found.",
@@ -884,6 +980,7 @@ def extras():
              f"- [Free tools for Substack writers]({SITE_URL}/free-substack-tools/): every listed tool with a free plan ({sum(1 for t in TOOLS if t.get('free_plan'))}), grouped by category, with free-plan limits and paid prices",
              f"- [Substack SEO guide]({SITE_URL}/guides/substack-seo-guide/): how to get Substack posts found on Google and in AI answers: SEO title, description and URL settings, internal and inbound links, keeping evergreen posts free, and measuring with Google Search Console",
              f"- [Substack recommendations and lists guide]({SITE_URL}/guides/substack-recommendations-guide/): how Substack recommendations and the new lists (launched Oct 29, 2026) work: where recommendations appear, setup, writing reasons, creating themed lists, digest rules, stats, and how to earn recommendations",
+             f"- [Substack Notes guide]({SITE_URL}/guides/substack-notes-guide/): how Substack Notes work in 2026: who sees them (not emailed; roundup digest and push), posting and drafts, the free built-in scheduler on web and app, when a batch scheduler is worth it, a reply-first routine, and tools that measure which Notes bring subscribers",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              f"- [All Substack tool comparisons]({SITE_URL}/compare/): index of every head-to-head page",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
@@ -910,7 +1007,7 @@ def main():
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
     compare_hub()
-    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")
