@@ -281,6 +281,31 @@ COMPARISONS = [
       ("Notion pricing", "https://www.notion.com/pricing"),
       ("Trello pricing", "https://trello.com/pricing"),
     ]),
+  dict(slug="gumroad-vs-ko-fi-substack", a="gumroad", b="ko-fi", checked="2026-11-08",
+    title="Gumroad vs Ko-fi for Substack writers: fees for tips, ebooks and memberships",
+    h1="Gumroad vs Ko-fi for Substack writers",
+    desc="Gumroad vs Ko-fi for Substack writers: what each charges on tips, digital products and memberships, who handles sales tax, and which to pair with your newsletter.",
+    short="Pick Ko-fi if you mainly want a tip jar next to your Substack: one-off tips are fee-free on Ko-fi Free (you pay only PayPal or Stripe fees). Pick Gumroad if you're selling an ebook, template or guide and want sales tax handled for you; it costs more per sale but acts as merchant of record.",
+    rows=[
+      ("Monthly cost", "None.", "None on Ko-fi Free or Standard. Ko-fi Gold is an optional fixed monthly fee for 0% service fees (price not shown on its page)."),
+      ("One-off tips", "Not what it's built for.", "0% service fee on Ko-fi Free; 5% in Standard mode, which new accounts start in. Switch it in Settings > Payment."),
+      ("Digital product sales", "10% + $0.50 per sale through your profile or direct links; 30% when a buyer finds you through Gumroad Discover.", "5% on Ko-fi Shop sales."),
+      ("Memberships", "Supported, at the same per-transaction fees.", "5% on membership tiers and monthly tips."),
+      ("Payment processing", "Included in Gumroad's fee.", "PayPal or Stripe fees on top, usually around 3% + $0.30. Money goes straight to your own account."),
+      ("Sales tax", "Gumroad is merchant of record and collects and remits sales tax for you (since Jan 1, 2025).", "Payments go to your own PayPal or Stripe account; check what tax obligations that leaves you with."),
+    ],
+    body=[
+      ("How each fits next to a Substack", "Substack already handles paid subscriptions, so neither tool should replace that. Ko-fi works as the low-commitment option for readers who want to say thanks without subscribing. Gumroad works for a one-time product, like a guide built from your best posts, that you link at the bottom of a newsletter."),
+      ("Do the fee math on a real price", "On a $10 ebook sold through a direct link, Gumroad's fee is $1.50 (10% + $0.50) and covers payment processing. On Ko-fi Shop the service fee is $0.50 (5%), plus your PayPal or Stripe fee, often around $0.60 on $10. Ko-fi usually keeps more of each sale; Gumroad's extra cost buys sales tax handling and a buyer checkout many readers already know."),
+      ("Watch Ko-fi's default mode", "Ko-fi says new creators now start with everything unlocked, which means a 5% fee on one-time tips too. If tips are all you need, turn Standard mode off in Settings > Payment and tips go back to 0% service fees."),
+      ("Our pick", "Tip jar only: Ko-fi Free. Selling one or two digital products and you don't want to think about tax: Gumroad. Plenty of writers use both, Ko-fi for thanks and Gumroad for the product."),
+    ],
+    sources=[
+      ("Gumroad pricing", "https://gumroad.com/pricing"),
+      ("Ko-fi Help: Does Ko-fi take a fee?", "https://help.ko-fi.com/hc/en-us/articles/360002506494-Does-Ko-fi-take-a-fee"),
+      ("Ko-fi Gold", "https://ko-fi.com/gold"),
+      ("Ko-fi Shop", "https://ko-fi.com/shop/"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))
