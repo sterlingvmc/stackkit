@@ -306,6 +306,31 @@ COMPARISONS = [
       ("Ko-fi Gold", "https://ko-fi.com/gold"),
       ("Ko-fi Shop", "https://ko-fi.com/shop/"),
     ]),
+  dict(slug="obsidian-vs-tk-substack-writers", a="obsidian", b="tk", checked="2026-11-10",
+    title="Obsidian vs TK (Medium's new notebook) for Substack writers",
+    h1="Obsidian vs TK for capturing ideas and drafting Substack posts",
+    desc="Obsidian vs TK, Medium's new AI notebook, for Substack writers: both free, but one keeps your notes local in Markdown and the other puts an @TK AI assistant and editorial feedback inside your drafts.",
+    short="Pick Obsidian if you want your idea bank to live on your own computer as plain Markdown files, free with no account. Try TK if you want an AI assistant you can call mid-sentence and quick headline or editorial feedback, and you're fine with a brand-new, cloud-stored app tied to a Medium account.",
+    rows=[
+      ("Price", "Free without limits, no sign-up. Optional Sync $4/user/mo and Publish $8/site/mo, billed annually.", "Free with a Medium account. No paid tier or usage limits published yet."),
+      ("Where your notes live", "Locally on your device as Markdown files. Sync, if you pay for it, is end-to-end encrypted.", "In Medium's cloud, built for sharing and collaboration. Not encrypted; you set access permissions. Imports and exports Markdown."),
+      ("AI help", "None built in (community plugins exist).", "Type @TK mid-sentence to ask a question or pull in an earlier note; built-in editorial and headline feedback. Medium says no AI company trains on your writing without permission."),
+      ("Apps", "Desktop and mobile.", "Web and mobile at launch; desktop app on the roadmap."),
+      ("Maturity", "Long-established.", "Opened to all Medium accounts on Nov 9, 2026."),
+      ("Connects to Substack", "No.", "No. It's built around Medium, not Substack."),
+    ],
+    body=[
+      ("What this choice is really about", "Neither tool publishes to Substack. Both are places to collect ideas and draft before you paste into the Substack editor. The difference is ownership versus assistance: Obsidian gives you files you control forever, while TK gives you an AI helper and feedback inside the draft in exchange for keeping your notes in Medium's cloud."),
+      ("When TK is worth a try", "If you stall on headlines or want a second opinion on a draft without opening a separate chatbot, TK's @TK prompt and feedback skills are the draw. It's also a decent fit if you already have a Medium account. It's days old, though, so treat it as a workshop rather than the only home for your archive, and export your notes to Markdown now and then."),
+      ("When Obsidian is the safer bet", "If your idea bank is years of research, quotes and half-finished posts, Obsidian's local Markdown files mean no company can lock you out or change the terms. You give up built-in AI, but you lose nothing if you switch tools later."),
+      ("Our pick", "Obsidian for the long-term archive. If you're curious about AI feedback that doesn't write for you, try TK alongside it with a few drafts. TK can import an Obsidian vault, so testing it doesn't mean starting over."),
+    ],
+    sources=[
+      ("Obsidian pricing", "https://obsidian.md/pricing"),
+      ("Medium: Meet TK, an agentic notebook for writing and thinking", "https://medium.com/blog/tk-a-new-private-notebook-app-from-medium-13d3d6efdce1"),
+      ("TechCrunch: Medium's new TK app (Nov 9, 2026)", "https://techcrunch.com/2026/11/09/mediums-new-tk-app-brings-ai-assistance-directly-into-the-writing-process/"),
+      ("The Verge: Medium is launching a note-taking app called TK", "https://www.theverge.com/tech/1029676/medium-tk-notes-app"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

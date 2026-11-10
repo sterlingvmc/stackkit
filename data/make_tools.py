@@ -19,7 +19,8 @@ V14 = "2026-11-02"  # entries added or re-checked in the 2026-11-02 daily ops pa
 V15 = "2026-11-03"  # entries re-checked in the 2026-11-03 daily ops pass
 V16 = "2026-11-06"  # entries added or re-checked in the 2026-11-06 daily ops pass
 V17 = "2026-11-07"  # entries added or re-checked in the 2026-11-07 daily ops pass
-UPDATED = V17
+V18 = "2026-11-10"  # entries added or re-checked in the 2026-11-10 daily ops pass
+UPDATED = V18
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -283,7 +284,12 @@ add("Obsidian","https://obsidian.md/","planning",
  "Free, no sign-up required; optional Sync $4/user/mo and Publish $8/site/mo (billed annually).",
  "Building a personal knowledge base of notes, quotes and ideas",
  "Great for writers who think in linked notes. Your files stay local in Markdown.",
- free_plan=True, verified=V12)
+ free_plan=True, pricing_source="official site (obsidian.md/pricing)", verified=V18)
+add("TK","https://tk.xyz/","planning",
+ "Free with a Medium account. No paid tier or usage limits published yet.",
+ "Capturing ideas and drafting with AI feedback on hand, without letting AI write for you",
+ "Medium's new private notebook (opened to all Medium accounts Nov 9, 2026): type @TK mid-sentence to ask a question or pull in an old note, get editorial and headline feedback, and import Bear or Obsidian vaults. Brand new, web and mobile only for now (no desktop app), notes are cloud-stored and not encrypted, Medium hasn't said which AI model it uses, and it has no Substack integration. Export to Markdown if you try it.",
+ free_plan=True, pricing_source="tk.xyz (loads, JS-rendered) + Medium launch post by Tony Stubblebine; 'free for those with a Medium account' per TechCrunch (Nov 9, 2026) and The Verge", verified=V18)
 add("Persistwise","https://persistwise.com/","planning",
  "Keep plan: 30 days free (no card), then $40/yr.",
  "Keeping an independent backup of every post you publish on Substack",

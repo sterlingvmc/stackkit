@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-07",
+  "generated": "2026-11-10",
   "categories": [
     {
       "slug": "growth",
@@ -732,13 +732,29 @@
       "category": "planning",
       "pricing": "Free, no sign-up required; optional Sync $4/user/mo and Publish $8/site/mo (billed annually).",
       "free_plan": true,
-      "pricing_source": "official site",
+      "pricing_source": "official site (obsidian.md/pricing)",
       "best_for": "Building a personal knowledge base of notes, quotes and ideas",
       "verdict": "Great for writers who think in linked notes. Your files stay local in Markdown.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-31",
+      "verified_on": "2026-11-10",
+      "notes": null
+    },
+    {
+      "slug": "tk",
+      "name": "TK",
+      "url": "https://tk.xyz/",
+      "category": "planning",
+      "pricing": "Free with a Medium account. No paid tier or usage limits published yet.",
+      "free_plan": true,
+      "pricing_source": "tk.xyz (loads, JS-rendered) + Medium launch post by Tony Stubblebine; 'free for those with a Medium account' per TechCrunch (Nov 9, 2026) and The Verge",
+      "best_for": "Capturing ideas and drafting with AI feedback on hand, without letting AI write for you",
+      "verdict": "Medium's new private notebook (opened to all Medium accounts Nov 9, 2026): type @TK mid-sentence to ask a question or pull in an old note, get editorial and headline feedback, and import Bear or Obsidian vaults. Brand new, web and mobile only for now (no desktop app), notes are cloud-stored and not encrypted, Medium hasn't said which AI model it uses, and it has no Substack integration. Export to Markdown if you try it.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-10",
       "notes": null
     },
     {
