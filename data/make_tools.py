@@ -20,7 +20,8 @@ V15 = "2026-11-03"  # entries re-checked in the 2026-11-03 daily ops pass
 V16 = "2026-11-06"  # entries added or re-checked in the 2026-11-06 daily ops pass
 V17 = "2026-11-07"  # entries added or re-checked in the 2026-11-07 daily ops pass
 V18 = "2026-11-10"  # entries added or re-checked in the 2026-11-10 daily ops pass
-UPDATED = V18
+V19 = "2026-11-11"  # entries re-checked in the 2026-11-11 daily ops pass
+UPDATED = V19
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -183,7 +184,7 @@ add("Buffer","https://buffer.com/","social",
  "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly ($12 monthly).",
  "Scheduling Notes alongside every other social channel from one calendar",
  "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
- free_plan=True, verified=V7, pricing_source="official site (buffer.com/pricing and its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
+ free_plan=True, verified=V19, pricing_source="official site (buffer.com/pricing re-checked 2026-11-11 for free plan and yearly per-channel prices; earlier also its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
 add("Eden","https://eden.so/","social",
  "Free forever (100 saved items, no social scheduling). Creator Starter $25/mo billed yearly ($299/yr) or about $29/mo month-to-month; Pro $66/mo billed yearly ($790/yr) or about $79/mo month-to-month; Max $167/mo billed yearly ($1,999/yr) or about $199/mo month-to-month. Separate Personal library plans from $7.50/mo billed yearly. Social scheduling (including Substack) starts on Starter.",
  "Writers who want one queue for Substack Notes and articles plus X, LinkedIn, Threads and other networks, with research and AI in the same workspace",
@@ -192,15 +193,15 @@ add("Eden","https://eden.so/","social",
  pricing_source="official site (eden.so/pricing annual and monthly figures; schema offers list monthly Starter $29 / Pro $79 / Max $199) + Eden Help: Schedule Substack notes and articles (eden.so/help/scheduling/substack-scheduling/)",
  notes="Independent; not affiliated with Substack. Free plan does not include social scheduling per the pricing comparison table.")
 add("Hypefury","https://hypefury.com/","social",
- "Flexible $6/mo for 1 channel (plus $6/mo per extra channel); Full $19/mo for all channels; 7-day free trial, no card. No free plan.",
- "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram and TikTok",
- "Hypefury no longer supports X, so it's now a scheduler for Bluesky, Threads, LinkedIn, Instagram and TikTok, with auto first comments (Autoplugs) and an engagement builder. Substack Notes isn't on its channel list, so pair it with Substack's own scheduler.",
- aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False, verified=V9, pricing_source="official site (hypefury.com/pricing, including FAQ: \"Hypefury no longer supports X\")")
+ "Flexible $6/mo per platform ($60/yr each); Creator $19/mo ($190/yr) for all 6 platforms; Pro $39/mo ($390/yr) adds team seats and social listening. Every plan starts with a 7-day Creator trial, no card. No free plan.",
+ "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram, Facebook and TikTok",
+ "Hypefury no longer supports X, so it's now a scheduler for six platforms (Instagram, Facebook, Threads, LinkedIn, TikTok and Bluesky), with auto first comments (Autoplugs), Instagram auto-DMs and an engagement builder. Creator is the cheapest flat price once you post to 4 or more platforms. Substack Notes isn't on its platform list, so pair it with Substack's own scheduler.",
+ aff=True, aff_url="https://hypefury.com/affiliate", free_plan=False, verified=V19, pricing_source="official site (hypefury.com/pricing on 2026-11-11: Flexible $6/platform, Creator $19, Pro $39, 7-day trial with no card)")
 add("Taplio","https://taplio.com/","social",
  "Starter $39/mo; Growth $69/mo; Pro $199/mo (billed monthly). Its plan-comparison table also lists lower rates ($32, $49 and $149/mo) without stating the billing term. 7-day free trial with full Pro access; 30-day money-back guarantee.",
  "Writers growing a professional audience on LinkedIn",
  "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel. Its automation features (auto-DMs, bulk connection requests) are best left off if you want your LinkedIn presence to sound like you.",
- aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V12, pricing_source="official site (taplio.com/pricing)")
+ aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V19, pricing_source="official site (taplio.com/pricing, monthly prices re-checked 2026-11-11; yearly toggle shows -25%)")
 add("Repurpose.io","https://repurpose.io/","social",
  "Starter $35/mo; Pro $79/mo ($790/yr); Agency $179/mo ($1,790/yr); free trial of 14 days or 10 published videos, whichever comes first.",
  "Automatically distributing video and podcast clips across platforms",
@@ -288,8 +289,8 @@ add("Obsidian","https://obsidian.md/","planning",
 add("TK","https://tk.xyz/","planning",
  "Free with a Medium account. No paid tier or usage limits published yet.",
  "Capturing ideas and drafting with AI feedback on hand, without letting AI write for you",
- "Medium's new private notebook (opened to all Medium accounts Nov 9, 2026): type @TK mid-sentence to ask a question or pull in an old note, get editorial and headline feedback, and import Bear or Obsidian vaults. Brand new, web and mobile only for now (no desktop app), notes are cloud-stored and not encrypted, Medium hasn't said which AI model it uses, and it has no Substack integration. Export to Markdown if you try it.",
- free_plan=True, pricing_source="tk.xyz (loads, JS-rendered) + Medium launch post by Tony Stubblebine; 'free for those with a Medium account' per TechCrunch (Nov 9, 2026) and The Verge", verified=V18)
+ "Medium's new private notebook (opened to all Medium accounts Nov 9, 2026): type @TK mid-sentence to ask a question or pull in an old note, get editorial and headline feedback, and import Bear or Obsidian vaults. It can also connect to your own AI agent through its MCP server or a Claude skill. Brand new, web and mobile only for now (no desktop app), notes are cloud-stored and not encrypted, Medium hasn't said which AI model it uses, and it has no Substack integration. Export to Markdown if you try it.",
+ free_plan=True, pricing_source="tk.xyz (loads, JS-rendered) + Medium launch post by Tony Stubblebine; 'free for those with a Medium account' and MCP server/Claude skill per TechCrunch (Nov 9, 2026) and The Verge", verified=V19)
 add("Persistwise","https://persistwise.com/","planning",
  "Keep plan: 30 days free (no card), then $40/yr.",
  "Keeping an independent backup of every post you publish on Substack",

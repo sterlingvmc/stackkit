@@ -331,6 +331,31 @@ COMPARISONS = [
       ("TechCrunch: Medium's new TK app (Nov 9, 2026)", "https://techcrunch.com/2026/11/09/mediums-new-tk-app-brings-ai-assistance-directly-into-the-writing-process/"),
       ("The Verge: Medium is launching a note-taking app called TK", "https://www.theverge.com/tech/1029676/medium-tk-notes-app"),
     ]),
+  dict(slug="buffer-vs-hypefury-substack", a="buffer", b="hypefury", checked="2026-11-11",
+    title="Buffer vs Hypefury for Substack writers: which social scheduler fits your newsletter?",
+    h1="Buffer vs Hypefury for Substack writers",
+    desc="Buffer vs Hypefury for Substack writers: which one schedules Substack Notes, which still posts to X, free plans vs trials, and per-channel vs flat pricing.",
+    short="Pick Buffer if you want one calendar for Substack Notes plus X and your other networks: it supports Substack as a channel and has a free plan for up to 3 channels. Pick Hypefury if you post to Instagram, Threads, LinkedIn, TikTok, Facebook or Bluesky and want automation like Instagram auto-DMs and auto first comments, but note it no longer supports X or Notes.",
+    rows=[
+      ("Substack Notes", "Yes. Substack is one of Buffer's channels.", "No. Substack isn't one of its six platforms, so schedule Notes in Substack itself."),
+      ("X (Twitter)", "Supported.", "No longer supported."),
+      ("Other platforms", "Bluesky, Facebook, Google Business Profile, Instagram, LinkedIn, Mastodon, Pinterest, Threads, TikTok and YouTube.", "Instagram, Facebook, Threads, LinkedIn, TikTok and Bluesky."),
+      ("Free option", "Free plan: up to 3 channels, 10 scheduled posts per channel at a time.", "No free plan. 7-day trial of the Creator plan, no card needed."),
+      ("Paid pricing", "Per channel: Essentials $5/channel/mo and Team $10/channel/mo, billed yearly. 14-day free trial.", "Flexible $6/mo per platform; Creator $19/mo for all 6 platforms; Pro $39/mo. Yearly billing gives 12 months for the price of 10."),
+      ("Automation extras", "Threads for X, Bluesky, Threads and Mastodon; replying to comments from one inbox.", "Autoplug (automatic follow-up comments), Instagram auto-DMs, an engagement builder, AI-written posts, and scheduling from Claude or ChatGPT."),
+    ],
+    body=[
+      ("The deciding question: where do you promote your Substack?", "If Substack Notes and X are where your readers find you, Buffer is the only one of the two that covers both. Hypefury dropped X and never added Notes, so it only makes sense if your promotion happens on Instagram, Threads, LinkedIn, TikTok, Facebook or Bluesky."),
+      ("How the pricing compares", "Buffer charges per channel, so it's cheapest when you use one to three networks, and the free plan may be all you need. Hypefury's Creator plan is a flat $19/mo for all six of its platforms, which its own pricing page says beats paying per platform once you use four or more."),
+      ("Keep your voice", "Both tools can generate posts with AI. Whatever you pick, write the promotion for each post yourself, or at least edit it hard. Readers follow a Substack writer for their voice, and generic AI teasers tend to get scrolled past."),
+      ("Our pick", "For most Substack writers, Buffer: it schedules Notes, still posts to X, and starts free. Choose Hypefury if Instagram or LinkedIn is your main channel and you want its automation, and keep scheduling Notes in Substack's built-in scheduler."),
+    ],
+    sources=[
+      ("Buffer pricing", "https://buffer.com/pricing"),
+      ("Buffer for Substack", "https://buffer.com/substack"),
+      ("Hypefury pricing (includes its platform list and FAQ)", "https://hypefury.com/pricing"),
+      ("Substack Notes schedulers compared (StackKit)", "https://stackkit.ink/substack-notes-schedulers/"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

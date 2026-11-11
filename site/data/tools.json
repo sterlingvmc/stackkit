@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10",
+  "generated": "2026-11-11",
   "categories": [
     {
       "slug": "growth",
@@ -444,13 +444,13 @@
       "category": "social",
       "pricing": "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly ($12 monthly).",
       "free_plan": true,
-      "pricing_source": "official site (buffer.com/pricing and its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)",
+      "pricing_source": "official site (buffer.com/pricing re-checked 2026-11-11 for free plan and yearly per-channel prices; earlier also its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)",
       "best_for": "Scheduling Notes alongside every other social channel from one calendar",
       "verdict": "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-26",
+      "verified_on": "2026-11-11",
       "notes": null
     },
     {
@@ -474,15 +474,15 @@
       "name": "Hypefury",
       "url": "https://hypefury.com/",
       "category": "social",
-      "pricing": "Flexible $6/mo for 1 channel (plus $6/mo per extra channel); Full $19/mo for all channels; 7-day free trial, no card. No free plan.",
+      "pricing": "Flexible $6/mo per platform ($60/yr each); Creator $19/mo ($190/yr) for all 6 platforms; Pro $39/mo ($390/yr) adds team seats and social listening. Every plan starts with a 7-day Creator trial, no card. No free plan.",
       "free_plan": false,
-      "pricing_source": "official site (hypefury.com/pricing, including FAQ: \"Hypefury no longer supports X\")",
-      "best_for": "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram and TikTok",
-      "verdict": "Hypefury no longer supports X, so it's now a scheduler for Bluesky, Threads, LinkedIn, Instagram and TikTok, with auto first comments (Autoplugs) and an engagement builder. Substack Notes isn't on its channel list, so pair it with Substack's own scheduler.",
+      "pricing_source": "official site (hypefury.com/pricing on 2026-11-11: Flexible $6/platform, Creator $19, Pro $39, 7-day trial with no card)",
+      "best_for": "Scheduling and cross-posting to Bluesky, Threads, LinkedIn, Instagram, Facebook and TikTok",
+      "verdict": "Hypefury no longer supports X, so it's now a scheduler for six platforms (Instagram, Facebook, Threads, LinkedIn, TikTok and Bluesky), with auto first comments (Autoplugs), Instagram auto-DMs and an engagement builder. Creator is the cheapest flat price once you post to 4 or more platforms. Substack Notes isn't on its platform list, so pair it with Substack's own scheduler.",
       "affiliate_program": "yes",
       "affiliate_url": "https://hypefury.com/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-11",
       "notes": null
     },
     {
@@ -492,13 +492,13 @@
       "category": "social",
       "pricing": "Starter $39/mo; Growth $69/mo; Pro $199/mo (billed monthly). Its plan-comparison table also lists lower rates ($32, $49 and $149/mo) without stating the billing term. 7-day free trial with full Pro access; 30-day money-back guarantee.",
       "free_plan": false,
-      "pricing_source": "official site (taplio.com/pricing)",
+      "pricing_source": "official site (taplio.com/pricing, monthly prices re-checked 2026-11-11; yearly toggle shows -25%)",
       "best_for": "Writers growing a professional audience on LinkedIn",
       "verdict": "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel. Its automation features (auto-DMs, bulk connection requests) are best left off if you want your LinkedIn presence to sound like you.",
       "affiliate_program": "yes",
       "affiliate_url": "https://taplio.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-31",
+      "verified_on": "2026-11-11",
       "notes": null
     },
     {
@@ -748,13 +748,13 @@
       "category": "planning",
       "pricing": "Free with a Medium account. No paid tier or usage limits published yet.",
       "free_plan": true,
-      "pricing_source": "tk.xyz (loads, JS-rendered) + Medium launch post by Tony Stubblebine; 'free for those with a Medium account' per TechCrunch (Nov 9, 2026) and The Verge",
+      "pricing_source": "tk.xyz (loads, JS-rendered) + Medium launch post by Tony Stubblebine; 'free for those with a Medium account' and MCP server/Claude skill per TechCrunch (Nov 9, 2026) and The Verge",
       "best_for": "Capturing ideas and drafting with AI feedback on hand, without letting AI write for you",
-      "verdict": "Medium's new private notebook (opened to all Medium accounts Nov 9, 2026): type @TK mid-sentence to ask a question or pull in an old note, get editorial and headline feedback, and import Bear or Obsidian vaults. Brand new, web and mobile only for now (no desktop app), notes are cloud-stored and not encrypted, Medium hasn't said which AI model it uses, and it has no Substack integration. Export to Markdown if you try it.",
+      "verdict": "Medium's new private notebook (opened to all Medium accounts Nov 9, 2026): type @TK mid-sentence to ask a question or pull in an old note, get editorial and headline feedback, and import Bear or Obsidian vaults. It can also connect to your own AI agent through its MCP server or a Claude skill. Brand new, web and mobile only for now (no desktop app), notes are cloud-stored and not encrypted, Medium hasn't said which AI model it uses, and it has no Substack integration. Export to Markdown if you try it.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-11-10",
+      "verified_on": "2026-11-11",
       "notes": null
     },
     {
