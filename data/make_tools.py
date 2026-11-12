@@ -21,7 +21,8 @@ V16 = "2026-11-06"  # entries added or re-checked in the 2026-11-06 daily ops pa
 V17 = "2026-11-07"  # entries added or re-checked in the 2026-11-07 daily ops pass
 V18 = "2026-11-10"  # entries added or re-checked in the 2026-11-10 daily ops pass
 V19 = "2026-11-11"  # entries re-checked in the 2026-11-11 daily ops pass
-UPDATED = V19
+V20 = "2026-11-12"  # entries re-checked in the 2026-11-12 daily ops pass
+UPDATED = V20
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -224,7 +225,7 @@ add("Kittl","https://www.kittl.com/","design",
  "Free plan (personal use only); Pro $15/mo or $144/yr; Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD).",
  "Typography-heavy graphics and AI-assisted illustrations",
  "A stylish Canva alternative with great type tools. The free plan is for personal use only; Pro adds a commercial license.",
- free_plan=True, verified=V7, pricing_source="official site (kittl.com/pricing plan data and FAQ)")
+ free_plan=True, verified=V20, pricing_source="official site (kittl.com/pricing plan data and FAQ)")
 add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",
@@ -341,7 +342,7 @@ add("Sudowrite","https://sudowrite.com/","ai",
  "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo (credit-based; yearly billing advertised as up to 50% off). Free trial, no credit card.",
  "Fiction writers publishing serialized stories",
  "Purpose-built for fiction, with tools for matching your style and keeping continuity across a series. Not the right tool for essays or news-style newsletters.",
- free_plan=False, verified=V8, pricing_source="official site (sudowrite.com/pricing; Max plan lists unused credits rolling over for 12 months)")
+ free_plan=False, verified=V20, pricing_source="official site (sudowrite.com/pricing; Max plan lists unused credits rolling over for 12 months)")
 
 # ---------- Audio, podcast & video ----------
 add("Descript","https://www.descript.com/","audio",

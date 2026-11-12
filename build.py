@@ -356,6 +356,30 @@ COMPARISONS = [
       ("Hypefury pricing (includes its platform list and FAQ)", "https://hypefury.com/pricing"),
       ("Substack Notes schedulers compared (StackKit)", "https://stackkit.ink/substack-notes-schedulers/"),
     ]),
+  dict(slug="canva-vs-kittl-substack-images", a="canva", b="kittl", checked="2026-11-12",
+    title="Canva vs Kittl for Substack header and preview images: which design tool to use?",
+    h1="Canva vs Kittl for Substack images",
+    desc="Canva vs Kittl for Substack writers: free plans, commercial-use limits, Pro pricing, and the image sizes Substack recommends for post previews, logos and email banners.",
+    short="Pick Canva if you want the simplest free way to make Substack header, preview and Notes images: it's the default for newsletter writers and Pro is US$144/yr. Pick Kittl if typography-heavy, stylized graphics are part of your brand, but note its free plan is for personal use only, so a paid or business Substack needs Pro ($15/mo or $144/yr).",
+    rows=[
+      ("Best at", "Fast, template-driven header images, social graphics, Notes images and simple brand kits.", "Typography-heavy graphics, stylized illustrations and AI-assisted visuals."),
+      ("Free plan", "Yes. Covers most newsletter image needs.", "Yes, but for personal use only (no commercial rights), with a curated subset of templates."),
+      ("Commercial use", "Governed by Canva's Content License Agreement; check it if you sell products with your designs.", "Pro and Expert include a commercial license (up to 500,000 copies); the free plan has none."),
+      ("Paid pricing", "Pro US$144/yr for one person, before tax (as listed on canva.com, last confirmed 2026-10-29).", "Pro $15/mo or $144/yr; Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD)."),
+      ("Exports", "PNG and JPG for Substack uploads.", "High-resolution and vector exports are listed as paid-plan features."),
+      ("AI features", "Built-in AI tools with a monthly allowance.", "Token-based AI; Expert and Max add daily tokens (200 and 600 a day). Unused monthly tokens don't roll over."),
+    ],
+    body=[
+      ("What size to make your Substack images", "Substack's help center recommends a social/post preview image of at least 1200 x 630 px, and says 14:10 is the aspect ratio for preview images. Post thumbnails use 3:2. A logo should be at least 256 x 256 px with a transparent background, an email banner around 1100 x 220 px, and a cover image at least 600 x 600 px. Keep the important part of a preview image near the center so it survives cropping on mobile. Both tools let you set a custom canvas size, so set it once and save it as a template."),
+      ("The license question most writers miss", "If your Substack has paid subscriptions, sponsors, or promotes a business, your images are arguably commercial use. Kittl's own FAQ says its free plan is for personal use only, with no commercial rights, and that commercial rights start on Pro. That makes Kittl free fine for a hobby newsletter, but not a long-term option for a paid one. Whatever tool you use, read its license before you build a business on it."),
+      ("Price for a solo writer", "Paid yearly, Canva Pro and Kittl Pro cost about the same: US$144 a year each. The difference is what you get. Canva Pro adds a large premium template and asset library on top of a free plan most writers never outgrow. Kittl Pro is mostly worth it for its type tools, premium templates and commercial license."),
+      ("Our pick", "For most Substack writers, Canva: the free plan covers header, preview and Notes images, and you can make a full post image in minutes. Choose Kittl if distinctive typography is a core part of your publication's look and you're willing to pay for Pro once your Substack makes money."),
+    ],
+    sources=[
+      ("Substack Help: What are the optimal image dimensions for my Substack publication?", "https://support.substack.com/hc/en-us/articles/4408381685268-What-are-the-optimal-image-dimensions-for-my-Substack-publication"),
+      ("Canva pricing", "https://www.canva.com/pricing/"),
+      ("Kittl pricing (plans and FAQ, including license terms)", "https://www.kittl.com/pricing"),
+    ]),
 ]
 
 data = json.load(open(os.path.join(ROOT, "data", "tools.json")))

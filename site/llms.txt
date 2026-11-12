@@ -1,6 +1,6 @@
 # StackKit
 
-> StackKit is an independent, hand-checked directory of 68 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-11-11, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
+> StackKit is an independent, hand-checked directory of 68 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-11-12, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
 
 Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.
 
@@ -26,6 +26,7 @@ Monetization: labeled sponsored placements, paid fast-track review, and affiliat
 - [Gumroad vs Ko-fi for Substack writers: fees for tips, ebooks and memberships](https://stackkit.ink/compare/gumroad-vs-ko-fi-substack/): Pick Ko-fi if you mainly want a tip jar next to your Substack: one-off tips are fee-free on Ko-fi Free (you pay only PayPal or Stripe fees). Pick Gumroad if you're selling an ebook, template or guide and want sales tax handled for you; it costs more per sale but acts as merchant of record.
 - [Obsidian vs TK (Medium's new notebook) for Substack writers](https://stackkit.ink/compare/obsidian-vs-tk-substack-writers/): Pick Obsidian if you want your idea bank to live on your own computer as plain Markdown files, free with no account. Try TK if you want an AI assistant you can call mid-sentence and quick headline or editorial feedback, and you're fine with a brand-new, cloud-stored app tied to a Medium account.
 - [Buffer vs Hypefury for Substack writers: which social scheduler fits your newsletter?](https://stackkit.ink/compare/buffer-vs-hypefury-substack/): Pick Buffer if you want one calendar for Substack Notes plus X and your other networks: it supports Substack as a channel and has a free plan for up to 3 channels. Pick Hypefury if you post to Instagram, Threads, LinkedIn, TikTok, Facebook or Bluesky and want automation like Instagram auto-DMs and auto first comments, but note it no longer supports X or Notes.
+- [Canva vs Kittl for Substack header and preview images: which design tool to use?](https://stackkit.ink/compare/canva-vs-kittl-substack-images/): Pick Canva if you want the simplest free way to make Substack header, preview and Notes images: it's the default for newsletter writers and Pro is US$144/yr. Pick Kittl if typography-heavy, stylized graphics are part of your brand, but note its free plan is for personal use only, so a paid or business Substack needs Pro ($15/mo or $144/yr).
 - [About & disclosures](https://stackkit.ink/about/)
 - [Feature your tool](https://stackkit.ink/feature/): sponsorship options
 - [Raw data (JSON)](https://stackkit.ink/data/tools.json)
