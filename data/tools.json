@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12",
+  "generated": "2026-11-13",
   "categories": [
     {
       "slug": "growth",
@@ -554,15 +554,15 @@
       "name": "Kittl",
       "url": "https://www.kittl.com/",
       "category": "design",
-      "pricing": "Free plan (personal use only); Pro $15/mo or $144/yr; Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD).",
+      "pricing": "Free plan; Pro $15/mo or $144/yr ($12/mo billed yearly); Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD), per the pricing page's plan data. Heads-up: Kittl's live pricing cards have also been seen showing Pro at $19/mo or $14/mo billed yearly, so confirm at checkout.",
       "free_plan": true,
-      "pricing_source": "official site (kittl.com/pricing plan data and FAQ)",
+      "pricing_source": "official site (kittl.com/pricing: page plan data and meta description, FAQ license section; rendered pricing cards observed 2026-11-13 differ)",
       "best_for": "Typography-heavy graphics and AI-assisted illustrations",
-      "verdict": "A stylish Canva alternative with great type tools. The free plan is for personal use only; Pro adds a commercial license.",
+      "verdict": "A stylish Canva alternative with great type tools. Its license terms are currently inconsistent: the pricing FAQ says the free plan is personal use only (no commercial rights), while the live Free pricing card has been seen saying 'Full commercial license'. If your Substack earns money, assume you need Pro (which includes a commercial license) until Kittl clarifies.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-11-12",
+      "verified_on": "2026-11-13",
       "notes": null
     },
     {
@@ -1068,13 +1068,13 @@
       "category": "monetization",
       "pricing": "Free publisher account, no subscription. Flat-fee scheduled ads need at least 50k subscribers; pay-per-click native ads need at least 1M monthly impressions.",
       "free_plan": true,
-      "pricing_source": "official site (paved.com/publishers)",
+      "pricing_source": "official site (paved.com/publishers; minimums re-checked 2026-11-13)",
       "best_for": "Established newsletters looking for sponsor demand",
       "verdict": "A large newsletter ad network (3,000+ newsletters, per Paved). Its stated minimums of 50k subscribers or 1M monthly impressions rule out most smaller Substacks; start with Hecto or Swapstack until you're there.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-25",
+      "verified_on": "2026-11-13",
       "notes": null
     },
     {
@@ -1084,7 +1084,7 @@
       "category": "monetization",
       "pricing": "Free for newsletter creators (no monthly fee; shown as £0/month); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
       "free_plan": true,
-      "pricing_source": "official site (hecto.io/pricing on 2026-11-06; '5% Hecto Fee', 'No Monthly Fee', '£0 / month')",
+      "pricing_source": "official site (hecto.io/pricing, re-checked 2026-11-13; '5% Hecto Fee', 'No Monthly Fee', '£0 / month')",
       "best_for": "Selling sponsorship slots with transparent, upfront prices",
       "verdict": "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Main site and pricing page were offline with a hosting error on Oct 31, 2026; both returned HTTP 200 again on Nov 6, 2026 with the same 5% / £0 monthly fee.",
       "affiliate_program": "not verified",
@@ -1100,13 +1100,13 @@
       "category": "monetization",
       "pricing": "Free for publishers (Swapstack takes 10% on invite-only campaigns from its managed service). Paid publisher plans (Professional $30/mo, Enterprise $200/mo) are listed as coming soon.",
       "free_plan": true,
-      "pricing_source": "official site (swapstack.co/pricing)",
+      "pricing_source": "official site (swapstack.co/pricing, re-checked 2026-11-13)",
       "best_for": "Finding sponsors and affiliate deals for small and mid-sized newsletters",
-      "verdict": "One of the original newsletter sponsorship marketplaces, with flat-rate sponsorships, pay-per-click and affiliate deals in one place. Worth a free signup to see what matches your niche.",
+      "verdict": "One of the original newsletter sponsorship marketplaces, with flat-rate sponsorships, pay-per-click and affiliate deals in one place. Worth a free signup to see what matches your niche. Much of its public site still shows 2022-era content and the paid plans have been 'coming soon' for a long time, so judge it by the deals you're actually offered.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-25",
+      "verified_on": "2026-11-13",
       "notes": null
     },
     {

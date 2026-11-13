@@ -22,7 +22,8 @@ V17 = "2026-11-07"  # entries added or re-checked in the 2026-11-07 daily ops pa
 V18 = "2026-11-10"  # entries added or re-checked in the 2026-11-10 daily ops pass
 V19 = "2026-11-11"  # entries re-checked in the 2026-11-11 daily ops pass
 V20 = "2026-11-12"  # entries re-checked in the 2026-11-12 daily ops pass
-UPDATED = V20
+V21 = "2026-11-13"  # entries re-checked in the 2026-11-13 daily ops pass
+UPDATED = V21
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -222,10 +223,10 @@ add("Figma","https://www.figma.com/","design",
  "More power than most writers need. Pick it if you already know it or want pixel-level control.",
  free_plan=True, verified=V17)
 add("Kittl","https://www.kittl.com/","design",
- "Free plan (personal use only); Pro $15/mo or $144/yr; Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD).",
+ "Free plan; Pro $15/mo or $144/yr ($12/mo billed yearly); Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD), per the pricing page's plan data. Heads-up: Kittl's live pricing cards have also been seen showing Pro at $19/mo or $14/mo billed yearly, so confirm at checkout.",
  "Typography-heavy graphics and AI-assisted illustrations",
- "A stylish Canva alternative with great type tools. The free plan is for personal use only; Pro adds a commercial license.",
- free_plan=True, verified=V20, pricing_source="official site (kittl.com/pricing plan data and FAQ)")
+ "A stylish Canva alternative with great type tools. Its license terms are currently inconsistent: the pricing FAQ says the free plan is personal use only (no commercial rights), while the live Free pricing card has been seen saying 'Full commercial license'. If your Substack earns money, assume you need Pro (which includes a commercial license) until Kittl clarifies.",
+ free_plan=True, verified=V21, pricing_source="official site (kittl.com/pricing: page plan data and meta description, FAQ license section; rendered pricing cards observed 2026-11-13 differ)")
 add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",
@@ -403,18 +404,18 @@ add("Paved","https://www.paved.com/","monetization",
  "Free publisher account, no subscription. Flat-fee scheduled ads need at least 50k subscribers; pay-per-click native ads need at least 1M monthly impressions.",
  "Established newsletters looking for sponsor demand",
  "A large newsletter ad network (3,000+ newsletters, per Paved). Its stated minimums of 50k subscribers or 1M monthly impressions rule out most smaller Substacks; start with Hecto or Swapstack until you're there.",
- free_plan=True, verified=V6, pricing_source="official site (paved.com/publishers)")
+ free_plan=True, verified=V21, pricing_source="official site (paved.com/publishers; minimums re-checked 2026-11-13)")
 add("Hecto","https://hecto.io/","monetization",
  "Free for newsletter creators (no monthly fee; shown as £0/month); Hecto takes 5% of successful sponsorship sales, plus Stripe's payment fees.",
  "Selling sponsorship slots with transparent, upfront prices",
  "A straightforward sponsorship marketplace: you publish ad packages with upfront prices and a checkout link. Listing is free, but demand varies by niche. Main site and pricing page were offline with a hosting error on Oct 31, 2026; both returned HTTP 200 again on Nov 6, 2026 with the same 5% / £0 monthly fee.",
- free_plan=True, verified=V16, pricing_source="official site (hecto.io/pricing on 2026-11-06; '5% Hecto Fee', 'No Monthly Fee', '£0 / month')",
+ free_plan=True, verified=V16, pricing_source="official site (hecto.io/pricing, re-checked 2026-11-13; '5% Hecto Fee', 'No Monthly Fee', '£0 / month')",
  notes="2026-10-31 outage cleared by 2026-11-06: hecto.io, www.hecto.io and hecto.io/pricing all returned 200. Listing URL restored to hecto.io.")
 add("Swapstack","https://www.swapstack.co/","monetization",
  "Free for publishers (Swapstack takes 10% on invite-only campaigns from its managed service). Paid publisher plans (Professional $30/mo, Enterprise $200/mo) are listed as coming soon.",
  "Finding sponsors and affiliate deals for small and mid-sized newsletters",
- "One of the original newsletter sponsorship marketplaces, with flat-rate sponsorships, pay-per-click and affiliate deals in one place. Worth a free signup to see what matches your niche.",
- free_plan=True, verified=V6, pricing_source="official site (swapstack.co/pricing)")
+ "One of the original newsletter sponsorship marketplaces, with flat-rate sponsorships, pay-per-click and affiliate deals in one place. Worth a free signup to see what matches your niche. Much of its public site still shows 2022-era content and the paid plans have been 'coming soon' for a long time, so judge it by the deals you're actually offered.",
+ free_plan=True, verified=V21, pricing_source="official site (swapstack.co/pricing, re-checked 2026-11-13)")
 add("Gumroad","https://gumroad.com/","monetization",
  "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
  "Selling ebooks, templates and guides alongside your newsletter",
