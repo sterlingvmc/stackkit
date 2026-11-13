@@ -223,10 +223,10 @@ add("Figma","https://www.figma.com/","design",
  "More power than most writers need. Pick it if you already know it or want pixel-level control.",
  free_plan=True, verified=V17)
 add("Kittl","https://www.kittl.com/","design",
- "Free plan; Pro $15/mo or $144/yr ($12/mo billed yearly); Expert $35/mo or $312/yr; Max $65/mo or $576/yr (USD), per the pricing page's plan data. Heads-up: Kittl's live pricing cards have also been seen showing Pro at $19/mo or $14/mo billed yearly, so confirm at checkout.",
+ "Free plan; Pro $19/mo or $168/yr ($14/mo billed yearly); Expert $49/mo or $468/yr ($39/mo billed yearly); Max $85/mo or $780/yr ($65/mo billed yearly) (USD, US prices as shown on Kittl's live pricing cards). Prices vary by country; confirm at checkout.",
  "Typography-heavy graphics and AI-assisted illustrations",
- "A stylish Canva alternative with great type tools. Its license terms are currently inconsistent: the pricing FAQ says the free plan is personal use only (no commercial rights), while the live Free pricing card has been seen saying 'Full commercial license'. If your Substack earns money, assume you need Pro (which includes a commercial license) until Kittl clarifies.",
- free_plan=True, verified=V21, pricing_source="official site (kittl.com/pricing: page plan data and meta description, FAQ license section; rendered pricing cards observed 2026-11-13 differ)")
+ "A stylish Canva alternative with great type tools. Kittl's site is inconsistent on the free plan's license: the pricing FAQ says free is for personal use only (no commercial rights), while the live Free card lists a 'Full commercial license'. Check Kittl's license terms before any commercial use; if your Substack earns money, assume you need Pro (which includes a commercial license) until Kittl clarifies.",
+ free_plan=True, verified=V21, pricing_source="official site (kittl.com/pricing live cards for US visitors, and the FAQ license section, re-checked 2026-11-13)")
 add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",
