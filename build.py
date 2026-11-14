@@ -443,7 +443,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{TOPCTA if (path == "/" or path.startswith("/tools/") or path.startswith("/compare/")) else ""}{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br><a href="/guides/substack-sponsorships-guide/">Substack sponsorships guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -499,7 +499,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a> <a class="btn" href="/guides/substack-sponsorships-guide/">Land your first sponsor →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -551,6 +551,7 @@ def tool(t):
 {f'<p><a href="/guides/substack-seo-guide/">How to use {e(t["name"])} in our Substack SEO guide →</a></p>' if t["slug"] in SEO_TOOLS else ''}
 {f'<p><a href="/guides/substack-recommendations-guide/">Where {e(t["name"])} fits in our Substack recommendations guide →</a></p>' if t["slug"] in REC_TOOLS else ''}
 {f'<p><a href="/guides/substack-notes-guide/">Where {e(t["name"])} fits in our Substack Notes guide →</a></p>' if t["slug"] in NOTES_TOOLS else ''}
+{f'<p><a href="/guides/substack-sponsorships-guide/">Where {e(t["name"])} fits in our Substack sponsorships guide →</a></p>' if t["slug"] in SPON_TOOLS else ''}
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
@@ -1086,6 +1087,87 @@ def notes_guide():
     write(NOTES_SLUG, layout(NOTES_SLUG, f"Substack Notes guide: post, schedule and measure Notes (2026) | {BRAND}",
         "How Substack Notes work in 2026: who sees them, how to post and schedule with Substack's free built-in scheduler, when a batch scheduler is worth it, a reply-first routine, and how to measure which Notes bring subscribers.", body, ld, current=NOTES_SLUG), "0.9")
 
+# ---------------- Substack sponsorships guide (long-form) ----------------
+SPON_SLUG = "/guides/substack-sponsorships-guide/"
+SPON_TOOLS = ["hecto", "swapstack", "paved", "sparkloop", "gumroad", "ko-fi"]
+# Every claim checked 2026-11-14 on the sources listed at the bottom of the page (vendor pricing re-checked 2026-11-13/14).
+def spon_guide():
+    tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in SPON_TOOLS if s in BY)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Guides / Substack sponsorships</div>
+<h1>Substack sponsorships guide: how to land your first newsletter sponsor (2026)</h1>
+<p class="small">Updated 2026-11-14 · Rules checked against Substack's help center and Publisher Agreement; marketplace fees checked on each vendor's own pricing page · Independent, not affiliated with Substack Inc.</p>
+<p><strong>The short version:</strong> Substack lets you run sponsors in your newsletter, but it doesn't sell ads for you unless you qualify for its invite-style sponsorships program (Bestsellers or 100+ paid subscribers). Below that, list your own sponsor slots on a free marketplace like {L('hecto')}, browse deals on {L('swapstack')}, or earn from paid recommendations on {L('sparkloop')}. Big ad networks such as {L('paved')} have minimums most small Substacks don't meet yet. Whatever you run, label it clearly.</p>
+
+<h2>1. Is it allowed? What Substack's rules say</h2>
+<ul>
+<li><strong>Sponsored content is allowed.</strong> Substack's help center says its own business model relies on subscriptions, not advertisers, but "you're welcome to host sponsored content" and it has no policy prohibiting it.</li>
+<li><strong>You must disclose it.</strong> The Publisher Agreement (updated November 2, 2026, with new sponsored-content terms) says publishers paid by a sponsor must follow the laws on disclosing and labeling sponsored, paid or endorsed content wherever their content is available, and that Substack may require a specific format, placement or wording.</li>
+<li><strong>Your publication can't be mainly ads.</strong> Substack's Content Guidelines don't permit publications whose primary purpose is advertising external products, driving traffic to third-party sites or distributing offers and promotions.</li>
+<li><strong>No built-in ad tools.</strong> Substack's help center says it doesn't build functionality to support affiliate links or advertising, so you place and track sponsor sections yourself.</li>
+</ul>
+
+<h2>2. Substack's own sponsorships program (Creator Kits)</h2>
+<p>Substack runs a native sponsorships program. According to its help center, Creator Kits are available to all Bestseller publications or those with at least 100 paid subscribers; if you qualify, you'll see a <strong>Sponsorships</strong> tab in your dashboard.</p>
+<ul>
+<li><strong>Build it:</strong> go to your publication's Home, open <strong>Sponsorships</strong> in the left sidebar (Bestsellers may also see "Go to Sponsorships" in the announcements banner) and click <strong>Build creator kit</strong>.</li>
+<li><strong>What's in it:</strong> a description, the stats you choose to show (such as subscriber count, open rate and active readers), audience location and interests, past brand partners, testimonials, and up to ten sponsorship formats with a minimum spend.</li>
+<li><strong>Private by default:</strong> Creator Kits aren't public. Only brands in the program that Substack's team connects you with can see them, and for now Substack handles all matchmaking by email.</li>
+<li><strong>Tell them what you won't take:</strong> a private "Not interested" section lets you rule out brands or formats.</li>
+</ul>
+<p>It's optional and free to set up. If you qualify, turn it on, but don't wait on it: it's matchmaking, not a marketplace you control.</p>
+
+<h2>3. Below the threshold: sponsor marketplaces that don't ask for a minimum</h2>
+<p>None of these list a subscriber minimum on their pricing pages:</p>
+<ul>
+<li><strong>{L('hecto')}:</strong> you publish your own sponsor packages with upfront prices and a checkout link. No monthly fee; Hecto takes 5% of successful sales, plus Stripe's fees. Best if you want to set your price and let sponsors buy without back-and-forth.</li>
+<li><strong>{L('swapstack')}:</strong> free for publishers. You browse pay-per-click and affiliate opportunities, and Swapstack takes 10% on invite-only campaigns from its managed service. Best for seeing what's available in your niche with no upfront pricing work.</li>
+<li><strong>{L('sparkloop')}:</strong> not a sponsor marketplace, but its free Partner Network pays you to recommend other newsletters to new subscribers. For many small newsletters it's the first "sponsor-like" money.</li>
+</ul>
+<p>We compare the first two side by side on the <a href="/compare/hecto-vs-swapstack-substack-sponsorships/">Hecto vs Swapstack page</a>.</p>
+
+<h2>4. When the big ad networks open up</h2>
+<p>{L('paved')} describes itself as the world's largest newsletter ad marketplace. Its publisher account is free, but flat-fee scheduled ads need at least 50,000 subscribers, and pay-per-click ads need at least 1 million monthly impressions. Bookmark it for later; it isn't where most Substacks find their first sponsor.</p>
+
+<h2>5. Pitch sponsors directly</h2>
+<p>Marketplaces are optional. Many first sponsors come from a direct email to a company your readers already use. A simple process:</p>
+<ol>
+<li><strong>List five to ten brands</strong> you've already mentioned or recommended in your posts.</li>
+<li><strong>Write a one-page media kit:</strong> who reads you, your subscriber count and open rate, two or three posts that represent you, and one or two formats with a price. Substack's Creator Kit fields are a good template even if you don't qualify yet.</li>
+<li><strong>Send a short email</strong> to their marketing or partnerships contact with a specific offer, such as one mention in a specific issue on a specific date.</li>
+<li><strong>Deliver and report:</strong> after the issue goes out, send the sponsor the clicks from their link. A free link shortener or UTM tags make this easy; see the <a href="/category/analytics/">analytics tools</a>.</li>
+</ol>
+
+<h2>6. How to run a sponsor section readers don't mind</h2>
+<ul>
+<li><strong>Label it</strong> plainly (for example, "Sponsored by…" at the top of the section). Substack's agreement requires disclosure, and readers trust labeled sponsors more than hidden ones.</li>
+<li><strong>One sponsor per issue,</strong> in the same spot each time, so readers know where it is and can skip it.</li>
+<li><strong>Only take sponsors you'd recommend</strong> without being paid. Your recommendations are the asset you're selling.</li>
+<li><strong>Keep your paid subscribers in mind.</strong> Some writers keep paid-only posts ad-free as a perk; that's a choice, not a Substack rule.</li>
+</ul>
+
+<h2>7. Other ways to earn beyond paid subscriptions</h2>
+<p>If sponsors aren't a fit yet, sell something of your own with {L('gumroad')} (no monthly fee; it collects sales tax for you as merchant of record) or add a tip jar with {L('ko-fi')} (one-off tips are fee-free on Ko-fi Free). Fees compared on the <a href="/compare/gumroad-vs-ko-fi-substack/">Gumroad vs Ko-fi page</a>.</p>
+
+<h2>Tools mentioned in this guide</h2><ul>{tl}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://support.substack.com/hc/en-us/articles/4407986455188-Can-my-publication-host-sponsored-ads" target="_blank" rel="noopener">Substack Help Center: Can my publication host sponsored ads?</a> (updated December 17, 2025: sponsored content welcome, no prohibiting policy)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/50045576404500-How-do-I-set-up-a-Creator-Kit-on-Substack" target="_blank" rel="noopener">Substack Help Center: How do I set up a Creator Kit on Substack?</a> (updated June 16, 2026: eligibility, setup steps, sections, privacy, matchmaking by email)</li>
+<li><a href="https://substack.com/pa" target="_blank" rel="noopener">Substack Publisher Agreement</a> (last updated November 2, 2026: Sponsored Content section on disclosure and labeling)</li>
+<li><a href="https://substack.com/content" target="_blank" rel="noopener">Substack Content Guidelines</a> (Marketing and Promotion section)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/360037455072-Can-I-use-affiliate-links-or-advertising-in-my-emails" target="_blank" rel="noopener">Substack Help Center: Can I use affiliate links or advertising in my emails?</a> (no built-in ad or affiliate functionality)</li>
+<li>Vendor pricing pages: <a href="https://hecto.io/pricing" target="_blank" rel="noopener">hecto.io/pricing</a>, <a href="https://www.swapstack.co/pricing" target="_blank" rel="noopener">swapstack.co/pricing</a>, <a href="https://www.paved.com/publishers" target="_blank" rel="noopener">paved.com/publishers</a>, <a href="https://sparkloop.app/pricing" target="_blank" rel="noopener">sparkloop.app/pricing</a> (checked November 13–14, 2026)</li>
+</ul>
+<p class="small">Rules and prices change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: the <a href="/category/monetization/">Sponsorships &amp; Monetization tools</a> category, our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a> and the <a href="/guides/substack-recommendations-guide/">recommendations guide</a>. StackKit itself sells labeled placements; see <a href="/about/">disclosures</a>.</p></div></div>{SIGNUP}"""
+    faq = [("Can you have sponsors on Substack?", "Yes. Substack's help center says you're welcome to host sponsored content and it has no policy prohibiting it. Its Publisher Agreement requires you to follow the laws on disclosing and labeling sponsored content, and its Content Guidelines don't allow publications whose primary purpose is advertising."),
+           ("Does Substack have a sponsorship program?", "Yes. Substack's Creator Kits let eligible publications (all Bestsellers, or those with at least 100 paid subscribers) build a private media kit; Substack's team then emails you if a brand in its program may be a fit."),
+           ("How many subscribers do you need for a newsletter sponsor?", "There's no universal minimum. Hecto and Swapstack list no subscriber minimum, while Paved's flat-fee ads need at least 50,000 subscribers and its pay-per-click ads need 1 million monthly impressions. Many small newsletters land a first sponsor by pitching a brand directly."),
+           ("What do sponsor marketplaces charge?", "Hecto has no monthly fee and takes 5% of successful sales plus Stripe fees; Swapstack is free for publishers and takes 10% on invite-only campaigns; Paved's publisher account is free.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack sponsorships guide: how to land your first newsletter sponsor (2026)", "dateModified": "2026-11-14",
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + SPON_SLUG},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(SPON_SLUG, layout(SPON_SLUG, f"Substack sponsorships guide: land your first newsletter sponsor (2026) | {BRAND}",
+        "Can you run sponsors on Substack? What Substack's rules require, who qualifies for its Creator Kit sponsorships program, sponsor marketplaces with no minimum (Hecto, Swapstack), Paved's minimums, and how to pitch and label sponsors.", body, ld, current=SPON_SLUG), "0.9")
+
 # ---------------- Extras ----------------
 def extras():
     write("/404.html", layout("/404.html", f"Page not found | {BRAND}", "Page not found.",
@@ -1103,6 +1185,7 @@ def extras():
              f"- [Substack SEO guide]({SITE_URL}/guides/substack-seo-guide/): how to get Substack posts found on Google and in AI answers: SEO title, description and URL settings, internal and inbound links, keeping evergreen posts free, and measuring with Google Search Console",
              f"- [Substack recommendations and lists guide]({SITE_URL}/guides/substack-recommendations-guide/): how Substack recommendations and the new lists (launched Oct 29, 2026) work: where recommendations appear, setup, writing reasons, creating themed lists, digest rules, stats, and how to earn recommendations",
              f"- [Substack Notes guide]({SITE_URL}/guides/substack-notes-guide/): how Substack Notes work in 2026: who sees them (not emailed; roundup digest and push), posting and drafts, the free built-in scheduler on web and app, when a batch scheduler is worth it, a reply-first routine, and tools that measure which Notes bring subscribers",
+             f"- [Substack sponsorships guide]({SITE_URL}/guides/substack-sponsorships-guide/): how to land a first newsletter sponsor on Substack: Substack's rules (sponsored content allowed, must be disclosed, no ad-first publications), its Creator Kit sponsorships program (Bestsellers or 100+ paid subscribers), no-minimum marketplaces Hecto and Swapstack, Paved's 50k-subscriber minimum, SparkLoop paid recommendations, pitching brands directly, and labeling sponsor sections",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              f"- [All Substack tool comparisons]({SITE_URL}/compare/): index of every head-to-head page",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
@@ -1129,7 +1212,7 @@ def main():
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
     compare_hub()
-    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); spon_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")

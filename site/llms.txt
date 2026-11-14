@@ -1,6 +1,6 @@
 # StackKit
 
-> StackKit is an independent, hand-checked directory of 68 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-11-13, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
+> StackKit is an independent, hand-checked directory of 68 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-11-14, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
 
 Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.
 
@@ -11,6 +11,7 @@ Monetization: labeled sponsored placements, paid fast-track review, and affiliat
 - [Substack SEO guide](https://stackkit.ink/guides/substack-seo-guide/): how to get Substack posts found on Google and in AI answers: SEO title, description and URL settings, internal and inbound links, keeping evergreen posts free, and measuring with Google Search Console
 - [Substack recommendations and lists guide](https://stackkit.ink/guides/substack-recommendations-guide/): how Substack recommendations and the new lists (launched Oct 29, 2026) work: where recommendations appear, setup, writing reasons, creating themed lists, digest rules, stats, and how to earn recommendations
 - [Substack Notes guide](https://stackkit.ink/guides/substack-notes-guide/): how Substack Notes work in 2026: who sees them (not emailed; roundup digest and push), posting and drafts, the free built-in scheduler on web and app, when a batch scheduler is worth it, a reply-first routine, and tools that measure which Notes bring subscribers
+- [Substack sponsorships guide](https://stackkit.ink/guides/substack-sponsorships-guide/): how to land a first newsletter sponsor on Substack: Substack's rules (sponsored content allowed, must be disclosed, no ad-first publications), its Creator Kit sponsorships program (Bestsellers or 100+ paid subscribers), no-minimum marketplaces Hecto and Swapstack, Paved's 50k-subscriber minimum, SparkLoop paid recommendations, pitching brands directly, and labeling sponsor sections
 - [Substack Notes schedulers compared](https://stackkit.ink/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes
 - [All Substack tool comparisons](https://stackkit.ink/compare/): index of every head-to-head page
 - [Datawrapper vs Flourish for Substack: which chart tool actually embeds?](https://stackkit.ink/compare/datawrapper-vs-flourish-substack/): Pick Datawrapper if you want interactive charts inside your Substack posts: it's the only one of the two that Substack embeds natively, and its free plan is unlimited. Pick Flourish only if you need animated or scrollytelling visuals and are happy to link out to them from a static image.

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-13",
+  "generated": "2026-11-14",
   "categories": [
     {
       "slug": "growth",
@@ -60,13 +60,13 @@
       "category": "growth",
       "pricing": "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
       "free_plan": true,
-      "pricing_source": "official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center",
+      "pricing_source": "official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center; re-checked 2026-11-14",
       "best_for": "Getting paid recommendations and buying cross-newsletter referrals",
       "verdict": "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-11-06",
+      "verified_on": "2026-11-14",
       "notes": null
     },
     {
@@ -178,7 +178,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-14",
       "notes": "Made by Dheeraj Sharma (GenAI Unplugged); independent, not affiliated with Substack."
     },
     {

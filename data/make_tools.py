@@ -23,7 +23,8 @@ V18 = "2026-11-10"  # entries added or re-checked in the 2026-11-10 daily ops pa
 V19 = "2026-11-11"  # entries re-checked in the 2026-11-11 daily ops pass
 V20 = "2026-11-12"  # entries re-checked in the 2026-11-12 daily ops pass
 V21 = "2026-11-13"  # entries re-checked in the 2026-11-13 daily ops pass
-UPDATED = V21
+V22 = "2026-11-14"  # entries re-checked in the 2026-11-14 daily ops pass
+UPDATED = V22
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -37,7 +38,7 @@ add("SparkLoop","https://sparkloop.app/","growth",
  "Free to join the Partner Network and Upscribe recommendation widget (SparkLoop takes a share of paid-recommendation earnings). Paying other newsletters to recommend you is a separate paid program.",
  "Getting paid recommendations and buying cross-newsletter referrals",
  "The best-known newsletter recommendation network. Earning from recommendations is low-risk; paying for referrals only makes sense once you know what a subscriber is worth to you.",
- free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center", verified=V16)
+ free_plan=True, pricing_source="official site (sparkloop.app/pricing: Paid Recommendations, Partner Programs and Free Recommendations all listed as included free; referral programs are a $2,000/yr add-on) + SparkLoop help center; re-checked 2026-11-14", verified=V22)
 add("Supascribe","https://supascribe.com/","growth",
  "Free (2 basic embeds, first 1,000 views, first 100 new subscribers); Starter $9/mo, Growth $20/mo, Pro $249/mo (all billed yearly); paid plans add $2 per extra 10,000 views or 100 subscribers.",
  "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
@@ -81,7 +82,7 @@ add("SubflowAI","https://www.genaiunplugged.com/subflowai/","growth",
  "Pro Monthly $9.97/mo; Pro 5-Year $69.97 one-time; Premium $99.97 (5 years, includes Connect to Claude/ChatGPT). Connect is a $30 one-time add-on on Pro plans. 5-day free trial, no card; 14-day money-back guarantee.",
  "Batch-scheduling a week or month of Notes cheaply, with a visual calendar and AI Note drafts from your articles",
  "The cheapest serious batch Notes scheduler we've found (the 5-year plan works out to about $1.17/mo), and Notes are queued on Substack's own scheduler so they publish with your laptop closed. It's a one-person product that works through your logged-in Substack session (the Claude/ChatGPT Connect feature uses Substack's unofficial API), and the AI-in-your-voice features are optional: edit anything it drafts before it goes out.",
- substack_specific=True, free_plan=False, verified=V17,
+ substack_specific=True, free_plan=False, verified=V22,
  pricing_source="official site (genaiunplugged.com/subflowai pricing section and FAQ); Chrome Web Store listing v3.11.0, updated Oct 2, 2026, 5.0 from 10 ratings",
  notes="Made by Dheeraj Sharma (GenAI Unplugged); independent, not affiliated with Substack.")
 add("Byline OS","https://bylineos.com/","analytics",
