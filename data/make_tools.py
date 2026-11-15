@@ -24,7 +24,8 @@ V19 = "2026-11-11"  # entries re-checked in the 2026-11-11 daily ops pass
 V20 = "2026-11-12"  # entries re-checked in the 2026-11-12 daily ops pass
 V21 = "2026-11-13"  # entries re-checked in the 2026-11-13 daily ops pass
 V22 = "2026-11-14"  # entries re-checked in the 2026-11-14 daily ops pass
-UPDATED = V22
+V23 = "2026-11-15"  # entries added or re-checked in the 2026-11-15 daily ops pass
+UPDATED = V23
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -90,6 +91,13 @@ add("Byline OS","https://bylineos.com/","analytics",
  "Paid-newsletter writers who want MRR, churn, cohort and revenue-per-post analytics",
  "Promising revenue-first analytics built specifically for Substack. It is a beta product; live sync uses your Substack session cookie and undocumented internal APIs, so the CSV-upload mode is the safer start.",
  substack_specific=True, free_plan=True, verified=V17)
+add("Substack Engagement Plugin","https://thrivewithcarrie.substack.com/p/the-substack-engagement-plugin","growth",
+ "$67 one-time for the Claude and ChatGPT versions, with updates included. A $97 bundle adds the maker's 35-page Substack Engagement Playbook. No free plan or trial listed.",
+ "Writers who know commenting and replying grows their list but can't give it an hour a day, and want AI drafts in their own voice that they approve one by one",
+ "A plugin for Claude or ChatGPT desktop that drafts replies to your comments, comments on other writers' Notes, Notes of your own, restack lines and recommendation-swap pitches, plus a weekly scorecard ranked by subscribers. Every draft waits in an approval list; if you choose, it posts approved drafts one at a time up to a daily limit, and it never sends cold DMs. The upside is speed; the risk is sounding like everyone else using AI, so edit before you approve. The maker's own results (replies up 212% in a month) are self-reported and, as she says, not typical. It works best with the Claude in Chrome extension or ChatGPT's browser tools reading your Substack; otherwise you paste or screenshot.",
+ substack_specific=True, free_plan=False, verified=V23,
+ pricing_source="maker's sales page (thrivewithcarrie.substack.com/p/the-substack-engagement-plugin, published Nov 1, 2026) + checkout page (shop.carrieloranger.com/l/substack-engagement-plugin, $67), checked 2026-11-15",
+ notes="Made by Carrie Loranger (9-To-Thrive); independent, not affiliated with Substack. Needs the Claude desktop app with plugins or the ChatGPT desktop app. Never asks for your Substack password.")
 add("Google Analytics","https://analytics.google.com/","analytics",
  "Free.",
  "Seeing where your Substack traffic comes from (Substack lets you add a GA measurement ID)",
@@ -134,7 +142,7 @@ add("Orbit","https://seeyourorbit.com/","analytics",
  "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack (What's Working Right Now on Substack). No free plan or trial.",
  "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
  "A thoughtful relationship tracker for Substack that never writes or replies for you, and you can ask it questions from Claude or ChatGPT. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
- substack_specific=True, free_plan=False, verified=V14, pricing_source="official site (seeyourorbit.com FAQ, \"As of October 2026\")",
+ substack_specific=True, free_plan=False, verified=V23, pricing_source="official site (seeyourorbit.com FAQ, \"As of October 2026\", re-checked 2026-11-15)",
  notes="Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack.")
 add("StackContacts Studio","https://finntropy.gumroad.com/l/stackcontacts_studio","analytics",
  "$99 one-time, including 12 months of updates and email support (it keeps working after that; renewing for new versions is optional). Refund within 30 days if it can't sync your publication or connect to Claude Desktop after following the install guide.",

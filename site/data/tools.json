@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14",
+  "generated": "2026-11-15",
   "categories": [
     {
       "slug": "growth",
@@ -198,6 +198,22 @@
       "notes": null
     },
     {
+      "slug": "substack-engagement-plugin",
+      "name": "Substack Engagement Plugin",
+      "url": "https://thrivewithcarrie.substack.com/p/the-substack-engagement-plugin",
+      "category": "growth",
+      "pricing": "$67 one-time for the Claude and ChatGPT versions, with updates included. A $97 bundle adds the maker's 35-page Substack Engagement Playbook. No free plan or trial listed.",
+      "free_plan": false,
+      "pricing_source": "maker's sales page (thrivewithcarrie.substack.com/p/the-substack-engagement-plugin, published Nov 1, 2026) + checkout page (shop.carrieloranger.com/l/substack-engagement-plugin, $67), checked 2026-11-15",
+      "best_for": "Writers who know commenting and replying grows their list but can't give it an hour a day, and want AI drafts in their own voice that they approve one by one",
+      "verdict": "A plugin for Claude or ChatGPT desktop that drafts replies to your comments, comments on other writers' Notes, Notes of your own, restack lines and recommendation-swap pitches, plus a weekly scorecard ranked by subscribers. Every draft waits in an approval list; if you choose, it posts approved drafts one at a time up to a daily limit, and it never sends cold DMs. The upside is speed; the risk is sounding like everyone else using AI, so edit before you approve. The maker's own results (replies up 212% in a month) are self-reported and, as she says, not typical. It works best with the Claude in Chrome extension or ChatGPT's browser tools reading your Substack; otherwise you paste or screenshot.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-11-15",
+      "notes": "Made by Carrie Loranger (9-To-Thrive); independent, not affiliated with Substack. Needs the Claude desktop app with plugins or the ChatGPT desktop app. Never asks for your Substack password."
+    },
+    {
       "slug": "google-analytics",
       "name": "Google Analytics",
       "url": "https://analytics.google.com/",
@@ -316,13 +332,13 @@
       "category": "analytics",
       "pricing": "$12/mo or $120/yr, included with a paid subscription to creator Rebecca Spitzer's Substack (What's Working Right Now on Substack). No free plan or trial.",
       "free_plan": false,
-      "pricing_source": "official site (seeyourorbit.com FAQ, \"As of October 2026\")",
+      "pricing_source": "official site (seeyourorbit.com FAQ, \"As of October 2026\", re-checked 2026-11-15)",
       "best_for": "Writers growing through relationships who want to remember who they've talked to across Notes, comments and DMs",
       "verdict": "A thoughtful relationship tracker for Substack that never writes or replies for you, and you can ask it questions from Claude or ChatGPT. It works through a Chrome extension running alongside your logged-in Substack session (DMs off by default), and there's no way to try it before paying.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-11-02",
+      "verified_on": "2026-11-15",
       "notes": "Independent; not affiliated with Substack. Access comes via a paid subscription to the creator's Substack."
     },
     {
