@@ -442,6 +442,18 @@ pages = []  # (path, priority) for sitemap
 
 LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#ff5a1f"/><rect x="7" y="8" width="18" height="4" rx="2" fill="#fff"/><rect x="7" y="14" width="18" height="4" rx="2" fill="#fff" opacity=".8"/><rect x="7" y="20" width="12" height="4" rx="2" fill="#fff" opacity=".6"/></svg>'
 
+def tool_meta_desc(t, limit=160):
+    """Search-snippet-length description: best-for, then the first pricing clause, cut at a word boundary (never mid-word)."""
+    price = t["pricing"].split(";")[0].split(". ")[0].rstrip(".")
+    d = f"{t['name']} for Substack writers: {t['best_for']}. Pricing: {price}. Honest verdict, checked {t['verified_on']}."
+    if len(d) <= limit:
+        return d
+    d = f"{t['name']} for Substack writers: {t['best_for']}. Pricing: {price}."
+    if len(d) <= limit:
+        return d
+    cut = d[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:(")
+    return cut + "…"
+
 def layout(path, title, desc, body, jsonld=None, js=False, current=None):
     canon = SITE_URL + path
     nav = [("/", "Directory"), ("/guides/%s/" % GUIDE_SLUG, "2026 Guide"), ("/about/", "About"), ("/feature/", "Feature your tool")]
@@ -581,7 +593,7 @@ def tool(t):
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
     write(f"/tools/{t['slug']}/", layout(f"/tools/{t['slug']}/", f"{t['name']} for Substack writers: pricing & verdict | {BRAND}",
-        f"{t['name']}: {t['best_for']}. Pricing: {t['pricing']}"[:300], body, ld), "0.7")
+        tool_meta_desc(t), body, ld), "0.7")
 
 # ---------------- Feature page ----------------
 def feature():

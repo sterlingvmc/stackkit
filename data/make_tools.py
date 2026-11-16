@@ -274,7 +274,8 @@ add("LanguageTool","https://languagetool.org/","editing",
  "Free (up to 2,000 characters per text field); Premium $24.90/mo monthly, $49.90/quarter, $69.90/yr or $119.80 for 2 years.",
  "Multilingual writers and anyone who wants a Grammarly alternative",
  "Strong grammar checking across many languages, and much cheaper per year than monthly billing.",
- pricing_source="official site (languagetool.org/premium, rendered page, USD incl. VAT)", free_plan=True, verified=V7)
+ pricing_source="official site (languagetool.org/premium, rendered page, USD incl. VAT)", free_plan=True, verified=V7,
+ notes="Free plan re-checked 2026-11-16 on languagetool.org/premium: 2,000 characters per text field (150,000 on Premium), 3 AI sentence rephrasings a day, browser add-ons for Chrome, Edge, Firefox and Safari. Premium prices last checked 2026-10-26.")
 add("QuillBot","https://quillbot.com/","editing",
  "Free (paraphrase up to 125 words at a time, 2 modes); Premium $19.95 monthly, $39.95 every 3 months, or $99.95/yr ($8.33/mo). Prices may vary by region.",
  "Paraphrasing, summarizing and quick rewrites",
