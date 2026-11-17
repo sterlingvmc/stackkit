@@ -25,6 +25,7 @@ V20 = "2026-11-12"  # entries re-checked in the 2026-11-12 daily ops pass
 V21 = "2026-11-13"  # entries re-checked in the 2026-11-13 daily ops pass
 V22 = "2026-11-14"  # entries re-checked in the 2026-11-14 daily ops pass
 V23 = "2026-11-15"  # entries added or re-checked in the 2026-11-15 daily ops pass
+V24 = "2026-11-17"  # entries re-checked in the 2026-11-17 daily ops pass
 UPDATED = V23
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
@@ -190,7 +191,7 @@ add("Typefully","https://typefully.com/","social",
  "Free (10 posts/mo, 1 social set; Substack Notes included); Creator $99/yr (annual billing only); Business $18 per social set/mo billed yearly.",
  "X-first writers who also want to post to LinkedIn, Threads, Bluesky and Substack Notes",
  "A polished writing-first scheduler that now publishes and schedules Substack Notes on every plan, including free. It handles Notes only (no long-form posts, no video in Notes), and its paid analytics are for X, so it suits writers who start on X or LinkedIn more than Notes-first writers.",
- pricing_source="official site (typefully.com/pricing, rendered page; Substack support per typefully.com/changelog/substack-notes and Typefully Help Center \"Publish and Cross-Post to Substack Notes\")", free_plan=True, verified=V7)
+ pricing_source="official site (typefully.com/pricing, rendered page; Substack support per typefully.com/changelog/substack-notes and Typefully Help Center \"Publish and Cross-Post to Substack Notes\"; free plan (10 posts/mo, 1 social set) and Substack on the platform list re-checked 2026-11-17, paid prices render client-side and weren't readable that day)", free_plan=True, verified=V24)
 add("Buffer","https://buffer.com/","social",
  "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly ($12 monthly).",
  "Scheduling Notes alongside every other social channel from one calendar",

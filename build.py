@@ -545,6 +545,20 @@ def home():
         body, ld, current="/"), "1.0")
 
 # ---------------- Category pages ----------------
+CAT_NOTES = {
+    "design": ('<div class="card" style="margin:18px 0"><h2 style="margin-top:0">Check Substack\'s own site editor first</h2>'
+               '<p>On Nov 12, 2026 Substack launched new website design tools: seven themes, a Mini-Editor on your publication homepage for layouts, color palettes and fonts, '
+               'and a Full Editor for your Home, Welcome and Post pages (header, hero, body, footer, custom colors, typefaces and a logo or wordmark image), with desktop, tablet and mobile web previews. '
+               'Changes don\'t show in the Substack app, which keeps its own layout. '
+               '<a href="https://on.substack.com/p/your-substack-now-with-more-ways" target="_blank" rel="noopener">Substack\'s announcement ↗</a></p>'
+               '<p>So use the built-in editor for your site\'s look, and the tools below for what it doesn\'t make: header and preview images, social cards and logos. '
+               'Sizes and a side-by-side are in <a href="/compare/canva-vs-kittl-substack-images/">Canva vs Kittl for Substack images</a>.</p></div>'),
+}
+
+CAT_LLMS = {
+    "design": "Note: since Nov 12, 2026 Substack has a built-in website editor (seven themes; Mini-Editor and Full Editor for layouts, colors, fonts, header, hero, footer and logo on Home, Welcome and Post pages; not shown in the Substack app). Use it for your site's look and the tools below for images. Source: https://on.substack.com/p/your-substack-now-with-more-ways",
+}
+
 def category(c):
     ts = BYCAT[c["slug"]]
     rows = "".join(f'<tr><td><a href="/tools/{t["slug"]}/"><strong>{e(t["name"])}</strong></a></td><td>{e(t["best_for"])}</td><td>{e(t["pricing"])}</td></tr>' for t in ts)
@@ -552,7 +566,7 @@ def category(c):
     cmps = f"<h2>Comparisons</h2><ul>{cmps}</ul>" if cmps else ""
     others = " · ".join(f'<a href="/category/{o["slug"]}/">{e(o["name"])}</a>' for o in CATS if o["slug"] != c["slug"])
     body = f"""<div class="wrap page"><div class="crumbs"><a href="/">Directory</a> / {e(c['name'])}</div>
-<h1>{e(c['name'])} tools for Substack writers</h1><p class="sub">{e(c['desc'])}</p>
+<h1>{e(c['name'])} tools for Substack writers</h1><p class="sub">{e(c['desc'])}</p>{CAT_NOTES.get(c["slug"], "")}
 <div class="grid">{''.join(card(t) for t in ts)}{FEATURED_PLACEHOLDER}</div>
 <h2>Pricing at a glance</h2><div class="table-wrap"><table class="cmp"><thead><tr><th>Tool</th><th>Best for</th><th>Pricing (last checked dates on each tool page)</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="small">Prices change. Always confirm on the vendor's site.</p>
@@ -1230,6 +1244,7 @@ def extras():
     for c in CATS:
         lines.append(f"## {c['name']}")
         lines.append(c["desc"])
+        if c["slug"] in CAT_LLMS: lines.append(CAT_LLMS[c["slug"]])
         for t in BYCAT[c["slug"]]:
             lines.append(f"- [{t['name']}]({SITE_URL}/tools/{t['slug']}/) ({t['url']}): {t['best_for']}. Pricing: {t['pricing']} Verdict: {t['verdict']}")
         lines.append("")
