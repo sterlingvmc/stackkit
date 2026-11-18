@@ -259,6 +259,33 @@ COMPARISONS = [
       ("StackContacts Studio product page (Gumroad)", "https://finntropy.gumroad.com/l/stackcontacts_studio"),
       ("Finn Tropy: Every Creator Needs a Scotty (Nov 1, 2026)", "https://finntropy.substack.com/p/every-creator-needs-a-scotty"),
     ]),
+  dict(slug="quick-viral-notes-vs-narrareach", a="quick-viral-notes", b="narrareach", checked="2026-11-18",
+    title="Quick Viral Notes vs Narrareach: turning Substack posts into Notes",
+    h1="Quick Viral Notes vs Narrareach for turning posts into Notes",
+    desc="Quick Viral Notes vs Narrareach for Substack writers: $7/mo or $65/yr Notes generator vs a $19.99/mo publishing suite. How each turns an article into Notes, schedules them and what the price gets you.",
+    short="Both turn a published Substack post into a batch of Notes. Pick Quick Viral Notes ($7/mo or $65/yr) if that's all you want: paste a URL, get formula-based Notes drafts, schedule them from a Chrome extension. Pick Narrareach (from $19.99/mo) if you also want subscriber attribution, a voice profile and cross-posting to Medium and LinkedIn, with Notes handed to Substack's own scheduler.",
+    rows=[
+      ("Price", "Free trial of 10 credits (one-time, no card). Monthly $7/mo for 70 credits; Yearly $65/yr for 600 credits. One credit = one article job (typically 6-12 Notes).", "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). 7-day free trial on every plan, no card."),
+      ("Article to Notes", "Its core: paste a post or draft URL, it labels each idea (diagnostic, wisdom, contrarian and more) and applies 10+ named formulas.", "\"A week of Notes from one article\", written with a voice profile learned from your own posts."),
+      ("Scheduling", "Separate Chrome extension posts at the scheduled time through your logged-in Substack session; the browser must be running.", "Queue, calendar and best posting times; hands Notes to Substack's own scheduler."),
+      ("Other platforms", "Copy or schedule to Substack Notes; the site pitches \"social posts\" generally.", "Audience Builder adds Medium, LinkedIn, WordPress and Ghost; Revenue Writer adds X, Bluesky, Threads, Instagram, Facebook, TikTok and Pinterest."),
+      ("Analytics", "None listed.", "Subscriber attribution for every post and Note, plus Note and social-post analytics."),
+      ("AI assistants (MCP)", "Yearly plan only (Claude, Cursor).", "Official MCP for Claude, ChatGPT, Gemini and others on every plan; tools follow your plan."),
+      ("Idea reuse", "Knowledge Bank stores every extracted idea for later.", "Library of viral Notes and posts, saved lists and templates."),
+    ],
+    body=[
+      ("The real difference", "Quick Viral Notes does one job cheaply: it turns an article into draft Notes. Narrareach is a full publishing desk where article-to-Notes is one feature among scheduling, analytics, cross-posting and AI replies. If you only post on Substack and already like Substack's built-in Notes scheduler, the cheaper, narrower tool may be all you need."),
+      ("Watch the formula feel", "Both tools write from patterns: Quick Viral Notes from named viral formulas, Narrareach from your voice profile. Regular readers notice when every Note opens the same way. Edit each draft so it sounds like you, and mix formula Notes with ones you write from scratch."),
+      ("How they publish", "Quick Viral Notes' scheduler extension posts from your browser at the slot time, so your computer and Chrome need to be on. Narrareach hands Notes to Substack's native scheduler. Either way, you can skip the scheduler and paste Notes into Substack's own free scheduler. See every option on our Notes schedulers page."),
+      ("Our pick", "Writers on a tight budget who just want a head start on Notes from each post: Quick Viral Notes, starting with the free 10 credits. Writers who want to know which Notes bring subscribers and also publish to Medium or LinkedIn: Narrareach. Try each free trial on one recent post before paying."),
+    ],
+    sources=[
+      ("Quick Viral Notes homepage", "https://quickviralnotes.xyz/"),
+      ("Quick Viral Notes pricing", "https://quickviralnotes.xyz/pricing"),
+      ("Substack Note Scheduler (Quick Viral Notes) on the Chrome Web Store", "https://chromewebstore.google.com/detail/substack-note-scheduler/ajpjgcbnlbbgljlffokbplipejmfpjih"),
+      ("Narrareach homepage and pricing", "https://www.narrareach.com/"),
+      ("Substack Notes schedulers compared (StackKit)", "https://stackkit.ink/substack-notes-schedulers/"),
+    ]),
   dict(slug="orbit-vs-substack-engagement-plugin", a="orbit", b="substack-engagement-plugin", checked="2026-11-15",
     title="Orbit vs Substack Engagement Plugin: remember people or draft replies with AI?",
     h1="Orbit vs the Substack Engagement Plugin",
@@ -753,6 +780,7 @@ SCHEDULERS = [
   ("writestack", "Yes (bulk scheduling, reorderable queue, calendar)", "Chromium extension: click Sync to hand queued Notes to Substack's native scheduler (checked 2026-11-06)."),
   ("substack-pro-studio", "Yes (visual weekly calendar, bulk upload, drip mode)", "Chrome extension with server-side handoff to Substack's native Notes scheduler so Notes publish with your laptop closed (checked 2026-11-06)."),
   ("stackbuddy", "Yes (posting slots fill automatically; free plan keeps scheduling)", "Chrome extension syncs each Note into Substack's own scheduler, so Substack publishes it; Chrome only needs to be open while syncing (checked 2026-10-28)."),
+  ("quick-viral-notes", "Yes (queue a week of Notes in one session)", "Separate Chrome extension posts each Note at its scheduled time through your logged-in Substack session; your browser must be running (checked 2026-11-18)."),
   ("stacksweller", "Yes (cloud queue)", "Cloud service that holds your Substack session so the queue runs with your laptop closed."),
 ]
 def schedulers():
@@ -775,6 +803,7 @@ def schedulers():
 <li><strong>Substack is your whole world and you want to batch cheaply:</strong> {L('subflowai')} (about $1.17/mo on its 5-year plan), {L('substack-pro-studio')} ($79 one-time with server-side scheduling), or {L('notesiq')} ($4.99 one time, but very new).</li>
 <li><strong>You want analytics and scheduling in one place:</strong> {L('notestack')} or {L('writestack')}. Both rank Notes by the subscribers they bring, not just likes.</li>
 <li><strong>You start from long-form posts and publish beyond Substack:</strong> {L('narrareach')} turns articles into Notes and cross-posts to other platforms.</li>
+<li><strong>You only want draft Notes from each post, cheaply:</strong> {L('quick-viral-notes')} turns a post URL into formula-based Notes from $7/mo (<a href="/compare/quick-viral-notes-vs-narrareach/">Quick Viral Notes vs Narrareach</a>).</li>
 <li><strong>You only want to know which Notes work:</strong> skip scheduling and use a read-only tool such as {L('subshack')} (free) or {L('substack-insights')}. See our <a href="/compare/substack-insights-vs-notestack/">Substack Insights vs NoteStack comparison</a>.</li>
 </ul>
 <h2>Know how a tool publishes before you install it</h2>

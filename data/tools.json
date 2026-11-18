@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-15",
+  "generated": "2026-11-18",
   "categories": [
     {
       "slug": "growth",
@@ -108,14 +108,30 @@
       "category": "growth",
       "pricing": "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
       "free_plan": false,
-      "pricing_source": "official site",
+      "pricing_source": "official site (narrareach.com pricing section: monthly prices, yearly totals and 7-day no-card trial; re-checked 2026-11-18)",
       "best_for": "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
       "verdict": "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-11-01",
+      "verified_on": "2026-11-18",
       "notes": null
+    },
+    {
+      "slug": "quick-viral-notes",
+      "name": "Quick Viral Notes",
+      "url": "https://quickviralnotes.xyz/",
+      "category": "growth",
+      "pricing": "Free trial: 10 credits, one-time, no card. Monthly $7/mo (70 credits a month, no rollover); Yearly $65/yr (600 credits a year, adds MCP access, CSV bulk upload and email delivery of Notes). One credit = one generation job; one article typically yields 6-12 Notes.",
+      "free_plan": false,
+      "pricing_source": "official site (quickviralnotes.xyz homepage and /pricing) + its Chrome Web Store listing (Substack Note Scheduler) for how scheduling works",
+      "best_for": "Writers who want a cheap way to turn each published post into a batch of draft Notes",
+      "verdict": "Inexpensive and focused: paste a Substack post URL, it pulls out the ideas and drafts Notes from named formulas, and keeps every idea in a reusable Knowledge Bank. A small tool from Jenny Ouyang of the Build to Launch newsletter, newly promoted on launch directories in Nov 2026 (its scheduler extension has a single Chrome Web Store rating). Formula-driven Notes can read alike, so edit them into your own voice. Its scheduler is a separate Chrome extension that posts through your logged-in Substack session, and your browser must be running at the scheduled time.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": true,
+      "verified_on": "2026-11-18",
+      "notes": "Independent; not affiliated with Substack. MCP access (Claude, Cursor) is listed on the yearly plan."
     },
     {
       "slug": "stackbuddy",
@@ -582,6 +598,22 @@
       "notes": null
     },
     {
+      "slug": "coolors",
+      "name": "Coolors",
+      "url": "https://coolors.co/",
+      "category": "design",
+      "pricing": "Free forever (with ads): palettes up to 5 colors, 10K+ ready color schemes, save up to 10 palettes, 1 project and 1 collection. Pro from $3/mo (per Coolors' own upgrade prompt) adds no ads, up to 10 colors, unlimited saves, palette contrast checks and Coolors AI (3,000 credits/mo).",
+      "free_plan": true,
+      "pricing_source": "official site (coolors.co/pricing plan features and FAQ; the card's monthly price renders client-side, so the Pro price is from the page's own '$3/mo' upgrade prompt; third-party trackers list $3/mo billed yearly)",
+      "best_for": "Picking one consistent color palette for headers, Notes images and your site",
+      "verdict": "A fast, free way to stop re-deciding colors every week: generate or browse a palette, then reuse the hex codes in Canva, Kittl or Substack's new website editor. The free plan is enough for one newsletter brand; Pro is mostly about removing ads and saving more.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-18",
+      "notes": null
+    },
+    {
       "slug": "unsplash",
       "name": "Unsplash",
       "url": "https://unsplash.com/",
@@ -844,13 +876,13 @@
       "category": "planning",
       "pricing": "Free (100 tasks/mo, two-step Zaps); Professional from $19.99/mo; Team from $69/mo.",
       "free_plan": true,
-      "pricing_source": "official site (zapier.com/pricing, USD)",
+      "pricing_source": "official site (zapier.com/pricing, USD; re-checked 2026-11-18)",
       "best_for": "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",
       "verdict": "Powerful glue between apps. Substack has no official public API, so automations usually start from its RSS feed or email.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-25",
+      "verified_on": "2026-11-18",
       "notes": null
     },
     {
@@ -1004,13 +1036,13 @@
       "category": "audio",
       "pricing": "Free (60 credits/mo); Starter $15/mo (monthly only, 150 credits); Pro $29/mo or $14.50/mo billed annually.",
       "free_plan": true,
-      "pricing_source": "official site (opus.pro/pricing, US prices)",
+      "pricing_source": "official site (opus.pro/pricing, US prices; re-checked 2026-11-18)",
       "best_for": "Turning long videos or podcast episodes into short social clips",
       "verdict": "Fast way to get shorts from long recordings. Review the AI's clip choices before posting.",
       "affiliate_program": "yes",
       "affiliate_url": "https://www.opus.pro/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-26",
+      "verified_on": "2026-11-18",
       "notes": null
     },
     {

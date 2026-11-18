@@ -26,7 +26,8 @@ V21 = "2026-11-13"  # entries re-checked in the 2026-11-13 daily ops pass
 V22 = "2026-11-14"  # entries re-checked in the 2026-11-14 daily ops pass
 V23 = "2026-11-15"  # entries added or re-checked in the 2026-11-15 daily ops pass
 V24 = "2026-11-17"  # entries re-checked in the 2026-11-17 daily ops pass
-UPDATED = V23
+V25 = "2026-11-18"  # entries added or re-checked in the 2026-11-18 daily ops pass
+UPDATED = V25
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -57,7 +58,14 @@ add("Narrareach","https://www.narrareach.com/","growth",
  "Audience Builder $19.99/mo ($199/yr); Revenue Writer $39/mo ($390/yr); Full Agentic Mode $89/mo ($890/yr). Every plan starts with a 7-day free trial, no card required.",
  "Turning long-form posts into Notes and cross-posting to LinkedIn, X, Bluesky, Threads and Medium",
  "Good if distribution beyond Substack is your bottleneck. Hands Notes to Substack's native scheduler rather than posting from a stored session.",
- substack_specific=True, free_plan=False, verified=V13)
+ substack_specific=True, free_plan=False, verified=V25, pricing_source="official site (narrareach.com pricing section: monthly prices, yearly totals and 7-day no-card trial; re-checked 2026-11-18)")
+add("Quick Viral Notes","https://quickviralnotes.xyz/","growth",
+ "Free trial: 10 credits, one-time, no card. Monthly $7/mo (70 credits a month, no rollover); Yearly $65/yr (600 credits a year, adds MCP access, CSV bulk upload and email delivery of Notes). One credit = one generation job; one article typically yields 6-12 Notes.",
+ "Writers who want a cheap way to turn each published post into a batch of draft Notes",
+ "Inexpensive and focused: paste a Substack post URL, it pulls out the ideas and drafts Notes from named formulas, and keeps every idea in a reusable Knowledge Bank. A small tool from Jenny Ouyang of the Build to Launch newsletter, newly promoted on launch directories in Nov 2026 (its scheduler extension has a single Chrome Web Store rating). Formula-driven Notes can read alike, so edit them into your own voice. Its scheduler is a separate Chrome extension that posts through your logged-in Substack session, and your browser must be running at the scheduled time.",
+ substack_specific=True, free_plan=False, verified=V25,
+ pricing_source="official site (quickviralnotes.xyz homepage and /pricing) + its Chrome Web Store listing (Substack Note Scheduler) for how scheduling works",
+ notes="Independent; not affiliated with Substack. MCP access (Claude, Cursor) is listed on the yearly plan.")
 add("StackBuddy","https://stackbuddy.io/","growth",
  "Free plan (scheduling and creator network free forever); Pro $12.50/mo billed yearly or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
  "Batch-scheduling Notes into posting slots and finding other writers to cross-promote with",
@@ -237,6 +245,12 @@ add("Kittl","https://www.kittl.com/","design",
  "Typography-heavy graphics and AI-assisted illustrations",
  "A stylish Canva alternative with great type tools. Kittl's site is inconsistent on the free plan's license: the pricing FAQ says free is for personal use only (no commercial rights), while the live Free card lists a 'Full commercial license'. Check Kittl's license terms before any commercial use; if your Substack earns money, assume you need Pro (which includes a commercial license) until Kittl clarifies.",
  free_plan=True, verified=V21, pricing_source="official site (kittl.com/pricing live cards for US visitors, and the FAQ license section, re-checked 2026-11-13)")
+add("Coolors","https://coolors.co/","design",
+ "Free forever (with ads): palettes up to 5 colors, 10K+ ready color schemes, save up to 10 palettes, 1 project and 1 collection. Pro from $3/mo (per Coolors' own upgrade prompt) adds no ads, up to 10 colors, unlimited saves, palette contrast checks and Coolors AI (3,000 credits/mo).",
+ "Picking one consistent color palette for headers, Notes images and your site",
+ "A fast, free way to stop re-deciding colors every week: generate or browse a palette, then reuse the hex codes in Canva, Kittl or Substack's new website editor. The free plan is enough for one newsletter brand; Pro is mostly about removing ads and saving more.",
+ free_plan=True, verified=V25,
+ pricing_source="official site (coolors.co/pricing plan features and FAQ; the card's monthly price renders client-side, so the Pro price is from the page's own '$3/mo' upgrade prompt; third-party trackers list $3/mo billed yearly)")
 add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",
@@ -332,7 +346,7 @@ add("Zapier","https://zapier.com/","planning",
  "Free (100 tasks/mo, two-step Zaps); Professional from $19.99/mo; Team from $69/mo.",
  "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",
  "Powerful glue between apps. Substack has no official public API, so automations usually start from its RSS feed or email.",
- free_plan=True, verified=V6, pricing_source="official site (zapier.com/pricing, USD)")
+ free_plan=True, verified=V25, pricing_source="official site (zapier.com/pricing, USD; re-checked 2026-11-18)")
 
 # ---------- AI writing & research ----------
 add("ChatGPT","https://chatgpt.com/","ai",
@@ -386,7 +400,7 @@ add("OpusClip","https://www.opus.pro/","audio",
  "Free (60 credits/mo); Starter $15/mo (monthly only, 150 credits); Pro $29/mo or $14.50/mo billed annually.",
  "Turning long videos or podcast episodes into short social clips",
  "Fast way to get shorts from long recordings. Review the AI's clip choices before posting.",
- aff=True, aff_url="https://www.opus.pro/affiliate", free_plan=True, verified=V7, pricing_source="official site (opus.pro/pricing, US prices)")
+ aff=True, aff_url="https://www.opus.pro/affiliate", free_plan=True, verified=V25, pricing_source="official site (opus.pro/pricing, US prices; re-checked 2026-11-18)")
 
 # ---------- Embeds & interactive ----------
 add("Tally","https://tally.so/","embeds",
