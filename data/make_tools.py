@@ -27,7 +27,8 @@ V22 = "2026-11-14"  # entries re-checked in the 2026-11-14 daily ops pass
 V23 = "2026-11-15"  # entries added or re-checked in the 2026-11-15 daily ops pass
 V24 = "2026-11-17"  # entries re-checked in the 2026-11-17 daily ops pass
 V25 = "2026-11-18"  # entries added or re-checked in the 2026-11-18 daily ops pass
-UPDATED = V25
+V26 = "2026-11-19"  # entries added or re-checked in the 2026-11-19 daily ops pass
+UPDATED = V26
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -127,12 +128,12 @@ add("Bitly","https://bitly.com/","analytics",
  "Free (with ads; 5 links and 2 QR Codes a month); Core $10/mo (annual only, $120/yr); Growth $29/mo ($348/yr); Premium $199/mo ($2,388/yr).",
  "Tracking clicks on links you share to social, podcasts and print",
  "Handy for knowing which channel sends readers. The free tier is limited; many writers can get by with UTM tags plus Google Analytics.",
- free_plan=True, verified=V9, pricing_source="official site (bitly.com/pages/pricing)")
+ free_plan=True, verified=V26, pricing_source="official site (bitly.com/pages/pricing; re-checked 2026-11-19)")
 add("Plausible","https://plausible.io/","analytics",
  "From $9/mo (Starter, 10k monthly pageviews); Growth $14/mo; Business $19/mo. Free trial.",
  "Privacy-friendly analytics for your own website or landing page",
  "Excellent lightweight analytics, but you can't install it on a substack.com publication. Use it on a personal site that funnels readers to Substack.",
- free_plan=False, verified=V9, pricing_source="official site (plausible.io pricing section)")
+ free_plan=False, verified=V26, pricing_source="official site (plausible.io pricing section; re-checked 2026-11-19)")
 
 add("StackStats","https://stackstats.app/","analytics",
  "1-year license $39 (renew updates for $29/yr; the app keeps working if you don't); Lifetime $79 early-adopter price (listed down from $129). One-time payments, no subscription; 14-day refund.",
@@ -251,6 +252,12 @@ add("Coolors","https://coolors.co/","design",
  "A fast, free way to stop re-deciding colors every week: generate or browse a palette, then reuse the hex codes in Canva, Kittl or Substack's new website editor. The free plan is enough for one newsletter brand; Pro is mostly about removing ads and saving more.",
  free_plan=True, verified=V25,
  pricing_source="official site (coolors.co/pricing plan features and FAQ; the card's monthly price renders client-side, so the Pro price is from the page's own '$3/mo' upgrade prompt; third-party trackers list $3/mo billed yearly)")
+add("Squoosh","https://squoosh.app/","design",
+ "Free. Open-source (Apache 2.0) web app from Google Chrome Labs; no account or paid plan.",
+ "Shrinking header and in-post images before you upload them",
+ "A quick, free last step for multi-megabyte screenshots and photos: drop an image in, compare before and after with a slider, pick a format and quality, then save. Compression runs in your browser, so images aren't uploaded to a server (the app does use Google Analytics for basic visit data and file-size numbers). One image at a time, so it's not for bulk jobs.",
+ free_plan=True, verified=V26,
+ pricing_source="official site (squoosh.app: 'Images never leave your device since Squoosh does all the work locally') + github.com/GoogleChromeLabs/squoosh README (privacy section) and LICENSE (Apache 2.0), checked 2026-11-19")
 add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",

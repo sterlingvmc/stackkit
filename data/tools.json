@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-18",
+  "generated": "2026-11-19",
   "categories": [
     {
       "slug": "growth",
@@ -284,13 +284,13 @@
       "category": "analytics",
       "pricing": "Free (with ads; 5 links and 2 QR Codes a month); Core $10/mo (annual only, $120/yr); Growth $29/mo ($348/yr); Premium $199/mo ($2,388/yr).",
       "free_plan": true,
-      "pricing_source": "official site (bitly.com/pages/pricing)",
+      "pricing_source": "official site (bitly.com/pages/pricing; re-checked 2026-11-19)",
       "best_for": "Tracking clicks on links you share to social, podcasts and print",
       "verdict": "Handy for knowing which channel sends readers. The free tier is limited; many writers can get by with UTM tags plus Google Analytics.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-19",
       "notes": null
     },
     {
@@ -300,13 +300,13 @@
       "category": "analytics",
       "pricing": "From $9/mo (Starter, 10k monthly pageviews); Growth $14/mo; Business $19/mo. Free trial.",
       "free_plan": false,
-      "pricing_source": "official site (plausible.io pricing section)",
+      "pricing_source": "official site (plausible.io pricing section; re-checked 2026-11-19)",
       "best_for": "Privacy-friendly analytics for your own website or landing page",
       "verdict": "Excellent lightweight analytics, but you can't install it on a substack.com publication. Use it on a personal site that funnels readers to Substack.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-19",
       "notes": null
     },
     {
@@ -611,6 +611,22 @@
       "affiliate_url": null,
       "substack_specific": false,
       "verified_on": "2026-11-18",
+      "notes": null
+    },
+    {
+      "slug": "squoosh",
+      "name": "Squoosh",
+      "url": "https://squoosh.app/",
+      "category": "design",
+      "pricing": "Free. Open-source (Apache 2.0) web app from Google Chrome Labs; no account or paid plan.",
+      "free_plan": true,
+      "pricing_source": "official site (squoosh.app: 'Images never leave your device since Squoosh does all the work locally') + github.com/GoogleChromeLabs/squoosh README (privacy section) and LICENSE (Apache 2.0), checked 2026-11-19",
+      "best_for": "Shrinking header and in-post images before you upload them",
+      "verdict": "A quick, free last step for multi-megabyte screenshots and photos: drop an image in, compare before and after with a slider, pick a format and quality, then save. Compression runs in your browser, so images aren't uploaded to a server (the app does use Google Analytics for basic visit data and file-size numbers). One image at a time, so it's not for bulk jobs.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-19",
       "notes": null
     },
     {

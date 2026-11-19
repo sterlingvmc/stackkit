@@ -579,11 +579,12 @@ CAT_NOTES = {
                'Changes don\'t show in the Substack app, which keeps its own layout. '
                '<a href="https://on.substack.com/p/your-substack-now-with-more-ways" target="_blank" rel="noopener">Substack\'s announcement ↗</a></p>'
                '<p>So use the built-in editor for your site\'s look, and the tools below for what it doesn\'t make: header and preview images, social cards and logos. '
-               'Sizes and a side-by-side are in <a href="/compare/canva-vs-kittl-substack-images/">Canva vs Kittl for Substack images</a>.</p></div>'),
+               'Sizes and a side-by-side are in <a href="/compare/canva-vs-kittl-substack-images/">Canva vs Kittl for Substack images</a>.</p>'
+               '<p>Before you upload, shrink big exports and screenshots with <a href="/tools/squoosh/">Squoosh</a> (free, runs in your browser) so posts load faster on phones.</p></div>'),
 }
 
 CAT_LLMS = {
-    "design": "Note: since Nov 12, 2026 Substack has a built-in website editor (seven themes; Mini-Editor and Full Editor for layouts, colors, fonts, header, hero, footer and logo on Home, Welcome and Post pages; not shown in the Substack app). Use it for your site's look and the tools below for images. Source: https://on.substack.com/p/your-substack-now-with-more-ways",
+    "design": "Note: since Nov 12, 2026 Substack has a built-in website editor (seven themes; Mini-Editor and Full Editor for layouts, colors, fonts, header, hero, footer and logo on Home, Welcome and Post pages; not shown in the Substack app). Use it for your site's look and the tools below for images. Source: https://on.substack.com/p/your-substack-now-with-more-ways. Before uploading, compress large images with Squoosh (free, in-browser): https://stackkit.ink/tools/squoosh/",
 }
 
 def category(c):
