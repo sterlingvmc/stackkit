@@ -422,7 +422,7 @@ COMPARISONS = [
       ("AI features", "Built-in AI tools with a monthly allowance.", "Token-based AI; Expert and Max add daily tokens (200 and 600 a day). Unused monthly tokens don't roll over."),
     ],
     body=[
-      ("What size to make your Substack images", "Substack's help center recommends a social/post preview image of at least 1200 x 630 px, and says 14:10 is the aspect ratio for preview images. Post thumbnails use 3:2. A logo should be at least 256 x 256 px with a transparent background, an email banner around 1100 x 220 px, and a cover image at least 600 x 600 px. Keep the important part of a preview image near the center so it survives cropping on mobile. Both tools let you set a custom canvas size, so set it once and save it as a template."),
+      ("What size to make your Substack images", "Substack's help center (updated Nov 12, 2026; re-checked Nov 20) recommends a social/post preview image of at least 1200 x 630 px; post thumbnails use a 3:2 aspect ratio, and you can adjust the crop on the web. A logo should be at least 256 x 256 px with a transparent background, a wordmark at least 1344 x 256 px, an email banner 1100 x 220 px as a transparent PNG, a welcome image at least 600 x 600 px, and a header cover photo (Classic theme) at least 1600 px wide. Full-width post images can be up to 1:1; taller ones are cropped to square. Keep the important part of a preview image near the center so it survives cropping. Both tools let you set a custom canvas size, so set it once and save it as a template."),
       ("The license question most writers miss", "If your Substack has paid subscriptions, sponsors, or promotes a business, your images are arguably commercial use. Kittl's site is inconsistent on this: the pricing FAQ says the free plan is for personal use only, with no commercial rights, and that commercial rights start on Pro, but the Free card on the same page lists a 'Full commercial license'. Until Kittl resolves that, check the license terms (or use Pro) before commercial use, and treat the free plan as safest for a hobby newsletter. Whatever tool you use, read its license before you build a business on it."),
       ("Price for a solo writer", "Paid yearly in the US, Kittl Pro is $168 ($14/mo billed yearly), a bit more than Canva Pro at US$144 a year. The difference is what you get. Canva Pro adds a large premium template and asset library on top of a free plan most writers never outgrow. Kittl Pro is mostly worth it for its type tools, premium templates and commercial license."),
       ("Our pick", "For most Substack writers, Canva: the free plan covers header, preview and Notes images, and you can make a full post image in minutes. Choose Kittl if distinctive typography is a core part of your publication's look and you're willing to pay for Pro once your Substack makes money."),
@@ -431,6 +431,7 @@ COMPARISONS = [
       ("Substack Help: What are the optimal image dimensions for my Substack publication?", "https://support.substack.com/hc/en-us/articles/4408381685268-What-are-the-optimal-image-dimensions-for-my-Substack-publication"),
       ("Canva pricing", "https://www.canva.com/pricing/"),
       ("Kittl pricing (plans and FAQ, including license terms)", "https://www.kittl.com/pricing"),
+      ("Substack images guide: sizes, thumbnails, free photos, compression and alt text (StackKit)", "https://stackkit.ink/guides/substack-images-guide/"),
     ]),
   dict(slug="hecto-vs-swapstack-substack-sponsorships", a="hecto", b="swapstack", checked="2026-11-13",
     title="Hecto vs Swapstack for Substack sponsorships: where small newsletters can find sponsors",
@@ -507,7 +508,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{TOPCTA if (path == "/" or path.startswith("/tools/") or path.startswith("/compare/")) else ""}{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br><a href="/guides/substack-sponsorships-guide/">Substack sponsorships guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br><a href="/guides/substack-sponsorships-guide/">Substack sponsorships guide</a><br><a href="/guides/substack-images-guide/">Substack images guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -563,7 +564,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a> <a class="btn" href="/guides/substack-sponsorships-guide/">Land your first sponsor →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a> <a class="btn" href="/guides/substack-sponsorships-guide/">Land your first sponsor →</a> <a class="btn" href="/guides/substack-images-guide/">Get your Substack images right →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -580,11 +581,11 @@ CAT_NOTES = {
                '<a href="https://on.substack.com/p/your-substack-now-with-more-ways" target="_blank" rel="noopener">Substack\'s announcement ↗</a></p>'
                '<p>So use the built-in editor for your site\'s look, and the tools below for what it doesn\'t make: header and preview images, social cards and logos. '
                'Sizes and a side-by-side are in <a href="/compare/canva-vs-kittl-substack-images/">Canva vs Kittl for Substack images</a>.</p>'
-               '<p>Before you upload, shrink big exports and screenshots with <a href="/tools/squoosh/">Squoosh</a> (free, runs in your browser) so posts load faster on phones.</p></div>'),
+               '<p>Before you upload, shrink big exports and screenshots with <a href="/tools/squoosh/">Squoosh</a> (free, runs in your browser) so posts load faster on phones. Every recommended size, thumbnail cropping and alt text are in our <a href="/guides/substack-images-guide/">Substack images guide</a>.</p></div>'),
 }
 
 CAT_LLMS = {
-    "design": "Note: since Nov 12, 2026 Substack has a built-in website editor (seven themes; Mini-Editor and Full Editor for layouts, colors, fonts, header, hero, footer and logo on Home, Welcome and Post pages; not shown in the Substack app). Use it for your site's look and the tools below for images. Source: https://on.substack.com/p/your-substack-now-with-more-ways. Before uploading, compress large images with Squoosh (free, in-browser): https://stackkit.ink/tools/squoosh/",
+    "design": "Note: since Nov 12, 2026 Substack has a built-in website editor (seven themes; Mini-Editor and Full Editor for layouts, colors, fonts, header, hero, footer and logo on Home, Welcome and Post pages; not shown in the Substack app). Use it for your site's look and the tools below for images. Source: https://on.substack.com/p/your-substack-now-with-more-ways. Before uploading, compress large images with Squoosh (free, in-browser): https://stackkit.ink/tools/squoosh/. Image sizes, thumbnail cropping, free photo licenses and alt text: https://stackkit.ink/guides/substack-images-guide/",
 }
 
 def category(c):
@@ -631,6 +632,7 @@ def tool(t):
 {f'<p><a href="/guides/substack-recommendations-guide/">Where {e(t["name"])} fits in our Substack recommendations guide →</a></p>' if t["slug"] in REC_TOOLS else ''}
 {f'<p><a href="/guides/substack-notes-guide/">Where {e(t["name"])} fits in our Substack Notes guide →</a></p>' if t["slug"] in NOTES_TOOLS else ''}
 {f'<p><a href="/guides/substack-sponsorships-guide/">Where {e(t["name"])} fits in our Substack sponsorships guide →</a></p>' if t["slug"] in SPON_TOOLS else ''}
+{f'<p><a href="/guides/substack-images-guide/">Where {e(t["name"])} fits in our Substack images guide →</a></p>' if t["slug"] in IMG_TOOLS else ''}
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
@@ -1249,6 +1251,96 @@ def spon_guide():
     write(SPON_SLUG, layout(SPON_SLUG, f"Substack sponsorships guide: land your first newsletter sponsor (2026) | {BRAND}",
         "Can you run sponsors on Substack? What Substack's rules require, who qualifies for its Creator Kit sponsorships program, sponsor marketplaces with no minimum (Hecto, Swapstack), Paved's minimums, and how to pitch and label sponsors.", body, ld, current=SPON_SLUG), "0.9")
 
+# ---------------- Substack images guide (long-form) ----------------
+IMG_SLUG = "/guides/substack-images-guide/"
+IMG_TOOLS = ["canva", "kittl", "figma", "coolors", "unsplash", "pexels", "squoosh", "remove-bg", "excalidraw", "datawrapper"]
+# Every claim checked 2026-11-20 on the sources listed at the bottom of the page (Substack help center; vendor license/pricing pages).
+def img_guide():
+    tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in IMG_TOOLS if s in BY)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Guides / Substack images</div>
+<h1>Substack images guide: sizes, thumbnails, free photos and alt text (2026)</h1>
+<p class="small">Updated 2026-11-20 · Sizes and steps checked against Substack's help center; photo licenses checked on Unsplash and Pexels · Independent, not affiliated with Substack Inc.</p>
+<p><strong>The short version:</strong> make post preview images at least 1200 x 630 px and keep the subject near the center, because Substack crops thumbnails to different shapes in different places (you can fix the crop on the web). Get free photos from {L('unsplash')} or {L('pexels')}, make headers in {L('canva')}, shrink files with {L('squoosh')} before you upload, and add alt text to every image that carries meaning.</p>
+
+<h2>1. The sizes Substack recommends</h2>
+<p>From Substack's help center article on image dimensions (updated November 12, 2026, when the new website editor launched):</p>
+<div class="table-wrap"><table class="cmp"><thead><tr><th>Image</th><th>Recommended size</th><th>Where you add it</th></tr></thead><tbody>
+<tr><td>Social / post preview image</td><td>1200 x 630 px or larger</td><td>Post settings</td></tr>
+<tr><td>Full-width post image</td><td>Up to 1:1; taller images are cropped to 1:1</td><td>Post editor</td></tr>
+<tr><td>Logo</td><td>256 x 256 px or larger, transparent background</td><td>Website editor → Assets → Logo</td></tr>
+<tr><td>Wordmark</td><td>1344 x 256 px or larger (wide, horizontal)</td><td>Website editor → Assets → Wordmark</td></tr>
+<tr><td>Header cover photo</td><td>1600 px wide or wider</td><td>Website editor → Header card → Layout: Cover (Classic theme only)</td></tr>
+<tr><td>Welcome image</td><td>600 x 600 px or larger</td><td>Website editor → Welcome → Intro</td></tr>
+<tr><td>Email banner</td><td>1100 x 220 px PNG, transparent background</td><td>Settings → Email header</td></tr>
+</tbody></table></div>
+<p>The same article lists the aspect ratios Substack uses: post thumbnails are 3:2, and its portrait, square and landscape shapes are 9:16, 1:1 and 16:9. A 1200 x 630 image is close to the 1.91:1 that LinkedIn uses, so one preview image usually works for sharing too.</p>
+
+<h2>2. Thumbnails: why faces get cut off, and how to fix it</h2>
+<p>Your post's social preview image is also its thumbnail across Substack, and Substack shows it in three shapes:</p>
+<ul>
+<li><strong>Landscape:</strong> posts shared in Notes, dashboard thumbnails on desktop, and several home page layouts.</li>
+<li><strong>Square:</strong> "Top Posts" and other home page layouts, and the Posts tab in the Substack app.</li>
+<li><strong>Portrait:</strong> image assets in your Share Center.</li>
+</ul>
+<p>If you don't adjust anything, Substack uses a smart crop that picks the area with the most detail or contrast, which is how heads and titles get chopped. To set it yourself on the web: click <strong>Continue</strong> when you're ready to publish, scroll to <strong>Social preview</strong>, click <strong>Edit</strong>, then <strong>Adjust</strong>. Drag the crop box corners, move the focal point, and check the Portrait, Square and Landscape previews. For posts already published, go to your Posts page and click <strong>Adjust</strong> on the thumbnail. Cropping is web-only for now.</p>
+<p>Practical rule: put the face or the text you care about in the middle third of the image, and leave plain background at the edges.</p>
+
+<h2>3. Free photos you're allowed to use</h2>
+<ul>
+<li><strong>{L('unsplash')}:</strong> all images can be downloaded and used for free, including commercially, with no permission needed. Attribution is appreciated but not required. You can't sell images without significant modification. Unsplash+ images are a separate paid library with their own license.</li>
+<li><strong>{L('pexels')}:</strong> all photos and videos are free to use, credit is appreciated but not required, and its license names newsletters as an allowed use. Don't show identifiable people in a bad or offensive light, don't imply that people or brands in a photo endorse you, and don't use a photo in your logo or business name.</li>
+</ul>
+<p>Popular free photos appear on thousands of sites. Cropping tightly, adding your title, or using a consistent color treatment makes them look like yours. A short credit line in the caption ("Photo by … on Unsplash") is a nice habit even though neither site requires it.</p>
+
+<h2>4. Making your own headers and graphics</h2>
+<ul>
+<li><strong>{L('canva')}</strong> is the default for header, preview and Notes images, and the free plan covers most writers. Set a custom 1200 x 630 canvas once and save it as a template.</li>
+<li><strong>{L('kittl')}</strong> is stronger on typography-heavy, stylized graphics; its site is currently inconsistent about commercial use on the free plan, so read its license before using it for a paid or business newsletter. Side by side: <a href="/compare/canva-vs-kittl-substack-images/">Canva vs Kittl for Substack images</a>.</li>
+<li><strong>{L('figma')}</strong> if you want a precise, reusable visual system and don't mind a steeper learning curve.</li>
+<li><strong>{L('coolors')}</strong> to pick a palette once and reuse the same hex codes in your images and in Substack's website editor.</li>
+<li><strong>{L('remove-bg')}</strong> for cutting out a headshot or product photo; its free preview-size download is often enough for a small inline image.</li>
+<li><strong>{L('excalidraw')}</strong> for quick hand-drawn diagrams, and {L('datawrapper')} for charts (Substack has a help article on embedding Datawrapper charts).</li>
+</ul>
+<p>Since November 12, 2026, Substack's own website editor handles your site's themes, colors, fonts, header and logo, so you only need outside tools for the images themselves. See the note on the <a href="/category/design/">Design tools</a> page.</p>
+
+<h2>5. Shrink images before you upload</h2>
+<p>Exports from design tools and phone screenshots are often several megabytes. Run them through {L('squoosh')} first: drop an image in, compare before and after with a slider, pick a format and quality, and save. It's free, runs in your browser so the image isn't uploaded to a server, and handles one image at a time. Smaller files load faster for readers on phones.</p>
+
+<h2>6. Alt text and captions</h2>
+<p>Alt text is a written description of an image for readers using screen readers, and for anyone whose images don't load. In the Substack post editor, click the three dots in the upper-right corner of an image and choose <strong>Edit alt text</strong>, type a clear, concise description, and select <strong>Ok</strong>. <strong>Edit caption</strong> in the same menu adds a visible caption under the image, which is the natural place for a photo credit.</p>
+<p>The same menu (on the web editor) also has <strong>Set full width</strong>, plus Crop, Filter, Finetune (brightness, contrast and more), Annotate and Redact (blur part of an image), so small fixes such as blurring an email address in a screenshot don't need another app.</p>
+<p>Write alt text that says what the image shows and why it's there: "Chart: paid subscribers grew from 40 to 120 between June and October" helps more than "chart".</p>
+
+<h2>7. A simple routine for every post</h2>
+<ol>
+<li>Pick or make one 1200 x 630 image with the subject centered.</li>
+<li>Compress it with Squoosh.</li>
+<li>Upload it, add alt text and (for stock photos) a credit caption.</li>
+<li>Before publishing, open Social preview → Edit → Adjust and check all three thumbnail shapes.</li>
+</ol>
+
+<h2>Tools mentioned in this guide</h2><ul>{tl}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://support.substack.com/hc/en-us/articles/4408381685268-What-are-the-optimal-image-dimensions-for-my-Substack-publication" target="_blank" rel="noopener">Substack Help Center: What are the optimal image dimensions for my Substack publication?</a> (updated November 12, 2026: sizes and aspect ratios)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/55331495866772-How-do-I-crop-my-post-thumbnail-on-Substack" target="_blank" rel="noopener">Substack Help Center: How do I crop my post thumbnail on Substack?</a> (updated November 5, 2026: Adjust tool, where each shape appears, smart crop, web only)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/360039016992-How-do-I-edit-what-my-post-looks-like-on-social-media" target="_blank" rel="noopener">Substack Help Center: How do I edit what my post looks like on social media?</a> (social preview; at least 1200 x 630)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/48404618511508-How-do-I-add-alt-text-to-an-image-on-a-Substack-post" target="_blank" rel="noopener">Substack Help Center: How do I add alt text to an image on a Substack post?</a> (updated April 20, 2026)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/4414829453204-How-can-I-edit-images-on-a-Substack-post" target="_blank" rel="noopener">Substack Help Center: How can I edit images on a Substack post?</a> (resize, full width, captions, crop, filter, finetune, annotate, redact)</li>
+<li><a href="https://on.substack.com/p/your-substack-now-with-more-ways" target="_blank" rel="noopener">Substack: new website design tools</a> (November 12, 2026)</li>
+<li>Photo licenses: <a href="https://unsplash.com/license" target="_blank" rel="noopener">unsplash.com/license</a>, <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">pexels.com/license</a> (checked November 20, 2026)</li>
+</ul>
+<p class="small">Substack's settings change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: the <a href="/category/design/">Design tools</a> category, <a href="/compare/canva-vs-kittl-substack-images/">Canva vs Kittl</a>, <a href="/free-substack-tools/">free tools for Substack writers</a> and our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>.</p></div></div>{SIGNUP}"""
+    faq = [("What size should a Substack post image be?", "Substack's help center recommends a social/post preview image of at least 1200 x 630 px. Full-width post images can be up to 1:1; taller images are cropped to square. Post thumbnails use a 3:2 aspect ratio."),
+           ("Why is my Substack thumbnail cropping off faces?", "Substack shows thumbnails in portrait, square and landscape shapes and, unless you adjust it, uses a smart crop that picks the area with the most detail or contrast. On the web, open Social preview, click Edit, then Adjust to drag the crop box and focal point; you can also click Adjust on published posts from the Posts page."),
+           ("What size is a Substack logo and email banner?", "Logo: 256 x 256 px or larger with a transparent background. Wordmark: 1344 x 256 px or larger. Email banner: 1100 x 220 px PNG with a transparent background."),
+           ("Where can I get free images for Substack?", "Unsplash and Pexels both allow free use, including commercial use, with attribution appreciated but not required. Pexels' license lists newsletters as an allowed use; neither allows reselling unaltered images."),
+           ("How do I add alt text on Substack?", "In the post editor, click the three dots in the upper-right corner of the image, choose Edit alt text, type a clear, concise description and select Ok.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack images guide: sizes, thumbnails, free photos and alt text (2026)", "dateModified": "2026-11-20",
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + IMG_SLUG},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(IMG_SLUG, layout(IMG_SLUG, f"Substack images guide: sizes, thumbnails, free photos, alt text (2026) | {BRAND}",
+        "Substack image sizes from its help center (1200 x 630 previews, logo, wordmark, email banner), how to fix cropped thumbnails, free photos from Unsplash and Pexels, compressing with Squoosh, and alt text.", body, ld, current=IMG_SLUG), "0.9")
+
 # ---------------- Extras ----------------
 def extras():
     write("/404.html", layout("/404.html", f"Page not found | {BRAND}", "Page not found.",
@@ -1267,6 +1359,7 @@ def extras():
              f"- [Substack recommendations and lists guide]({SITE_URL}/guides/substack-recommendations-guide/): how Substack recommendations and the new lists (launched Oct 29, 2026) work: where recommendations appear, setup, writing reasons, creating themed lists, digest rules, stats, and how to earn recommendations",
              f"- [Substack Notes guide]({SITE_URL}/guides/substack-notes-guide/): how Substack Notes work in 2026: who sees them (not emailed; roundup digest and push), posting and drafts, the free built-in scheduler on web and app, when a batch scheduler is worth it, a reply-first routine, and tools that measure which Notes bring subscribers",
              f"- [Substack sponsorships guide]({SITE_URL}/guides/substack-sponsorships-guide/): how to land a first newsletter sponsor on Substack: Substack's rules (sponsored content allowed, must be disclosed, no ad-first publications), its Creator Kit sponsorships program (Bestsellers or 100+ paid subscribers), no-minimum marketplaces Hecto and Swapstack, Paved's 50k-subscriber minimum, SparkLoop paid recommendations, pitching brands directly, and labeling sponsor sections",
+             f"- [Substack images guide]({SITE_URL}/guides/substack-images-guide/): Substack image sizes from its help center (preview 1200x630+, full-width post images up to 1:1, logo 256x256 transparent, wordmark 1344x256, header cover 1600px wide, welcome 600x600, email banner 1100x220 transparent PNG; thumbnails 3:2), fixing cropped thumbnails with the web Adjust tool, free photos from Unsplash and Pexels and their license rules, compressing with Squoosh, and adding alt text and captions",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              f"- [All Substack tool comparisons]({SITE_URL}/compare/): index of every head-to-head page",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
@@ -1294,7 +1387,7 @@ def main():
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
     compare_hub()
-    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); spon_guide(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); spon_guide(); img_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")

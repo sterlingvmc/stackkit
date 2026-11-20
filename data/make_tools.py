@@ -28,7 +28,8 @@ V23 = "2026-11-15"  # entries added or re-checked in the 2026-11-15 daily ops pa
 V24 = "2026-11-17"  # entries re-checked in the 2026-11-17 daily ops pass
 V25 = "2026-11-18"  # entries added or re-checked in the 2026-11-18 daily ops pass
 V26 = "2026-11-19"  # entries added or re-checked in the 2026-11-19 daily ops pass
-UPDATED = V26
+V27 = "2026-11-20"  # entries added or re-checked in the 2026-11-20 daily ops pass
+UPDATED = V27
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -262,8 +263,15 @@ add("Unsplash","https://unsplash.com/","design",
  "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
  "Free, high-quality photos for post headers",
  "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out. Credit the photographer anyway: it's appreciated, though not required.",
- free_plan=True, verified=V11, pricing_source="official site (unsplash.com/license and unsplash.com/plus/license)",
+ free_plan=True, verified=V27, pricing_source="official site (unsplash.com/license re-checked 2026-11-20: free, commercial use allowed, attribution appreciated but not required; unsplash.com/plus/license)",
  notes="The license doesn't allow selling images without significant modification. Unsplash+ images have their own license (for example, no use in AI or machine-learning training).")
+add("Pexels","https://www.pexels.com/","design",
+ "Free. Every photo and video on Pexels can be downloaded and used for free under the Pexels License; no paid plan.",
+ "Free stock photos and short videos for post headers and social previews, as an alternative to Unsplash",
+ "A second free photo library worth checking when Unsplash's popular shots feel overused. The license explicitly lists newsletters as an allowed use, you can edit the images, and credit is appreciated but not required. The rules to remember: don't show identifiable people in a bad or offensive light, don't imply that people or brands in a photo endorse you, and don't use a photo as part of your logo or business name.",
+ free_plan=True, verified=V27,
+ pricing_source="official site (pexels.com/license, checked 2026-11-20: allowed and not-allowed uses, 'newsletter' listed among online use cases)",
+ notes="Pexels also doesn't allow selling unaltered copies (for example as prints) or redistributing its images on other stock or wallpaper sites.")
 add("Excalidraw","https://excalidraw.com/","design",
  "Free and open source (MIT license); optional Excalidraw+ at $6/user/mo with a 14-day free trial.",
  "Quick hand-drawn-style diagrams and process sketches to drop into posts",
@@ -274,7 +282,7 @@ add("remove.bg","https://www.remove.bg/","design",
  "Free preview-size downloads (up to 0.25 megapixels) on remove.bg; full-resolution cutouts cost 1 credit each. Subscriptions from $9/mo for 40 credits ($8.10/mo billed yearly), or pay-as-you-go credits.",
  "One-click background removal for headshots and product images",
  "Fast and accurate, and the free preview size is often enough for a small inline image. Now a Canva brand, and Canva Pro includes a background remover, so you may not need both.",
- free_plan=True, verified=V7, pricing_source="official site (remove.bg/pricing plan data and FAQ)")
+ free_plan=True, verified=V27, pricing_source="official site (remove.bg/pricing plan data and FAQ; re-checked 2026-11-20: Personal $9/mo or $8.10/mo yearly for 40 credits, preview images free up to 0.25 megapixels)")
 
 # ---------- Editing ----------
 add("Grammarly","https://www.grammarly.com/","editing",

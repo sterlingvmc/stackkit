@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19",
+  "generated": "2026-11-20",
   "categories": [
     {
       "slug": "growth",
@@ -636,14 +636,30 @@
       "category": "design",
       "pricing": "Free to use under the Unsplash License (commercial use allowed, no attribution required). Optional paid Unsplash+ subscription for exclusive images under a separate license.",
       "free_plan": true,
-      "pricing_source": "official site (unsplash.com/license and unsplash.com/plus/license)",
+      "pricing_source": "official site (unsplash.com/license re-checked 2026-11-20: free, commercial use allowed, attribution appreciated but not required; unsplash.com/plus/license)",
       "best_for": "Free, high-quality photos for post headers",
       "verdict": "The go-to free photo library. Popular images show up everywhere, so crop or edit them to stand out. Credit the photographer anyway: it's appreciated, though not required.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-30",
+      "verified_on": "2026-11-20",
       "notes": "The license doesn't allow selling images without significant modification. Unsplash+ images have their own license (for example, no use in AI or machine-learning training)."
+    },
+    {
+      "slug": "pexels",
+      "name": "Pexels",
+      "url": "https://www.pexels.com/",
+      "category": "design",
+      "pricing": "Free. Every photo and video on Pexels can be downloaded and used for free under the Pexels License; no paid plan.",
+      "free_plan": true,
+      "pricing_source": "official site (pexels.com/license, checked 2026-11-20: allowed and not-allowed uses, 'newsletter' listed among online use cases)",
+      "best_for": "Free stock photos and short videos for post headers and social previews, as an alternative to Unsplash",
+      "verdict": "A second free photo library worth checking when Unsplash's popular shots feel overused. The license explicitly lists newsletters as an allowed use, you can edit the images, and credit is appreciated but not required. The rules to remember: don't show identifiable people in a bad or offensive light, don't imply that people or brands in a photo endorse you, and don't use a photo as part of your logo or business name.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-20",
+      "notes": "Pexels also doesn't allow selling unaltered copies (for example as prints) or redistributing its images on other stock or wallpaper sites."
     },
     {
       "slug": "excalidraw",
@@ -668,13 +684,13 @@
       "category": "design",
       "pricing": "Free preview-size downloads (up to 0.25 megapixels) on remove.bg; full-resolution cutouts cost 1 credit each. Subscriptions from $9/mo for 40 credits ($8.10/mo billed yearly), or pay-as-you-go credits.",
       "free_plan": true,
-      "pricing_source": "official site (remove.bg/pricing plan data and FAQ)",
+      "pricing_source": "official site (remove.bg/pricing plan data and FAQ; re-checked 2026-11-20: Personal $9/mo or $8.10/mo yearly for 40 credits, preview images free up to 0.25 megapixels)",
       "best_for": "One-click background removal for headshots and product images",
       "verdict": "Fast and accurate, and the free preview size is often enough for a small inline image. Now a Canva brand, and Canva Pro includes a background remover, so you may not need both.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-26",
+      "verified_on": "2026-11-20",
       "notes": null
     },
     {
