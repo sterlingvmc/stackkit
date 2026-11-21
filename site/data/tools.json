@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-20",
+  "generated": "2026-11-21",
   "categories": [
     {
       "slug": "growth",
@@ -138,15 +138,15 @@
       "name": "StackBuddy",
       "url": "https://stackbuddy.io/",
       "category": "growth",
-      "pricing": "Free plan (scheduling and creator network free forever); Pro $12.50/mo billed yearly or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
+      "pricing": "Free plan (scheduling and creator network free forever; up to 30 scheduled Notes a month); Pro $12.50/mo billed yearly ($150) or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
       "free_plan": true,
-      "pricing_source": "official site (stackbuddy.io FAQ and pricing section) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
+      "pricing_source": "official site (stackbuddy.io FAQ and pricing section; re-checked 2026-11-21: Free $0 with 30 scheduled Notes/mo and 10 AI credits/mo after the 14-day Pro trial; Pro $12.50/mo billed yearly ($150) or $15 month-to-month) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
       "best_for": "Batch-scheduling Notes into posting slots and finding other writers to cross-promote with",
       "verdict": "A Notes scheduler with a free plan that keeps scheduling, and its Chrome extension hands each Note to Substack's own scheduler, so Notes publish from Substack's servers with your computer off. Pro adds voice-matching AI drafts, analytics and LinkedIn cross-posting. Small one-developer tool; the extension acts in your logged-in Substack session and syncs your existing Notes to StackBuddy's dashboard, so read its privacy page first.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": true,
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-21",
       "notes": "Independent, not affiliated with Substack. Chrome needs to be open only while a Note syncs to Substack, not at publish time."
     },
     {
@@ -662,6 +662,22 @@
       "notes": "Pexels also doesn't allow selling unaltered copies (for example as prints) or redistributing its images on other stock or wallpaper sites."
     },
     {
+      "slug": "photopea",
+      "name": "Photopea",
+      "url": "https://www.photopea.com/",
+      "category": "design",
+      "pricing": "Free to use for any purpose, with ads. Optional Premium removes ads: a one-time payment for a set period (for example 90 days) that doesn't auto-renew; current prices are shown in the Account window after you log in.",
+      "free_plan": true,
+      "pricing_source": "official site (photopea.com, photopea.com/privacy.html terms of use, photopea.com/api/accounts; checked 2026-11-21. Premium price is only shown inside the editor's Account window, so not listed here)",
+      "best_for": "Editing a header or social image in a Photoshop-style editor in your browser, including opening PSD files",
+      "verdict": "The closest free thing to Photoshop for fixing one image: layers, masks, text, adjustments and PSD support, all in a browser tab. Files are processed on your own device and aren't uploaded. The interface assumes some Photoshop know-how, so if you just want a template, Canva is quicker. The free version shows ads; Premium only removes them.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-21",
+      "notes": "Photopea's terms say your work belongs to you and you don't have to credit Photopea."
+    },
+    {
       "slug": "excalidraw",
       "name": "Excalidraw",
       "url": "https://excalidraw.com/",
@@ -732,14 +748,30 @@
       "category": "editing",
       "pricing": "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
       "free_plan": true,
-      "pricing_source": "official site (prowritingaid.com/pricing) + prowritingaid.com/integrations",
+      "pricing_source": "official site (prowritingaid.com/pricing, re-checked 2026-11-21: regular prices unchanged; Black Friday sale shown) + prowritingaid.com/integrations",
       "best_for": "Deep style reports for long-form and fiction writers",
       "verdict": "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
       "affiliate_program": "yes",
       "affiliate_url": "https://prowritingaid.com/affiliates",
       "substack_specific": false,
-      "verified_on": "2026-10-28",
-      "notes": null
+      "verified_on": "2026-11-21",
+      "notes": "Time-limited: ProWritingAid's pricing page showed a Black Friday sale on 2026-11-21 (yearly Premium $60, yearly Premium Pro $72, lifetime $199.50 / $349.50), ending Sun Nov 29, 2026 at 23:59 PT. Regular prices above apply after that."
+    },
+    {
+      "slug": "headline-studio",
+      "name": "Headline Studio",
+      "url": "https://coschedule.com/headline-studio",
+      "category": "editing",
+      "pricing": "Free Basic plan with 10 credits a month (headline scoring and idea generation). Premium from $4/mo or $29/yr for 25 credits, up to $34/mo or $299/yr for unlimited; unused credits don't carry over.",
+      "free_plan": true,
+      "pricing_source": "official site (coschedule.com/headline-studio/pricing, checked 2026-11-21: plan card plus the page's credit-slider price table)",
+      "best_for": "Scoring and brainstorming post titles, which on Substack double as your email subject line",
+      "verdict": "A quick second opinion on a title: it scores word balance and sentiment, and has an email subject line mode. The score rewards formula (power words, emotional words), so treat it as a prompt to write a few more options, not a rule, and keep your own voice. The free 10 credits a month cover a few posts, since the maker says most creators use 2 to 4 credits per piece.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-21",
+      "notes": "Made by CoSchedule. Its browser extension lists Gmail, Medium, WordPress and Google Docs among supported sites; Substack isn't named, so you may need to paste titles into the web app."
     },
     {
       "slug": "languagetool",
@@ -844,13 +876,13 @@
       "category": "planning",
       "pricing": "Keep plan: 30 days free (no card), then $40/yr.",
       "free_plan": false,
-      "pricing_source": "official site (persistwise.com) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
+      "pricing_source": "official site (persistwise.com, re-checked 2026-11-21: Keep plan 30 days free, then $40/year, no card to start) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
       "best_for": "Keeping an independent backup of every post you publish on Substack",
       "verdict": "Set-and-forget insurance for your archive: give it your Substack RSS feed and every new post gets a public Wayback Machine snapshot, a pinned IPFS copy and a private copy it stores. Brand new (launched Oct 26, 2026) and honest about its limits: each post is captured once, so later edits aren't saved, copies are HTML without images, and there's no export button yet. Keep using Substack's own export for a full backup.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-28",
+      "verified_on": "2026-11-21",
       "notes": "Made by Nine Point Labs; independent, not affiliated with Substack. Wayback and IPFS copies are public, so only add feeds for writing you're happy to keep public."
     },
     {

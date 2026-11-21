@@ -29,7 +29,8 @@ V24 = "2026-11-17"  # entries re-checked in the 2026-11-17 daily ops pass
 V25 = "2026-11-18"  # entries added or re-checked in the 2026-11-18 daily ops pass
 V26 = "2026-11-19"  # entries added or re-checked in the 2026-11-19 daily ops pass
 V27 = "2026-11-20"  # entries added or re-checked in the 2026-11-20 daily ops pass
-UPDATED = V27
+V28 = "2026-11-21"  # entries added or re-checked in the 2026-11-21 daily ops pass
+UPDATED = V28
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -69,11 +70,11 @@ add("Quick Viral Notes","https://quickviralnotes.xyz/","growth",
  pricing_source="official site (quickviralnotes.xyz homepage and /pricing) + its Chrome Web Store listing (Substack Note Scheduler) for how scheduling works",
  notes="Independent; not affiliated with Substack. MCP access (Claude, Cursor) is listed on the yearly plan.")
 add("StackBuddy","https://stackbuddy.io/","growth",
- "Free plan (scheduling and creator network free forever); Pro $12.50/mo billed yearly or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
+ "Free plan (scheduling and creator network free forever; up to 30 scheduled Notes a month); Pro $12.50/mo billed yearly ($150) or $15/mo month-to-month. Every account starts with 14 days of Pro, no card.",
  "Batch-scheduling Notes into posting slots and finding other writers to cross-promote with",
  "A Notes scheduler with a free plan that keeps scheduling, and its Chrome extension hands each Note to Substack's own scheduler, so Notes publish from Substack's servers with your computer off. Pro adds voice-matching AI drafts, analytics and LinkedIn cross-posting. Small one-developer tool; the extension acts in your logged-in Substack session and syncs your existing Notes to StackBuddy's dashboard, so read its privacy page first.",
- substack_specific=True, free_plan=True, verified=V9,
- pricing_source="official site (stackbuddy.io FAQ and pricing section) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
+ substack_specific=True, free_plan=True, verified=V28,
+ pricing_source="official site (stackbuddy.io FAQ and pricing section; re-checked 2026-11-21: Free $0 with 30 scheduled Notes/mo and 10 AI credits/mo after the 14-day Pro trial; Pro $12.50/mo billed yearly ($150) or $15 month-to-month) + stackbuddy.io/terms and /privacy; Chrome Web Store listing (offered by Patrick God)",
  notes="Independent, not affiliated with Substack. Chrome needs to be open only while a Note syncs to Substack, not at publish time.")
 add("StackSweller","https://stacksweller.com/","growth",
  "Pro $39/mo, or $25/mo billed yearly ($250/yr). 7-day free trial.",
@@ -272,6 +273,13 @@ add("Pexels","https://www.pexels.com/","design",
  free_plan=True, verified=V27,
  pricing_source="official site (pexels.com/license, checked 2026-11-20: allowed and not-allowed uses, 'newsletter' listed among online use cases)",
  notes="Pexels also doesn't allow selling unaltered copies (for example as prints) or redistributing its images on other stock or wallpaper sites.")
+add("Photopea","https://www.photopea.com/","design",
+ "Free to use for any purpose, with ads. Optional Premium removes ads: a one-time payment for a set period (for example 90 days) that doesn't auto-renew; current prices are shown in the Account window after you log in.",
+ "Editing a header or social image in a Photoshop-style editor in your browser, including opening PSD files",
+ "The closest free thing to Photoshop for fixing one image: layers, masks, text, adjustments and PSD support, all in a browser tab. Files are processed on your own device and aren't uploaded. The interface assumes some Photoshop know-how, so if you just want a template, Canva is quicker. The free version shows ads; Premium only removes them.",
+ free_plan=True, verified=V28,
+ pricing_source="official site (photopea.com, photopea.com/privacy.html terms of use, photopea.com/api/accounts; checked 2026-11-21. Premium price is only shown inside the editor's Account window, so not listed here)",
+ notes="Photopea's terms say your work belongs to you and you don't have to credit Photopea.")
 add("Excalidraw","https://excalidraw.com/","design",
  "Free and open source (MIT license); optional Excalidraw+ at $6/user/mo with a 14-day free trial.",
  "Quick hand-drawn-style diagrams and process sketches to drop into posts",
@@ -299,7 +307,15 @@ add("ProWritingAid","https://prowritingaid.com/","editing",
  "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
  "Deep style reports for long-form and fiction writers",
  "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
- aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V9, pricing_source="official site (prowritingaid.com/pricing) + prowritingaid.com/integrations")
+ aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V28, pricing_source="official site (prowritingaid.com/pricing, re-checked 2026-11-21: regular prices unchanged; Black Friday sale shown) + prowritingaid.com/integrations",
+ notes="Time-limited: ProWritingAid's pricing page showed a Black Friday sale on 2026-11-21 (yearly Premium $60, yearly Premium Pro $72, lifetime $199.50 / $349.50), ending Sun Nov 29, 2026 at 23:59 PT. Regular prices above apply after that.")
+add("Headline Studio","https://coschedule.com/headline-studio","editing",
+ "Free Basic plan with 10 credits a month (headline scoring and idea generation). Premium from $4/mo or $29/yr for 25 credits, up to $34/mo or $299/yr for unlimited; unused credits don't carry over.",
+ "Scoring and brainstorming post titles, which on Substack double as your email subject line",
+ "A quick second opinion on a title: it scores word balance and sentiment, and has an email subject line mode. The score rewards formula (power words, emotional words), so treat it as a prompt to write a few more options, not a rule, and keep your own voice. The free 10 credits a month cover a few posts, since the maker says most creators use 2 to 4 credits per piece.",
+ free_plan=True, verified=V28,
+ pricing_source="official site (coschedule.com/headline-studio/pricing, checked 2026-11-21: plan card plus the page's credit-slider price table)",
+ notes="Made by CoSchedule. Its browser extension lists Gmail, Medium, WordPress and Google Docs among supported sites; Substack isn't named, so you may need to paste titles into the web app.")
 add("LanguageTool","https://languagetool.org/","editing",
  "Free (up to 2,000 characters per text field); Premium $24.90/mo monthly, $49.90/quarter, $69.90/yr or $119.80 for 2 years.",
  "Multilingual writers and anyone who wants a Grammarly alternative",
@@ -337,8 +353,8 @@ add("Persistwise","https://persistwise.com/","planning",
  "Keep plan: 30 days free (no card), then $40/yr.",
  "Keeping an independent backup of every post you publish on Substack",
  "Set-and-forget insurance for your archive: give it your Substack RSS feed and every new post gets a public Wayback Machine snapshot, a pinned IPFS copy and a private copy it stores. Brand new (launched Oct 26, 2026) and honest about its limits: each post is captured once, so later edits aren't saved, copies are HTML without images, and there's no export button yet. Keep using Substack's own export for a full backup.",
- free_plan=False, verified=V9,
- pricing_source="official site (persistwise.com) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
+ free_plan=False, verified=V28,
+ pricing_source="official site (persistwise.com, re-checked 2026-11-21: Keep plan 30 days free, then $40/year, no card to start) + maker's launch post (blog.ninepointlabs.com/2026/10/persistwise-launch/, Oct 26, 2026)",
  notes="Made by Nine Point Labs; independent, not affiliated with Substack. Wayback and IPFS copies are public, so only add feeds for writing you're happy to keep public.")
 add("newsletterapi","https://www.newsletterapi.io/","planning",
  "Free (1 publication, recent posts from your public feed, limited API/MCP calls); Writer $9/mo (full archive from your export, MCP archive search, automatic backups); Pro $29/mo; Agency/Developer $79/mo. Priced per publication.",
