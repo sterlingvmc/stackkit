@@ -1,6 +1,6 @@
 # StackKit
 
-> StackKit is an independent, hand-checked directory of 75 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-11-21, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
+> StackKit is an independent, hand-checked directory of 76 tools for writers growing a newsletter on Substack (free and paid subscribers). Each tool has its real URL, pricing checked on 2026-11-22, who it's best for, and a short honest verdict. Not affiliated with Substack Inc.
 
 Monetization: labeled sponsored placements, paid fast-track review, and affiliate links for some tools. Verdicts are not for sale.
 
@@ -102,6 +102,7 @@ Note: on Substack the post title is also the email subject line; the separate SE
 
 ## Planning, Research & Automation
 Editorial calendars, idea capture, research and automations.
+- [AnswerThePublic](https://stackkit.ink/tools/answerthepublic/) (https://answerthepublic.com/): Finding the questions people type into search engines around a topic, to shape post titles and sections. Pricing: Paid plans: Starter $20/mo or $160/yr, Growth $99/mo or $792/yr, Business $199/mo or $1,592/yr (USD; prices are localized by region). Limited-time lifetime deals on sale until Dec 31, 2026. Verdict: Turns one keyword into a map of the questions, comparisons and related searches people use, which is handy for an evergreen how-to post or an SEO title. It is priced for content marketers, so most Substack writers should start with free Google Trends and Search Console and only pay for a month when planning a batch of search-focused posts.
 - [Google Trends](https://stackkit.ink/tools/google-trends/) (https://trends.google.com/): Checking whether a topic is rising before you write about it. Pricing: Free. Verdict: A quick, free sanity check for timely topics and post titles.
 - [newsletterapi](https://stackkit.ink/tools/newsletterapi/) (https://www.newsletterapi.io/): Letting Claude or ChatGPT search your whole Substack archive, and backing up every post with images to your own storage. Pricing: Free (1 publication, recent posts from your public feed, limited API/MCP calls); Writer $9/mo (full archive from your export, MCP archive search, automatic backups); Pro $29/mo; Agency/Developer $79/mo. Priced per publication. Verdict: A read-only API and MCP server built from your public RSS feed and the export you download yourself: no password, session cookie or browser extension. The Writer plan adds full-archive search for AI assistants and automatic Markdown/HTML backups (with images) to GitHub, Google Drive, Dropbox or S3. It's new and run by an unnamed independent team, and access is set up by email invite rather than instant signup, so try the free tier first.
 - [Notion](https://stackkit.ink/tools/notion/) (https://www.notion.com/): Editorial calendars, idea banks and sponsor CRMs. Pricing: Free; Plus $10/seat/mo. Verdict: The most flexible planning hub for newsletter writers. The free plan covers solo use.

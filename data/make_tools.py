@@ -30,7 +30,8 @@ V25 = "2026-11-18"  # entries added or re-checked in the 2026-11-18 daily ops pa
 V26 = "2026-11-19"  # entries added or re-checked in the 2026-11-19 daily ops pass
 V27 = "2026-11-20"  # entries added or re-checked in the 2026-11-20 daily ops pass
 V28 = "2026-11-21"  # entries added or re-checked in the 2026-11-21 daily ops pass
-UPDATED = V28
+V29 = "2026-11-22"  # entries added or re-checked in the 2026-11-22 daily ops pass
+UPDATED = V29
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -119,7 +120,7 @@ add("Google Search Console","https://search.google.com/search-console/about","an
  "Free.",
  "Seeing which Google searches bring readers to your Substack and whether your posts are indexed",
  "The only way to see the actual search queries that find your posts. Free, but Substack says Search Console verification becomes available as your publication grows, so newer publications may not see the option in settings yet.",
- free_plan=True, verified=V4, pricing_source="official site (Google Search Console Help: \"a free service offered by Google\")",
+ free_plan=True, verified=V29, pricing_source="official site (Google Search Console Help: \"a free service offered by Google\")",
  notes="Substack's SEO help article (updated Sep 14, 2026) says sitemaps and Google Search Console verification unlock as a publication grows.")
 add("Subshack","https://www.subshack.pro/","analytics",
  "Free (Subshack 1.0), including a no-signup public profile audit.",
@@ -284,7 +285,7 @@ add("Excalidraw","https://excalidraw.com/","design",
  "Free and open source (MIT license); optional Excalidraw+ at $6/user/mo with a 14-day free trial.",
  "Quick hand-drawn-style diagrams and process sketches to drop into posts",
  "The fastest way to turn a paragraph of explanation into a simple diagram: draw boxes and arrows, export a PNG, and add it to your post like any image. The free web app saves drawings in your browser's storage, which can be cleared, so save a file of anything you'll want to edit later.",
- free_plan=True, verified=V8, pricing_source="official site (plus.excalidraw.com/pricing) + github.com/excalidraw/excalidraw README",
+ free_plan=True, verified=V29, pricing_source="official site (plus.excalidraw.com/pricing) + github.com/excalidraw/excalidraw README",
  notes="Exports PNG, SVG and an open .excalidraw file. For Substack, add the exported PNG to your post as an image.")
 add("remove.bg","https://www.remove.bg/","design",
  "Free preview-size downloads (up to 0.25 megapixels) on remove.bg; full-resolution cutouts cost 1 credit each. Subscriptions from $9/mo for 40 credits ($8.10/mo billed yearly), or pay-as-you-go credits.",
@@ -373,6 +374,12 @@ add("Google Trends","https://trends.google.com/","planning",
  "Checking whether a topic is rising before you write about it",
  "A quick, free sanity check for timely topics and post titles.",
  free_plan=True, verified=V10)
+add("AnswerThePublic","https://answerthepublic.com/","planning",
+ "Paid plans: Starter $20/mo or $160/yr, Growth $99/mo or $792/yr, Business $199/mo or $1,592/yr (USD; prices are localized by region). Limited-time lifetime deals on sale until Dec 31, 2026.",
+ "Finding the questions people type into search engines around a topic, to shape post titles and sections",
+ "Turns one keyword into a map of the questions, comparisons and related searches people use, which is handy for an evergreen how-to post or an SEO title. It is priced for content marketers, so most Substack writers should start with free Google Trends and Search Console and only pay for a month when planning a batch of search-focused posts.",
+ free_plan=None, verified=V29, pricing_source="official site (answerthepublic.com/pricing, USD)",
+ notes="Plans bundle the Composeo AI writing suite (articles, WordPress publishing), which Substack writers won't need. Substack isn't a named integration. The pricing page doesn't list a free plan, so the listing doesn't claim one.")
 add("Zapier","https://zapier.com/","planning",
  "Free (100 tasks/mo, two-step Zaps); Professional from $19.99/mo; Team from $69/mo.",
  "Automating busywork such as logging new posts to a spreadsheet or sending sponsor reminders",

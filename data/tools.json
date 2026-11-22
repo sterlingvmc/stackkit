@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-21",
+  "generated": "2026-11-22",
   "categories": [
     {
       "slug": "growth",
@@ -258,7 +258,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-23",
+      "verified_on": "2026-11-22",
       "notes": "Substack's SEO help article (updated Sep 14, 2026) says sitemaps and Google Search Console verification unlock as a publication grows."
     },
     {
@@ -690,7 +690,7 @@
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-27",
+      "verified_on": "2026-11-22",
       "notes": "Exports PNG, SVG and an open .excalidraw file. For Substack, add the exported PNG to your post as an image."
     },
     {
@@ -932,6 +932,22 @@
       "substack_specific": false,
       "verified_on": "2026-10-29",
       "notes": null
+    },
+    {
+      "slug": "answerthepublic",
+      "name": "AnswerThePublic",
+      "url": "https://answerthepublic.com/",
+      "category": "planning",
+      "pricing": "Paid plans: Starter $20/mo or $160/yr, Growth $99/mo or $792/yr, Business $199/mo or $1,592/yr (USD; prices are localized by region). Limited-time lifetime deals on sale until Dec 31, 2026.",
+      "free_plan": null,
+      "pricing_source": "official site (answerthepublic.com/pricing, USD)",
+      "best_for": "Finding the questions people type into search engines around a topic, to shape post titles and sections",
+      "verdict": "Turns one keyword into a map of the questions, comparisons and related searches people use, which is handy for an evergreen how-to post or an SEO title. It is priced for content marketers, so most Substack writers should start with free Google Trends and Search Console and only pay for a month when planning a batch of search-focused posts.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-22",
+      "notes": "Plans bundle the Composeo AI writing suite (articles, WordPress publishing), which Substack writers won't need. Substack isn't a named integration. The pricing page doesn't list a free plan, so the listing doesn't claim one."
     },
     {
       "slug": "zapier",

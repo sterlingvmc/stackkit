@@ -838,7 +838,7 @@ def schedulers():
 
 # ---------------- Substack SEO guide (long-form) ----------------
 SEO_SLUG = "/guides/substack-seo-guide/"
-SEO_TOOLS = ["google-search-console", "google-analytics", "google-trends", "plausible", "subshack", "chatgpt", "claude", "perplexity"]
+SEO_TOOLS = ["google-search-console", "google-analytics", "google-trends", "answerthepublic", "plausible", "subshack", "chatgpt", "claude", "perplexity"]
 # Every claim checked 2026-10-25 on the sources listed at the bottom of the page.
 def seo_guide():
     tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in SEO_TOOLS if s in BY)
@@ -870,7 +870,7 @@ def seo_guide():
 <h2>2. Write for the question, not just the idea</h2>
 <p>Substack's guide suggests starting with who you want to reach and what they might be searching for, since many searches start as a question. Two practical habits from Jenny Ouyang's playbook:</p>
 <ul>
-<li><strong>Check ideas against real searches.</strong> Before writing, see whether people actually search for the topic. {L('google-trends')} shows relative interest for free; once you have data, Search Console shows the exact phrases that already bring people to you.</li>
+<li><strong>Check ideas against real searches.</strong> Before writing, see whether people actually search for the topic. {L('google-trends')} shows relative interest for free; once you have data, Search Console shows the exact phrases that already bring people to you. For an evergreen how-to post, {L('answerthepublic')} lists the questions and comparisons people search around a keyword, though it is a paid tool (from $20/mo), so a single month is usually enough for a batch of posts.</li>
 <li><strong>Answer in the first paragraph.</strong> Say what the post is about and name the real things in it (the tool, the problem, the result) in the first few lines, then show how you got there. Skimmers and machines both decide quickly.</li>
 </ul>
 <p>Don't make several posts compete for the same search. If three of your posts already target it, don't write a fourth.</p>
