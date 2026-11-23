@@ -31,7 +31,8 @@ V26 = "2026-11-19"  # entries added or re-checked in the 2026-11-19 daily ops pa
 V27 = "2026-11-20"  # entries added or re-checked in the 2026-11-20 daily ops pass
 V28 = "2026-11-21"  # entries added or re-checked in the 2026-11-21 daily ops pass
 V29 = "2026-11-22"  # entries added or re-checked in the 2026-11-22 daily ops pass
-UPDATED = V29
+V30 = "2026-11-23"  # entries added or re-checked in the 2026-11-23 daily ops pass
+UPDATED = V30
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -142,7 +143,7 @@ add("StackStats","https://stackstats.app/","analytics",
  "1-year license $39 (renew updates for $29/yr; the app keeps working if you don't); Lifetime $79 early-adopter price (listed down from $129). One-time payments, no subscription; 14-day refund.",
  "Writers who want churn risk, cohort retention, superfan and growth-source analysis from their own Substack exports",
  "Digs far deeper than Substack's dashboard and keeps your subscriber data on your own computer (Mac or Windows). It's a new one-developer app: installers aren't code-signed yet, and the optional Auto-Sync (beta) logs in to Substack for you, so manual CSV exports are the cautious route.",
- substack_specific=True, free_plan=False, verified=V11, pricing_source="official site (stackstats.app pricing section and FAQ)",
+ substack_specific=True, free_plan=False, verified=V30, pricing_source="official site (stackstats.app pricing section and FAQ, re-checked 2026-11-23)",
  notes="Independent; not affiliated with Substack. A read-only live demo is on its site.")
 add("Circles","https://github.com/cucoleadan/circles-app","analytics",
  "Free and open source (MIT license). You host it yourself; any server or database costs are yours. The Circles Companion Chrome extension is free on the Chrome Web Store.",
@@ -368,7 +369,13 @@ add("Readwise","https://readwise.io/","planning",
  "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
  "Collecting highlights from books and articles to feed your writing",
  "A strong research engine for essayists and curators. Its Reader app is included with Full.",
- free_plan=False, verified=V14)
+ free_plan=False, verified=V30, pricing_source="official site (readwise.io/pricing, yearly billing view; re-checked 2026-11-23)")
+add("Raindrop.io","https://raindrop.io/","planning",
+ "Free forever: unlimited bookmarks, collections, tags, devices and collaborators, highlights (up to 100 per bookmark), 100 MB of file uploads a month. Pro $28/yr billed yearly (monthly billing also offered; yearly is about 20% cheaper) adds full-text search, permanent web-archive copies, an AI assistant, reminders, annotations, duplicate and broken-link finders, daily backups and 10 GB uploads a month. 30-day money-back guarantee.",
+ "Keeping a swipe file of headlines, post structures and research links you want to come back to",
+ "A bookmark manager with a free plan that most writers will never outgrow: make one collection per purpose (headlines, structures, sources for the next issue) and save from the browser extension or phone. The catch: searching the full text of saved pages is a Pro feature, so add a quick note to each bookmark about why you saved it.",
+ free_plan=True, verified=V30, pricing_source="official site (raindrop.io/pro/buy pricing in USD, raindrop.io/pro FAQ, help.raindrop.io/limitations Free vs Pro table)",
+ notes="Apps for Mac, iOS, Android, Chrome, Safari, Firefox and Edge. Pro adds an MCP connector so Claude, ChatGPT and other AI apps can search and save bookmarks.")
 add("Google Trends","https://trends.google.com/","planning",
  "Free.",
  "Checking whether a topic is rising before you write about it",
@@ -402,6 +409,12 @@ add("Perplexity","https://www.perplexity.ai/","ai",
  "Quick research with cited sources",
  "Faster than a search engine for background research. Always click through and verify the citations.",
  pricing_source="perplexity.ai/hub/pricing and /pro (annual prices) + Perplexity Help Center (monthly and yearly prices)", free_plan=True, verified=V10)
+add("Gemini Notebook (NotebookLM)","https://notebooklm.google/","ai",
+ "Free (standard usage limits, up to 50 sources per notebook). Higher limits and more sources per notebook (100, 300 or 600) come with Google AI Plus, Pro or Ultra subscriptions; prices aren't shown on the Notebook plans page, and those plans are only sold in some regions.",
+ "Research and recall grounded in your own sources: past posts, PDFs, Google Docs and YouTube links",
+ "Google's NotebookLM, renamed Gemini Notebook in July 2026. You add sources (web URLs such as your own public Substack posts, PDFs, Google Docs, YouTube videos, pasted text) and its answers are grounded in them, which makes it good for finding what you've already said and pulling research together before a post. It can still misread a source, so check the original before you quote anything. For individual users, Google says your data isn't used for training unless you send feedback.",
+ free_plan=True, verified=V30, pricing_source="official site (notebooklm.google and notebooklm.google/plans) + Gemini Notebook Help: Add or discover new sources (source types; 50 sources for free users)",
+ notes="Formerly NotebookLM; same product and existing notebooks carried over (per Google's FAQ). Can also turn sources into an Audio Overview, a podcast-style summary.")
 add("Sudowrite","https://sudowrite.com/","ai",
  "Hobby & Student $10/mo; Professional $22/mo; Max $44/mo (credit-based; yearly billing advertised as up to 50% off). Free trial, no credit card.",
  "Fiction writers publishing serialized stories",
@@ -488,7 +501,7 @@ add("Ko-fi","https://ko-fi.com/","monetization",
  "Free to join, no monthly cost. Ko-fi Free: 0% on one-off tips and Goals, 5% on monthly tips, memberships, shop and commissions. Standard: 5% on everything, plus extras like supporter-only content and scheduled posts. PayPal/Stripe fees (usually around 3% + $0.30) apply on top. Ko-fi Gold (0% on everything for a fixed monthly fee) is still offered; price not listed on its page.",
  "One-off tips from readers who won't commit to a paid subscription",
  "A low-friction tip jar that complements paid subscriptions. One-off tips are fee-free on Ko-fi Free, but new accounts start in Standard mode (5% on tips), so switch it off in Settings > Payment if tips are all you need.",
- free_plan=True, verified=V9, pricing_source="official site (help.ko-fi.com: Does Ko-fi take a fee? + ko-fi.com/gold)")
+ free_plan=True, verified=V30, pricing_source="official site (help.ko-fi.com: Does Ko-fi take a fee?, re-checked 2026-11-23 + ko-fi.com/gold)")
 
 CATS = [
  dict(slug="growth",name="Growth & Notes",desc="Referral networks, recommendation swaps, signup embeds and Substack Notes tools that bring in new subscribers."),
