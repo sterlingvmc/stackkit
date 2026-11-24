@@ -32,7 +32,8 @@ V27 = "2026-11-20"  # entries added or re-checked in the 2026-11-20 daily ops pa
 V28 = "2026-11-21"  # entries added or re-checked in the 2026-11-21 daily ops pass
 V29 = "2026-11-22"  # entries added or re-checked in the 2026-11-22 daily ops pass
 V30 = "2026-11-23"  # entries added or re-checked in the 2026-11-23 daily ops pass
-UPDATED = V30
+V31 = "2026-11-24"  # entries added or re-checked in the 2026-11-24 daily ops pass
+UPDATED = V31
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -178,7 +179,7 @@ add("Substack Insights","https://substackinsights.com/","analytics",
  "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
  "A simple, inexpensive Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Small and new (v1.0 on the Chrome Web Store).",
  substack_specific=True, free_plan=True, verified=V12, pricing_source="official site (substackinsights.com pricing section and FAQ)",
- notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack.")
+ notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. On 2026-11-24 substackinsights.com did not load (its DNS name servers were not responding), while the extension's Chrome Web Store listing (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026) was still live: https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc")
 add("PlotStack","https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib","analytics",
  "Free. No paid tier or in-app purchases listed; its maker says his newsletter tools are free and will stay free.",
  "Writers who want Substack's stats, growth, posts and Notes numbers in one local dashboard, with CSV and PNG exports",
@@ -329,6 +330,13 @@ add("QuillBot","https://quillbot.com/","editing",
  "Paraphrasing, summarizing and quick rewrites",
  "Useful for tightening a stubborn paragraph. Don't lean on it for whole posts, because readers subscribe for your voice.",
  pricing_source="official site (quillbot.com Premium page and QuillBot FAQ \"How much is QuillBot Premium?\") + QuillBot help center (prices vary by region)", free_plan=True, verified=V11)
+add("iA Writer","https://ia.net/writer","editing",
+ "One-time purchase per platform: Mac $49.99, Windows $39.99, iPhone and iPad $49.99 (one App Store purchase covers both). 7-day free trial on Mac and Windows, no card. Android is sold as a subscription through Google Play. No Linux version.",
+ "Writers who want a distraction-free place to draft before pasting into Substack",
+ "A calm, well-made Markdown editor: Focus Mode fades everything but the sentence you're on, and Style Check flags fillers and clichés on your device without rewriting anything for you. You pay once instead of monthly, but per platform, and iA says major updates may cost extra. On Mac it can publish straight to WordPress, Ghost and Micro.blog, but not to Substack, so you'll still copy each draft into Substack's editor and check the formatting there. Free tools like Google Docs do the drafting job if you don't care about the writing environment.",
+ free_plan=False, verified=V31,
+ pricing_source="official site (ia.net/writer/pricing, USD, checked 2026-11-24) + ia.net/writer features page + iA Writer support page Blog Publishing (Mac): WordPress, Ghost, Micro.blog, Micropub; no Substack",
+ notes="Made by iA (Information Architects), a small bootstrapped company. Refunds within 30 days on direct purchases.")
 
 # ---------- Planning, research & automation ----------
 add("Notion","https://www.notion.com/","planning",
@@ -423,10 +431,17 @@ add("Sudowrite","https://sudowrite.com/","ai",
 
 # ---------- Audio, podcast & video ----------
 add("Descript","https://www.descript.com/","audio",
- "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly); Business $50/mo annually ($65 monthly).",
+ "Free (60 media minutes a month, 720p export); Hobbyist $16/mo billed annually ($24 monthly, 10 media hours a month); Creator $24/mo annually ($35 monthly, 30 hours); Business $50/mo annually ($65 monthly, 40 hours).",
  "Editing podcast and video by editing the transcript",
  "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
- aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V11, pricing_source="official site (descript.com/pricing)")
+ aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V31, pricing_source="official site (descript.com/pricing, re-checked 2026-11-24: prices unchanged; media-hour limits added from the plan comparison table)")
+add("Otter.ai","https://otter.ai/","audio",
+ "Free Basic plan (300 transcription minutes a month, up to 30 minutes per conversation, 3 audio/video file imports in total); Pro $16.99/mo monthly or $8.33/mo billed annually (1,200 minutes a month, up to 90 minutes per conversation, 10 file imports a month); Business and Enterprise plans for teams. The pricing page also shows a 50%-off offer for first-time subscribers.",
+ "Transcribing interviews and spoken first drafts so you can quote and edit from text",
+ "Good at one job a writer actually has: turning a recorded interview or a voice memo into searchable text with speakers labeled. The free plan's 30-minute cap per conversation and 3 lifetime file imports make it a trial for anything longer than short calls; record live in the Otter app to avoid the import limit. Much of the product now centers on AI meeting notes, which most writers can ignore. Check quotes against the audio before you publish them.",
+ free_plan=True, verified=V31,
+ pricing_source="official site (otter.ai/pricing, USD, checked 2026-11-24: monthly and annual toggles plus the plan comparison table; student pricing in the page FAQ)",
+ notes="Transcription languages listed on the pricing page: English, Spanish, French, German, Japanese and Chinese. Free plan exports are mp3 and txt; Pro adds pdf, docx and srt.")
 add("ElevenLabs","https://elevenlabs.io/","audio",
  "Free (10k credits/mo, no commercial license); Starter $6/mo (30k credits, commercial license); Creator $22/mo (121k credits); Pro $99/mo; higher business tiers. Yearly billing costs 10x the monthly price (two months free).",
  "Producing audio versions of posts with natural-sounding AI voices",
@@ -496,7 +511,7 @@ add("Gumroad","https://gumroad.com/","monetization",
  "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
  "Selling ebooks, templates and guides alongside your newsletter",
  "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost, and Gumroad acts as merchant of record, collecting and remitting sales tax for you.",
- free_plan=True, verified=V12, pricing_source="official site (gumroad.com/pricing)")
+ free_plan=True, verified=V31, pricing_source="official site (gumroad.com/pricing, re-checked 2026-11-24: unchanged)")
 add("Ko-fi","https://ko-fi.com/","monetization",
  "Free to join, no monthly cost. Ko-fi Free: 0% on one-off tips and Goals, 5% on monthly tips, memberships, shop and commissions. Standard: 5% on everything, plus extras like supporter-only content and scheduled posts. PayPal/Stripe fees (usually around 3% + $0.30) apply on top. Ko-fi Gold (0% on everything for a fixed monthly fee) is still offered; price not listed on its page.",
  "One-off tips from readers who won't commit to a paid subscription",

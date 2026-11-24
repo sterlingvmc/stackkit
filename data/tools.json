@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-23",
+  "generated": "2026-11-24",
   "categories": [
     {
       "slug": "growth",
@@ -403,7 +403,7 @@
       "affiliate_url": null,
       "substack_specific": true,
       "verified_on": "2026-10-31",
-      "notes": "Independent; its Chrome Web Store listing says it is not affiliated with Substack."
+      "notes": "Independent; its Chrome Web Store listing says it is not affiliated with Substack. On 2026-11-24 substackinsights.com did not load (its DNS name servers were not responding), while the extension's Chrome Web Store listing (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026) was still live: https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc"
     },
     {
       "slug": "plotstack",
@@ -806,6 +806,22 @@
       "notes": null
     },
     {
+      "slug": "ia-writer",
+      "name": "iA Writer",
+      "url": "https://ia.net/writer",
+      "category": "editing",
+      "pricing": "One-time purchase per platform: Mac $49.99, Windows $39.99, iPhone and iPad $49.99 (one App Store purchase covers both). 7-day free trial on Mac and Windows, no card. Android is sold as a subscription through Google Play. No Linux version.",
+      "free_plan": false,
+      "pricing_source": "official site (ia.net/writer/pricing, USD, checked 2026-11-24) + ia.net/writer features page + iA Writer support page Blog Publishing (Mac): WordPress, Ghost, Micro.blog, Micropub; no Substack",
+      "best_for": "Writers who want a distraction-free place to draft before pasting into Substack",
+      "verdict": "A calm, well-made Markdown editor: Focus Mode fades everything but the sentence you're on, and Style Check flags fillers and clichés on your device without rewriting anything for you. You pay once instead of monthly, but per platform, and iA says major updates may cost extra. On Mac it can publish straight to WordPress, Ghost and Micro.blog, but not to Substack, so you'll still copy each draft into Substack's editor and check the formatting there. Free tools like Google Docs do the drafting job if you don't care about the writing environment.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-24",
+      "notes": "Made by iA (Information Architects), a small bootstrapped company. Refunds within 30 days on direct purchases."
+    },
+    {
       "slug": "notion",
       "name": "Notion",
       "url": "https://www.notion.com/",
@@ -1066,16 +1082,32 @@
       "name": "Descript",
       "url": "https://www.descript.com/",
       "category": "audio",
-      "pricing": "Free; Hobbyist $16/mo billed annually ($24 monthly); Creator $24/mo annually ($35 monthly); Business $50/mo annually ($65 monthly).",
+      "pricing": "Free (60 media minutes a month, 720p export); Hobbyist $16/mo billed annually ($24 monthly, 10 media hours a month); Creator $24/mo annually ($35 monthly, 30 hours); Business $50/mo annually ($65 monthly, 40 hours).",
       "free_plan": true,
-      "pricing_source": "official site (descript.com/pricing)",
+      "pricing_source": "official site (descript.com/pricing, re-checked 2026-11-24: prices unchanged; media-hour limits added from the plan comparison table)",
       "best_for": "Editing podcast and video by editing the transcript",
       "verdict": "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
       "affiliate_program": "yes",
       "affiliate_url": "https://www.descript.com/affiliate",
       "substack_specific": false,
-      "verified_on": "2026-10-30",
+      "verified_on": "2026-11-24",
       "notes": null
+    },
+    {
+      "slug": "otter-ai",
+      "name": "Otter.ai",
+      "url": "https://otter.ai/",
+      "category": "audio",
+      "pricing": "Free Basic plan (300 transcription minutes a month, up to 30 minutes per conversation, 3 audio/video file imports in total); Pro $16.99/mo monthly or $8.33/mo billed annually (1,200 minutes a month, up to 90 minutes per conversation, 10 file imports a month); Business and Enterprise plans for teams. The pricing page also shows a 50%-off offer for first-time subscribers.",
+      "free_plan": true,
+      "pricing_source": "official site (otter.ai/pricing, USD, checked 2026-11-24: monthly and annual toggles plus the plan comparison table; student pricing in the page FAQ)",
+      "best_for": "Transcribing interviews and spoken first drafts so you can quote and edit from text",
+      "verdict": "Good at one job a writer actually has: turning a recorded interview or a voice memo into searchable text with speakers labeled. The free plan's 30-minute cap per conversation and 3 lifetime file imports make it a trial for anything longer than short calls; record live in the Otter app to avoid the import limit. Much of the product now centers on AI meeting notes, which most writers can ignore. Check quotes against the audio before you publish them.",
+      "affiliate_program": "not verified",
+      "affiliate_url": null,
+      "substack_specific": false,
+      "verified_on": "2026-11-24",
+      "notes": "Transcription languages listed on the pricing page: English, Spanish, French, German, Japanese and Chinese. Free plan exports are mp3 and txt; Pro adds pdf, docx and srt."
     },
     {
       "slug": "elevenlabs",
@@ -1276,13 +1308,13 @@
       "category": "monetization",
       "pricing": "No monthly fee; 10% + $0.50 per transaction on direct sales (profile or direct links); 30% on sales through Gumroad Discover.",
       "free_plan": true,
-      "pricing_source": "official site (gumroad.com/pricing)",
+      "pricing_source": "official site (gumroad.com/pricing, re-checked 2026-11-24: unchanged)",
       "best_for": "Selling ebooks, templates and guides alongside your newsletter",
       "verdict": "The simplest way to sell a digital product to your readers. Fees are high per sale but there's no fixed cost, and Gumroad acts as merchant of record, collecting and remitting sales tax for you.",
       "affiliate_program": "not verified",
       "affiliate_url": null,
       "substack_specific": false,
-      "verified_on": "2026-10-31",
+      "verified_on": "2026-11-24",
       "notes": null
     },
     {
