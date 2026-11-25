@@ -33,7 +33,8 @@ V28 = "2026-11-21"  # entries added or re-checked in the 2026-11-21 daily ops pa
 V29 = "2026-11-22"  # entries added or re-checked in the 2026-11-22 daily ops pass
 V30 = "2026-11-23"  # entries added or re-checked in the 2026-11-23 daily ops pass
 V31 = "2026-11-24"  # entries added or re-checked in the 2026-11-24 daily ops pass
-UPDATED = V31
+V32 = "2026-11-25"  # entries added or re-checked in the 2026-11-25 daily ops pass
+UPDATED = V32
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -174,12 +175,12 @@ add("Substack Control Center","https://finntropy.gumroad.com/l/substack_control_
  pricing_source="official Gumroad product page (finntropy.gumroad.com/l/substack_control_center, $25, 11 ratings, 165 sales)",
  notes="Made by Finn Tropy (Finn'sights), independent, not affiliated with Substack. Separate from StackContacts Studio and Substack Pro Studio.")
 
-add("Substack Insights","https://substackinsights.com/","analytics",
- "Free for publications under 1,000 subscribers; $9.99 one-time above that. The pricing card lists Notes analytics and conversion stats under the paid tier.",
+add("Substack Insights","https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc","analytics",
+ "Free for publications under 1,000 subscribers. Above that, the price is unclear: its Chrome Web Store listing says Pro $19.99/month, while its website said $9.99 one-time when we last loaded it (2026-10-31). Confirm in the extension before paying.",
  "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
- "A simple, inexpensive Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Small and new (v1.0 on the Chrome Web Store).",
- substack_specific=True, free_plan=True, verified=V12, pricing_source="official site (substackinsights.com pricing section and FAQ)",
- notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. On 2026-11-24 substackinsights.com did not load (its DNS name servers were not responding), while the extension's Chrome Web Store listing (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026) was still live: https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc")
+ "A simple Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Free under 1,000 subscribers is a good deal. Above that, be careful: its website has been unreachable since Nov 24, 2026 and its two price listings disagree, and it is small and new (v1.0.0, 2 ratings on the Chrome Web Store).",
+ substack_specific=True, free_plan=True, verified=V32, pricing_source="Chrome Web Store listing (checked 2026-11-25: 'Free for publications under 1,000 subscribers', 'Pro plan ($19.99/month) for publications with 1,000+ subscribers', offers in-app purchases) + substackinsights.com pricing section (last loaded 2026-10-31: $9.99 one-time)",
+ notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. substackinsights.com did not load on 2026-11-24 or 2026-11-25 (its DNS name servers were not responding), so this listing now points to the extension's Chrome Web Store page (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026, 5.0 from 2 ratings, 52 users), which is still live.")
 add("PlotStack","https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib","analytics",
  "Free. No paid tier or in-app purchases listed; its maker says his newsletter tools are free and will stay free.",
  "Writers who want Substack's stats, growth, posts and Notes numbers in one local dashboard, with CSV and PNG exports",
@@ -310,8 +311,8 @@ add("ProWritingAid","https://prowritingaid.com/","editing",
  "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
  "Deep style reports for long-form and fiction writers",
  "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
- aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V28, pricing_source="official site (prowritingaid.com/pricing, re-checked 2026-11-21: regular prices unchanged; Black Friday sale shown) + prowritingaid.com/integrations",
- notes="Time-limited: ProWritingAid's pricing page showed a Black Friday sale on 2026-11-21 (yearly Premium $60, yearly Premium Pro $72, lifetime $199.50 / $349.50), ending Sun Nov 29, 2026 at 23:59 PT. Regular prices above apply after that.")
+ aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V28, pricing_source="official site (prowritingaid.com/pricing, re-checked 2026-11-21 and 2026-11-25: regular prices unchanged; Black Friday sale shown) + prowritingaid.com/integrations",
+ notes="Time-limited: ProWritingAid's pricing page showed a Black Friday sale on 2026-11-21 (yearly Premium $60, yearly Premium Pro $72, lifetime $199.50 / $349.50), ending Sun Nov 29, 2026 at 23:59 PT (still shown on 2026-11-25). Regular prices above apply after that.")
 add("Headline Studio","https://coschedule.com/headline-studio","editing",
  "Free Basic plan with 10 credits a month (headline scoring and idea generation). Premium from $4/mo or $29/yr for 25 credits, up to $34/mo or $299/yr for unlimited; unused credits don't carry over.",
  "Scoring and brainstorming post titles, which on Substack double as your email subject line",
@@ -323,8 +324,8 @@ add("LanguageTool","https://languagetool.org/","editing",
  "Free (up to 2,000 characters per text field); Premium $24.90/mo monthly, $49.90/quarter, $69.90/yr or $119.80 for 2 years.",
  "Multilingual writers and anyone who wants a Grammarly alternative",
  "Strong grammar checking across many languages, and much cheaper per year than monthly billing.",
- pricing_source="official site (languagetool.org/premium, rendered page, USD incl. VAT)", free_plan=True, verified=V7,
- notes="Free plan re-checked 2026-11-16 on languagetool.org/premium: 2,000 characters per text field (150,000 on Premium), 3 AI sentence rephrasings a day, browser add-ons for Chrome, Edge, Firefox and Safari. Premium prices last checked 2026-10-26.")
+ pricing_source="official site (languagetool.org/premium, rendered page, USD incl. VAT)", free_plan=True, verified=V32,
+ notes="Free plan re-checked 2026-11-16 on languagetool.org/premium: 2,000 characters per text field (150,000 on Premium), 3 AI sentence rephrasings a day, browser add-ons for Chrome, Edge, Firefox and Safari. Premium prices re-checked 2026-11-25 on languagetool.org/premium: unchanged.")
 add("QuillBot","https://quillbot.com/","editing",
  "Free (paraphrase up to 125 words at a time, 2 modes); Premium $19.95 monthly, $39.95 every 3 months, or $99.95/yr ($8.33/mo). Prices may vary by region.",
  "Paraphrasing, summarizing and quick rewrites",
@@ -337,6 +338,14 @@ add("iA Writer","https://ia.net/writer","editing",
  free_plan=False, verified=V31,
  pricing_source="official site (ia.net/writer/pricing, USD, checked 2026-11-24) + ia.net/writer features page + iA Writer support page Blog Publishing (Mac): WordPress, Ghost, Micro.blog, Micropub; no Substack",
  notes="Made by iA (Information Architects), a small bootstrapped company. Refunds within 30 days on direct purchases.")
+
+add("Ulysses","https://ulysses.app/","editing",
+ "Subscription only: $39.99/yr or $5.99/mo (U.S. prices; local App Store prices may differ). Free, fully functional trial; reduced pricing for students. Mac, iPad and iPhone only.",
+ "Apple users who want one writing app for drafts, long projects and copy-ready Substack posts",
+ "A polished Markdown editor with a library that syncs across Mac, iPad and iPhone, writing goals, and a built-in grammar and style check in 20+ languages. Since Nov 2025 it can copy a draft formatted for Substack (Quick Export, Services, Substack), keeping most formatting and footnotes; tables and videos become placeholder images and only images with URLs come across, so check the paste in Substack's editor. Direct publishing is for WordPress, Ghost and Micro.blog (its home page also lists Medium), not Substack. No Windows or Android version, and it's a subscription, so iA Writer's one-time price is cheaper over a few years.",
+ free_plan=False, verified=V32,
+ pricing_source="official site (ulysses.app/pricing, U.S. prices, checked 2026-11-25) + ulysses.app home page (free trial on all devices; publishing to WordPress, Ghost, Medium, Micro.blog) + Ulysses Help 'Quick Export' (Publishing to Substack and Basecamp) + Mac App Store listing (requires macOS 15.4 or later; copy-paste publishing to Substack)",
+ notes="Made by Ulysses GmbH & Co. KG (Germany), developed since 2003. Copy for Substack arrived in version 39 (Nov 17, 2025 release notes). Also included in the Setapp app bundle.")
 
 # ---------- Planning, research & automation ----------
 add("Notion","https://www.notion.com/","planning",
@@ -478,7 +487,7 @@ add("Datawrapper","https://www.datawrapper.de/","embeds",
  "Free (unlimited charts, maps and tables, with a \"Created with Datawrapper\" credit); Pro $21/user/mo excl. VAT (removes the credit); Business $39/user/mo excl. VAT.",
  "Clean, accurate charts, maps and tables for data-driven posts",
  "Newsroom-quality charts for free, and the one chart tool Substack embeds natively: paste the chart's share link into your draft. Interactive on the web and in the app; static in the email version.",
- free_plan=True, verified=V12, notes="Substack's help center documents native Datawrapper embeds (paste the share link into a draft).")
+ free_plan=True, verified=V32, pricing_source="official site (datawrapper.de/pricing, re-checked 2026-11-25: unchanged, prices excl. VAT)", notes="Substack's help center documents native Datawrapper embeds (paste the share link into a draft).")
 add("Flourish","https://flourish.studio/","embeds",
  "Free (public publishing with attribution); paid Presenter (via Canva Business) and Publisher/Enterprise plans on contract.",
  "Animated and interactive charts and scrollytelling",
@@ -488,7 +497,7 @@ add("Linktree","https://linktr.ee/","embeds",
  "Free (unlimited links, basic analytics); Starter $7/mo billed annually ($9 monthly); Pro $14/mo billed annually ($17 monthly); Premium $30/mo billed annually ($35 monthly). US prices; Linktree shows local prices by region.",
  "A link-in-bio page that points social followers to your Substack",
  "Fine for bios, but your Substack's /subscribe link can often serve as the link on its own. Only pay if you need the analytics.",
- free_plan=True, verified=V12, pricing_source="official site (linktr.ee/s/pricing, US prices)")
+ free_plan=True, verified=V32, pricing_source="official site (linktr.ee/s/pricing, US prices, re-checked 2026-11-25: unchanged)")
 
 # ---------- Sponsorships & monetization ----------
 add("Paved","https://www.paved.com/","monetization",
