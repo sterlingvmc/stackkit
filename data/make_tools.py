@@ -34,7 +34,8 @@ V29 = "2026-11-22"  # entries added or re-checked in the 2026-11-22 daily ops pa
 V30 = "2026-11-23"  # entries added or re-checked in the 2026-11-23 daily ops pass
 V31 = "2026-11-24"  # entries added or re-checked in the 2026-11-24 daily ops pass
 V32 = "2026-11-25"  # entries added or re-checked in the 2026-11-25 daily ops pass
-UPDATED = V32
+V33 = "2026-11-26"  # entries re-checked in the 2026-11-26 daily ops pass
+UPDATED = V33
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -84,7 +85,7 @@ add("StackSweller","https://stacksweller.com/","growth",
  "Pro $39/mo, or $25/mo billed yearly ($250/yr). 7-day free trial.",
  "A simple cloud queue for batch-scheduling Substack Notes",
  "Does one job (a Notes queue that runs with your laptop closed). Be aware it works by holding your Substack session, and Substack now schedules single Notes natively.",
- substack_specific=True, free_plan=False, verified=V13)
+ substack_specific=True, free_plan=False, verified=V33, pricing_source="official site (stacksweller.com pricing section, re-checked 2026-11-26: Pro $39/mo or $250/yr, unchanged)")
 
 add("Substack Pro Studio","https://finntropy.gumroad.com/l/substack_pro_studio","growth",
  "$79 one-time (Chrome extension; lifetime updates; 30-day money-back). A Growth Bundle with Substack Control Center is $89 one-time on Gumroad (save $15 vs buying both).",
@@ -178,9 +179,9 @@ add("Substack Control Center","https://finntropy.gumroad.com/l/substack_control_
 add("Substack Insights","https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc","analytics",
  "Free for publications under 1,000 subscribers. Above that, the price is unclear: its Chrome Web Store listing says Pro $19.99/month, while its website said $9.99 one-time when we last loaded it (2026-10-31). Confirm in the extension before paying.",
  "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
- "A simple Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Free under 1,000 subscribers is a good deal. Above that, be careful: its website has been unreachable since Nov 24, 2026 and its two price listings disagree, and it is small and new (v1.0.0, 2 ratings on the Chrome Web Store).",
- substack_specific=True, free_plan=True, verified=V32, pricing_source="Chrome Web Store listing (checked 2026-11-25: 'Free for publications under 1,000 subscribers', 'Pro plan ($19.99/month) for publications with 1,000+ subscribers', offers in-app purchases) + substackinsights.com pricing section (last loaded 2026-10-31: $9.99 one-time)",
- notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. substackinsights.com did not load on 2026-11-24 or 2026-11-25 (its DNS name servers were not responding), so this listing now points to the extension's Chrome Web Store page (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026, 5.0 from 2 ratings, 52 users), which is still live.")
+ "A simple Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Free under 1,000 subscribers is a good deal. Above that, be careful: its website has been unreachable since Nov 24, 2026 (still down Nov 26) and its two price listings disagree, and it is small and new (v1.0.0, 2 ratings on the Chrome Web Store).",
+ substack_specific=True, free_plan=True, verified=V33, pricing_source="Chrome Web Store listing (checked 2026-11-25 and 2026-11-26, unchanged: 'Free for publications under 1,000 subscribers', 'Pro plan ($19.99/month) for publications with 1,000+ subscribers', offers in-app purchases) + substackinsights.com pricing section (last loaded 2026-10-31: $9.99 one-time)",
+ notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. substackinsights.com did not load on 2026-11-24, 2026-11-25 or 2026-11-26 (its DNS name servers were not responding), so this listing now points to the extension's Chrome Web Store page (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026, 5.0 from 2 ratings, 52 users), which is still live.")
 add("PlotStack","https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib","analytics",
  "Free. No paid tier or in-app purchases listed; its maker says his newsletter tools are free and will stay free.",
  "Writers who want Substack's stats, growth, posts and Notes numbers in one local dashboard, with CSV and PNG exports",
@@ -189,16 +190,16 @@ add("PlotStack","https://chromewebstore.google.com/detail/plotstack-%E2%80%94-ne
  pricing_source="Chrome Web Store listing (v1.6.0, updated Oct 24, 2026; no in-app purchases listed) + privacy policy (sotoplatero.github.io/plotstack/privacy/) + public source at github.com/sotoplatero/plotstack + maker's Sept 18, 2026 post (sotoplatero.substack.com/p/sistema-operativo: 'Las cuatro son gratis y van a seguir siéndolo')",
  notes="Made by Damian Soto (Objeto Brillante); independent, not affiliated with Substack. Interface in English or Spanish; *.substack.com publications only. Source is public on GitHub (no license file at time of checking).")
 add("NoteStack","https://notestack.stacktreelabs.com/","analytics",
- "Starter $8/mo or $60/yr (capped scheduler: 7 new Notes/mo); Pro $12/mo or $99/yr (no caps, adds AI Ghostwriter and Post Coach). 7-day free trial.",
+ "Free with every install: Notes analytics (every Note ranked by the subscribers it brought, best-time heatmap, Note types, trends, insights, CSV export) plus 11 free tools, no plan or trial needed. Starter $8/mo or $60/yr (7-day free trial; adds Subscriber Sources, scheduler capped at 7 new Notes/mo, Spy Mode 30 profiles/mo, media kit); Pro $12/mo or $99/yr (no caps, adds AI Ghostwriter and Post Coach).",
  "Notes-first writers who want subscriber-conversion rankings, best-time heatmaps and a scheduler in one extension",
- "A lot of Notes analytics for the price, with data kept in your browser. Be aware the scheduler auto-publishes through your logged-in Substack session, and the AI features send your Notes text to its server and Anthropic. Skip the Ghostwriter if your voice is the product.",
- substack_specific=True, free_plan=False, verified=V13, pricing_source="official site (notestack.stacktreelabs.com FAQ and /pricing)",
- notes="Made by StackTree Labs; independent, not affiliated with Substack.")
+ "Now the easiest Notes analytics to try: the ranking-by-subscribers dashboard and heatmap are free, with data kept in your browser. Pay for Starter only if you want the free and paid split per Note (Subscriber Sources) or its scheduler, which hands queued Notes to Substack's own scheduler. The AI features send your Notes text to its server and Anthropic. Skip the Ghostwriter if your voice is the product.",
+ substack_specific=True, free_plan=True, verified=V33, pricing_source="official site (notestack.stacktreelabs.com/pricing and home page FAQ, re-checked 2026-11-26: new free tier 'Free with every install. No plan and no trial needed'; Starter $8/mo or $60/yr, Pro $12/mo or $99/yr unchanged)",
+ notes="Made by StackTree Labs; independent, not affiliated with Substack. Changed since 2026-11-01: the Notes analytics moved to a free tier, and its FAQ now says scheduled Notes are handed to Substack's own scheduler so they post with Chrome closed.")
 add("NotesIQ","https://www.notesiq.app/","analytics",
  "$4.99 one-time for lifetime access (analytics, scheduler, competitor lookups); 7-day money-back guarantee.",
  "Writers who want a cheap, one-time-payment Notes dashboard with a best-time heatmap and a weekly queue",
  "The cheapest Notes analytics extension we've found, and it keeps data in your browser with no account. Very new (v1.0.3, launched Sept 2026, no Chrome Web Store ratings yet) from a solo developer, and its price has already changed since launch, so treat it as an inexpensive experiment. Scheduling publishes through Substack's own composer in your logged-in session.",
- substack_specific=True, free_plan=False, verified=V13, pricing_source="official site (notesiq.app pricing section and FAQ; matches its Chrome Web Store listing)",
+ substack_specific=True, free_plan=False, verified=V33, pricing_source="official site (notesiq.app pricing section and FAQ, re-checked 2026-11-26: $4.99 lifetime, unchanged; matches its Chrome Web Store listing)",
  notes="Independent; its site says it is not affiliated with Substack. Launch listings in Sept 2026 quoted $19 lifetime plus a $9/mo AI add-on; the current site and store listing say $4.99 lifetime.")
 
 # ---------- Cross-posting & social ----------
@@ -301,12 +302,12 @@ add("Grammarly","https://www.grammarly.com/","editing",
  "Free (includes 100 AI prompts/mo); Pro from $12/mo with a free trial (2,000 AI prompts/mo, full-sentence rewrites, tone adjustments, plagiarism and AI-text detection).",
  "Catching typos and clarity issues everywhere you write, including the Substack editor",
  "The free browser extension is worth installing. Pro's rewrites can flatten your voice, so accept suggestions selectively.",
- aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V13, pricing_source="official site (grammarly.com/plans) + grammarly.com/browser")
+ aff=True, aff_url="https://www.grammarly.com/affiliates", free_plan=True, verified=V33, pricing_source="official site (grammarly.com/plans, re-checked 2026-11-26 in USD: Free 100 AI prompts/mo, Pro $12 with 2,000 prompts/mo, unchanged) + grammarly.com/browser")
 add("Hemingway Editor","https://hemingwayapp.com/","editing",
  "Free web editor; Editor Plus (AI rewrites) Individual 5K $8.33/mo billed annually ($100/yr) or Individual 10K $12.50/mo billed annually ($150/yr); desktop app $19.99 one-time (no AI features). Editor Plus has a 2-week free trial, no card required.",
  "Making dense posts easier to read",
  "The free web version does the core job (highlighting long and passive sentences). Most writers don't need Plus.",
- free_plan=True, verified=V13, pricing_source="official site (hemingwayapp.com/hemingway-editor-plus and /desktop; the old /pricing page now returns 404)")
+ free_plan=True, verified=V33, pricing_source="official site (hemingwayapp.com/hemingway-editor-plus and /desktop, re-checked 2026-11-26: $100/yr and $150/yr plans, desktop $19.99, unchanged; the old /pricing page now returns 404)")
 add("ProWritingAid","https://prowritingaid.com/","editing",
  "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
  "Deep style reports for long-form and fiction writers",

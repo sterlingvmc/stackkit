@@ -50,17 +50,17 @@ COMPARISONS = [
       ("Flourish pricing", "https://flourish.studio/pricing/"),
       ("r/Substack: Embed a Flourish visual? (writer reports)", "https://www.reddit.com/r/Substack/comments/1qkyzsn/embed_a_flourish_visualgraphic/"),
     ]),
-  dict(slug="substack-insights-vs-notestack", a="substack-insights", b="notestack", checked="2026-11-25",
+  dict(slug="substack-insights-vs-notestack", a="substack-insights", b="notestack", checked="2026-11-26",
     title="Substack Insights vs NoteStack: which Substack Notes analytics extension to use",
     h1="Substack Insights vs NoteStack for Substack analytics",
-    desc="Substack Insights vs NoteStack compared for Substack writers: Notes and post analytics, pricing (free under 1,000 subscribers vs from $8/mo), scheduling, AI features and what each does with your data.",
-    short="Pick Substack Insights if you just want to see which posts and Notes work and when to publish: it's free under 1,000 subscribers and it only reads your data (above 1,000, confirm its current price first). Pick NoteStack if Notes are your main growth channel and you also want subscriber-conversion rankings, a scheduler and optional AI drafting, from $8/mo.",
+    desc="Substack Insights vs NoteStack compared for Substack writers: Notes and post analytics, pricing (both now have free analytics; paid tiers from $19.99/mo vs $8/mo), scheduling, AI features and what each does with your data.",
+    short="Both now have free analytics. Pick Substack Insights if you want post and Notes rankings plus best publishing times in a read-only tool: it's free under 1,000 subscribers (above that, confirm its current price first; its website has been down since Nov 24). Pick NoteStack if Notes are your main growth channel: its free tier ranks every Note by the subscribers it brought, and Starter ($8/mo) adds the free/paid split and a scheduler.",
     rows=[
       ("What it is", "Chrome extension side panel: post and Notes analytics plus CSV export.", "Chrome extension side panel: Notes analytics, scheduler, competitor research (Spy Mode), media kit and AI tools."),
-      ("Price", "Free for publications under 1,000 subscribers. Above that, its Chrome Web Store listing says Pro $19.99/month; its website said $9.99 one-time on Oct 31 and has not loaded since Nov 24.", "Starter $8/mo or $60/yr; Pro $12/mo or $99/yr. 7-day free trial."),
-      ("Notes analytics", "Top Notes by weighted engagement, best day and time to post Notes (listed under the paid tier on its pricing card).", "Every Note ranked by engagement and subscriber conversion, best-time heatmap, Note-type breakdown and trends."),
+      ("Price", "Free for publications under 1,000 subscribers. Above that, its Chrome Web Store listing says Pro $19.99/month; its website said $9.99 one-time on Oct 31 and has not loaded since Nov 24.", "Free tier with every install (Notes analytics and 11 free tools, no trial needed). Starter $8/mo or $60/yr (7-day free trial); Pro $12/mo or $99/yr."),
+      ("Notes analytics", "Top Notes by weighted engagement, best day and time to post Notes (listed under the paid tier on its pricing card).", "Free: every Note ranked by the subscribers it brought, best-time heatmap, Note-type breakdown and trends. Starter adds Subscriber Sources (free vs paid subscribers per Note and post)."),
       ("Post analytics", "Top posts, top converting posts (free and paid signups), best publishing time and optimal post length.", "Focused on Notes."),
-      ("Scheduling", "None (read-only).", "Yes. Auto-publishes through your logged-in Substack session; Starter allows 7 new scheduled Notes a month, Pro is unlimited."),
+      ("Scheduling", "None (read-only).", "Yes (Starter and Pro). Its FAQ says queued Notes are handed to Substack's own scheduler, so they post with Chrome closed; Starter allows 7 new scheduled Notes a month, Pro is unlimited."),
       ("AI", "Exports a CSV with suggested prompts to paste into ChatGPT, Claude or Gemini yourself.", "Pro adds Ghostwriter (drafts Notes in your voice), AI generation and Post Coach."),
       ("Your data", "Processed in your browser using your existing session; it says it never sees your data.", "Stored in your browser. AI features and license checks call its relay server, and AI requests send your Notes text to Anthropic."),
     ],
@@ -68,7 +68,7 @@ COMPARISONS = [
       ("Start with what Substack already shows you", "Before installing anything, open a recent Note and click View stats: Substack now shows the new free and paid subscribers, followers, clicks and shares each Note produced. Both extensions are most useful once you have enough Notes and posts that patterns are hard to see one at a time."),
       ("Read-only vs a full Notes suite", "Substack Insights only reads. It ranks your posts and Notes, tells you when you tend to get the most engagement, and hands you a CSV to analyze. NoteStack does that for Notes and goes further: it schedules and publishes Notes for you, researches other profiles and offers AI drafting. More features also means more access: anything that publishes on your behalf acts inside your logged-in Substack session."),
       ("About AI-drafted Notes", "Readers follow you for your voice. NoteStack is upfront that its Ghostwriter sends your past Notes to its AI provider to learn your style, and that it never posts AI drafts automatically. If you use it, treat drafts as prompts to rewrite, not posts to publish."),
-      ("Our pick", "Under 1,000 subscribers, Substack Insights: it answers the main questions (what works, when to post) for free, without posting anything. Above 1,000, check its price in the extension first: at the $19.99/month on its Chrome Web Store listing it would cost more than NoteStack Pro. Choose NoteStack if you post Notes daily and want analytics and a scheduler in one place, and remember that Substack's own Notes scheduler is free if scheduling is all you need."),
+      ("Our pick", "Since NoteStack made its Notes analytics free (checked Nov 26, 2026), it's the safer first install for Notes: it is actively maintained, ranks Notes by subscribers rather than likes, and costs nothing until you want Subscriber Sources or scheduling. Substack Insights still covers something NoteStack doesn't (post analytics: top converting posts, best publishing time, post length) for free under 1,000 subscribers, but its website has been unreachable since Nov 24, so check it still works before you rely on it, and confirm its price above 1,000. Substack's own Notes scheduler is free if scheduling is all you need."),
     ],
     sources=[
       ("Substack Insights on the Chrome Web Store (features and pricing; its website substackinsights.com has not loaded since Nov 24, 2026)", "https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc"),
@@ -585,7 +585,7 @@ def layout(path, title, desc, body, jsonld=None, js=False, current=None):
 <main id="main">{TOPCTA if (path == "/" or path.startswith("/tools/") or path.startswith("/compare/")) else ""}{body}</main>
 <footer class="site"><div class="wrap cols">
 <div><strong>{BRAND}</strong><br>{e(TAGLINE)}.<br>Independent. Not affiliated with, sponsored by, or endorsed by Substack Inc.</div>
-<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br><a href="/guides/substack-sponsorships-guide/">Substack sponsorships guide</a><br><a href="/guides/substack-images-guide/">Substack images guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
+<div><a href="/">Directory</a><br><a href="/guides/{GUIDE_SLUG}/">Best tools to grow your Substack in 2026</a><br><a href="/free-substack-tools/">Free tools for Substack writers</a><br><a href="/substack-notes-schedulers/">Substack Notes schedulers compared</a><br><a href="/guides/substack-seo-guide/">Substack SEO guide</a><br><a href="/guides/substack-recommendations-guide/">Substack recommendations &amp; lists guide</a><br><a href="/guides/substack-notes-guide/">Substack Notes guide</a><br><a href="/guides/substack-sponsorships-guide/">Substack sponsorships guide</a><br><a href="/guides/substack-images-guide/">Substack images guide</a><br><a href="/guides/substack-paid-subscriptions-guide/">Substack paid subscriptions guide</a><br>{''.join(f'<a href="/compare/{c["slug"]}/">{e(BY[c["a"]]["name"])} vs {e(BY[c["b"]]["name"])}</a><br>' for c in COMPARISONS)}<a href="/compare/">All comparisons</a><br><a href="/feature/">Feature your tool</a><br><a href="/about/">About &amp; disclosures</a></div>
 <div>Some links may be affiliate links; it never changes our verdicts.<br>Data last updated {e(data['generated'])}.<br><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a></div>
 </div></footer>
 {'<script src="/assets/app.js" defer></script>' if js else '<script src="/assets/app.js" defer></script>'}
@@ -641,7 +641,7 @@ def home():
 <div class="grid" id="grid">{grid}</div><p class="empty" id="empty">No tools match. Try a broader search.</p></div>
 <section class="block"><div class="wrap"><h2>Browse by use case</h2><p class="sub">Every category page lists tools with pricing and verdicts.</p><div class="cats">{cats}</div></div></section>
 <section class="block"><div class="wrap"><h2>New here? Start with the guide</h2><p class="sub">Our long-form guide picks the tools that matter at each stage, from $0 to a full paid-newsletter stack.</p>
-<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a> <a class="btn" href="/guides/substack-sponsorships-guide/">Land your first sponsor →</a> <a class="btn" href="/guides/substack-images-guide/">Get your Substack images right →</a></div></section>
+<a class="btn" href="/guides/{GUIDE_SLUG}/">Read: Best tools to grow your Substack in 2026 →</a> <a class="btn" href="/free-substack-tools/">Or start with the free tools →</a> <a class="btn" href="/guides/substack-seo-guide/">Get found on Google: Substack SEO guide →</a> <a class="btn" href="/guides/substack-recommendations-guide/">Grow with recommendations and lists →</a> <a class="btn" href="/guides/substack-notes-guide/">Grow on Substack Notes →</a> <a class="btn" href="/guides/substack-sponsorships-guide/">Land your first sponsor →</a> <a class="btn" href="/guides/substack-images-guide/">Get your Substack images right →</a> <a class="btn" href="/guides/substack-paid-subscriptions-guide/">Turn on paid subscriptions →</a></div></section>
 {SIGNUP}"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE_URL + "/", "description": TAGLINE,
           "potentialAction": {"@type": "SearchAction", "target": SITE_URL + "/?q={search_term_string}", "query-input": "required name=search_term_string"}}
@@ -667,8 +667,15 @@ CAT_NOTES = {
                '<p>To brainstorm options before a test, <a href="/tools/headline-studio/">Headline Studio</a> scores titles and has a free plan. For the search-facing title, see our <a href="/guides/substack-seo-guide/">Substack SEO guide</a>.</p></div>'),
 }
 
+CAT_NOTES["monetization"] = ('<div class="card" style="margin:18px 0"><h2 style="margin-top:0">Paid subscriptions come first</h2>'
+               '<p>Substack\'s own paid tier is the main income for most writers: Substack keeps 10%, Stripe charges 2.9% + $0.30 per US card payment plus 0.7% for recurring billing, and the minimum is $5 a month and $30 a year. '
+               'From December 1, 2026 Substack also collects and remits sales tax and VAT for you at no extra cost. '
+               '<a href="https://support.substack.com/hc/en-us/articles/360037607131-How-much-does-Substack-cost" target="_blank" rel="noopener">Substack Help: fees ↗</a></p>'
+               '<p>Setup, fees worked out, founding plans, paywalls, discounts and Boost are in our <a href="/guides/substack-paid-subscriptions-guide/">Substack paid subscriptions guide</a>. The tools below are for income on top of that.</p></div>')
+
 CAT_LLMS = {
     "editing": "Note: on Substack the post title is also the email subject line; the separate SEO title/description in post settings only affect search results (Substack recommends an SEO title under 60 characters; source: https://on.substack.com/p/substack-seo-guide). Publications with 200+ subscribers can run a built-in title test from the Publish page (\"Run a title test\"; suggested 50% of recipients for 1 hour; the winning title is sent to the rest automatically; source: https://support.substack.com/hc/en-us/articles/36026518014100-How-do-I-test-different-titles-for-email-newsletters-on-Substack). For brainstorming titles, Headline Studio has a free plan: https://stackkit.ink/tools/headline-studio/",
+    "monetization": "Note: Substack's paid subscriptions are the main income source: Substack keeps 10%, Stripe 2.9% + $0.30 per US card payment plus 0.7% Billing; minimum $5/month and $30/year (USD); from Dec 1, 2026 Substack collects and remits sales tax/VAT at no extra cost. Sources: https://support.substack.com/hc/en-us/articles/360037607131-How-much-does-Substack-cost and https://substack.com/taxes. Full guide: https://stackkit.ink/guides/substack-paid-subscriptions-guide/",
     "design": "Note: since Nov 12, 2026 Substack has a built-in website editor (seven themes; Mini-Editor and Full Editor for layouts, colors, fonts, header, hero, footer and logo on Home, Welcome and Post pages; not shown in the Substack app). Use it for your site's look and the tools below for images. Source: https://on.substack.com/p/your-substack-now-with-more-ways. Before uploading, compress large images with Squoosh (free, in-browser): https://stackkit.ink/tools/squoosh/. Image sizes, thumbnail cropping, free photo licenses and alt text: https://stackkit.ink/guides/substack-images-guide/",
 }
 
@@ -717,6 +724,7 @@ def tool(t):
 {f'<p><a href="/guides/substack-notes-guide/">Where {e(t["name"])} fits in our Substack Notes guide →</a></p>' if t["slug"] in NOTES_TOOLS else ''}
 {f'<p><a href="/guides/substack-sponsorships-guide/">Where {e(t["name"])} fits in our Substack sponsorships guide →</a></p>' if t["slug"] in SPON_TOOLS else ''}
 {f'<p><a href="/guides/substack-images-guide/">Where {e(t["name"])} fits in our Substack images guide →</a></p>' if t["slug"] in IMG_TOOLS else ''}
+{f'<p><a href="/guides/substack-paid-subscriptions-guide/">Where {e(t["name"])} fits in our Substack paid subscriptions guide →</a></p>' if t["slug"] in PAID_TOOLS else ''}
 {f'<p><a href="/guides/{GUIDE_SLUG}/">See where {e(t["name"])} fits in our 2026 growth guide →</a></p>' if t['slug'] in GUIDE_TOOLS else f'<p><a href="/guides/{GUIDE_SLUG}/">Read our 2026 growth guide →</a></p>'}</div>"""
     ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": t["name"], "url": t["url"], "applicationCategory": "BusinessApplication",
           "description": t["best_for"], "review": {"@type": "Review", "author": {"@type": "Organization", "name": BRAND}, "reviewBody": t["verdict"]}}
@@ -863,7 +871,7 @@ SCHEDULERS = [
   ("narrareach", "Yes", "Hands Notes to Substack's own scheduler rather than posting from a stored session."),
   ("subflowai", "Yes (up to 30 at once, visual calendar)", "Chrome extension that schedules Notes on Substack's servers through your logged-in session, so they publish with Chrome closed."),
   ("notesiq", "Weekly queue", "Chrome extension that publishes through Substack's composer in your logged-in session."),
-  ("notestack", "Yes (Starter: 7 new scheduled Notes a month; Pro: unlimited)", "Chrome extension that auto-publishes through your logged-in session."),
+  ("notestack", "Yes (Starter: 7 new scheduled Notes a month; Pro: unlimited; Notes analytics free)", "Chrome extension; its FAQ says queued Notes are handed to Substack's own scheduler so they post with Chrome closed (checked 2026-11-26)."),
   ("writestack", "Yes (bulk scheduling, reorderable queue, calendar)", "Chromium extension: click Sync to hand queued Notes to Substack's native scheduler (checked 2026-11-06)."),
   ("substack-pro-studio", "Yes (visual weekly calendar, bulk upload, drip mode)", "Chrome extension with server-side handoff to Substack's native Notes scheduler so Notes publish with your laptop closed (checked 2026-11-06)."),
   ("stackbuddy", "Yes (posting slots fill automatically; free plan keeps scheduling)", "Chrome extension syncs each Note into Substack's own scheduler, so Substack publishes it; Chrome only needs to be open while syncing (checked 2026-10-28)."),
@@ -1324,7 +1332,7 @@ def spon_guide():
 <li><a href="https://support.substack.com/hc/en-us/articles/360037455072-Can-I-use-affiliate-links-or-advertising-in-my-emails" target="_blank" rel="noopener">Substack Help Center: Can I use affiliate links or advertising in my emails?</a> (no built-in ad or affiliate functionality)</li>
 <li>Vendor pricing pages: <a href="https://hecto.io/pricing" target="_blank" rel="noopener">hecto.io/pricing</a>, <a href="https://www.swapstack.co/pricing" target="_blank" rel="noopener">swapstack.co/pricing</a>, <a href="https://www.paved.com/publishers" target="_blank" rel="noopener">paved.com/publishers</a>, <a href="https://sparkloop.app/pricing" target="_blank" rel="noopener">sparkloop.app/pricing</a> (checked November 13–14, 2026)</li>
 </ul>
-<p class="small">Rules and prices change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: the <a href="/category/monetization/">Sponsorships &amp; Monetization tools</a> category, our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a> and the <a href="/guides/substack-recommendations-guide/">recommendations guide</a>. StackKit itself sells labeled placements; see <a href="/about/">disclosures</a>.</p></div></div>{SIGNUP}"""
+<p class="small">Rules and prices change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. More: the <a href="/category/monetization/">Sponsorships &amp; Monetization tools</a> category, our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>, the <a href="/guides/substack-recommendations-guide/">recommendations guide</a> and the <a href="/guides/substack-paid-subscriptions-guide/">paid subscriptions guide</a>. StackKit itself sells labeled placements; see <a href="/about/">disclosures</a>.</p></div></div>{SIGNUP}"""
     faq = [("Can you have sponsors on Substack?", "Yes. Substack's help center says you're welcome to host sponsored content and it has no policy prohibiting it. Its Publisher Agreement requires you to follow the laws on disclosing and labeling sponsored content, and its Content Guidelines don't allow publications whose primary purpose is advertising."),
            ("Does Substack have a sponsorship program?", "Yes. Substack's Creator Kits let eligible publications (all Bestsellers, or those with at least 100 paid subscribers) build a private media kit; Substack's team then emails you if a brand in its program may be a fit."),
            ("How many subscribers do you need for a newsletter sponsor?", "There's no universal minimum. Hecto and Swapstack list no subscriber minimum, while Paved's flat-fee ads need at least 50,000 subscribers and its pay-per-click ads need 1 million monthly impressions. Many small newsletters land a first sponsor by pitching a brand directly."),
@@ -1425,6 +1433,120 @@ def img_guide():
     write(IMG_SLUG, layout(IMG_SLUG, f"Substack images guide: sizes, thumbnails, free photos, alt text (2026) | {BRAND}",
         "Substack image sizes from its help center (1200 x 630 previews, logo, wordmark, email banner), how to fix cropped thumbnails, free photos from Unsplash and Pexels, compressing with Squoosh, and alt text.", body, ld, current=IMG_SLUG), "0.9")
 
+# ---------------- Substack paid subscriptions guide (long-form) ----------------
+PAID_SLUG = "/guides/substack-paid-subscriptions-guide/"
+PAID_TOOLS = ["byline-os", "stackstats", "substack-control-center", "gumroad", "ko-fi"]
+# Every claim checked 2026-11-26 on the Substack help center / substack.com pages listed at the bottom of the page.
+def paid_guide():
+    tl = "".join(f'<li>{L(s)}: {e(BY[s]["best_for"])}. <em>{e(BY[s]["pricing"])}</em></li>' for s in PAID_TOOLS if s in BY)
+    body = f"""<div class="wrap page"><div class="prose"><div class="crumbs"><a href="/">Directory</a> / Guides / Substack paid subscriptions</div>
+<h1>Substack paid subscriptions guide: pricing, fees, taxes and paywalls (2026)</h1>
+<p class="small">Updated 2026-11-26 · Every setting, fee and rule checked against Substack's help center and substack.com/taxes · Independent, not affiliated with Substack Inc.</p>
+<p><strong>The short version:</strong> connect Stripe in Settings → Payments, set a monthly and an annual price (at least $5 a month and $30 a year in US dollars), and turn on <strong>Enable payments</strong>. Substack keeps 10% and Stripe takes its processing fees, so on a $5 monthly plan you keep roughly $4. From December 1, 2026 Substack also calculates, collects and remits sales tax and VAT for you at no extra cost. Paywall part of a post to give free readers a preview, and use special offers for discounts and trials.</p>
+
+<h2>1. Turning on paid subscriptions</h2>
+<ol>
+<li>Go to your publication's <strong>Settings</strong> and select <strong>Payments</strong>.</li>
+<li>Click <strong>Connect with Stripe</strong> and fill in the details Stripe asks for. You return to Substack when you're done.</li>
+<li>Set your <strong>monthly</strong> and <strong>yearly</strong> prices, and optionally a <strong>founding member</strong> price.</li>
+<li>Click the <strong>Enable payments</strong> toggle. Readers don't see that you offer paid subscriptions until you do.</li>
+</ol>
+<ul>
+<li><strong>Minimums:</strong> $5 a month and $30 a year for US-dollar Stripe accounts; other currencies may vary.</li>
+<li><strong>Both plans are required:</strong> Substack doesn't offer a yearly-only plan.</li>
+<li><strong>Change prices in Substack, not Stripe.</strong> Substack warns that editing plans in your Stripe dashboard can stop readers from subscribing and leave existing subscriptions in a bad state.</li>
+</ul>
+
+<h2>2. What you actually keep</h2>
+<p>Publishing on Substack is free. Once you charge, these fees come out of each payment (US cards, from Substack's "How much does Substack cost?" article):</p>
+<div class="table-wrap"><table class="cmp"><thead><tr><th>Fee</th><th>Amount</th></tr></thead><tbody>
+<tr><td>Substack</td><td>10% of each subscription payment</td></tr>
+<tr><td>Stripe card processing</td><td>2.9% + $0.30 per payment</td></tr>
+<tr><td>Stripe Billing (recurring payments)</td><td>0.7%</td></tr>
+<tr><td>Custom domain (optional)</td><td>$50 one-time</td></tr>
+</tbody></table></div>
+<p>Worked out on the minimum prices (our arithmetic, US card, before any tax added at checkout):</p>
+<div class="table-wrap"><table class="cmp"><thead><tr><th>Plan</th><th>Substack 10%</th><th>Stripe 2.9% + $0.30</th><th>Billing 0.7%</th><th>You keep</th></tr></thead><tbody>
+<tr><td>$5 monthly</td><td>$0.50</td><td>$0.45</td><td>$0.04</td><td>about $4.02 a month ($48.24 over 12 months)</td></tr>
+<tr><td>$50 annual</td><td>$5.00</td><td>$1.75</td><td>$0.35</td><td>about $42.90 a year</td></tr>
+</tbody></table></div>
+<p>The fixed $0.30 is charged on every payment, so it costs a monthly subscriber twelve times a year and an annual subscriber once. That's part of why it pays to make the annual plan attractive. To see the real fees on a payment, open <strong>Transactions</strong> in your Stripe dashboard and select a payment marked Succeeded; Stripe's Billing fee shows up under payouts.</p>
+<p><strong>The iOS app:</strong> readers can subscribe inside Substack's iOS app through Apple's in-app payments, which is on automatically for publications with payments enabled and can't be turned off while payments are connected. Apple adds a 15-30% fee. You choose <strong>Adjust prices for in-app purchases</strong> (Substack's recommendation: in-app prices go up so your payout stays close to the web price) or <strong>Keep prices the same</strong> (you absorb the fee). Substack's 10% is based on your web price either way. In the US, the app also links readers to the web checkout. Apple pays out up to 45 days after the end of each month, Apple-managed subscriptions can't be paused, and if you ever leave Substack those billing relationships don't move with you (you keep the email addresses).</p>
+
+<h2>3. Sales tax and VAT from December 1, 2026</h2>
+<p>Starting December 1, 2026, Substack calculates, collects and remits sales tax and VAT on paid subscriptions for you, in every country where Stripe operates. Substack's fee stays at 10% with no extra charge, and you don't need to switch anything on. Two settings are worth checking in Payments first:</p>
+<ul>
+<li><strong>Taxable content types:</strong> written content, video, live streams, podcasts, voiceovers, private community access and digital perks. By default the highest rate among the types you select applies to the whole price. Turn on <strong>Adjust tax according to the benefit value</strong> to split your price across types so each part is taxed at its own rate.</li>
+<li><strong>Added at checkout or included in your price:</strong> only publishers outside the US and Canada can choose inclusive pricing (tax comes out of your listed price, so you receive less). US and Canadian publishers have tax added at checkout.</li>
+</ul>
+<p>US subscribers see sales tax as a separate line where it applies: new subscribers at checkout, existing ones on their receipt at renewal. Your listed price doesn't change unless you change it. Income tax on what you earn is still yours. Publishers based in 11 countries where Stripe Tax can't do this yet (including Brazil, India, Mexico and Singapore) stay responsible for their own sales tax for now; check Substack's tax page for the full list.</p>
+
+<h2>4. Monthly, annual and founding member plans</h2>
+<ul>
+<li><strong>Founding member plan:</strong> an optional annual tier for readers who want to pay more. Its price can be anything higher than your annual price. Add it under Settings → Payments → Founding member → <strong>Add plan</strong>. Turn on <strong>Flexible founding plan pricing</strong> to let readers pay any amount between your annual price and the founding price.</li>
+<li><strong>What founding members can get:</strong> their own welcome email (Settings → Emails → "Welcome email to founding subscribers"), which can carry a file such as a PDF or EPUB, and founding-only posts (choose "This post is for founding members only" when you publish).</li>
+<li><strong>Removing the tier</strong> only stops new founding sign-ups; existing founding members keep renewing at their price unless Substack support lowers it at your request.</li>
+</ul>
+
+<h2>5. Changing your price later</h2>
+<p>You can change prices any time in Settings → Payments. Only new paid subscribers pay the new rate. Existing subscribers stay on the price they signed up at and renew at it unless they cancel and resubscribe; to move existing subscribers to a new price you have to ask a human at Substack support. So raising your price rewards early subscribers automatically, and a low launch price is something you live with for those readers.</p>
+
+<h2>6. Paywalls and free previews</h2>
+<ol>
+<li>In the post editor, click <strong>More</strong> → <strong>Paywall</strong> and drag the line to where the free part should end.</li>
+<li>On the publish page, set the audience to <strong>Paid subscribers only</strong> (or Founding members only).</li>
+<li>To email the preview to free subscribers, keep <strong>Send via email and Substack app</strong> checked and tick <strong>Free subscribers</strong> under "Send a free preview".</li>
+</ol>
+<p>Free readers get an Upgrade button and your list of subscription benefits in the email; on the web they see "This post is for paid subscribers" and a Subscribe button. You can customize the free-preview email header under "Edit email header and footer". Switching the audience back to Everyone removes the paywall.</p>
+<p>A <strong>freewall</strong> (More → Freewall) is the free-subscriber version: readers subscribe for free to read the rest. A post can have a paywall or a freewall, not both, and freewalls work on text posts only. If you're weighing which posts to lock, our <a href="/guides/substack-seo-guide/">Substack SEO guide</a> explains why evergreen posts you want found on Google are better left free.</p>
+
+<h2>7. Discounts, free trials and Substack Boost</h2>
+<ul>
+<li><strong>Special offers</strong> live in Settings → Payments → <strong>Manage special offers</strong> → New offer. Each one makes a link you can share or send as a post.</li>
+<li><strong>Discounts</strong> apply to monthly and annual plans only. You set the amount and duration, and can add an end date, limit it to educational email addresses, or <strong>Automatically apply to all new subscribers</strong> (useful for a time-limited sale). Turn on <strong>Available to paid subscribers</strong> to give monthly subscribers the discount automatically when they upgrade to annual.</li>
+<li><strong>Free trials</strong> also come from a special-offer link. Readers must enter card details, and they're charged when the trial ends unless they cancel.</li>
+<li>Track redemptions at your-publication.substack.com/publish/offers.</li>
+<li><strong>Boost</strong> appears in Settings → Growth once payments are on. With it, Substack shows offers for you: an upsell email to a small, highly engaged slice of free subscribers (about 0.1% of your list a day, 20% off for a year by default), a discount of up to 20% shown to readers who just paid for another Boost publication, and a free month offered to paid subscribers who are about to cancel. You can switch off the individual options or Boost entirely.</li>
+</ul>
+<p>Every discount is also given to readers who would have paid full price, and locked-in prices last as long as the subscription does. Decide what a sale is for (new subscribers, monthly-to-annual upgrades, win-backs) before you pick the percentage.</p>
+
+<h2>8. Tracking revenue and selling extras</h2>
+<p>Substack's Stats page has an <strong>Earnings</strong> tab with your Stripe payout history, and the iOS app shows total revenue under Creator stats. If you want churn, MRR and cohort numbers beyond that, the tools below read your Substack data or exports. For one-off income next to a paid tier, sell a guide on {L('gumroad')} or take tips on {L('ko-fi')}, and see our <a href="/guides/substack-sponsorships-guide/">sponsorships guide</a> for sponsor income.</p>
+
+<h2>9. Checklist before you turn on payments</h2>
+<ol>
+<li>Write down what paid subscribers get, one sentence per benefit, so you can say it plainly in your launch post and paywall previews.</li>
+<li>Pick monthly and annual prices (at least $5 and $30) and decide whether to add a founding tier.</li>
+<li>Choose your in-app pricing option.</li>
+<li>Check your taxable content types in Payments before December 1.</li>
+<li>Write the welcome emails for paid and founding subscribers.</li>
+<li>Draft a launch post with a paywalled section so free readers see what they'd unlock.</li>
+</ol>
+
+<h2>Tools mentioned in this guide</h2><ul>{tl}</ul>
+<h2>Sources</h2><ul>
+<li><a href="https://support.substack.com/hc/en-us/articles/360037459952-How-do-I-set-up-a-paid-publication-on-Substack" target="_blank" rel="noopener">Substack Help Center: How do I set up a paid publication on Substack?</a> (updated November 2, 2026: steps, $5/$30 minimums, no yearly-only plan)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/360037607131-How-much-does-Substack-cost" target="_blank" rel="noopener">Substack Help Center: How much does Substack cost?</a> (updated October 29, 2026: fee table)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/19718129670420-Can-my-subscribers-pay-on-the-Substack-iOS-app" target="_blank" rel="noopener">Substack Help Center: Can my subscribers pay on the Substack iOS app?</a> (updated November 4, 2026)</li>
+<li><a href="https://substack.com/taxes" target="_blank" rel="noopener">Substack Tax Policy (substack.com/taxes)</a> and <a href="https://support.substack.com/hc/en-us/articles/53351588701588-Upcoming-changes-to-tax-on-Substack" target="_blank" rel="noopener">Substack Help Center: Upcoming changes to tax on Substack</a> (updated November 17, 2026)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/360042039091-Can-I-set-up-another-subscription-plan-for-readers-who-want-to-pay-more" target="_blank" rel="noopener">Substack Help Center: founding member plan</a> (updated April 21, 2026)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/360037829591-Can-I-change-the-price-of-my-subscription-after-launch-on-Substack" target="_blank" rel="noopener">Substack Help Center: Can I change the price of my subscription after launch?</a> (updated November 2, 2026)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/4407989020308-How-do-I-publish-a-free-preview-of-a-paid-post-on-Substack" target="_blank" rel="noopener">Substack Help Center: How do I publish a free preview of a paid post?</a> (updated September 10, 2026) and <a href="https://support.substack.com/hc/en-us/articles/54386371692052-How-do-I-add-a-freewall-to-my-Substack-post" target="_blank" rel="noopener">How do I add a freewall?</a> (updated October 15, 2026)</li>
+<li><a href="https://support.substack.com/hc/en-us/articles/360037835291-How-do-I-offer-a-discount-to-my-Substack" target="_blank" rel="noopener">Substack Help Center: How do I offer a discount?</a> (updated October 14, 2026) and <a href="https://support.substack.com/hc/en-us/articles/360037465192-How-do-I-offer-a-free-trial-to-my-publication" target="_blank" rel="noopener">How do I offer a free trial?</a></li>
+<li><a href="https://support.substack.com/hc/en-us/articles/9674586580244-What-is-Substack-Boost" target="_blank" rel="noopener">Substack Help Center: What is Substack Boost?</a> (updated November 19, 2026)</li>
+</ul>
+<p class="small">Substack's settings and fees change; if something here no longer matches what you see, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>. This guide isn't tax advice. More: the <a href="/category/monetization/">Sponsorships &amp; Monetization tools</a> and <a href="/category/analytics/">Analytics</a> categories, the <a href="/guides/substack-sponsorships-guide/">sponsorships guide</a> and our <a href="/guides/{GUIDE_SLUG}/">2026 growth guide</a>.</p></div></div>{SIGNUP}"""
+    faq = [("What is the minimum price for a Substack paid subscription?", "$5 a month and $30 a year for US-dollar Stripe accounts; other currencies may vary. You must offer both a monthly and an annual plan; Substack doesn't offer a yearly-only plan."),
+           ("How much does Substack take from paid subscriptions?", "Substack keeps 10% of each subscription payment. Stripe charges 2.9% + $0.30 per payment for US cards plus a 0.7% Billing fee on recurring payments. On a $5 monthly subscription that leaves roughly $4.02."),
+           ("Does Substack collect sales tax?", "Yes, from December 1, 2026. Substack calculates, collects and remits sales tax and VAT on paid subscriptions in every country where Stripe operates, at no extra cost; Substack's fee stays 10%. Income tax remains the publisher's responsibility."),
+           ("If I raise my Substack price, do existing subscribers pay more?", "No. Only new paid subscribers pay the new rate. Existing subscribers renew at their original price unless they cancel and resubscribe, or you ask Substack support to change it."),
+           ("How do I offer a discount or free trial on Substack?", "Go to Settings → Payments → Manage special offers → New offer. Discounts work on monthly and annual plans and can be applied automatically to all new subscribers; free trials require readers to enter card details.")]
+    ld = [{"@context": "https://schema.org", "@type": "Article", "headline": "Substack paid subscriptions guide: pricing, fees, taxes and paywalls (2026)", "dateModified": "2026-11-26",
+           "author": {"@type": "Organization", "name": BRAND}, "publisher": {"@type": "Organization", "name": BRAND}, "mainEntityOfPage": SITE_URL + PAID_SLUG},
+          {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
+    write(PAID_SLUG, layout(PAID_SLUG, f"Substack paid subscriptions guide: pricing, fees, taxes (2026) | {BRAND}",
+        "How to turn on paid subscriptions on Substack: $5/$30 minimums, what Substack and Stripe take, the Dec 1, 2026 sales tax change, founding member plans, price changes, paywalls, discounts, trials and Boost.", body, ld, current=PAID_SLUG), "0.9")
+
 # ---------------- Extras ----------------
 def extras():
     write("/404.html", layout("/404.html", f"Page not found | {BRAND}", "Page not found.",
@@ -1444,6 +1566,7 @@ def extras():
              f"- [Substack Notes guide]({SITE_URL}/guides/substack-notes-guide/): how Substack Notes work in 2026: who sees them (not emailed; roundup digest and push), posting and drafts, the free built-in scheduler on web and app, when a batch scheduler is worth it, a reply-first routine, and tools that measure which Notes bring subscribers",
              f"- [Substack sponsorships guide]({SITE_URL}/guides/substack-sponsorships-guide/): how to land a first newsletter sponsor on Substack: Substack's rules (sponsored content allowed, must be disclosed, no ad-first publications), its Creator Kit sponsorships program (Bestsellers or 100+ paid subscribers), no-minimum marketplaces Hecto and Swapstack, Paved's 50k-subscriber minimum, SparkLoop paid recommendations, pitching brands directly, and labeling sponsor sections",
              f"- [Substack images guide]({SITE_URL}/guides/substack-images-guide/): Substack image sizes from its help center (preview 1200x630+, full-width post images up to 1:1, logo 256x256 transparent, wordmark 1344x256, header cover 1600px wide, welcome 600x600, email banner 1100x220 transparent PNG; thumbnails 3:2), fixing cropped thumbnails with the web Adjust tool, free photos from Unsplash and Pexels and their license rules, compressing with Squoosh, and adding alt text and captions",
+             f"- [Substack paid subscriptions guide]({SITE_URL}/guides/substack-paid-subscriptions-guide/): turning on paid subscriptions (Settings > Payments > Connect with Stripe; minimum $5/month and $30/year in USD; monthly and annual plans both required), fees (Substack 10%, Stripe 2.9% + $0.30 per US card payment, 0.7% Billing; about $4.02 kept on $5/month), iOS in-app pricing options, Substack-managed sales tax/VAT from Dec 1, 2026, founding member plans, price changes (existing subscribers keep their price), paywalls and freewalls, discounts, free trials and Substack Boost",
              f"- [Substack Notes schedulers compared]({SITE_URL}/substack-notes-schedulers/): Substack's free built-in Notes scheduler vs every third-party scheduler in the directory, with prices, batch limits and how each one publishes",
              f"- [All Substack tool comparisons]({SITE_URL}/compare/): index of every head-to-head page",
              *[f"- [{x['title']}]({SITE_URL}/compare/{x['slug']}/): {x['short']}" for x in COMPARISONS],
@@ -1471,7 +1594,7 @@ def main():
     for t in TOOLS: tool(t)
     for x in COMPARISONS: compare(x)
     compare_hub()
-    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); spon_guide(); img_guide(); extras()
+    feature(); about(); guide(); free_tools(); schedulers(); seo_guide(); rec_guide(); notes_guide(); spon_guide(); img_guide(); paid_guide(); extras()
     open(os.path.join(OUT, "CNAME"), "w").write(SITE_URL.split("://", 1)[1] + "\n")
     open(os.path.join(OUT, ".nojekyll"), "w").write("")
     print(f"Built {len(pages)} pages into {OUT} (SITE_URL={SITE_URL})")
