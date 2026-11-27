@@ -35,7 +35,8 @@ V30 = "2026-11-23"  # entries added or re-checked in the 2026-11-23 daily ops pa
 V31 = "2026-11-24"  # entries added or re-checked in the 2026-11-24 daily ops pass
 V32 = "2026-11-25"  # entries added or re-checked in the 2026-11-25 daily ops pass
 V33 = "2026-11-26"  # entries re-checked in the 2026-11-26 daily ops pass
-UPDATED = V33
+V34 = "2026-11-27"  # entries added or re-checked in the 2026-11-27 daily ops pass
+UPDATED = V34
 def slug(n): return re.sub(r'[^a-z0-9]+','-',n.lower()).strip('-')
 T = []
 def add(name,url,cat,pricing,best_for,verdict,aff=None,aff_url=None,substack_specific=False,pricing_source="official site",notes=None,free_plan=None,verified=None):
@@ -54,7 +55,7 @@ add("Supascribe","https://supascribe.com/","growth",
  "Free (2 basic embeds, first 1,000 views, first 100 new subscribers); Starter $9/mo, Growth $20/mo, Pro $249/mo (all billed yearly); paid plans add $2 per extra 10,000 views or 100 subscribers.",
  "Writers with their own website who want on-brand Substack signup forms, popups and landing pages",
  "Fills a real gap: Substack's native embed is fixed-width and unstyled. Independent (not affiliated with Substack), and only useful if you drive traffic from a site you control.",
- substack_specific=True, free_plan=True, verified=V14, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown, the page says yearly saves 20% vs monthly)")
+ substack_specific=True, free_plan=True, verified=V34, pricing_source="official site (supascribe.com pricing section; yearly-billed prices shown, the page says yearly saves 20% vs monthly; re-checked 2026-11-27, unchanged)")
 add("WriteStack","https://www.writestack.io/","growth",
  "Hobbyist $23.99/mo or $19.99/mo billed yearly ($239.88/yr); Standard $32.99/mo or $24.99/mo billed yearly ($299.88/yr); Enterprise $99.99/mo or $79.99/mo billed yearly ($959.88/yr). Every plan has a 7-day free trial.",
  "Writers who live on Substack Notes and want batch scheduling, research and Notes-to-subscriber analytics",
@@ -165,8 +166,8 @@ add("StackContacts Studio","https://finntropy.gumroad.com/l/stackcontacts_studio
  "$99 one-time, including 12 months of updates and email support (it keeps working after that; renewing for new versions is optional). Refund within 30 days if it can't sync your publication or connect to Claude Desktop after following the install guide.",
  "Writers who also sell on Gumroad, keep a Kit list or run a Skool community and want to see who their readers, buyers and members are in one place",
  "A local audience database for Substack: a Chrome extension copies your subscribers, Notes, posts, comments, DMs and (optionally) Gumroad sales, Kit list, Buffer/Blotato posts and Skool community to your own computer, matches people across them by email, and shows who's waiting on a reply, who's drifting and which Notes bring subscribers. Claude Desktop drafts replies, DMs and scheduled Notes, and nothing posts until you approve the exact preview. Strong if your readers and buyers live in different places; overkill if you only use Substack. It needs an Apple Silicon Mac or Windows 11 PC plus Claude Desktop (paid plan recommended), works through your logged-in Substack session, and is a one-developer tool that's only weeks old, so expect frequent updates.",
- substack_specific=True, free_plan=False, verified=V14,
- pricing_source="official Gumroad product page (finntropy.gumroad.com/l/stackcontacts_studio, v1.24.0, 4 ratings) + maker's Nov 1, 2026 post (finntropy.substack.com/p/every-creator-needs-a-scotty)",
+ substack_specific=True, free_plan=False, verified=V34,
+ pricing_source="official Gumroad product page (finntropy.gumroad.com/l/stackcontacts_studio, v1.24.0, 4 ratings; $99 one-time re-checked 2026-11-27, unchanged) + maker's Nov 1, 2026 post (finntropy.substack.com/p/every-creator-needs-a-scotty)",
  notes="Made by Finn Tropy (Finn'sights), an independent developer; not affiliated with Substack. Error reports and feature usage go to PostHog (not your content), and you can turn that off. Gumroad, Kit, Buffer and Blotato connections are read-only. Intel Macs aren't supported.")
 add("Substack Control Center","https://finntropy.gumroad.com/l/substack_control_center","analytics",
  "$25 one-time (Chrome extension; lifetime updates; 30-day money-back). Also available in a $89 Growth Bundle with Substack Pro Studio.",
@@ -179,9 +180,9 @@ add("Substack Control Center","https://finntropy.gumroad.com/l/substack_control_
 add("Substack Insights","https://chromewebstore.google.com/detail/substack-insights-unoffic/bmeapnigmgnaccpcfgpmifahhddhhihc","analytics",
  "Free for publications under 1,000 subscribers. Above that, the price is unclear: its Chrome Web Store listing says Pro $19.99/month, while its website said $9.99 one-time when we last loaded it (2026-10-31). Confirm in the extension before paying.",
  "Writers who want a cheap, private look at their best posts, best publishing times and Notes engagement",
- "A simple Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Free under 1,000 subscribers is a good deal. Above that, be careful: its website has been unreachable since Nov 24, 2026 (still down Nov 26) and its two price listings disagree, and it is small and new (v1.0.0, 2 ratings on the Chrome Web Store).",
- substack_specific=True, free_plan=True, verified=V33, pricing_source="Chrome Web Store listing (checked 2026-11-25 and 2026-11-26, unchanged: 'Free for publications under 1,000 subscribers', 'Pro plan ($19.99/month) for publications with 1,000+ subscribers', offers in-app purchases) + substackinsights.com pricing section (last loaded 2026-10-31: $9.99 one-time)",
- notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. substackinsights.com did not load on 2026-11-24, 2026-11-25 or 2026-11-26 (its DNS name servers were not responding), so this listing now points to the extension's Chrome Web Store page (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026, 5.0 from 2 ratings, 52 users), which is still live.")
+ "A simple Chrome side panel that ranks your posts and Notes and exports a CSV with ready-made AI prompts. Analysis runs in your browser using your logged-in Substack session; it only reads, never posts. Free under 1,000 subscribers is a good deal. Above that, be careful: its website has been unreachable since Nov 24, 2026 (still down Nov 27) and its two price listings disagree, and it is small and new (v1.0.0, 2 ratings on the Chrome Web Store).",
+ substack_specific=True, free_plan=True, verified=V34, pricing_source="Chrome Web Store listing (checked 2026-11-25, 2026-11-26 and 2026-11-27, unchanged: 'Free for publications under 1,000 subscribers', 'Pro plan ($19.99/month) for publications with 1,000+ subscribers', offers in-app purchases) + substackinsights.com pricing section (last loaded 2026-10-31: $9.99 one-time)",
+ notes="Independent; its Chrome Web Store listing says it is not affiliated with Substack. substackinsights.com did not load on 2026-11-24, 2026-11-25, 2026-11-26 or 2026-11-27 (its DNS name servers were not responding), so this listing now points to the extension's Chrome Web Store page (Substack Insights (Unofficial), v1.0.0, updated Mar 10, 2026, 5.0 from 2 ratings, 52 users), which is still live.")
 add("PlotStack","https://chromewebstore.google.com/detail/plotstack-%E2%80%94-newsletter-an/odcgiilenioilmnaimbcaamocnmhhaib","analytics",
  "Free. No paid tier or in-app purchases listed; its maker says his newsletter tools are free and will stay free.",
  "Writers who want Substack's stats, growth, posts and Notes numbers in one local dashboard, with CSV and PNG exports",
@@ -212,7 +213,7 @@ add("Buffer","https://buffer.com/","social",
  "Free (up to 3 channels, 10 scheduled posts per channel at a time); Essentials $5/channel/mo billed yearly ($6 monthly); Team $10/channel/mo billed yearly ($12 monthly).",
  "Scheduling Notes alongside every other social channel from one calendar",
  "Reliable and affordable, and its free plan includes Substack Notes scheduling. The best default if you post to several networks.",
- free_plan=True, verified=V19, pricing_source="official site (buffer.com/pricing re-checked 2026-11-11 for free plan and yearly per-channel prices; earlier also its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
+ free_plan=True, verified=V34, pricing_source="official site (buffer.com/pricing.md re-checked 2026-11-27: 1-10 channels unchanged, volume discounts from 11 channels; buffer.com/pricing re-checked 2026-11-11 for free plan and yearly per-channel prices; earlier also its machine-readable buffer.com/pricing.md; Substack Notes support per buffer.com/substack)")
 add("Eden","https://eden.so/","social",
  "Free forever (100 saved items, no social scheduling). Creator Starter $25/mo billed yearly ($299/yr) or about $29/mo month-to-month; Pro $66/mo billed yearly ($790/yr) or about $79/mo month-to-month; Max $167/mo billed yearly ($1,999/yr) or about $199/mo month-to-month. Separate Personal library plans from $7.50/mo billed yearly. Social scheduling (including Substack) starts on Starter.",
  "Writers who want one queue for Substack Notes and articles plus X, LinkedIn, Threads and other networks, with research and AI in the same workspace",
@@ -231,10 +232,12 @@ add("Taplio","https://taplio.com/","social",
  "Effective for LinkedIn but expensive. Only worth it if LinkedIn is a primary acquisition channel. Its automation features (auto-DMs, bulk connection requests) are best left off if you want your LinkedIn presence to sound like you.",
  aff=True, aff_url="https://taplio.com/affiliates", free_plan=False, verified=V19, pricing_source="official site (taplio.com/pricing, monthly prices re-checked 2026-11-11; yearly toggle shows -25%)")
 add("Repurpose.io","https://repurpose.io/","social",
- "Starter $35/mo; Pro $79/mo ($790/yr); Agency $179/mo ($1,790/yr); free trial of 14 days or 10 published videos, whichever comes first.",
+ "Free plan ($0, no card: 1 connected account per platform, a small number of posts repurposed free, 30 days of analytics, a link-in-bio page); Starter $35/mo or $350/yr; Pro $79/mo or $790/yr; Agency from $179/mo or $1,790/yr (25 clients, custom pricing above that). Prices in USD.",
  "Automatically distributing video and podcast clips across platforms",
- "Saves real time if you make video or audio. Pure text writers don't need it.",
- aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=False, verified=V14)
+ "Saves real time if you make video or audio and post clips to several networks. Pure text writers don't need it, and it doesn't post to Substack itself. The new free plan is enough to test whether automatic cross-posting fits your routine before paying.",
+ aff=True, aff_url="https://repurpose.io/become-an-affiliate/", free_plan=True, verified=V34,
+ pricing_source="official site (repurpose.io/pricing, re-checked 2026-11-27: new Free plan card; Starter yearly now $350; Pro and Agency unchanged)",
+ notes="Changed 2026-11-27: the pricing page now shows a Free plan. Its plan card says 20 posts repurposed free while the FAQ on the same page says 10 pieces of content, so expect a small allowance. The page's FAQ text still describes a 14-day free trial. Time-limited: a Black Friday banner offered the first month for $7, ending Monday night (Nov 30, 2026).")
 
 # ---------- Design ----------
 add("Canva","https://www.canva.com/","design",
@@ -312,8 +315,8 @@ add("ProWritingAid","https://prowritingaid.com/","editing",
  "Free (500 words at a time, 2 runs per report a day, 10 Rephrases a day); Premium $10/mo billed yearly ($120) or $30/mo monthly; Premium Pro $12/mo billed yearly ($144) or $36/mo monthly. Lifetime options and a 3-day money-back guarantee on yearly and lifetime plans.",
  "Deep style reports for long-form and fiction writers",
  "More thorough reports than Grammarly. Worth trying if you write long essays or serialized fiction.",
- aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V28, pricing_source="official site (prowritingaid.com/pricing, re-checked 2026-11-21 and 2026-11-25: regular prices unchanged; Black Friday sale shown) + prowritingaid.com/integrations",
- notes="Time-limited: ProWritingAid's pricing page showed a Black Friday sale on 2026-11-21 (yearly Premium $60, yearly Premium Pro $72, lifetime $199.50 / $349.50), ending Sun Nov 29, 2026 at 23:59 PT (still shown on 2026-11-25). Regular prices above apply after that.")
+ aff=True, aff_url="https://prowritingaid.com/affiliates", free_plan=True, verified=V34, pricing_source="official site (prowritingaid.com/pricing, re-checked 2026-11-21, 2026-11-25 and 2026-11-27: regular prices unchanged; Black Friday sale shown) + prowritingaid.com/integrations",
+ notes="Time-limited: ProWritingAid's pricing page showed a Black Friday sale on 2026-11-21 (yearly Premium $60, yearly Premium Pro $72, lifetime $199.50 / $349.50), ending Sun Nov 29, 2026 at 23:59 PT (still shown on 2026-11-27). Regular prices above apply after that.")
 add("Headline Studio","https://coschedule.com/headline-studio","editing",
  "Free Basic plan with 10 credits a month (headline scoring and idea generation). Premium from $4/mo or $29/yr for 25 credits, up to $34/mo or $299/yr for unlimited; unused credits don't carry over.",
  "Scoring and brainstorming post titles, which on Substack double as your email subject line",
@@ -380,8 +383,8 @@ add("newsletterapi","https://www.newsletterapi.io/","planning",
  "Free (1 publication, recent posts from your public feed, limited API/MCP calls); Writer $9/mo (full archive from your export, MCP archive search, automatic backups); Pro $29/mo; Agency/Developer $79/mo. Priced per publication.",
  "Letting Claude or ChatGPT search your whole Substack archive, and backing up every post with images to your own storage",
  "A read-only API and MCP server built from your public RSS feed and the export you download yourself: no password, session cookie or browser extension. The Writer plan adds full-archive search for AI assistants and automatic Markdown/HTML backups (with images) to GitHub, Google Drive, Dropbox or S3. It's new and run by an unnamed independent team, and access is set up by email invite rather than instant signup, so try the free tier first.",
- substack_specific=True, free_plan=True, verified=V11,
- pricing_source="official site (newsletterapi.io and newsletterapi.io/pricing; \"You are never charged without confirming by email first\")",
+ substack_specific=True, free_plan=True, verified=V34,
+ pricing_source="official site (newsletterapi.io and newsletterapi.io/pricing; \"You are never charged without confirming by email first\"; re-checked 2026-11-27, unchanged)",
  notes="Independent; not affiliated with Substack. Read-only by design: it can't publish posts or Notes.")
 add("Readwise","https://readwise.io/","planning",
  "Full Readwise (Reader + Highlights) $9.99/mo billed yearly; Highlights only or Reader only $7.99/mo; Highlights Lite $5.59/mo billed yearly. Free for the first 30 days.",
@@ -445,6 +448,12 @@ add("Descript","https://www.descript.com/","audio",
  "Editing podcast and video by editing the transcript",
  "The easiest way for writers to edit audio and video. A natural fit for Substack podcasts.",
  aff=True, aff_url="https://www.descript.com/affiliate", free_plan=True, verified=V31, pricing_source="official site (descript.com/pricing, re-checked 2026-11-24: prices unchanged; media-hour limits added from the plan comparison table)")
+add("Loom","https://www.loom.com/","audio",
+ "Free Starter plan (25 videos per person, 5-minute recordings, up to 720p); Business $18 per user/mo; Business + AI $24 per user/mo (monthly prices; paying yearly saves up to 17%); Enterprise on request.",
+ "Quick screen-and-camera walkthroughs you link to from a post or send to a reader",
+ "Fast for a short how-to or a walkthrough of a tool you're writing about: record your screen with your face in a bubble and share a link. For a video that lives on Substack, start with Substack's own free Recording Studio (it records your screen too). On Loom's free plan recordings stop at 5 minutes and its pricing page lists uploading and downloading videos as a Business feature, so on the free plan you share a link rather than a video file for Substack.",
+ free_plan=True, verified=V34, pricing_source="official site (loom.com/pricing, checked 2026-11-27: Starter $0, Business $18 and Business + AI $24 per user per month on monthly billing; FAQ: save 17% paying annually)",
+ notes="Loom is owned by Atlassian. Substack's help center (How do I add a video to a Substack post?) describes its own Recording Studio with screen sharing, and video uploads up to a recommended 20 GB.")
 add("Otter.ai","https://otter.ai/","audio",
  "Free Basic plan (300 transcription minutes a month, up to 30 minutes per conversation, 3 audio/video file imports in total); Pro $16.99/mo monthly or $8.33/mo billed annually (1,200 minutes a month, up to 90 minutes per conversation, 10 file imports a month); Business and Enterprise plans for teams. The pricing page also shows a 50%-off offer for first-time subscribers.",
  "Transcribing interviews and spoken first drafts so you can quote and edit from text",
